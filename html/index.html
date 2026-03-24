@@ -680,6 +680,34 @@ body::before {
     </div>
 
  
+
+    <div class="panel" id="wolframPanel">
+      <div class="ptitle a">Wolfram &mdash; Independent Verification</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:3px;overflow:hidden;margin-bottom:8px">
+        <div style="background:var(--bg3);padding:7px 9px;text-align:center">
+          <div style="font-family:var(--mono);font-size:20px;color:var(--amber)" id="wDays">11</div>
+          <div style="font-size:9px;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-top:2px">Days to Perihelion</div>
+          <div style="font-size:8px;color:var(--text3);font-family:var(--mono);margin-top:2px" id="wDaysSub">1 week 4 days</div>
+        </div>
+        <div style="background:var(--bg3);padding:7px 9px;text-align:center">
+          <div style="font-family:var(--mono);font-size:14px;color:var(--cyan)">1.42&times;10&#8315;&#178;&#8304;</div>
+          <div style="font-size:9px;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-top:2px">W m&#8315;&#178; Hz&#8315;&#185;</div>
+          <div style="font-size:8px;color:var(--text3);font-family:var(--mono);margin-top:2px">142 sfu converted</div>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:7px 9px;margin-bottom:8px">
+        <div style="font-size:9px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px;font-family:var(--cond)">Perihelion Day &mdash; Madrid</div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px">
+          <div><span style="color:var(--amber)">Daylight</span> <span style="color:var(--text2)" id="wDaylight">12h 48m</span></div>
+          <div><span style="color:var(--text3)">Apr 4, 2026</span></div>
+        </div>
+        <div style="margin-top:4px;font-size:9px;color:var(--text3);font-family:var(--mono)">&asymp;0.1&times; Jupiter radio 10MHz &bull; 1.42 MJy</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px">
+        <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM VERIFIED</div>
+        <span style="color:var(--text3)">computed <span id="wTime">--</span></span>
+      </div>
+    </div>
   </div><!-- /COL1 -->
 
   <!-- CENTER -->
@@ -1099,27 +1127,25 @@ async function fetchWolframF107() {
   try {
     // LLM API: returns clean plaintext optimised for parsing
     const query      = encodeURIComponent('current F10.7 solar flux index');
-    const directUrl  = `https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
-    // Direct first; if CORS blocks (file:// origin), use allorigins proxy
-    let text = '';
+    const directUrl  = `/wolfram?input=${query}`;
+    let liveVal = null;
     try {
       const rd = await fetch(directUrl);
-      if(rd.ok) text = await rd.text();
-    } catch(e) {}
-    if(!text) {
-      try {
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(directUrl)}`;
-        const rp = await fetch(proxyUrl);
-        if(rp.ok) { const jp=await rp.json(); text=jp.contents||''; }
-        if(text) _log('Wolfram: allorigins proxy (CORS fallback)');
-      } catch(e) {}
-    }
-    if(!text) return false;
-    // Parse: look for a number between 80 and 300 (plausible F10.7 range)
-    const match = text.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|solar flux units|10⁻²²|SFU)?/i);
-    if(!match) return false;
-    const liveVal = parseFloat(match[1]);
-    if(liveVal < 60 || liveVal > 400) return false;
+      if(rd.ok) {
+        const json = await rd.json();
+        // v2 API: walk pods looking for a plaintext number
+        const pods = json?.queryresult?.pods || [];
+        for(const pod of pods) {
+          for(const sub of (pod.subpods||[])) {
+            const txt = sub.plaintext || '';
+            const m = txt.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|SFU|solar flux)?/i);
+            if(m) { const v = parseFloat(m[1]); if(v>60&&v<400){ liveVal=v; break; } }
+          }
+          if(liveVal) break;
+        }
+      }
+    } catch(e) { _warn('Wolfram proxy fetch failed:', e.message); }
+    if(!liveVal) return false;
 
     // Also query 81-day smoothed
     const query2 = encodeURIComponent('F10.7 solar flux 81 day smoothed average');
@@ -1669,6 +1695,8 @@ window.addEventListener('DOMContentLoaded',()=>{
     _log('file:// detected — using NOAA for F10.7 (Wolfram requires HTTP deployment)');
     fetchNoaaF107();
   }
+  fetchWolframPanel();
+  setInterval(fetchWolframPanel,3600000);
   fetchNoaa();
   // Refresh every 5 minutes
   // On file:// Wolfram will fail due to null origin — only retry on HTTP
