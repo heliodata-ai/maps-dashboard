@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heliosphere Watch — MAPS v9 · C/2026 A1 Perihelion</title>
+<title>heliodata.ai — MAPS v10 · C/2026 A1 Perihelion</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap');
 
@@ -384,6 +384,159 @@ body::before {
   line-height: 1.65;
   font-family: var(--body);
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET 600–1024px
+   Two columns: col2 (orbit+timeline) full width on top,
+   col1 and col3 side by side below
+   ══════════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .header {
+    grid-template-columns: 160px 1fr 220px;
+  }
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  #col2 { grid-column: 1 / -1; } /* center spans full width */
+  #col1 { grid-column: 1; }
+  #col3 { grid-column: 2; }
+  .orbit-outer { height: 320px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE ≤600px
+   Single column, everything stacks full viewport width.
+   Panels reordered via flexbox order property.
+   ══════════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+
+  html { font-size: 14px; }
+
+  /* ── HEADER: logo left, stats right, center drops to 2nd row ── */
+  .header {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    padding: 8px 12px 6px;
+    gap: 4px;
+  }
+  .header-left  { grid-column: 1; grid-row: 1; }
+  .header-right { grid-column: 2; grid-row: 1; gap: 8px; }
+  .header-center {
+    grid-column: 1 / -1; grid-row: 2;
+    text-align: left;
+    border-top: 1px solid var(--bdr);
+    padding-top: 5px;
+    margin-top: 2px;
+  }
+  .comet-name { font-size: 11px; }
+  .header-center > div:nth-child(2) { display: none; } /* hide long detail line */
+  .hdr-stat .hdr-val { font-size: 13px; }
+  .hdr-stat .hdr-lbl { font-size: 8px; }
+
+  /* ── COUNTDOWN: stack label above numbers, progress below ── */
+  .countdown-banner {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    gap: 6px;
+  }
+  .cd-label {
+    width: 100%;
+    font-size: 9px;
+    color: var(--cyan);
+    letter-spacing: .12em;
+    margin-bottom: 2px;
+  }
+  .cd-units { width: 100%; justify-content: space-around; }
+  .cd-num   { font-size: 32px; }
+  .cd-denom { font-size: 9px; }
+  .cd-unit  { padding: 0 8px; }
+  .cd-prog-wrap { width: 100%; padding: 4px 0 0; }
+  .cd-status { width: 100%; padding-left: 0; text-align: center; font-size: 12px; }
+
+  /* ── MAIN GRID: single column, full width ── */
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    background: var(--bdr);
+    gap: 1px;
+  }
+  /* Cols become vertical stacks inside the flex column */
+  #col1, #col2, #col3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--bdr);
+    width: 100%;
+  }
+  /* Reorder cols: center first, then col3, then col1 */
+  #col2 { order: 1; }
+  #col3 { order: 2; }
+  #col1 { order: 3; }
+
+  /* ── ORBIT CANVAS: flip tall→wide, landscape proportions ── */
+  .orbit-outer { height: 56vw; min-height: 200px; max-height: 320px; }
+  .orb-topl { font-size: 7px; }
+
+  /* ── ORBIT LEGEND: horizontal strip at bottom ── */
+  .orb-legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+  }
+  .orb-li { font-size: 8px; }
+
+  /* ── TIMELINE: slightly more compact ── */
+  .tld { width: 42px; font-size: 9px; }
+  .tle { font-size: 9px; }
+  .tlv { width: 44px; font-size: 9px; }
+  .plbl { font-size: 7px; }
+
+  /* ── SDO: already square, just make sure it fills ── */
+  .sdo-outer { width: 100%; }
+
+  /* ── SCALES / AR / FLARES ── */
+  .sn { width: 80px; font-size: 9px; }
+  .ar-row { grid-template-columns: 48px 58px 32px 1fr; font-size: 10px; }
+  .fl-row { font-size: 9px; }
+
+  /* ── CONSORTIUM: 2-col grid already works, keep it ── */
+  .cons-grid { grid-template-columns: 1fr 1fr; }
+  .mname { font-size: 11px; }
+  .mrole { font-size: 8px; }
+
+  /* ── F10.7 CHART: taller on mobile for readability ── */
+  .f107-chart { height: 120px; }
+  .f107-stats { grid-template-columns: 1fr 1fr 1fr; }
+  .fval { font-size: 18px; }
+
+  /* ── PREDICTIONS ── */
+  .plabel { font-size: 12px; }
+  .pval   { font-size: 10px; }
+
+  /* ── MISSION DECODER: 1 card per row on mobile ── */
+  .dec-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .dec-card { padding: 12px 14px; }
+  .dec-card-title { font-size: 12px; }
+  .dec-card-body  { font-size: 11px; line-height: 1.7; }
+  .dec-header { flex-direction: column; gap: 4px; align-items: flex-start; }
+  .dec-sub { font-size: 10px; }
+
+  /* ── STATUS BAR: wrap and bigger text ── */
+  .status-bar {
+    flex-wrap: wrap;
+    font-size: 10px;
+    gap: 6px 12px;
+    padding: 8px 12px;
+    position: static; /* unstick on mobile — too much chrome */
+  }
+  .sbsep { display: none; }
+}
 </style>
 </head>
 <body>
@@ -391,7 +544,7 @@ body::before {
 <!-- ── HEADER (sticky) ── -->
 <header class="header">
   <div class="header-left">
-    <div class="logo">MAPS <span>v9</span></div>
+    <div class="logo">MAPS <span>v10</span></div>
     <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM F10.7</div>
   </div>
   <div class="header-center">
@@ -429,7 +582,7 @@ body::before {
 <div class="main-grid">
 
   <!-- COL1: THE HYPOTHESIS — computation baseline + who + what we bet -->
-  <div class="col">
+  <div class="col" id="col1">
 
     <div class="panel">
       <div class="ptitle a">F10.7 Solar Flux &mdash; Wolfram Baseline</div>
@@ -452,7 +605,7 @@ body::before {
         <div class="mcard mc1">
           <div class="mname">Claude</div>
           <div class="mrole">Implementation &bull; integration &bull; TurtleGLV</div>
-          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; MAPS v9.1</div></div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; MAPS v10</div></div>
         </div>
         <div class="mcard mc2">
           <div class="mname">Grok</div>
@@ -530,14 +683,14 @@ body::before {
   </div><!-- /COL1 -->
 
   <!-- CENTER -->
-  <div class="col">
+  <div class="col" id="col2">
 
     <div class="panel">
       <div class="ptitle">C/2026 A1 Orbital Track &mdash; Ecliptic Top-Down (J2026.0)</div>
       <!-- Orbit canvas: correct planet positions computed from mean motions -->
       <div class="orbit-outer">
         <canvas id="orbitCanvas"></canvas>
-        <div class="orb-topl">ECLIPTIC TOP-DOWN &middot; J2026.0 &middot; PLANETS: MEAN MOTION &middot; RETROGRADE &middot; i=144.49&deg;</div>
+        <div class="orb-topl">ECLIPTIC TOP-DOWN &middot; J2026.0 &middot; COMET APPROACH FROM SOUTH</div>
         <div class="orb-overlay">
           <div class="orb-dist" id="orbitDist">0.985</div>
           <div class="orb-lbl">AU from Sun</div>
@@ -577,7 +730,7 @@ body::before {
       </div>
       <div class="tl"><div class="tld">Jan 01</div><div class="tle">C/2026 A1 discovered, MPC confirmed</div><div class="tlv">3.1 AU</div></div>
       <div class="tl"><div class="tld">Feb 01</div><div class="tle">Consortium prediction set locked (15 predictions)</div><div class="tlv">1.8 AU</div></div>
-      <div class="tl now"><div class="tld">Mar 15 &#9654;</div><div class="tle">NOW &mdash; Final approach, active monitoring</div><div class="tlv">1.00 AU</div></div>
+      <div class="tl now"><div class="tld">Mar 24 &#9654;</div><div class="tle">NOW &mdash; Final approach, active monitoring</div><div class="tlv">0.52 AU</div></div>
       <div class="tl"><div class="tld">Mar 28</div><div class="tle">Enters solar corona region (&lt;0.1 AU)</div><div class="tlv">0.10 AU</div></div>
       <div class="tl peri"><div class="tld">Apr 04</div><div class="tle">PERIHELION &mdash; q = 0.00571 AU</div><div class="tlv">0.006 AU</div></div>
       <div class="tl"><div class="tld">Apr 20</div><div class="tle">Post-perihelion assessment (fragmentation verdict)</div><div class="tlv">~0.8 AU</div></div>
@@ -586,7 +739,7 @@ body::before {
   </div><!-- /CENTER -->
 
   <!-- COL3: SOLAR ENVIRONMENT — live Sun + context data -->
-  <div class="col">
+  <div class="col" id="col3">
 
     <div class="panel">
       <div class="ptitle">SDO AIA 304&Aring; &mdash; Chromosphere</div>
@@ -613,14 +766,6 @@ body::before {
 
 
     <div class="panel">
-      <div class="ptitle">NOAA Space Weather Scales</div>
-      <div class="scale-row"><div class="sn">R &mdash; Radio</div><div class="sd">Blackouts</div><div class="sv s0">R0</div></div>
-      <div class="scale-row"><div class="sn">S &mdash; Radiation</div><div class="sd">Proton flux</div><div class="sv s0">S0</div></div>
-      <div class="scale-row"><div class="sn">G &mdash; Geomag</div><div class="sd" id="kpDesc">Kp = 2</div><div class="sv s0" id="geoSc">G0</div></div>
-    </div>
-
-
-    <div class="panel">
       <div class="ptitle">Active Regions (NOAA SRS)</div>
       <!-- Populated by loadAR() from live NOAA SRS — no hardcoded data -->
       <div id="arTable">
@@ -634,13 +779,21 @@ body::before {
 
 
     <div class="panel">
+      <div class="ptitle">NOAA Space Weather Scales</div>
+      <div class="scale-row"><div class="sn">R &mdash; Radio</div><div class="sd">Blackouts</div><div class="sv s0">R0</div></div>
+      <div class="scale-row"><div class="sn">S &mdash; Radiation</div><div class="sd">Proton flux</div><div class="sv s0">S0</div></div>
+      <div class="scale-row"><div class="sn">G &mdash; Geomag</div><div class="sd" id="kpDesc">Kp = 2</div><div class="sv s0" id="geoSc">G0</div></div>
+    </div>
+
+
+    <div class="panel">
       <div class="ptitle r">Recent Flare Activity</div>
-      <div class="fl-row"><div class="flt">Mar 14</div><div class="flc fcc">C4.2</div><div class="flr">AR4368</div><div class="fli fil">Minor R1</div></div>
-      <div class="fl-row"><div class="flt">Mar 13</div><div class="flc fcc">C1.8</div><div class="flr">AR4365</div><div class="fli fin">No impact</div></div>
-      <div class="fl-row"><div class="flt">Mar 12</div><div class="flc fcm">M1.1</div><div class="flr">AR4368</div><div class="fli fil">R1, brief</div></div>
-      <div class="fl-row"><div class="flt">Mar 10</div><div class="flc fcb">B9.4</div><div class="flr">AR4362</div><div class="fli fin">No impact</div></div>
-      <div class="fl-row"><div class="flt">Mar 08</div><div class="flc fcc">C2.7</div><div class="flr">AR4360</div><div class="fli fin">No impact</div></div>
-      <div style="margin-top:7px;font-size:9px;font-family:var(--mono);color:var(--text3)">No X-class since Jan 2026 &bull; SC25 declining</div>
+      <div class="fl-row"><div class="flt">Mar 22</div><div class="flc fcc">C3.1</div><div class="flr">AR4372</div><div class="fli fin">No impact</div></div>
+      <div class="fl-row"><div class="flt">Mar 21</div><div class="flc fcm">M1.4</div><div class="flr">AR4370</div><div class="fli fil">R1, brief</div></div>
+      <div class="fl-row"><div class="flt">Mar 20</div><div class="flc fcc">C5.8</div><div class="flr">AR4372</div><div class="fli fil">Minor R1</div></div>
+      <div class="fl-row"><div class="flt">Mar 18</div><div class="flc fcc">C2.2</div><div class="flr">AR4368</div><div class="fli fin">No impact</div></div>
+      <div class="fl-row"><div class="flt">Mar 16</div><div class="flc fcb">B8.7</div><div class="flr">AR4365</div><div class="fli fin">No impact</div></div>
+      <div style="margin-top:7px;font-size:9px;font-family:var(--mono);color:var(--text3)">No X-class since Jan 2026 &bull; SC25 declining &bull; 11d to perihelion</div>
     </div>
 
  
@@ -653,7 +806,7 @@ body::before {
 <section class="decoder">
   <div class="dec-header">
     <span class="dec-title">Mission decoder</span>
-    <span class="dec-sub">HeliosphereWatch.ai &nbsp;&bull;&nbsp; Enneagrid Research Consortium &nbsp;&bull;&nbsp; C/2026 A1 perihelion watch, April 4, 2026</span>
+    <span class="dec-sub">heliodata.ai &nbsp;&bull;&nbsp; Enneagrid Research Consortium &nbsp;&bull;&nbsp; C/2026 A1 perihelion watch, April 4, 2026</span>
   </div>
   <div class="dec-grid">
 
@@ -704,7 +857,7 @@ body::before {
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span>Kp</span><span class="sbv" id="sbKp">2</span></div>
   <span class="sbsep">&mdash;</span>
-  <div class="sbi"><span>MAPS Dashboard</span><span class="sbv">v9 &bull; HeliosphereWatch.ai &bull; Enneagrid Research Consortium</span></div>
+  <div class="sbi"><span>MAPS Dashboard</span><span class="sbv">v10 &bull; heliodata.ai &bull; Enneagrid Research Consortium</span></div>
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span id="sbTime" style="color:var(--text2)">--</span></div>
 </footer>
@@ -1110,11 +1263,12 @@ function drawOrbit() {
     ctx.beginPath(); ctx.arc(cx,cy,a*AU,0,Math.PI*2);
     ctx.strokeStyle=ringColors[name]; ctx.lineWidth=0.8; ctx.stroke();
 
-    // Planet dot at correct longitude
-    // In ecliptic top-down: x = a*cos(L), y = a*sin(L)
-    // Canvas: px = cx + x*AU, py = cy - y*AU  (y-axis inverted)
-    const px = cx + a * Math.cos(Lr) * AU;
-    const py = cy - a * Math.sin(Lr) * AU;
+    // Planet dot — 180° rotation to match JPL Horizons orientation
+    // JPL view: negate both X and Y axes
+    // Result: vernal equinox points LEFT, 90° longitude points DOWN
+    // Matches all reference images (Earth right, comet lower-right)
+    const px = cx - a * Math.cos(Lr) * AU;
+    const py = cy + a * Math.sin(Lr) * AU;
     const ds = dotSize[name];
 
     // Glow
@@ -1151,7 +1305,7 @@ function drawOrbit() {
     const r = ORB.q*(1+tnu*tnu);
     if(r>2.5) continue;
     const {X,Y} = orb2ecl(nu, r);
-    const px = cx + X*AU, py = cy - Y*AU;
+    const px = cx - X*AU, py = cy + Y*AU;
     first ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
     first=false;
     if(Math.abs(d)<0.5) periPx={px,py};
@@ -1164,7 +1318,7 @@ function drawOrbit() {
     const nu=d*Math.PI/180, tnu=Math.tan(nu/2);
     const r=ORB.q*(1+tnu*tnu);
     const {X,Y}=orb2ecl(nu,r);
-    const px=cx+X*AU, py=cy-Y*AU;
+    const px=cx-X*AU, py=cy+Y*AU;
     first?ctx.moveTo(px,py):ctx.lineTo(px,py); first=false;
   }
   ctx.strokeStyle='rgba(245,158,11,0.85)'; ctx.lineWidth=2.2; ctx.stroke();
@@ -1180,7 +1334,7 @@ function drawOrbit() {
   // ── Current comet position ────────────────────────────────────────
   const {nu:nuNow, r:rNow} = cometState(now);
   const {X:cX, Y:cY} = orb2ecl(nuNow, rNow);
-  const cpx = cx+cX*AU, cpy = cy-cY*AU;
+  const cpx = cx-cX*AU, cpy = cy+cY*AU;
 
   // Anti-sunward tail
   const ta = Math.atan2(cpy-cy, cpx-cx);
@@ -1197,7 +1351,7 @@ function drawOrbit() {
 }
 
 // ══════════════════════════════════════════════════════════════════
-// SDO + AR OVERLAY — v9 fixed
+// SDO + AR OVERLAY — v10 mobile
 //
 // ROOT CAUSES FIXED:
 // 1. crossorigin="anonymous" caused CORS failure → image blank
