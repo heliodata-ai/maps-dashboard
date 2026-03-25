@@ -680,6 +680,7 @@ body::before {
     </div>
 
  
+  </div><!-- /COL1 -->
 
   <!-- CENTER -->
   <div class="col" id="col2">
@@ -1098,25 +1099,27 @@ async function fetchWolframF107() {
   try {
     // LLM API: returns clean plaintext optimised for parsing
     const query      = encodeURIComponent('current F10.7 solar flux index');
-    const directUrl  = `/wolfram?input=${query}`;
-    let liveVal = null;
+    const directUrl  = `https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
+    // Direct first; if CORS blocks (file:// origin), use allorigins proxy
+    let text = '';
     try {
       const rd = await fetch(directUrl);
-      if(rd.ok) {
-        const json = await rd.json();
-        // v2 API: walk pods looking for a plaintext number
-        const pods = json?.queryresult?.pods || [];
-        for(const pod of pods) {
-          for(const sub of (pod.subpods||[])) {
-            const txt = sub.plaintext || '';
-            const m = txt.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|SFU|solar flux)?/i);
-            if(m) { const v = parseFloat(m[1]); if(v>60&&v<400){ liveVal=v; break; } }
-          }
-          if(liveVal) break;
-        }
-      }
-    } catch(e) { _warn('Wolfram proxy fetch failed:', e.message); }
-    if(!liveVal) return false;
+      if(rd.ok) text = await rd.text();
+    } catch(e) {}
+    if(!text) {
+      try {
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(directUrl)}`;
+        const rp = await fetch(proxyUrl);
+        if(rp.ok) { const jp=await rp.json(); text=jp.contents||''; }
+        if(text) _log('Wolfram: allorigins proxy (CORS fallback)');
+      } catch(e) {}
+    }
+    if(!text) return false;
+    // Parse: look for a number between 80 and 300 (plausible F10.7 range)
+    const match = text.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|solar flux units|10⁻²²|SFU)?/i);
+    if(!match) return false;
+    const liveVal = parseFloat(match[1]);
+    if(liveVal < 60 || liveVal > 400) return false;
 
     // Also query 81-day smoothed
     const query2 = encodeURIComponent('F10.7 solar flux 81 day smoothed average');
@@ -1666,8 +1669,6 @@ window.addEventListener('DOMContentLoaded',()=>{
     _log('file:// detected — using NOAA for F10.7 (Wolfram requires HTTP deployment)');
     fetchNoaaF107();
   }
-  fetchWolframPanel();
-  setInterval(fetchWolframPanel,3600000);
   fetchNoaa();
   // Refresh every 5 minutes
   // On file:// Wolfram will fail due to null origin — only retry on HTTP
