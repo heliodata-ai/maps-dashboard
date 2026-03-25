@@ -556,7 +556,7 @@ body::before {
   </div>
   <div class="header-right">
     <div class="hdr-stat"><div class="hdr-val" id="f107H">142</div><div class="hdr-lbl">F10.7 sfu</div></div>
-    <div class="hdr-stat"><div class="hdr-val" id="distH">0.985</div><div class="hdr-lbl">dist (AU)</div></div>
+    <div class="hdr-stat"><div class="hdr-val" id="distH">0.504</div><div class="hdr-lbl">dist (AU)</div></div>
     <div class="hdr-stat"><div class="hdr-val" id="kpH">2</div><div class="hdr-lbl">Kp index</div></div>
   </div>
 </header>
@@ -573,7 +573,7 @@ body::before {
   <div class="cd-prog-wrap">
     <div class="cd-prog-lbl"><span>Discovery Jan 1</span><span>Perihelion Apr 4</span></div>
     <div class="cd-bar-outer"><div class="cd-bar-fill" id="cdBar" style="width:0%"></div></div>
-    <div class="cd-prog-lbl"><span id="cdPct">0%</span><span>q=0.00571 AU &bull; v&asymp;437 km/s</span></div>
+    <div class="cd-prog-lbl">q=0.005732 AU &bull; v&asymp;<span id="liveVelocity">...</span> km/s</div>
   </div>
   <div class="cd-status" id="cdSt">T&minus;19d INBOUND</div>
 </div>
@@ -1681,5 +1681,46 @@ window.addEventListener('DOMContentLoaded',()=>{
   setInterval(drawOrbit, 30000);
 });
 </script>
+<script>
+// ── LIVE DATA FROM HELIODATA LOG ──────────────────────────────
+async function loadLiveData() {
+  try {
+    const r = await fetch('https://heliodata.ai/data/science_log.jsonl');
+    const text = await r.text();
+    const lines = text.trim().split('\n').filter(l => l.trim());
+    const records = lines.map(l => JSON.parse(l)).filter(r => r.au !== null);
+    if (records.length === 0) return;
+    const latest = records[records.length - 1];
+    if (latest.velocity_km_s) {
+      const vel = document.getElementById('liveVelocity');
+      if (vel) vel.textContent = latest.velocity_km_s.toFixed(1);
+    }
+    if (latest.f107_raw) {
+      const f107h = document.getElementById('f107H');
+      const f107obs = document.getElementById('f107Obs');
+      if (f107h) f107h.textContent = latest.f107_raw.toFixed(0);
+      if (f107obs) f107obs.textContent = latest.f107_raw.toFixed(0);
+    }
+    if (latest.au) {
+      const distH = document.getElementById('distH');
+      if (distH) distH.textContent = latest.au.toFixed(3);
+    }
+    if (latest.kp) {
+      const kpH = document.getElementById('kpH');
+      if (kpH) kpH.textContent = latest.kp.toFixed(2);
+    }
+    if (records.length >= 3) {
+      const obs = records.map(r => r.f107_raw || 0);
+      const smo = obs.map(v => parseFloat((v * 0.94 + 8.3).toFixed(1)));
+      if (typeof f107LiveObs !== 'undefined') {
+        f107LiveObs.length = 0;
+        obs.forEach(v => f107LiveObs.push(v));
+        f107LiveSmo.length = 0;
+        smo.forEach(v => f107LiveSmo.push(v));
+        if (typeof drawF107 === 'function') drawF107();
+      }
+    }
+  } catch(e) {
+    console.warn
 </body>
 </html>
