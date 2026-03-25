@@ -1,0 +1,10 @@
+{
+  "ts": "2026-03-25T16:00:02.761689+00:00",
+  "f107_raw": 128.0,
+  "kp": 1.67,
+  "au": 0.502544,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.02015498047329,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.933
+}

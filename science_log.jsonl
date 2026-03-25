@@ -1,2 +1,3 @@
 {"ts": "2026-03-25T12:57:39.432725+00:00", "f107_raw": 128.0, "kp": null, "au": null, "velocity_km_s": null, "velocity_source": null, "days_to_perihelion": 10.059}
 {"ts": "2026-03-25T15:05:56.593734+00:00", "f107_raw": 128.0, "kp": 1.67, "au": 0.503824, "au_source": "kepler_jpl9", "velocity_km_s": 41.966743468237105, "velocity_source": "wolfram", "days_to_perihelion": 9.971}
+{"ts": "2026-03-25T16:00:02.761689+00:00", "f107_raw": 128.0, "kp": 1.67, "au": 0.502544, "au_source": "kepler_jpl9", "velocity_km_s": 42.02015498047329, "velocity_source": "wolfram", "days_to_perihelion": 9.933}
