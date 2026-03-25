@@ -749,7 +749,7 @@ body::before {
           <!-- NO crossorigin attr — overlay draws boxes by math, no pixel access needed -->
           <!-- onerror is self-contained: no external function, safe at parse time -->
           <img id="sdo304"
-            src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_0304.jpg"
+            src="https://soho.nascom.nasa.gov/data/realtime/eit_304/1024/latest.jpg"
             alt="SDO AIA 304"
             data-fallback-idx="0"
             onerror="(function(el){var urls=['https://soho.nascom.nasa.gov/data/realtime/eit_304/1024/latest.jpg','https://helioviewer.org/cache/jpg/2026/03/20/SDO/AIA/304/2048_L2/latest.jpg'];var i=+(el.dataset.fallbackIdx||0);if(i<urls.length){el.dataset.fallbackIdx=i+1;el.src=urls[i];}else{el.style.display='none';var c=document.getElementById('arCanvas');if(c){c.style.background='radial-gradient(circle,#8b3a0f 0%,#4a1a05 60%,#000 100%)';c.style.borderRadius='50%';c.style.width='100%';c.style.height='100%';}var m=document.getElementById('sdoMsg');if(m)m.textContent='Feed unavailable';};})(this)">
@@ -1709,7 +1709,7 @@ async function loadLiveData() {
       const kpH = document.getElementById('kpH');
       if (kpH) kpH.textContent = latest.kp.toFixed(2);
     }
-    if (records.length >= 3) {
+    if (records.length >= 1) {
       const obs = records.map(r => r.f107_raw || 0);
       const smo = obs.map(v => parseFloat((v * 0.94 + 8.3).toFixed(1)));
       if (typeof f107LiveObs !== 'undefined') {
@@ -1721,6 +1721,11 @@ async function loadLiveData() {
       }
     }
   } catch(e) {
-    console.warn
+    console.warn('Live data fetch failed:', e);
+  }
+}
+loadLiveData();
+setInterval(loadLiveData, 300000);
+</script>
 </body>
 </html>
