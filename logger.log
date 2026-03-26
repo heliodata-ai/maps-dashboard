@@ -1,0 +1,12 @@
+0: command not found
+-bash: */30: No such file or directory
+[2026-03-26T22:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5799 AU  v=55.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=None R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=False
+  DSCOVR: Bz=2.16 sw_speed=446.8
+  Advisory: fetched=True comet=False
+  CAG: v=55.261 km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.579913 kp=1.0

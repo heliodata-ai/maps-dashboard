@@ -8,3 +8,302 @@
   "velocity_source": "wolfram",
   "days_to_perihelion": 9.933
 }
+{
+  "ts": "2026-03-25T17:00:02.690811+00:00",
+  "f107_raw": 128.0,
+  "kp": 1.67,
+  "au": 0.501122,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.0797316218874,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.892
+}
+{
+  "ts": "2026-03-25T18:00:02.653215+00:00",
+  "f107_raw": 128.0,
+  "kp": 1.67,
+  "au": 0.499699,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.139604554184025,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.85
+}
+{
+  "ts": "2026-03-25T19:00:02.459429+00:00",
+  "f107_raw": 128.0,
+  "kp": 1.33,
+  "au": 0.498273,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.19986082340691,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.808
+}
+{
+  "ts": "2026-03-25T20:00:02.376857+00:00",
+  "f107_raw": 128.0,
+  "kp": 1.33,
+  "au": 0.496846,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.26041884764877,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.767
+}
+{
+  "ts": "2026-03-25T21:00:02.183660+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.33,
+  "au": 0.495416,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.3213664682387,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.725
+}
+{
+  "ts": "2026-03-25T22:00:02.294444+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.493985,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.38262144478169,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.683
+}
+{
+  "ts": "2026-03-25T23:00:02.159395+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.492551,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.444272428662586,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.642
+}
+{
+  "ts": "2026-03-26T00:00:02.128165+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.491115,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.50627978582152,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.6
+}
+{
+  "ts": "2026-03-26T01:00:01.918412+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.0,
+  "au": 0.489678,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.56860316721372,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.558
+}
+{
+  "ts": "2026-03-26T02:00:02.183772+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.0,
+  "au": 0.488238,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.63133246800296,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.517
+}
+{
+  "ts": "2026-03-26T03:00:02.100710+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.0,
+  "au": 0.486796,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.69442760792017,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.475
+}
+{
+  "ts": "2026-03-26T04:00:02.080759+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.485351,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.75793587026584,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.433
+}
+{
+  "ts": "2026-03-26T05:00:01.841576+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.483905,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.8217726313222,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.392
+}
+{
+  "ts": "2026-03-26T06:00:02.623944+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.482457,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.88598506041095,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.35
+}
+{
+  "ts": "2026-03-26T07:00:02.426586+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.67,
+  "au": 0.481006,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 42.95062116281069,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.308
+}
+{
+  "ts": "2026-03-26T08:00:02.354704+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.67,
+  "au": 0.479553,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.0156400992145,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.267
+}
+{
+  "ts": "2026-03-26T09:00:02.112298+00:00",
+  "f107_raw": 140.0,
+  "kp": 1.67,
+  "au": 0.478099,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.08100026513828,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.225
+}
+{
+  "ts": "2026-03-26T10:00:01.949230+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.476641,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.14684031838234,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.183
+}
+{
+  "ts": "2026-03-26T11:00:01.703212+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.475182,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.21302863428488,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.142
+}
+{
+  "ts": "2026-03-26T12:00:02.515532+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.67,
+  "au": 0.47372,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.27965953249376,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.1
+}
+{
+  "ts": "2026-03-26T13:00:02.277926+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.33,
+  "au": 0.472257,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.34664549517403,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.058
+}
+{
+  "ts": "2026-03-26T14:00:02.034805+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.33,
+  "au": 0.470791,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.4140817778575,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 9.017
+}
+{
+  "ts": "2026-03-26T15:00:01.883084+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.33,
+  "au": 0.469323,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.48192643170365,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.975
+}
+{
+  "ts": "2026-03-26T16:00:02.639100+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.33,
+  "au": 0.467852,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.55022977987235,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.933
+}
+{
+  "ts": "2026-03-26T17:00:02.481155+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.33,
+  "au": 0.466379,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.61894955097521,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.892
+}
+{
+  "ts": "2026-03-26T18:00:02.367216+00:00",
+  "f107_raw": 140.0,
+  "kp": 2.33,
+  "au": 0.464904,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.6880896316787,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.85
+}
+{
+  "ts": "2026-03-26T19:00:02.151605+00:00",
+  "f107_raw": 140.0,
+  "kp": 3.33,
+  "au": 0.463426,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.757701171060766,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.808
+}
+{
+  "ts": "2026-03-26T20:00:02.174203+00:00",
+  "f107_raw": 140.0,
+  "kp": 3.33,
+  "au": 0.461947,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.82769396430815,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.767
+}
+{
+  "ts": "2026-03-26T21:00:02.047535+00:00",
+  "f107_raw": 152.0,
+  "kp": 3.33,
+  "au": 0.460465,
+  "au_source": "kepler_jpl9",
+  "velocity_km_s": 43.89816670827557,
+  "velocity_source": "wolfram",
+  "days_to_perihelion": 8.725
+}
+[2026-03-26T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5799 AU  v=55.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=None R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=False
+  DSCOVR: Bz=2.16 sw_speed=446.8
+  Advisory: fetched=True comet=False
+  CAG: v=55.261 km/s  f107_baseline=None sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.579913 kp=1.0
