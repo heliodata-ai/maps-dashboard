@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>heliodata.ai — MAPS v10 · C/2026 A1 Perihelion</title>
+<title>heliodata.ai — MAPS v11.1 · C/2026 A1 Perihelion</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap');
 
@@ -34,22 +34,18 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* SINGLE PAGE SCROLL — body scrolls, not columns */
 html {
   font-size: 13px; background: var(--bg); color: var(--text);
-  overflow-x: hidden;  /* prevent horizontal growth */
-  max-width: 100%;
+  overflow-x: hidden; max-width: 100%;
 }
 body {
   font-family: 'Barlow', sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: hidden; overflow-y: auto;
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(6,182,212,0.05) 0%, transparent 60%),
     var(--bg);
 }
-
 body::before {
   content:''; position:fixed; inset:0; pointer-events:none; z-index:9999;
   background: repeating-linear-gradient(0deg, transparent 0px, transparent 2px,
@@ -64,9 +60,7 @@ body::before {
   padding: 8px 16px;
   border-bottom: 1px solid var(--bdr);
   background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, transparent 100%);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky; top: 0; z-index: 100;
   background-color: var(--bg);
 }
 .header-left  { display:flex; align-items:center; gap:8px; min-width:0; }
@@ -79,6 +73,13 @@ body::before {
   border-radius:3px; padding:2px 6px; font-family:var(--mono); font-size:9px; color:var(--amber);
 }
 .wdot { width:5px;height:5px;border-radius:50%;background:var(--amber);animation:pulse 2s ease-in-out infinite; }
+/* v11.1 — CAG badge */
+.cag-badge {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(6,182,212,0.08); border:1px solid rgba(6,182,212,0.2);
+  border-radius:3px; padding:2px 6px; font-family:var(--mono); font-size:9px; color:var(--cyan);
+}
+.cdot { width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:pulse 3s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
 .header-center { text-align:center; }
 .comet-name { font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.18em;color:var(--text2);text-transform:uppercase; }
@@ -115,12 +116,11 @@ body::before {
 .cd-bar-fill  { height:100%;border-radius:2px;background:linear-gradient(90deg,var(--cyan3),var(--cyan),var(--amber)); }
 .cd-status { font-family:var(--mono);font-size:11px;color:var(--amber);white-space:nowrap;flex-shrink:0;padding-left:12px;min-width:0;overflow:hidden;text-overflow:ellipsis; }
 
-/* ── MAIN GRID — 3 columns, no independent scroll ── */
+/* ── MAIN GRID ── */
 .main-grid {
   display: grid;
   grid-template-columns: 252px minmax(0,1fr) 292px;
-  gap: 1px;
-  background: var(--bdr);
+  gap: 1px; background: var(--bdr);
 }
 .col { display:flex;flex-direction:column;gap:1px;background:var(--bdr);min-width:0; }
 
@@ -146,6 +146,15 @@ body::before {
 .fval.a { color:var(--amber); }
 .fval.g { color:var(--green); }
 .flbl { font-size:9px;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-top:2px; }
+/* v11.1 — CAG secondary row in F10.7 panel */
+.f107-cag-row {
+  display:flex;align-items:center;gap:6px;margin-top:6px;
+  padding:5px 8px;background:rgba(6,182,212,0.04);border:1px solid rgba(6,182,212,0.12);
+  border-radius:3px;font-family:var(--mono);font-size:9px;
+}
+.f107-cag-val { color:var(--cyan);font-size:12px;font-weight:bold; }
+.f107-cag-lbl { color:var(--text3);flex:1; }
+.f107-cag-src { color:rgba(6,182,212,0.5);font-size:8px; }
 
 /* ── SCALES ── */
 .scale-row { display:flex;align-items:center;padding:4px 0;border-bottom:1px solid var(--bdr); }
@@ -186,10 +195,8 @@ body::before {
 .fil { color:var(--amber); }
 .fih { color:var(--red); }
 
-/* ── ORBIT CANVAS ──
-   Correct ecliptic top-down with precise planet positions.
-   Height fixed so timeline fits below. */
-.orbit-outer { height: 320px;
+/* ── ORBIT CANVAS ── */
+.orbit-outer {
   position:relative; background:#020608;
   border:1px solid var(--bdr); border-radius:3px;
   overflow:hidden; height:400px;
@@ -225,38 +232,13 @@ body::before {
 .tl.peri .tle { color:var(--amber); }
 .tl.peri .tlv { color:var(--amber); }
 
-/* ── SDO — FULL DISK FIX ──
-   Use a square container with padding-bottom trick so aspect is always 1:1.
-   Image fills the square exactly. AR overlay coordinates use the same square. */
-.sdo-outer {
-  position:relative;
-  /* Force 1:1 aspect regardless of container width */
-  width:100%;
-  padding-bottom:100%;  /* = width → square */
-  background:#000;
-  border:1px solid var(--bdr);
-  border-radius:3px;
-  overflow:hidden;
-}
-.sdo-inner {
-  position:absolute;
-  inset:0;
-}
-#sdo304 {
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;   /* covers the square exactly */
-  background:#000;
-}
+/* ── SDO ── */
+.sdo-outer { position:relative;width:100%;padding-bottom:100%;background:#000;border:1px solid var(--bdr);border-radius:3px;overflow:hidden; }
+.sdo-inner { position:absolute;inset:0; }
+#sdo304 { display:block;width:100%;height:100%;object-fit:cover;background:#000; }
 #arOverlay { position:absolute;inset:0;pointer-events:none; }
-.ar-rect {
-  position:absolute;border:1.5px solid;border-radius:2px;
-}
-.ar-rect .arl {
-  position:absolute;top:-13px;left:0;
-  font-family:var(--mono);font-size:8px;white-space:nowrap;padding:1px 3px;border-radius:2px;
-}
+.ar-rect { position:absolute;border:1.5px solid;border-radius:2px; }
+.ar-rect .arl { position:absolute;top:-13px;left:0;font-family:var(--mono);font-size:8px;white-space:nowrap;padding:1px 3px;border-radius:2px; }
 .arb  { border-color:rgba(34,197,94,0.8); }
 .arb  .arl { background:rgba(34,197,94,0.2);color:var(--green); }
 .arbg { border-color:rgba(245,158,11,0.8); }
@@ -266,10 +248,7 @@ body::before {
 
 /* ── CONSORTIUM ── */
 .cons-grid { display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px; }
-.mcard {
-  background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;
-  padding:7px 9px;position:relative;overflow:hidden;
-}
+.mcard { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:7px 9px;position:relative;overflow:hidden; }
 .mcard::before { content:'';position:absolute;top:0;left:0;right:0;height:2px; }
 .mc1::before { background:var(--cyan); }
 .mc2::before { background:var(--purple); }
@@ -295,6 +274,13 @@ body::before {
 .pis { background:rgba(34,197,94,0.15);color:var(--green); }
 .pix { background:rgba(245,158,11,0.15);color:var(--amber); }
 .pii { background:rgba(168,85,247,0.15);color:var(--purple); }
+/* v11.1 — numeric prediction icons */
+.pin { background:rgba(61,85,112,0.3);color:var(--text2); }
+.pin.phase2 { background:rgba(6,182,212,0.08);color:var(--cyan); }
+.pin.phase4 { background:rgba(245,158,11,0.08);color:var(--amber); }
+.pin.phase5 { background:rgba(34,197,94,0.08);color:var(--green); }
+/* v11.1 — derived indicator (non-locked) */
+.pico.derived { background:rgba(61,85,112,0.2);color:var(--text3);border:1px dashed var(--bdr2); }
 .pbody { flex:1;min-width:0; }
 .plabel { font-size:11px;color:var(--text2);margin-bottom:3px;font-family:var(--cond);letter-spacing:.04em; }
 .pbar-o { height:3px;background:var(--bdr);border-radius:2px;overflow:hidden;margin-bottom:3px; }
@@ -305,6 +291,23 @@ body::before {
 .pfa { background:linear-gradient(90deg,var(--amber2),var(--amber)); }
 .pfp { background:linear-gradient(90deg,#7c3aed,var(--purple)); }
 .pval { font-family:var(--mono);font-size:9px;color:var(--text3); }
+/* v11.1 — phase divider in predictions panel */
+.pred-phase-hdr {
+  font-family:var(--mono);font-size:8px;color:var(--text3);
+  letter-spacing:.15em;text-transform:uppercase;
+  padding:8px 0 3px;border-bottom:1px solid var(--bdr2);
+  margin-bottom:2px;
+}
+
+/* v11.1 — science log feed */
+.log-entry {
+  display:flex;gap:6px;padding:4px 0;border-bottom:1px solid var(--bdr);
+  font-family:var(--mono);font-size:9px;align-items:flex-start;
+}
+.log-entry:last-child { border-bottom:none; }
+.log-ts  { color:var(--text3);white-space:nowrap;flex-shrink:0; }
+.log-msg { color:var(--text2);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.log-kp  { color:var(--cyan);flex-shrink:0; }
 
 /* ── STATUS BAR ── */
 .status-bar {
@@ -323,229 +326,93 @@ body::before {
 .sbv { color:var(--text2); }
 
 /* ── MISSION DECODER ── */
-.decoder {
-  background: var(--bg2);
-  border-top: 1px solid var(--bdr);
-  padding: 16px 16px 20px;
+.decoder { background:var(--bg2);border-top:1px solid var(--bdr);padding:16px 16px 20px; }
+.dec-header { display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--bdr); }
+.dec-title { font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan); }
+.dec-sub   { font-size:11px;color:var(--text3);font-family:var(--mono);letter-spacing:.05em; }
+.dec-grid  { display:grid;grid-template-columns:repeat(6,1fr);gap:10px; }
+@media (max-width:1100px) { .dec-grid { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:700px)  { .dec-grid { grid-template-columns:repeat(2,1fr); } }
+.dec-card { background:var(--panel);border:0.5px solid var(--bdr);border-radius:6px;padding:10px 12px;border-top:2px solid var(--cyan3); }
+/* v11.1 — sub-decoder row (row 2 of decoder) */
+.dec-grid-sub { display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px; }
+@media (max-width:700px) { .dec-grid-sub { grid-template-columns:1fr; } }
+.dec-card.sub { border-top-color:rgba(245,158,11,0.4); }
+.dec-card-title { font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:7px;line-height:1.3; }
+.dec-card.sub .dec-card-title { color:var(--amber); }
+.dec-card-body  { font-size:10px;color:var(--text2);line-height:1.65;font-family:'Barlow',sans-serif; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px) and (min-width:601px) {
+  .header { grid-template-columns:160px 1fr 220px; }
+  .main-grid { grid-template-columns:1fr 1fr;grid-template-rows:auto auto; }
+  #col2 { grid-column:1 / -1; }
+  #col1 { grid-column:1; }
+  #col3 { grid-column:2; }
+  .orbit-outer { height:320px; }
 }
-.dec-header {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--bdr);
-}
-.dec-title {
-  font-family: var(--cond);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--cyan);
-}
-.dec-sub {
-  font-size: 11px;
-  color: var(--text3);
-  font-family: var(--mono);
-  letter-spacing: .05em;
-}
-.dec-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-}
-@media (max-width: 1100px) {
-  .dec-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 700px) {
-  .dec-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.dec-card {
-  background: var(--panel);
-  border: 0.5px solid var(--bdr);
-  border-radius: 6px;
-  padding: 10px 12px;
-  border-top: 2px solid var(--cyan3);
-}
-.dec-card-title {
-  font-family: var(--cond);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 7px;
-  line-height: 1.3;
-}
-.dec-card-body {
-  font-size: 10px;
-  color: var(--text2);
-  line-height: 1.65;
-  font-family: var(--body);
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   RESPONSIVE — TABLET 600–1024px
-   Two columns: col2 (orbit+timeline) full width on top,
-   col1 and col3 side by side below
-   ══════════════════════════════════════════════════════════════════ */
-@media (max-width: 1024px) and (min-width: 601px) {
-  .header {
-    grid-template-columns: 160px 1fr 220px;
-  }
-  .main-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-  }
-  #col2 { grid-column: 1 / -1; } /* center spans full width */
-  #col1 { grid-column: 1; }
-  #col3 { grid-column: 2; }
-  .orbit-outer { height: 320px; }
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   RESPONSIVE — MOBILE ≤600px
-   Single column, everything stacks full viewport width.
-   Panels reordered via flexbox order property.
-   ══════════════════════════════════════════════════════════════════ */
-@media (max-width: 600px) {
-
-  html { font-size: 14px; }
-
-  /* ── HEADER: logo left, stats right, center drops to 2nd row ── */
-  .header {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    padding: 8px 12px 6px;
-    gap: 4px;
-  }
-  .header-left  { grid-column: 1; grid-row: 1; }
-  .header-right { grid-column: 2; grid-row: 1; gap: 8px; }
-  .header-center {
-    grid-column: 1 / -1; grid-row: 2;
-    text-align: left;
-    border-top: 1px solid var(--bdr);
-    padding-top: 5px;
-    margin-top: 2px;
-  }
-  .comet-name { font-size: 11px; }
-  .header-center > div:nth-child(2) { display: none; } /* hide long detail line */
-  .hdr-stat .hdr-val { font-size: 13px; }
-  .hdr-stat .hdr-lbl { font-size: 8px; }
-
-  /* ── COUNTDOWN: stack label above numbers, progress below ── */
-  .countdown-banner {
-    flex-wrap: wrap;
-    padding: 8px 12px;
-    gap: 6px;
-  }
-  .cd-label {
-    width: 100%;
-    font-size: 9px;
-    color: var(--cyan);
-    letter-spacing: .12em;
-    margin-bottom: 2px;
-  }
-  .cd-units { width: 100%; justify-content: space-around; }
-  .cd-num   { font-size: 32px; }
-  .cd-denom { font-size: 9px; }
-  .cd-unit  { padding: 0 8px; }
-  .cd-prog-wrap { width: 100%; padding: 4px 0 0; }
-  .cd-status { width: 100%; padding-left: 0; text-align: center; font-size: 12px; }
-
-  /* ── MAIN GRID: single column, full width ── */
-  .main-grid {
-    display: flex;
-    flex-direction: column;
-    background: var(--bdr);
-    gap: 1px;
-  }
-  /* Cols become vertical stacks inside the flex column */
-  #col1, #col2, #col3 {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--bdr);
-    width: 100%;
-  }
-  /* Reorder cols: center first, then col3, then col1 */
-  #col2 { order: 1; }
-  #col3 { order: 2; }
-  #col1 { order: 3; }
-
-  /* ── ORBIT CANVAS: flip tall→wide, landscape proportions ── */
-  .orbit-outer { height: 56vw; min-height: 200px; max-height: 320px; }
-  .orb-topl { font-size: 7px; }
-
-  /* ── ORBIT LEGEND: horizontal strip at bottom ── */
-  .orb-legend {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 6px 10px;
-    bottom: 6px;
-    left: 6px;
-    right: 6px;
-  }
-  .orb-li { font-size: 8px; }
-
-  /* ── TIMELINE: slightly more compact ── */
-  .tld { width: 42px; font-size: 9px; }
-  .tle { font-size: 9px; }
-  .tlv { width: 44px; font-size: 9px; }
-  .plbl { font-size: 7px; }
-
-  /* ── SDO: already square, just make sure it fills ── */
-  .sdo-outer { width: 100%; }
-
-  /* ── SCALES / AR / FLARES ── */
-  .sn { width: 80px; font-size: 9px; }
-  .ar-row { grid-template-columns: 48px 58px 32px 1fr; font-size: 10px; }
-  .fl-row { font-size: 9px; }
-
-  /* ── CONSORTIUM: 2-col grid already works, keep it ── */
-  .cons-grid { grid-template-columns: 1fr 1fr; }
-  .mname { font-size: 11px; }
-  .mrole { font-size: 8px; }
-
-  /* ── F10.7 CHART: taller on mobile for readability ── */
-  .f107-chart { height: 120px; }
-  .f107-stats { grid-template-columns: 1fr 1fr 1fr; }
-  .fval { font-size: 18px; }
-
-  /* ── PREDICTIONS ── */
-  .plabel { font-size: 12px; }
-  .pval   { font-size: 10px; }
-
-  /* ── MISSION DECODER: 1 card per row on mobile ── */
-  .dec-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .dec-card { padding: 12px 14px; }
-  .dec-card-title { font-size: 12px; }
-  .dec-card-body  { font-size: 11px; line-height: 1.7; }
-  .dec-header { flex-direction: column; gap: 4px; align-items: flex-start; }
-  .dec-sub { font-size: 10px; }
-
-  /* ── STATUS BAR: wrap and bigger text ── */
-  .status-bar {
-    flex-wrap: wrap;
-    font-size: 10px;
-    gap: 6px 12px;
-    padding: 8px 12px;
-    position: static; /* unstick on mobile — too much chrome */
-  }
-  .sbsep { display: none; }
+@media (max-width:600px) {
+  html { font-size:14px; }
+  .header { grid-template-columns:1fr auto;grid-template-rows:auto auto;padding:8px 12px 6px;gap:4px; }
+  .header-left  { grid-column:1;grid-row:1; }
+  .header-right { grid-column:2;grid-row:1;gap:8px; }
+  .header-center { grid-column:1 / -1;grid-row:2;text-align:left;border-top:1px solid var(--bdr);padding-top:5px;margin-top:2px; }
+  .comet-name { font-size:11px; }
+  .header-center > div:nth-child(2) { display:none; }
+  .hdr-stat .hdr-val { font-size:13px; }
+  .hdr-stat .hdr-lbl { font-size:8px; }
+  .countdown-banner { flex-wrap:wrap;padding:8px 12px;gap:6px; }
+  .cd-label { width:100%;font-size:9px;color:var(--cyan);letter-spacing:.12em;margin-bottom:2px; }
+  .cd-units { width:100%;justify-content:space-around; }
+  .cd-num { font-size:32px; }
+  .cd-denom { font-size:9px; }
+  .cd-unit { padding:0 8px; }
+  .cd-prog-wrap { width:100%;padding:4px 0 0; }
+  .cd-status { width:100%;padding-left:0;text-align:center;font-size:12px; }
+  .main-grid { display:flex;flex-direction:column;background:var(--bdr);gap:1px; }
+  #col1,#col2,#col3 { display:flex;flex-direction:column;gap:1px;background:var(--bdr);width:100%; }
+  #col2 { order:1; }
+  #col3 { order:2; }
+  #col1 { order:3; }
+  .orbit-outer { height:56vw;min-height:200px;max-height:320px; }
+  .orb-topl { font-size:7px; }
+  .orb-legend { flex-direction:row;flex-wrap:wrap;gap:6px 10px;bottom:6px;left:6px;right:6px; }
+  .orb-li { font-size:8px; }
+  .tld { width:42px;font-size:9px; }
+  .tle { font-size:9px; }
+  .tlv { width:44px;font-size:9px; }
+  .plbl { font-size:7px; }
+  .sdo-outer { width:100%; }
+  .sn { width:80px;font-size:9px; }
+  .ar-row { grid-template-columns:48px 58px 32px 1fr;font-size:10px; }
+  .fl-row { font-size:9px; }
+  .cons-grid { grid-template-columns:1fr 1fr; }
+  .mname { font-size:11px; }
+  .mrole { font-size:8px; }
+  .f107-chart { height:120px; }
+  .fval { font-size:18px; }
+  .plabel { font-size:12px; }
+  .pval   { font-size:10px; }
+  .dec-grid { grid-template-columns:1fr !important; }
+  .dec-grid-sub { grid-template-columns:1fr; }
+  .dec-card { padding:12px 14px; }
+  .dec-card-title { font-size:12px; }
+  .dec-card-body  { font-size:11px;line-height:1.7; }
+  .dec-header { flex-direction:column;gap:4px;align-items:flex-start; }
+  .dec-sub { font-size:10px; }
+  .status-bar { flex-wrap:wrap;font-size:10px;gap:6px 12px;padding:8px 12px;position:static; }
+  .sbsep { display:none; }
 }
 </style>
 </head>
 <body>
 
-<!-- ── HEADER (sticky) ── -->
+<!-- ── HEADER ── -->
 <header class="header">
   <div class="header-left">
-    <div class="logo">MAPS <span>v10</span></div>
+    <div class="logo">MAPS <span>v11.1</span></div>
     <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM F10.7</div>
+    <div class="cag-badge"><div class="cdot"></div>CAG</div>
   </div>
   <div class="header-center">
     <div class="comet-name">C/2026 A1 &middot; Kreutz Sungrazer &middot; Pe-subgroup</div>
@@ -565,8 +432,8 @@ body::before {
 <div class="countdown-banner">
   <div class="cd-label">Perihelion<br>Apr 4, 2026</div>
   <div class="cd-units">
-    <div class="cd-unit"><div class="cd-num" id="cdD">19</div><div class="cd-denom">days</div></div>
-    <div class="cd-unit"><div class="cd-num a" id="cdH">12</div><div class="cd-denom">hours</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cdD">09</div><div class="cd-denom">days</div></div>
+    <div class="cd-unit"><div class="cd-num a" id="cdH">00</div><div class="cd-denom">hours</div></div>
     <div class="cd-unit"><div class="cd-num a" id="cdM">00</div><div class="cd-denom">mins</div></div>
     <div class="cd-unit"><div class="cd-num r" id="cdS">00</div><div class="cd-denom">secs</div></div>
   </div>
@@ -574,121 +441,242 @@ body::before {
     <div class="cd-prog-lbl"><span>Discovery Jan 1</span><span>Perihelion Apr 4</span></div>
     <div class="cd-bar-outer"><div class="cd-bar-fill" id="cdBar" style="width:0%"></div></div>
     <div style="display:none" id="cdPct"></div>
-    <div class="cd-prog-lbl">q=0.005732 AU &bull; v&asymp;<span id="liveVelocity">...</span> km/s</div>
+    <div class="cd-prog-lbl">q=0.005732 AU &bull; v&asymp;<span id="liveVelocity">...</span> km/s &bull; CAG verified</div>
   </div>
-  <div class="cd-status" id="cdSt">T&minus;19d INBOUND</div>
+  <div class="cd-status" id="cdSt">T&minus;9d INBOUND</div>
 </div>
 
 <!-- ── MAIN GRID ── -->
 <div class="main-grid">
 
-  <!-- COL1: THE HYPOTHESIS — computation baseline + who + what we bet -->
+  <!-- COL1: THE HYPOTHESIS -->
   <div class="col" id="col1">
 
+    <!-- F10.7 — now shows Wolfram API v2 + CAG computed baseline -->
     <div class="panel">
       <div class="ptitle a">F10.7 Solar Flux &mdash; Wolfram Baseline</div>
       <div class="f107-chart"><canvas id="f107Canvas"></canvas></div>
       <div class="f107-stats">
         <div class="fstat"><div class="fval" id="f107Obs">142</div><div class="flbl">Observed</div></div>
-        <div class="fstat"><div class="fval a">138</div><div class="flbl">81d Smooth</div></div>
+        <div class="fstat"><div class="fval a" id="f107Smooth">138</div><div class="flbl">81d Smooth</div></div>
         <div class="fstat"><div class="fval g">134</div><div class="flbl">At Perihelion</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:7px">
+      <!-- v11.1 — CAG computed row (second river) -->
+      <div class="f107-cag-row">
+        <div class="cdot" style="flex-shrink:0"></div>
+        <div class="f107-cag-lbl">CAG 81d baseline</div>
+        <div class="f107-cag-val" id="f107CAG">—</div>
+        <div class="f107-cag-src">sfu</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;margin-top:6px">
         <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM API v2</div>
         <span style="font-size:9px;color:var(--text3);font-family:var(--mono)">SC25 declining &bull; &Delta;&minus;1.5 sfu/mo</span>
       </div>
     </div>
 
-
+    <!-- CONSORTIUM — commissions updated to current -->
     <div class="panel">
       <div class="ptitle p">AI Consortium &mdash; Active Members</div>
       <div class="cons-grid">
         <div class="mcard mc1">
           <div class="mname">Claude</div>
           <div class="mrole">Implementation &bull; integration &bull; TurtleGLV</div>
-          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; MAPS v10</div></div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; MAPS v11.1</div></div>
         </div>
         <div class="mcard mc2">
           <div class="mname">Grok</div>
-          <div class="mrole">Wire format &bull; CI pipeline &bull; Wolfram code</div>
-          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; Comm.08</div></div>
+          <div class="mrole">Wire format &bull; CI pipeline &bull; scoring</div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; Comm.10</div></div>
         </div>
         <div class="mcard mc3">
           <div class="mname">DeepSeek</div>
           <div class="mrole">CW-complex theorem &bull; query algebra</div>
-          <div class="mstatus"><div class="dot5 ms-s"></div><div class="ms-t">STANDBY &mdash; Comm.06</div></div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; Comm.07-B</div></div>
         </div>
         <div class="mcard mc4">
           <div class="mname">Wolfram</div>
-          <div class="mrole">F10.7 baseline &bull; Burnside verify</div>
-          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">LIVE &mdash; API active</div></div>
+          <div class="mrole">F10.7 baseline &bull; CAG orbital velocity</div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">LIVE &mdash; CAG active</div></div>
         </div>
       </div>
       <div style="font-size:9px;color:var(--text3);font-family:var(--mono);border-top:1px solid var(--bdr);padding-top:6px;line-height:1.7">
-        OpenAI/ChatGPT &mdash; <span style="color:var(--muted)">DEPARTED Feb 2026</span><br>
-        </div>
+        OpenAI/ChatGPT &mdash; <span style="color:var(--muted)">DEPARTED Feb 2026</span>
+      </div>
     </div>
 
-
+    <!-- PREDICTIONS — all 16, verified Feb 18 2026 register -->
     <div class="panel">
-      <div class="ptitle r">15 Falsifiable Predictions</div>
+      <div class="ptitle r">16 Falsifiable Predictions &mdash; Locked Feb 18, 2026</div>
+
+      <!-- Phase 1 -->
+      <div class="pred-phase-hdr">Phase 1 &mdash; survival &amp; brightness</div>
       <div class="pred-row">
-        <div class="pico pif">F</div>
+        <div class="pico pif">1</div>
         <div class="pbody">
           <div class="plabel">Fragmentation probability</div>
           <div class="pbar-o"><div class="pbar-f pfr" style="width:55%"></div></div>
-          <div class="pval">55% &mdash; &sigma;&plusmn;8% &mdash; Locked Feb 2026</div>
+          <div class="pval">55% &mdash; &sigma;&plusmn;10% &mdash; SOHO/LASCO</div>
         </div>
       </div>
       <div class="pred-row">
-        <div class="pico pim">M</div>
+        <div class="pico pim">2</div>
         <div class="pbody">
-          <div class="plabel">Peak visual magnitude</div>
+          <div class="plabel">Peak apparent magnitude</div>
           <div class="pbar-o"><div class="pbar-f pfc" style="width:70%"></div></div>
-          <div class="pval">&minus;7 mag &mdash; daytime visible if intact</div>
+          <div class="pval">&minus;7 &plusmn;2 mag &mdash; COBS / SOHO photometry</div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="pred-phase-hdr">Phase 2 &mdash; detailed observables</div>
+      <div class="pred-row">
+        <div class="pico pin phase2">3</div>
+        <div class="pbody">
+          <div class="plabel">Peak brightness time</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:50%"></div></div>
+          <div class="pval">Apr 4 ~14:20 UTC &plusmn;3h</div>
         </div>
       </div>
       <div class="pred-row">
-        <div class="pico pis">S</div>
+        <div class="pico pin phase2">4</div>
         <div class="pbody">
-          <div class="plabel">Satellite survival rate</div>
+          <div class="plabel">Maximum tail length</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:50%"></div></div>
+          <div class="pval">30&deg; &plusmn;10&deg; &mdash; CCD imaging</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">5</div>
+        <div class="pbody">
+          <div class="plabel">Post-perihelion fragment count</div>
+          <div class="pbar-o"><div class="pbar-f pfr" style="width:40%"></div></div>
+          <div class="pval">3&ndash;5 fragments &mdash; low confidence</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">6</div>
+        <div class="pbody">
+          <div class="plabel">Naked-eye visibility window</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:75%"></div></div>
+          <div class="pval">Apr 5&ndash;21 &plusmn;5 days &mdash; COBS</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">7</div>
+        <div class="pbody">
+          <div class="plabel">SOHO coronal detection</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:75%"></div></div>
+          <div class="pval">Yes &mdash; 75% &mdash; LASCO C2+C3</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">8</div>
+        <div class="pbody">
+          <div class="plabel">Ion tail disconnections</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:50%"></div></div>
+          <div class="pval">3 &plusmn;2 events &mdash; SOHO C3</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">9</div>
+        <div class="pbody">
+          <div class="plabel">PanSTARRS C/2025 R3 peak</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:60%"></div></div>
+          <div class="pval">3.5 &plusmn;1.5 mag &mdash; COBS / MPC</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">10</div>
+        <div class="pbody">
+          <div class="plabel">In-situ spacecraft detection</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:85%"></div></div>
+          <div class="pval">No &mdash; 85% &mdash; Parker / Solar Orbiter</div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="pred-phase-hdr">Phase 4 &mdash; space weather</div>
+      <div class="pred-row">
+        <div class="pico pin phase4">11</div>
+        <div class="pbody">
+          <div class="plabel">CME within &plusmn;12h of perihelion</div>
+          <div class="pbar-o"><div class="pbar-f pfa" style="width:80%"></div></div>
+          <div class="pval">Yes &mdash; 80% &mdash; DONKI / LASCO</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase4">12</div>
+        <div class="pbody">
+          <div class="plabel">Earth-directed CME in window</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:90%"></div></div>
+          <div class="pval">No &mdash; 90% &mdash; DSCOVR / ACE L1</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase4">13</div>
+        <div class="pbody">
+          <div class="plabel">Max Kp index Apr 1&ndash;7</div>
+          <div class="pbar-o"><div class="pbar-f pfa" style="width:50%"></div></div>
+          <div class="pval">Kp 5 &plusmn;1.5 &mdash; NOAA SWPC</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase4">14</div>
+        <div class="pbody">
+          <div class="plabel">G1+ geomagnetic storm Apr 1&ndash;7</div>
+          <div class="pbar-o"><div class="pbar-f pfa" style="width:58%"></div></div>
+          <div class="pval">58% &plusmn;25% &mdash; INTERMAGNET</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase4">15</div>
+        <div class="pbody">
+          <div class="plabel">NOAA official advisory</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:70%"></div></div>
+          <div class="pval">Yes &mdash; ~70% &mdash; SWPC archive</div>
+        </div>
+      </div>
+
+      <!-- Phase 5 -->
+      <div class="pred-phase-hdr">Phase 5 &mdash; satellite fleet</div>
+      <div class="pred-row">
+        <div class="pico pin phase5">16</div>
+        <div class="pbody">
+          <div class="plabel">Fleet operational survival to May</div>
           <div class="pbar-o"><div class="pbar-f pfg" style="width:99%"></div></div>
-          <div class="pval">&gt;99% &mdash; no Kp&gt;8 forecast</div>
+          <div class="pval">&gt;99% &mdash; CelesTrak / FCC filings</div>
         </div>
       </div>
-      <div class="pred-row">
-        <div class="pico pix">X</div>
-        <div class="pbody">
-          <div class="plabel">X-flare risk at perihelion</div>
-          <div class="pbar-o"><div class="pbar-f pfa" style="width:28%"></div></div>
-          <div class="pval">28% &mdash; SC25 declining, F10.7 ~134 sfu</div>
-        </div>
-      </div>
-      <div class="pred-row">
-        <div class="pico pii">I</div>
-        <div class="pbody">
-          <div class="plabel">Ionospheric TEC disruption</div>
-          <div class="pbar-o"><div class="pbar-f pfp" style="width:42%"></div></div>
-          <div class="pval">42% &mdash; L1 GPS range error &plusmn;4m</div>
-        </div>
-      </div>
+
+      <!-- Footnote -->
       <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr);font-family:var(--mono);font-size:9px;color:var(--text3);line-height:1.8">
-        F10.7 baseline: <span style="color:var(--amber)">Wolfram API &bull; 81d smoothed 138 sfu</span><br>
-        SC25 peak: <span style="color:var(--text2)">Oct 2024 &bull; SSN ~161</span><br>
-        Spotless days: <span style="color:var(--text2)">Feb 2026 observed</span><br>
-        Signal/noise: <span style="color:var(--green)">IMPROVED &mdash; declining background</span>
+        All 16 machine-verifiable &bull; official sources only<br>
+        Scoring window: <span style="color:var(--amber)">May 1&ndash;15, 2026</span><br>
+        Source: <span style="color:var(--text2)">AI Consortium Final Scoring Doc, Feb 18 2026</span>
       </div>
     </div>
 
- 
+    <!-- v11.1 — SCIENCE LOG FEED (live from Mar 28) -->
+    <div class="panel">
+      <div class="ptitle g">Science Log &mdash; <span id="log-phase-badge" style="color:var(--text3)">live from Mar 28</span></div>
+      <div id="logFeed">
+        <div style="font-size:9px;color:var(--text3);font-family:var(--mono);padding:4px">Logging activates at corona ingress Mar 28 00:00 UTC</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="logDot"></div>
+        <span id="logMsg" style="color:var(--text3)">Awaiting ingress&hellip;</span>
+        <a href="https://heliodata.ai/data/science_log.jsonl" target="_blank"
+           style="color:var(--text3);text-decoration:none;margin-left:auto">science_log.jsonl &rarr;</a>
+      </div>
+    </div>
+
   </div><!-- /COL1 -->
 
-  <!-- CENTER -->
+  <!-- COL2: OBSERVATION — unchanged from v10 -->
   <div class="col" id="col2">
 
     <div class="panel">
       <div class="ptitle">C/2026 A1 Orbital Track &mdash; Ecliptic Top-Down (J2026.0)</div>
-      <!-- Orbit canvas: correct planet positions computed from mean motions -->
       <div class="orbit-outer">
         <canvas id="orbitCanvas"></canvas>
         <div class="orb-topl">ECLIPTIC TOP-DOWN &middot; J2026.0 &middot; COMET APPROACH FROM SOUTH</div>
@@ -730,31 +718,27 @@ body::before {
         <div class="plbl">Post</div>
       </div>
       <div class="tl"><div class="tld">Jan 01</div><div class="tle">C/2026 A1 discovered, MPC confirmed</div><div class="tlv">3.1 AU</div></div>
-      <div class="tl"><div class="tld">Feb 01</div><div class="tle">Consortium prediction set locked (15 predictions)</div><div class="tlv">1.8 AU</div></div>
-      <div class="tl now"><div class="tld">Mar 24 &#9654;</div><div class="tle">NOW &mdash; Final approach, active monitoring</div><div class="tlv">0.52 AU</div></div>
-      <div class="tl"><div class="tld">Mar 28</div><div class="tle">Enters solar corona region (&lt;0.1 AU)</div><div class="tlv">0.10 AU</div></div>
-      <div class="tl peri"><div class="tld">Apr 04</div><div class="tle">PERIHELION &mdash; q = 0.00571 AU</div><div class="tlv">0.006 AU</div></div>
-      <div class="tl"><div class="tld">Apr 20</div><div class="tle">Post-perihelion assessment (fragmentation verdict)</div><div class="tlv">~0.8 AU</div></div>
+      <div class="tl"><div class="tld">Feb 18</div><div class="tle">16 predictions locked &mdash; Consortium</div><div class="tlv">1.8 AU</div></div>
+      <div class="tl now"><div class="tld">Mar 26 &#9654;</div><div class="tle">NOW &mdash; Final approach, CAG active</div><div class="tlv">0.40 AU</div></div>
+      <div class="tl"><div class="tld">Mar 28</div><div class="tle">Corona ingress &mdash; logging begins</div><div class="tlv">0.10 AU</div></div>
+      <div class="tl peri"><div class="tld">Apr 04</div><div class="tle">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv">0.006 AU</div></div>
+      <div class="tl"><div class="tld">May 1</div><div class="tle">Public scorecard &mdash; all 16 scored</div><div class="tlv">&mdash;</div></div>
     </div>
 
-  </div><!-- /CENTER -->
+  </div><!-- /COL2 -->
 
-  <!-- COL3: SOLAR ENVIRONMENT — live Sun + context data -->
+  <!-- COL3: SOLAR ENVIRONMENT — unchanged from v10 -->
   <div class="col" id="col3">
 
     <div class="panel">
       <div class="ptitle">SDO AIA 304&Aring; &mdash; Chromosphere</div>
-      <!-- Square container: padding-bottom:100% forces 1:1 aspect, no cropping -->
       <div class="sdo-outer">
         <div class="sdo-inner">
-          <!-- NO crossorigin attr — overlay draws boxes by math, no pixel access needed -->
-          <!-- onerror is self-contained: no external function, safe at parse time -->
           <img id="sdo304"
             src="https://soho.nascom.nasa.gov/data/realtime/eit_304/1024/latest.jpg"
             alt="SDO AIA 304"
             data-fallback-idx="0"
             onerror="(function(el){var urls=['https://soho.nascom.nasa.gov/data/realtime/eit_304/1024/latest.jpg','https://helioviewer.org/cache/jpg/2026/03/20/SDO/AIA/304/2048_L2/latest.jpg'];var i=+(el.dataset.fallbackIdx||0);if(i<urls.length){el.dataset.fallbackIdx=i+1;el.src=urls[i];}else{el.style.display='none';var c=document.getElementById('arCanvas');if(c){c.style.background='radial-gradient(circle,#8b3a0f 0%,#4a1a05 60%,#000 100%)';c.style.borderRadius='50%';c.style.width='100%';c.style.height='100%';}var m=document.getElementById('sdoMsg');if(m)m.textContent='Feed unavailable';};})(this)">
-          <!-- Canvas overlay sits on top — receives AR boxes drawn by coordinate math -->
           <canvas id="arCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
           <div id="arOverlay"></div>
         </div>
@@ -765,19 +749,14 @@ body::before {
       </div>
     </div>
 
-
     <div class="panel">
       <div class="ptitle">Active Regions (NOAA SRS)</div>
-      <!-- Populated by loadAR() from live NOAA SRS — no hardcoded data -->
-      <div id="arTable">
-        <div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">Loading&hellip;</div>
-      </div>
+      <div id="arTable"><div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">Loading&hellip;</div></div>
       <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
         <div class="dot5 wait" id="arDot"></div>
         <span id="arMsg" style="color:var(--text3)">Fetching NOAA SRS&hellip;</span>
       </div>
     </div>
-
 
     <div class="panel">
       <div class="ptitle">NOAA Space Weather Scales</div>
@@ -786,7 +765,6 @@ body::before {
       <div class="scale-row"><div class="sn">G &mdash; Geomag</div><div class="sd" id="kpDesc">Kp = 2</div><div class="sv s0" id="geoSc">G0</div></div>
     </div>
 
-
     <div class="panel">
       <div class="ptitle r">Recent Flare Activity</div>
       <div class="fl-row"><div class="flt">Mar 22</div><div class="flc fcc">C3.1</div><div class="flr">AR4372</div><div class="fli fin">No impact</div></div>
@@ -794,57 +772,63 @@ body::before {
       <div class="fl-row"><div class="flt">Mar 20</div><div class="flc fcc">C5.8</div><div class="flr">AR4372</div><div class="fli fil">Minor R1</div></div>
       <div class="fl-row"><div class="flt">Mar 18</div><div class="flc fcc">C2.2</div><div class="flr">AR4368</div><div class="fli fin">No impact</div></div>
       <div class="fl-row"><div class="flt">Mar 16</div><div class="flc fcb">B8.7</div><div class="flr">AR4365</div><div class="fli fin">No impact</div></div>
-      <div style="margin-top:7px;font-size:9px;font-family:var(--mono);color:var(--text3)">No X-class since Jan 2026 &bull; SC25 declining &bull; 11d to perihelion</div>
+      <div style="margin-top:7px;font-size:9px;font-family:var(--mono);color:var(--text3)">No X-class since Jan 2026 &bull; SC25 declining &bull; 9d to perihelion</div>
     </div>
 
- 
   </div><!-- /COL3 -->
 
 </div><!-- /main-grid -->
 
 
-<!-- ── MISSION DECODER — full-width cheat sheet ── -->
+<!-- ── MISSION DECODER — 6 original cards + 2 new sub-panels ── -->
 <section class="decoder">
   <div class="dec-header">
     <span class="dec-title">Mission decoder</span>
     <span class="dec-sub">heliodata.ai &nbsp;&bull;&nbsp; Enneagrid Research Consortium &nbsp;&bull;&nbsp; C/2026 A1 perihelion watch, April 4, 2026</span>
   </div>
-  <div class="dec-grid">
 
+  <!-- Row 1: original 6 cards — unchanged -->
+  <div class="dec-grid">
     <div class="dec-card">
       <div class="dec-card-title">What is a Kreutz sungrazer?</div>
       <div class="dec-card-body">Kreutz sungrazers are fragments of a comet that broke apart thousands of years ago. They follow almost identical orbits — long ellipses that plunge inside the Sun&rsquo;s atmosphere before swinging back out. C/2026 A1 is one such fragment, returning after roughly 1,700 years. On April 4 it will pass just 160,000 km from the solar surface &mdash; closer than the Sun&rsquo;s own corona.</div>
     </div>
-
     <div class="dec-card">
       <div class="dec-card-title">What is F10.7 solar flux?</div>
-      <div class="dec-card-body">F10.7 is a daily radio emission from the Sun measured in solar flux units (sfu). It is the oldest continuous record of solar activity and tracks how &ldquo;loud&rdquo; the Sun currently is. High F10.7 means more UV hitting Earth&rsquo;s upper atmosphere, more satellite drag, and a higher chance of GPS errors. Our Wolfram baseline uses the 81-day smoothed value to filter short-term noise from our predictions.</div>
+      <div class="dec-card-body">F10.7 is a daily radio emission from the Sun measured in solar flux units (sfu). It is the oldest continuous record of solar activity and tracks how &ldquo;loud&rdquo; the Sun currently is. High F10.7 means more UV hitting Earth&rsquo;s upper atmosphere, more satellite drag, and a higher chance of GPS errors. Our Wolfram CAG baseline uses the 81-day smoothed value to filter short-term noise from our predictions.</div>
     </div>
-
     <div class="dec-card">
       <div class="dec-card-title">What is space weather?</div>
       <div class="dec-card-body">Space weather is the effect of the Sun&rsquo;s activity on Earth and near-Earth space. Solar flares produce radio blackouts. Coronal mass ejections drive geomagnetic storms that can trip power grids and disorient migratory birds. Energetic particles damage satellite electronics. The NOAA R/S/G scales on this dashboard rate the current intensity of each effect from 0 (quiet) to 5 (extreme).</div>
     </div>
-
     <div class="dec-card">
       <div class="dec-card-title">What are falsifiable predictions?</div>
-      <div class="dec-card-body">A falsifiable prediction is a specific, testable statement that can be proven wrong. The Consortium locked 15 such predictions in February 2026 before perihelion &mdash; fragmentation odds, peak brightness, flare risk. After April 4 each prediction will be scored against observations. If we were wrong, we say so. That is how science distinguishes itself from speculation.</div>
+      <div class="dec-card-body">A falsifiable prediction is a specific, testable statement that can be proven wrong. The Consortium locked 16 such predictions in February 2026 before perihelion &mdash; fragmentation odds, peak brightness, tail length, ion disconnections, satellite survival, and more. After April 4 each prediction will be scored against observations from official sources. If we were wrong, we say so. That is how science distinguishes itself from speculation.</div>
     </div>
-
     <div class="dec-card">
       <div class="dec-card-title">Who is the Consortium?</div>
       <div class="dec-card-body">The Enneagrid Research Consortium is a multi-AI scientific collaboration coordinated by Eugharaz (G.L. Eukene), a professional geodesist and surveyor in the Basque Country, Spain. Members are Claude (Anthropic), Grok (xAI), DeepSeek, and Wolfram Alpha. Each contributes a different capability &mdash; from orbital mechanics to statistical verification. OpenAI/ChatGPT participated in early phases and departed in February 2026.</div>
     </div>
-
     <div class="dec-card">
       <div class="dec-card-title">How to read the orbit diagram</div>
       <div class="dec-card-body">The diagram shows the solar system from above the ecliptic plane. The Sun is the glowing dot at centre. Coloured rings are planetary orbits; dots on each ring show where the planet is today (computed from real mean motions). The cyan arc is C/2026 A1&rsquo;s path &mdash; a near-perfect parabola. The amber zone near the Sun is the perihelion region. The comet&rsquo;s current position and distance update every 30 seconds.</div>
     </div>
+  </div>
 
+  <!-- Row 2: two new sub-panels explaining predictions 3–10 and prediction 16 -->
+  <div class="dec-grid-sub">
+    <div class="dec-card sub">
+      <div class="dec-card-title">What are the 16 predictions? (Phase 2 observables)</div>
+      <div class="dec-card-body">Beyond the headline fragmentation and magnitude forecasts, the Consortium locked ten detailed observables. Prediction 3 pins peak brightness to within 3 hours of perihelion. Predictions 4 and 5 quantify the tail and fragment count. Prediction 6 forecasts naked-eye visibility ending around April 21. Prediction 7 expects SOHO to detect the comet in its coronagraph field. Prediction 8 anticipates 3 ion tail disconnection events as the comet crosses solar wind boundaries. Prediction 9 is independent &mdash; it forecasts the brightness of a second comet, PanSTARRS C/2025 R3, peaking around April 20. Prediction 10 holds that no spacecraft will detect the comet in situ &mdash; 85% confident. All will be scored against official archive data in May 2026.</div>
+    </div>
+    <div class="dec-card sub">
+      <div class="dec-card-title">Why do we predict satellites survive? (Prediction 16)</div>
+      <div class="dec-card-body">Prediction 16 forecasts that over 99% of operational satellites will survive through May 2026 &mdash; but it is not a prediction that nothing will happen. It is a prediction about a coupled physical and human system. The Consortium locked this number knowing that space agencies and commercial operators (SpaceX, ESA, JAXA, and others) would likely take proactive protective action &mdash; raising satellite perigees, adjusting drag profiles, and pausing scheduled deorbits &mdash; in response to elevated geomagnetic storm probability around perihelion. Planned maneuvers are not counted as losses. A &gt;99% survival outcome achieved through operator action is a fully confirmed prediction, not a lucky escape. This framing is intentional: it recognises that human response to good science is itself part of the scientific outcome.</div>
+    </div>
   </div>
 </section>
 
-<!-- ── STATUS BAR (sticky bottom) ── -->
+<!-- ── STATUS BAR ── -->
 <footer class="status-bar">
   <div class="sbi"><div class="sbd sbg"></div><span>NOAA SWPC</span><span class="sbv" id="sbNoaa">online</span></div>
   <span class="sbsep">&mdash;</span>
@@ -852,881 +836,456 @@ body::before {
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><div class="sbd sbc"></div><span>SDO AIA</span><span class="sbv">live</span></div>
   <span class="sbsep">&mdash;</span>
-  <div class="sbi"><div class="sbd sba"></div><span>Wolfram F10.7</span><span class="sbv">138 sfu 81d</span></div>
+  <div class="sbi"><div class="sbd sba"></div><span>Wolfram CAG</span><span class="sbv" id="sbCAG">connecting</span></div>
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span>SC25</span><span class="sbv">declining</span></div>
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span>Kp</span><span class="sbv" id="sbKp">2</span></div>
   <span class="sbsep">&mdash;</span>
-  <div class="sbi"><span>MAPS Dashboard</span><span class="sbv">v10 &bull; heliodata.ai &bull; Enneagrid Research Consortium</span></div>
+  <div class="sbi"><span>MAPS Dashboard</span><span class="sbv">v11.1 &bull; heliodata.ai &bull; Enneagrid Research Consortium</span></div>
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span id="sbTime" style="color:var(--text2)">--</span></div>
 </footer>
 
 <script>
 'use strict';
-// Safe console wrapper — Brave/Chromium can stub console when DevTools closed
-const _log  = (typeof console !== 'undefined' && typeof console.info === 'function')
-              ? console.info.bind(console)  : ()=>{};
-const _warn = (typeof console !== 'undefined' && typeof console.warn === 'function')
-              ? console.warn.bind(console)  : ()=>{};
+const _log  = (typeof console!=='undefined'&&typeof console.info==='function')?console.info.bind(console):()=>{};
+const _warn = (typeof console!=='undefined'&&typeof console.warn==='function')?console.warn.bind(console):()=>{};
 
-// ══════════════════════════════════════════════════════════════════
-// WOLFRAM APPID CONFIGURATION
-// Set window.WOLFRAM_APPID before this script, or pass ?wappid=XXXX
-// in the URL. Never hardcode the AppID in this file.
-// Example server injection: [script]window.WOLFRAM_APPID='YOUR-KEY'[/script]
-// Example URL: heliowatch.ai/maps?wappid=YOUR-APPID-HERE
-// ══════════════════════════════════════════════════════════════════
-
-// ══════════════════════════════════════════════════════════════════
-// ORBITAL CONSTANTS — JPL elements C/2026 A1
-// ══════════════════════════════════════════════════════════════════
+// ── ORBITAL CONSTANTS ──────────────────────────────────────────────
 const ORB = {
   q:     0.005714,
   e:     0.99996266,
-  i:     144.49,   // deg
-  omega: 86.34,    // deg argument of perihelion
-  Omega: 7.88,     // deg longitude of ascending node
+  i:     144.49,
+  omega: 86.34,
+  Omega: 7.88,
   PERI:  new Date('2026-04-04T14:18:35Z')
 };
-const K_GAUSS    = 0.01720209895;
-const DISCOVERY  = new Date('2026-01-01T00:00:00Z');
-const J2000      = new Date('2000-01-01T12:00:00Z');
+const K_GAUSS   = 0.01720209895;
+const DISCOVERY = new Date('2026-01-01T00:00:00Z');
+const J2000     = new Date('2000-01-01T12:00:00Z');
 
-// ── Barker's equation for near-parabolic comet ─────────────────
 function barker(tau_days) {
-  const D    = K_GAUSS * tau_days / (2 * Math.pow(ORB.q, 1.5));
-  const disc = Math.sqrt(9*D*D + 1);
-  const W    = Math.cbrt(3*D + disc);
-  const x    = W - 1/W;
-  return { nu: 2*Math.atan(x), r: ORB.q*(1+x*x), x };
+  const D=K_GAUSS*tau_days/(2*Math.pow(ORB.q,1.5));
+  const disc=Math.sqrt(9*D*D+1);
+  const W=Math.cbrt(3*D+disc);
+  const x=W-1/W;
+  return {nu:2*Math.atan(x),r:ORB.q*(1+x*x),x};
 }
+function cometState(date){return barker((date-ORB.PERI)/86400000);}
 
-function cometState(date) {
-  const tau = (date - ORB.PERI) / 86400000;
-  return barker(tau);
-}
-
-// ── Planet heliocentric ecliptic longitudes via mean motion ──────
-// L0 at J2000, n in deg/day  (Meeus, Astronomical Algorithms)
-const PLANET_ELEMS = {
-  Mercury: { L0: 252.2504, n: 4.0923344, a: 0.387 },
-  Venus:   { L0: 181.9798, n: 1.6021302, a: 0.723 },
-  Earth:   { L0: 100.4664, n: 0.9856474, a: 1.000 },
-  Mars:    { L0: 355.4330, n: 0.5240208, a: 1.524 },
+const PLANET_ELEMS={
+  Mercury:{L0:252.2504,n:4.0923344,a:0.387},
+  Venus:  {L0:181.9798,n:1.6021302,a:0.723},
+  Earth:  {L0:100.4664,n:0.9856474,a:1.000},
+  Mars:   {L0:355.4330,n:0.5240208,a:1.524},
 };
-const PLANET_COLORS = {
-  Mercury: '#f87171',
-  Venus:   '#4ade80',
-  Earth:   '#60a5fa',
-  Mars:    '#fb923c',
-};
-
-function planetLon(name, date) {
-  const p     = PLANET_ELEMS[name];
-  const dJ2k  = (date - J2000) / 86400000;
-  return ((p.L0 + p.n * dJ2k) % 360 + 360) % 360;
+function planetLon(name,date){
+  const p=PLANET_ELEMS[name],dJ2k=(date-J2000)/86400000;
+  return((p.L0+p.n*dJ2k)%360+360)%360;
 }
-
-// ── Perifocal → ecliptic projection for comet orbit ─────────────
-function makeRotation() {
-  const ir  = ORB.i     * Math.PI/180;
-  const wr  = ORB.omega * Math.PI/180;
-  const Or  = ORB.Omega * Math.PI/180;
-  const ci  = Math.cos(ir), si = Math.sin(ir);
-  const cw  = Math.cos(wr), sw = Math.sin(wr);
-  const co  = Math.cos(Or), so = Math.sin(Or);
-  // Perifocal position (x=r*cos(nu), y=r*sin(nu), z=0) → ecliptic (X,Y,Z)
-  // X = (co*cw - so*sw*ci)*xp + (-co*sw - so*cw*ci)*yp
-  // Y = (so*cw + co*sw*ci)*xp + (-so*sw + co*cw*ci)*yp
-  return function(nu, r) {
-    const xp = r * Math.cos(nu), yp = r * Math.sin(nu);
-    const X  = (co*cw - so*sw*ci)*xp + (-co*sw - so*cw*ci)*yp;
-    const Y  = (so*cw + co*sw*ci)*xp + (-so*sw + co*cw*ci)*yp;
-    return { X, Y };  // ecliptic X,Y in AU
+function makeRotation(){
+  const ir=ORB.i*Math.PI/180,wr=ORB.omega*Math.PI/180,Or=ORB.Omega*Math.PI/180;
+  const ci=Math.cos(ir),cw=Math.cos(wr),sw=Math.sin(wr),co=Math.cos(Or),so=Math.sin(Or);
+  return function(nu,r){
+    const xp=r*Math.cos(nu),yp=r*Math.sin(nu);
+    const X=(co*cw-so*sw*ci)*xp+(-co*sw-so*cw*ci)*yp;
+    const Y=(so*cw+co*sw*ci)*xp+(-so*sw+co*cw*ci)*yp;
+    return{X,Y};
   };
 }
-const orb2ecl = makeRotation();
+const orb2ecl=makeRotation();
 
-// ══════════════════════════════════════════════════════════════════
-// COUNTDOWN
-// ══════════════════════════════════════════════════════════════════
-function updateCountdown() {
-  const now   = new Date();
-  const diff  = ORB.PERI - now;
-  const total = ORB.PERI - DISCOVERY;
-
-  const days  = Math.max(0, Math.floor(diff/86400000));
-  const hours = Math.max(0, Math.floor((diff%86400000)/3600000));
-  const mins  = Math.max(0, Math.floor((diff%3600000)/60000));
-  const secs  = Math.max(0, Math.floor((diff%60000)/1000));
-
-  document.getElementById('cdD').textContent = String(days).padStart(2,'0');
-  document.getElementById('cdH').textContent = String(hours).padStart(2,'0');
-  document.getElementById('cdM').textContent = String(mins).padStart(2,'0');
-  document.getElementById('cdS').textContent = String(secs).padStart(2,'0');
-
-  const pct = Math.min(100, ((now - DISCOVERY)/total)*100);
-  document.getElementById('cdBar').style.width  = pct.toFixed(1)+'%';
-  document.getElementById('cdPct').textContent  = pct.toFixed(1)+'%';
-  document.getElementById('cdSt').textContent   = diff>0 ? `T\u2212${days}d INBOUND` : 'PERIHELION';
-
-  // Update header distance from live Barker
-  const { r, nu } = cometState(now);
-  const nuD = (nu*180/Math.PI).toFixed(1);
-  document.getElementById('distH').textContent  = r.toFixed(3);
-  document.getElementById('orbitDist').textContent = r.toFixed(4);
-  document.getElementById('orbitNu').textContent   = `\u03bd = ${nuD}\u00b0`;
+// ── COUNTDOWN ────────────────────────────────────────────────────
+function updateCountdown(){
+  const now=new Date(),diff=ORB.PERI-now,total=ORB.PERI-DISCOVERY;
+  const days=Math.max(0,Math.floor(diff/86400000));
+  const hours=Math.max(0,Math.floor((diff%86400000)/3600000));
+  const mins=Math.max(0,Math.floor((diff%3600000)/60000));
+  const secs=Math.max(0,Math.floor((diff%60000)/1000));
+  document.getElementById('cdD').textContent=String(days).padStart(2,'0');
+  document.getElementById('cdH').textContent=String(hours).padStart(2,'0');
+  document.getElementById('cdM').textContent=String(mins).padStart(2,'0');
+  document.getElementById('cdS').textContent=String(secs).padStart(2,'0');
+  const pct=Math.min(100,((now-DISCOVERY)/total)*100);
+  document.getElementById('cdBar').style.width=pct.toFixed(1)+'%';
+  document.getElementById('cdPct').textContent=pct.toFixed(1)+'%';
+  document.getElementById('cdSt').textContent=diff>0?`T\u2212${days}d INBOUND`:'PERIHELION';
+  const{r,nu}=cometState(now);
+  const nuD=(nu*180/Math.PI).toFixed(1);
+  document.getElementById('distH').textContent=r.toFixed(3);
+  document.getElementById('orbitDist').textContent=r.toFixed(4);
+  document.getElementById('orbitNu').textContent=`\u03bd = ${nuD}\u00b0`;
 }
 
-// ══════════════════════════════════════════════════════════════════
-// UTC CLOCK
-// ══════════════════════════════════════════════════════════════════
-function updateClock() {
-  const s = new Date().toISOString().replace('T',' ').split('.')[0]+' UTC';
-  document.getElementById('utcClock').textContent = s;
-  document.getElementById('sbTime').textContent   = s;
+// ── UTC CLOCK ─────────────────────────────────────────────────────
+function updateClock(){
+  const s=new Date().toISOString().replace('T',' ').split('.')[0]+' UTC';
+  document.getElementById('utcClock').textContent=s;
+  document.getElementById('sbTime').textContent=s;
 }
 
-// ══════════════════════════════════════════════════════════════════
-// F10.7 CHART
-// ══════════════════════════════════════════════════════════════════
-// ── F10.7 DATA STATE ──────────────────────────────────────────────
-// Populated by Wolfram API (primary) or NOAA fallback
-// These are SC25 historical values Jan 2024 → now (27 monthly points)
-// The first 26 are fixed SC25 arc; point 26 (NOW) updates from live fetch
-let f107LiveObs = [108,115,122,131,140,148,155,158,161,159,155,151,
-                   148,145,142,138,135,140,136,133,130,135,131,128,
-                   142,140,138];  // last = current, updated by fetch
-let f107LiveSmo = [105,110,118,125,133,141,148,153,157,158,157,155,
-                   153,151,148,144,141,139,138,137,135,134,133,132,
-                   138,137,136];
-let wolframLive = false;  // true when Wolfram API actually responded
+// ── F10.7 CHART ───────────────────────────────────────────────────
+let f107LiveObs=[108,115,122,131,140,148,155,158,161,159,155,151,
+                 148,145,142,138,135,140,136,133,130,135,131,128,
+                 142,140,138];
+let f107LiveSmo=[105,110,118,125,133,141,148,153,157,158,157,155,
+                 153,151,148,144,141,139,138,137,135,134,133,132,
+                 138,137,136];
+let wolframLive=false;
 
-function drawF107() {
-  const canvas = document.getElementById('f107Canvas');
-  const pr     = canvas.parentElement.getBoundingClientRect();
-  const dpr    = window.devicePixelRatio||1;
-  canvas.width  = Math.floor(pr.width*dpr);
-  canvas.height = Math.floor(pr.height*dpr);
-  canvas.style.width  = pr.width+'px';
-  canvas.style.height = pr.height+'px';
-  const ctx = canvas.getContext('2d');
+function drawF107(){
+  const canvas=document.getElementById('f107Canvas');
+  const pr=canvas.parentElement.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=Math.floor(pr.width*dpr);
+  canvas.height=Math.floor(pr.height*dpr);
+  canvas.style.width=pr.width+'px';
+  canvas.style.height=pr.height+'px';
+  const ctx=canvas.getContext('2d');
   ctx.scale(dpr,dpr);
-  const W = pr.width, H = pr.height;
-  const pad = {l:26, r:10, t:8, b:20};
-  const gW = W-pad.l-pad.r, gH = H-pad.t-pad.b;
-  const obs = f107LiveObs, smo = f107LiveSmo;
-  const N=obs.length, minV=90, maxV=175;
+  const W=pr.width,H=pr.height;
+  const pad={l:26,r:10,t:8,b:20};
+  const gW=W-pad.l-pad.r,gH=H-pad.t-pad.b;
+  const obs=f107LiveObs,smo=f107LiveSmo;
+  const N=obs.length,minV=90,maxV=175;
   const xOf=i=>pad.l+(i/(N-1))*gW;
   const yOf=v=>pad.t+gH-((v-minV)/(maxV-minV))*gH;
-
-  ctx.strokeStyle='rgba(26,42,58,0.9)'; ctx.lineWidth=0.5;
+  ctx.strokeStyle='rgba(26,42,58,0.9)';ctx.lineWidth=0.5;
   [100,120,140,160].forEach(v=>{
-    ctx.beginPath(); ctx.moveTo(pad.l,yOf(v)); ctx.lineTo(pad.l+gW,yOf(v)); ctx.stroke();
-    ctx.fillStyle='#3d5570'; ctx.font='8px monospace'; ctx.textAlign='right';
+    ctx.beginPath();ctx.moveTo(pad.l,yOf(v));ctx.lineTo(pad.l+gW,yOf(v));ctx.stroke();
+    ctx.fillStyle='#3d5570';ctx.font='8px monospace';ctx.textAlign='right';
     ctx.fillText(v,pad.l-3,yOf(v)+3);
   });
-  ctx.setLineDash([3,4]); ctx.strokeStyle='rgba(245,158,11,0.25)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(xOf(8),pad.t); ctx.lineTo(xOf(8),pad.t+gH); ctx.stroke();
+  ctx.setLineDash([3,4]);ctx.strokeStyle='rgba(245,158,11,0.25)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(xOf(8),pad.t);ctx.lineTo(xOf(8),pad.t+gH);ctx.stroke();
   ctx.strokeStyle='rgba(6,182,212,0.2)';
-  ctx.beginPath(); ctx.moveTo(xOf(N-1),pad.t); ctx.lineTo(xOf(N-1),pad.t+gH); ctx.stroke();
+  ctx.beginPath();ctx.moveTo(xOf(N-1),pad.t);ctx.lineTo(xOf(N-1),pad.t+gH);ctx.stroke();
   ctx.setLineDash([]);
-  ctx.strokeStyle='rgba(6,182,212,0.55)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(xOf(N-2),pad.t); ctx.lineTo(xOf(N-2),pad.t+gH); ctx.stroke();
-
+  ctx.strokeStyle='rgba(6,182,212,0.55)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(xOf(N-2),pad.t);ctx.lineTo(xOf(N-2),pad.t+gH);ctx.stroke();
   ctx.beginPath();
   smo.forEach((v,i)=>i===0?ctx.moveTo(xOf(i),yOf(v)):ctx.lineTo(xOf(i),yOf(v)));
-  ctx.strokeStyle='rgba(245,158,11,0.65)'; ctx.lineWidth=1.5; ctx.stroke();
-
+  ctx.strokeStyle='rgba(245,158,11,0.65)';ctx.lineWidth=1.5;ctx.stroke();
   ctx.beginPath();
   obs.forEach((v,i)=>i===0?ctx.moveTo(xOf(i),yOf(v)):ctx.lineTo(xOf(i),yOf(v)));
-  ctx.strokeStyle=wolframLive?'rgba(6,182,212,1.0)':'rgba(6,182,212,0.55)'; ctx.lineWidth=1.5; ctx.stroke();
-
-  ctx.beginPath(); ctx.arc(xOf(N-2),yOf(obs[N-2]),3,0,Math.PI*2);
-  ctx.fillStyle=wolframLive?'#06b6d4':'#3d5570'; ctx.fill();
-
-  ctx.fillStyle='#3d5570'; ctx.font='8px monospace'; ctx.textAlign='center';
+  ctx.strokeStyle=wolframLive?'rgba(6,182,212,1.0)':'rgba(6,182,212,0.55)';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.beginPath();ctx.arc(xOf(N-2),yOf(obs[N-2]),3,0,Math.PI*2);
+  ctx.fillStyle=wolframLive?'#06b6d4':'#3d5570';ctx.fill();
+  ctx.fillStyle='#3d5570';ctx.font='8px monospace';ctx.textAlign='center';
   [["Jan'24",0],["Jul'24",6],["Jan'25",12],["Jul'25",18],["NOW",N-2],["Peri",N-1]].forEach(([l,i])=>{
-    ctx.fillStyle = i===N-2?(wolframLive?'rgba(6,182,212,0.9)':'rgba(6,182,212,0.5)'):'#3d5570';
+    ctx.fillStyle=i===N-2?(wolframLive?'rgba(6,182,212,0.9)':'rgba(6,182,212,0.5)'):'#3d5570';
     ctx.fillText(l,xOf(i),H-5);
   });
-  ctx.fillStyle='rgba(245,158,11,0.55)'; ctx.textAlign='center';
+  ctx.fillStyle='rgba(245,158,11,0.55)';ctx.textAlign='center';
   ctx.fillText('SC25 peak',xOf(8),pad.t+8);
-  // Source label
   ctx.fillStyle=wolframLive?'rgba(245,158,11,0.7)':'rgba(61,85,112,0.8)';
-  ctx.textAlign='right'; ctx.font='7px monospace';
-  ctx.fillText(wolframLive?'Wolfram API':'NOAA fallback',W-4,pad.t+8);
+  ctx.textAlign='right';ctx.font='7px monospace';
+  ctx.fillText(wolframLive?'Wolfram CAG':'NOAA fallback',W-4,pad.t+8);
 }
 
-// ── WOLFRAM API — F10.7 via LLM endpoint ──────────────────────────
-// Called with user's AppID from the URL hash or a server proxy.
-// The AppID must NOT be hardcoded here — it is read from
-// window.WOLFRAM_APPID which the server sets, or from #appid= hash.
-// CORS: Wolfram LLM API allows cross-origin from browsers.
-async function fetchWolframF107() {
-  // AppID source: window.WOLFRAM_APPID (set by server) or URL param
-  // AppID resolution — four methods in priority order:
-  // 1. window.WOLFRAM_APPID (server injection)
-  // 2. ?wappid= URL parameter (URLSearchParams)
-  // 3. href regex (Brave/file:// fallback)
-  // 4. localStorage (persists between sessions — set once via console)
-  const params   = new URLSearchParams(window.location.search);
-  let   appid    = window.WOLFRAM_APPID
-                || params.get('wappid')
-                || null;
-  if(!appid) {
-    const hrefM = window.location.href.match(/[?&]wappid=([^&\s#]+)/);
-    if(hrefM) appid = decodeURIComponent(hrefM[1]);
-  }
-  if(!appid) {
-    try { appid = localStorage.getItem('wolfram_appid'); } catch(e) {}
-  }
-  // Save valid key to localStorage for next session
-  if(appid && appid.length > 4 && appid !== 'YOUR-APPID-HERE') {
-    try { localStorage.setItem('wolfram_appid', appid); } catch(e) {}
-  }
-  // Debug: always log what was resolved (safe — key visible only in your console)
-  _log('Wolfram AppID resolved:', appid ? appid.substring(0,4)+'****' : 'NONE',
-    '| search:', window.location.search,
-    '| href tail:', window.location.href.slice(-30));
-  if(!appid) {
-    _warn('Wolfram AppID not configured. To fix, open console and run:');
-    _warn("  localStorage.setItem('wolfram_appid','WGV2E2HYQ7')");
-    _warn('Then reload the page. No URL parameter needed after that.');
-    return false;
-  }
-  try {
-    // LLM API: returns clean plaintext optimised for parsing
-    const query      = encodeURIComponent('current F10.7 solar flux index');
-    const directUrl  = `https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
-    // Direct first; if CORS blocks (file:// origin), use allorigins proxy
-    let text = '';
-    try {
-      const rd = await fetch(directUrl);
-      if(rd.ok) text = await rd.text();
-    } catch(e) {}
-    if(!text) {
-      try {
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(directUrl)}`;
-        const rp = await fetch(proxyUrl);
-        if(rp.ok) { const jp=await rp.json(); text=jp.contents||''; }
-        if(text) _log('Wolfram: allorigins proxy (CORS fallback)');
-      } catch(e) {}
-    }
-    if(!text) return false;
-    // Parse: look for a number between 80 and 300 (plausible F10.7 range)
-    const match = text.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|solar flux units|10⁻²²|SFU)?/i);
-    if(!match) return false;
-    const liveVal = parseFloat(match[1]);
-    if(liveVal < 60 || liveVal > 400) return false;
-
-    // Also query 81-day smoothed
-    const query2 = encodeURIComponent('F10.7 solar flux 81 day smoothed average');
-    const url2    = `https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query2}`;
-    let smoothedVal = liveVal * 0.97; // fallback estimate
-    try {
-      let text2='';
-      const rd2 = await fetch(url2).catch(()=>null);
-      if(rd2&&rd2.ok) text2=await rd2.text();
-      if(!text2) {
-        const rp2=await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url2)}`).catch(()=>null);
-        if(rp2&&rp2.ok){const jp2=await rp2.json();text2=jp2.contents||'';}
-      }
-      if(text2) {
-        const m2 = text2.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|solar flux units)?/i);
-        if(m2) { const v2=parseFloat(m2[1]); if(v2>60&&v2<400) smoothedVal=v2; }
-      }
-    } catch(e) {}
-
-    // Update live arrays — replace last point with Wolfram value
-    f107LiveObs[f107LiveObs.length-2] = Math.round(liveVal);
-    f107LiveSmo[f107LiveSmo.length-2] = Math.round(smoothedVal);
-    // Perihelion projection (smoothed minus ~4 months decline at 1.5 sfu/mo)
-    const periVal = Math.round(smoothedVal - 6);
-    f107LiveObs[f107LiveObs.length-1] = periVal;
-    f107LiveSmo[f107LiveSmo.length-1] = periVal;
-
-    // Update UI
-    const obsEl = document.getElementById('f107Obs');
-    const hdrEl = document.getElementById('f107H');
-    if(obsEl) obsEl.textContent = Math.round(liveVal);
-    if(hdrEl) hdrEl.textContent = Math.round(liveVal);
-    // Update smoothed and perihelion stats
-    const stats = document.querySelectorAll('.fval');
-    if(stats[0]) stats[0].textContent = Math.round(liveVal);
-    if(stats[1]) stats[1].textContent = Math.round(smoothedVal);
-    if(stats[2]) stats[2].textContent = periVal;
-
-    wolframLive = true;
-    // Update badge to confirm live
-    const badge = document.querySelector('.wolfram-badge');
-    if(badge) badge.title = `Wolfram API live — ${new Date().toUTCString()}`;
-    const wdot  = document.querySelector('.wdot');
-    if(wdot)  wdot.style.background = '#22c55e';
-
-    drawF107();
-    _log(`Wolfram F10.7: observed=${liveVal} sfu, smoothed=${smoothedVal} sfu`);
-    return true;
-  } catch(e) {
-    _warn('Wolfram API fetch failed:', e.message);
-    return false;
-  }
-}
-
-// ── NOAA F10.7 FALLBACK — real endpoint ───────────────────────────
-async function fetchNoaaF107() {
-  // solar-radio-flux.json is the correct NOAA endpoint for F10.7
-  try {
-    const r = await fetch('https://services.swpc.noaa.gov/json/solar-radio-flux.json');
-    if(!r.ok) return;
-    const d = await r.json();
-    if(!Array.isArray(d) || !d.length) return;
-    // Each entry: {time_tag, flux} or {observed_flux}
-    // Find most recent entry — sort by time_tag descending
-    const sorted = d.slice().sort((a,b)=>new Date(b.time_tag||0)-new Date(a.time_tag||0));
-    const last   = sorted[0];
-    // Field names vary: flux, observed_flux, f107, f10.7cm
-    const val    = +(last['flux'] || last['observed_flux'] || last['f107']
-                  || last['f10.7cm'] || last['sfu'] || 0);
-    if(val < 60 || val > 400) return;
-    f107LiveObs[f107LiveObs.length-2] = Math.round(val);
-    const obsEl = document.getElementById('f107Obs');
-    const hdrEl = document.getElementById('f107H');
-    if(obsEl) obsEl.textContent = Math.round(val);
-    if(hdrEl) hdrEl.textContent = Math.round(val);
-    drawF107();
-    _log(`NOAA F10.7 fallback: ${val} sfu`);
-  } catch(e) {}
-}
-
-// ══════════════════════════════════════════════════════════════════
-// ORBIT CANVAS — CORRECT PLANET POSITIONS
-// ══════════════════════════════════════════════════════════════════
-function mulberry32(seed) {
-  return ()=>{
-    seed|=0; seed=seed+0x6D2B79F5|0;
-    let t=Math.imul(seed^seed>>>15,1|seed);
-    t=t+Math.imul(t^t>>>7,61|t)^t;
-    return((t^t>>>14)>>>0)/4294967296;
-  };
-}
-
-function drawOrbit() {
-  const canvas = document.getElementById('orbitCanvas');
-  const wrap   = canvas.parentElement;
-  const dpr    = window.devicePixelRatio||1;
-  canvas.width  = wrap.offsetWidth*dpr;
-  canvas.height = wrap.offsetHeight*dpr;
-  canvas.style.width  = wrap.offsetWidth+'px';
-  canvas.style.height = wrap.offsetHeight+'px';
-  const ctx = canvas.getContext('2d');
-  ctx.scale(dpr,dpr);
-  const W = wrap.offsetWidth, H = wrap.offsetHeight;
-  const cx = W/2, cy = H/2;
-  // Scale: fit 1.8 AU so Mars is visible with margin
-  const AU = Math.min(W,H) * 0.26;
-
-  ctx.fillStyle='#020608'; ctx.fillRect(0,0,W,H);
-
-  // Stars
-  const rng = mulberry32(42);
-  for(let i=0;i<200;i++){
-    const x=rng()*W,y=rng()*H,r=rng()*0.8+0.2;
-    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(180,210,240,${0.1+rng()*0.35})`; ctx.fill();
-  }
-
-  const now = new Date();
-
-  // ── Planet orbit rings + planet dots ────────────────────────────
-  // Orbital ring colors
-  const ringColors = {
-    Mercury:'rgba(248,113,113,0.25)',
-    Venus:  'rgba(74,222,128,0.2)',
-    Earth:  'rgba(96,165,250,0.3)',
-    Mars:   'rgba(251,146,60,0.2)',
-  };
-  const dotColors = {
-    Mercury:'#f87171',
-    Venus:  '#4ade80',
-    Earth:  '#60a5fa',
-    Mars:   '#fb923c',
-  };
-  const dotSize = { Mercury:3, Venus:4, Earth:5, Mars:4 };
-
-  Object.entries(PLANET_ELEMS).forEach(([name, p]) => {
-    const a  = p.a;
-    const Lr = planetLon(name, now) * Math.PI/180;
-
-    // Orbital ring
-    ctx.beginPath(); ctx.arc(cx,cy,a*AU,0,Math.PI*2);
-    ctx.strokeStyle=ringColors[name]; ctx.lineWidth=0.8; ctx.stroke();
-
-    // Planet dot — 180° rotation to match JPL Horizons orientation
-    // JPL view: negate both X and Y axes
-    // Result: vernal equinox points LEFT, 90° longitude points DOWN
-    // Matches all reference images (Earth right, comet lower-right)
-    const px = cx - a * Math.cos(Lr) * AU;
-    const py = cy + a * Math.sin(Lr) * AU;
-    const ds = dotSize[name];
-
-    // Glow
-    ctx.beginPath(); ctx.arc(px,py,ds+3,0,Math.PI*2);
-    ctx.fillStyle = dotColors[name].replace(/[^,]+\)$/, '0.15)').replace('rgb','rgba');
-    ctx.fill();
-    // Dot
-    ctx.beginPath(); ctx.arc(px,py,ds,0,Math.PI*2);
-    ctx.fillStyle = dotColors[name]; ctx.fill();
-
-    // Label
-    ctx.fillStyle = dotColors[name];
-    ctx.font = `9px monospace`;
-    ctx.textAlign = px > cx ? 'left' : 'right';
-    const lx = px > cx ? px+ds+3 : px-ds-3;
-    ctx.fillText(name[0], lx, py+3);
-  });
-
-  // ── Sun ─────────────────────────────────────────────────────────
-  const sg = ctx.createRadialGradient(cx,cy,0,cx,cy,14);
-  sg.addColorStop(0,'rgba(255,220,100,1)');
-  sg.addColorStop(0.4,'rgba(255,180,50,0.9)');
-  sg.addColorStop(1,'rgba(255,140,0,0)');
-  ctx.beginPath(); ctx.arc(cx,cy,14,0,Math.PI*2); ctx.fillStyle=sg; ctx.fill();
-
-  // ── Comet orbit path ─────────────────────────────────────────────
-  // Full arc
-  ctx.beginPath();
-  let first=true, periPx=null;
-  for(let d=-179; d<=179; d+=0.4){
-    const nu  = d*Math.PI/180;
-    const tnu = Math.tan(nu/2);
-    if(!isFinite(tnu)) continue;
-    const r = ORB.q*(1+tnu*tnu);
-    if(r>2.5) continue;
-    const {X,Y} = orb2ecl(nu, r);
-    const px = cx - X*AU, py = cy + Y*AU;
-    first ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
-    first=false;
-    if(Math.abs(d)<0.5) periPx={px,py};
-  }
-  ctx.strokeStyle='rgba(6,182,212,0.4)'; ctx.lineWidth=1.2; ctx.stroke();
-
-  // Bright perihelion zone (±30° true anomaly)
-  ctx.beginPath(); first=true;
-  for(let d=-35; d<=35; d+=0.5){
-    const nu=d*Math.PI/180, tnu=Math.tan(nu/2);
-    const r=ORB.q*(1+tnu*tnu);
-    const {X,Y}=orb2ecl(nu,r);
-    const px=cx-X*AU, py=cy+Y*AU;
-    first?ctx.moveTo(px,py):ctx.lineTo(px,py); first=false;
-  }
-  ctx.strokeStyle='rgba(245,158,11,0.85)'; ctx.lineWidth=2.2; ctx.stroke();
-
-  // Perihelion dot
-  if(periPx){
-    ctx.beginPath(); ctx.arc(periPx.px,periPx.py,5,0,Math.PI*2);
-    ctx.fillStyle='#f59e0b'; ctx.fill();
-    ctx.beginPath(); ctx.arc(periPx.px,periPx.py,9,0,Math.PI*2);
-    ctx.fillStyle='rgba(245,158,11,0.18)'; ctx.fill();
-  }
-
-  // ── Current comet position ────────────────────────────────────────
-  const {nu:nuNow, r:rNow} = cometState(now);
-  const {X:cX, Y:cY} = orb2ecl(nuNow, rNow);
-  const cpx = cx-cX*AU, cpy = cy+cY*AU;
-
-  // Anti-sunward tail
-  const ta = Math.atan2(cpy-cy, cpx-cx);
-  const tl = Math.min(80, rNow*60);
-  const tg = ctx.createLinearGradient(cpx,cpy,cpx+Math.cos(ta)*tl,cpy+Math.sin(ta)*tl);
-  tg.addColorStop(0,'rgba(6,182,212,0.7)'); tg.addColorStop(1,'rgba(6,182,212,0)');
-  ctx.beginPath(); ctx.moveTo(cpx,cpy);
-  ctx.lineTo(cpx+Math.cos(ta)*tl, cpy+Math.sin(ta)*tl);
-  ctx.strokeStyle=tg; ctx.lineWidth=2.5; ctx.stroke();
-
-  // Comet dot
-  ctx.beginPath(); ctx.arc(cpx,cpy,5,0,Math.PI*2); ctx.fillStyle='#06b6d4'; ctx.fill();
-  ctx.beginPath(); ctx.arc(cpx,cpy,9,0,Math.PI*2); ctx.fillStyle='rgba(6,182,212,0.2)'; ctx.fill();
-}
-
-// ══════════════════════════════════════════════════════════════════
-// SDO + AR OVERLAY — v10 mobile
-//
-// ROOT CAUSES FIXED:
-// 1. crossorigin="anonymous" caused CORS failure → image blank
-//    Fix: removed crossorigin attr. Overlay draws by math, no pixel access.
-// 2. AR table and overlay used separate data with made-up locations
-//    Fix: ONE shared activeRegions array, populated from SRS → both consumers.
-// 3. solar_regions.json field names were wrong
-//    Fix: correct field lookup with all known variants + lat/lon fallback
-// ══════════════════════════════════════════════════════════════════
-const SDO_CX=512, SDO_CY=512, SDO_R=488, SDO_SZ=1024;
-
-// Shared live data — both the AR table and overlay read from this
-let activeRegions = [];
-
-function parseLoc(s){
-  if(!s) return null;
-  const m = s.match(/([NS])(\d+)([EW])(\d+)/);
-  if(!m) return null;
-  let lat=+m[2]; if(m[1]==='S') lat=-lat;
-  let lon=+m[4]; if(m[3]==='E') lon=-lon;  // East = negative (Stonyhurst)
-  return {lat, lon};
-}
-
-function buildLocFromLatLon(lat, lon) {
-  // NOAA convention: West longitude = positive
-  const la=Math.round(Math.abs(lat)), lo=Math.round(Math.abs(lon));
-  return `${lat>=0?'N':'S'}${String(la).padStart(2,'0')}${lon>=0?'W':'E'}${String(lo).padStart(2,'0')}`;
-}
-
-function helio2norm(lat, lon) {
-  const lr=lat*Math.PI/180, lg=lon*Math.PI/180;
-  const x=Math.sin(lg)*Math.cos(lr);
-  const y=Math.sin(lr);
-  const z=Math.cos(lg)*Math.cos(lr);
-  if(z<=0) return null;
-  return { px:(SDO_CX+x*SDO_R)/SDO_SZ, py:(SDO_CY-y*SDO_R)/SDO_SZ, z };
-}
-
-function magCls(mag) {
-  const m=(mag||'').toLowerCase();
-  if(m.includes('gamma')&&m.includes('delta')) return 'arbd';
-  if(m.includes('gamma')||m.includes('delta')) return 'arbg';
-  return 'arb';
-}
-
-// ── SRS TEXT PARSER (v7 exact format) ─────────────────────────────
-// Format: RegNum Location CMD_Lon Area Extent Zurich LL NN MagClass
-// Example: "4368 S15E32 218 150 2 HSX 1 A BGD"
-function parseSRS(txt) {
-  const regions = [];
-  let inRegions = false;
-  for(const line of txt.split('\n')) {
-    const t = line.trim();
-    if(t.startsWith('I.  Regions with Sunspots')) { inRegions=true; continue; }
-    if(t.startsWith('IA.') || t.startsWith('II.'))  { inRegions=false; continue; }
-    if(inRegions && /^\d{4}/.test(t)) {
-      const p = t.split(/\s+/);
-      if(p.length >= 8) {
-        regions.push({
-          id:   'AR'+p[0],
-          loc:  p[1].replace('*',''),  // strip * from limb regions
-          area: +p[3] || 10,
-          mag:  p.slice(7).join(' ')
-        });
-      }
-    }
-  }
-  return regions;
-}
-
-// ── RENDER AR TABLE (left column) ─────────────────────────────────
-function renderARTable(regions) {
-  const tbody = document.getElementById('arTable');
-  const magLabel = m => {
-    const ml = (m||'').toLowerCase();
-    if(ml.includes('gamma')&&ml.includes('delta')) return {cls:'abd',sym:'&beta;&gamma;&delta;'};
-    if(ml.includes('gamma')) return {cls:'abg',sym:'&beta;&gamma;'};
-    if(ml.includes('delta')) return {cls:'abg',sym:'&beta;&delta;'};
-    if(ml.includes('alpha')&&!ml.includes('beta')) return {cls:'ab',sym:'&alpha;'};
-    return {cls:'ab',sym:'&beta;'};
-  };
-  const flareRisk = m => {
-    const ml=(m||'').toLowerCase();
-    if(ml.includes('gamma')&&ml.includes('delta')) return 'X-class risk';
-    if(ml.includes('gamma')||ml.includes('delta'))  return 'M-class possible';
-    return 'C-class possible';
-  };
-  tbody.innerHTML = regions.map(r => {
-    const {cls,sym} = magLabel(r.mag);
-    return `<div class="ar-row">
-      <div class="ar-id">${r.id}</div>
-      <div class="ar-loc">${r.loc}</div>
-      <div class="arcls ${cls}">${sym}</div>
-      <div class="ar-f">${flareRisk(r.mag)}</div>
-    </div>`;
-  }).join('') || '<div style="font-size:9px;color:var(--text3);padding:6px">No numbered regions</div>';
-}
-
-// ── RENDER AR OVERLAY (SDO canvas) ─────────────────────────────────
-function renderAROverlay(regions) {
-  const overlay = document.getElementById('arOverlay');
-  overlay.innerHTML = '';
-  regions.forEach(rgn => {
-    const c = parseLoc(rgn.loc);
-    if(!c) return;
-    const n = helio2norm(c.lat, c.lon);
-    if(!n) return;
-    const sz = Math.max(3, Math.min(9, Math.sqrt(rgn.area||20)*1.0));
-    const el = document.createElement('div');
-    el.className = `ar-rect ${magCls(rgn.mag)}`;
-    el.style.cssText = [
-      `left:${(n.px*100-sz/2).toFixed(2)}%`,
-      `top:${(n.py*100-sz*0.6/2).toFixed(2)}%`,
-      `width:${sz.toFixed(2)}%`,
-      `height:${(sz*0.6).toFixed(2)}%`,
-      `opacity:${(0.35+n.z*0.65).toFixed(2)}`
-    ].join(';');
-    el.innerHTML = `<span class="arl">AR${rgn.id.replace('AR','')}</span>`;
-    overlay.appendChild(el);
-  });
-}
-
-// SDO fallback is handled inline in the img onerror attribute
-// (must be self-contained — fires before the script block is parsed)
-
-function drawSyntheticDisk() {
-  const c = document.getElementById('arCanvas');
-  if(!c) return;
-  const w = c.parentElement.offsetWidth;
-  c.width = w; c.height = w;
-  c.style.width = w+'px'; c.style.height = w+'px';
-  c.style.position = 'absolute'; c.style.inset = '0';
-  const ctx = c.getContext('2d');
-  // Dark background
-  ctx.fillStyle = '#000'; ctx.fillRect(0,0,w,w);
-  // Solar disk gradient
-  const cx=w/2, cy=w/2, r=w*0.47;
-  const g = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
-  g.addColorStop(0,'rgba(180,80,40,0.9)');
-  g.addColorStop(0.4,'rgba(140,50,20,0.8)');
-  g.addColorStop(0.85,'rgba(80,20,5,0.6)');
-  g.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
-  ctx.fillStyle=g; ctx.fill();
-  // Chromospheric texture — concentric faint rings
-  for(let ri=0.2;ri<0.9;ri+=0.15){
-    ctx.beginPath(); ctx.arc(cx,cy,r*ri,0,Math.PI*2);
-    ctx.strokeStyle=`rgba(200,100,50,0.06)`; ctx.lineWidth=2; ctx.stroke();
-  }
-}
-
-// ── AR CORS PROXY RETRY ──────────────────────────────────────────
-async function loadAR_retry() {
-  // allorigins also blocks null origin (file://) — only run on HTTP
-  if(!window.location.protocol.startsWith('http')) return;
-  const dot = document.getElementById('arDot');
-  const msg = document.getElementById('arMsg');
-  try {
-    const srsUrl = 'https://services.swpc.noaa.gov/text/srs.txt';
-    const proxy  = `https://api.allorigins.win/get?url=${encodeURIComponent(srsUrl)}`;
-    const r = await fetch(proxy);
-    if(!r.ok) return;
-    const jp = await r.json();
-    const regions = parseSRS(jp.contents || '');
-    if(!regions.length) return;
-    activeRegions = regions;
-    renderARTable(regions);
-    renderAROverlay(regions);
-    if(msg) msg.textContent = `Live SRS via proxy · ${regions.length} regions`;
-    if(dot) dot.className = 'dot5 ok';
-    _log('AR data loaded via allorigins proxy');
-  } catch(e) { _warn('AR proxy retry failed:', e.message); }
-}
-
-// ── MAIN LOAD FUNCTION ─────────────────────────────────────────────
-async function loadAR() {
-  const dot = document.getElementById('arDot');
-  const msg = document.getElementById('arMsg');
-  let regions = [];
-
-  // Try 1: SRS text file (most reliable, exact format)
-  try {
-    const r = await fetch('https://services.swpc.noaa.gov/text/srs.txt');
-    if(r.ok) {
-      regions = parseSRS(await r.text());
-      if(regions.length) {
-        if(msg) msg.textContent = `Live SRS · ${regions.length} regions`;
-        if(dot) dot.className = 'dot5 ok';
-      }
-    }
-  } catch(e) {}
-
-  // Try 2: solar_regions.json with correct field mapping
-  if(!regions.length) {
-    try {
-      const r = await fetch('https://services.swpc.noaa.gov/json/solar_regions.json');
-      if(r.ok) {
-        const d = await r.json();
-        if(Array.isArray(d) && d.length) {
-          // De-duplicate: keep latest entry per region
-          const seen = new Set();
-          for(let i=d.length-1; i>=0 && regions.length<8; i--) {
-            const x = d[i];
-            const rid = x.Region || x.region;
-            if(!rid || seen.has(rid)) continue;
-            seen.add(rid);
-            // Build location string from separate lat/lon if Location not present
-            let loc = x.Location || x.location;
-            if(!loc && (x.Latitude!=null || x.latitude!=null)) {
-              const lat = +(x.Latitude ?? x.latitude);
-              const lon = +(x.Longitude ?? x.longitude ?? 0);
-              loc = buildLocFromLatLon(lat, lon);
-            }
-            regions.push({
-              id:   'AR'+rid,
-              loc:  (loc||'').replace('*',''),
-              mag:  x.Magclass || x.MagClass || x.magclass || 'Beta',
-              area: +(x.Area || x.area || 20)
-            });
-          }
-          if(regions.length) {
-            if(msg) msg.textContent = `Live JSON · ${regions.length} regions`;
-            if(dot) dot.className = 'dot5 ok';
-          }
-        }
-      }
-    } catch(e) {}
-  }
-
-  // Try 3: srs.txt alternate endpoint
-  if(!regions.length) {
-    try {
-      const r = await fetch('https://services.swpc.noaa.gov/text/solar-regions.txt');
-      if(r.ok) {
-        regions = parseSRS(await r.text());
-        if(regions.length) {
-          if(msg) msg.textContent = `Live · ${regions.length} regions`;
-          if(dot) dot.className = 'dot5 ok';
-        }
-      }
-    } catch(e) {}
-  }
-
-  if(!regions.length) {
-    if(msg) msg.textContent = 'CORS blocked — serve via HTTP for live AR data';
-    if(dot) dot.className = 'dot5 wait';
-    document.getElementById('arTable').innerHTML =
-      '<div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">AR data requires HTTP server<br>(CORS blocked on file://)</div>';
-    // Schedule one retry in case NOAA was slow
-    setTimeout(loadAR_retry, 8000);
-    return;
-  }
-
-  // ONE shared array → both consumers
-  activeRegions = regions;
-  renderARTable(regions);
-  renderAROverlay(regions);
-}
-
-// ══════════════════════════════════════════════════════════════════
-// NOAA LIVE DATA
-// ══════════════════════════════════════════════════════════════════
-async function fetchNoaa(){
+// ── WOLFRAM API — F10.7 ───────────────────────────────────────────
+async function fetchWolframF107(){
+  const params=new URLSearchParams(window.location.search);
+  let appid=window.WOLFRAM_APPID||params.get('wappid')||null;
+  if(!appid){const m=window.location.href.match(/[?&]wappid=([^&\s#]+)/);if(m)appid=decodeURIComponent(m[1]);}
+  if(!appid){try{appid=localStorage.getItem('wolfram_appid');}catch(e){}}
+  if(appid&&appid.length>4&&appid!=='YOUR-APPID-HERE'){try{localStorage.setItem('wolfram_appid',appid);}catch(e){}}
+  _log('Wolfram AppID:',appid?appid.substring(0,4)+'****':'NONE');
+  if(!appid){_warn('AppID missing — run: localStorage.setItem(\'wolfram_appid\',\'WGV2E2HYQ7\')');return false;}
   try{
-    const r=await fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json');
+    const query=encodeURIComponent('current F10.7 solar flux index');
+    const directUrl=`https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
+    let text='';
+    try{const rd=await fetch(directUrl);if(rd.ok)text=await rd.text();}catch(e){}
+    if(!text){try{const rp=await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(directUrl)}`);if(rp.ok){const jp=await rp.json();text=jp.contents||'';}}catch(e){}}
+    if(!text)return false;
+    const match=text.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|solar flux units)?/i);
+    if(!match)return false;
+    const liveVal=parseFloat(match[1]);
+    if(liveVal<60||liveVal>400)return false;
+    let smoothedVal=liveVal*0.97;
+    try{
+      const url2=`https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${encodeURIComponent('F10.7 81 day smoothed')}`;
+      let text2='';
+      const rd2=await fetch(url2).catch(()=>null);
+      if(rd2&&rd2.ok)text2=await rd2.text();
+      if(!text2){const rp2=await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url2)}`).catch(()=>null);if(rp2&&rp2.ok){const jp2=await rp2.json();text2=jp2.contents||'';}}
+      if(text2){const m2=text2.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu)?/i);if(m2){const v2=parseFloat(m2[1]);if(v2>60&&v2<400)smoothedVal=v2;}}
+    }catch(e){}
+    f107LiveObs[f107LiveObs.length-2]=Math.round(liveVal);
+    f107LiveSmo[f107LiveSmo.length-2]=Math.round(smoothedVal);
+    const periVal=Math.round(smoothedVal-6);
+    f107LiveObs[f107LiveObs.length-1]=periVal;
+    f107LiveSmo[f107LiveSmo.length-1]=periVal;
+    const obsEl=document.getElementById('f107Obs');const hdrEl=document.getElementById('f107H');
+    if(obsEl)obsEl.textContent=Math.round(liveVal);
+    if(hdrEl)hdrEl.textContent=Math.round(liveVal);
+    const smo2=document.getElementById('f107Smooth');
+    if(smo2)smo2.textContent=Math.round(smoothedVal);
+    wolframLive=true;
+    const wdot=document.querySelector('.wdot');if(wdot)wdot.style.background='#22c55e';
+    drawF107();
+    _log(`Wolfram F10.7: ${liveVal} sfu, smoothed: ${smoothedVal} sfu`);
+    return true;
+  }catch(e){_warn('Wolfram fetch failed:',e.message);return false;}
+}
+
+async function fetchNoaaF107(){
+  try{
+    const r=await fetch('https://services.swpc.noaa.gov/json/solar-radio-flux.json');
+    if(!r.ok)return;
+    const d=await r.json();
+    if(!Array.isArray(d)||!d.length)return;
+    const sorted=d.slice().sort((a,b)=>new Date(b.time_tag||0)-new Date(a.time_tag||0));
+    const last=sorted[0];
+    const val=+(last['flux']||last['observed_flux']||last['f107']||last['f10.7cm']||last['sfu']||0);
+    if(val<60||val>400)return;
+    f107LiveObs[f107LiveObs.length-2]=Math.round(val);
+    const obsEl=document.getElementById('f107Obs');const hdrEl=document.getElementById('f107H');
+    if(obsEl)obsEl.textContent=Math.round(val);
+    if(hdrEl)hdrEl.textContent=Math.round(val);
+    drawF107();
+    _log(`NOAA F10.7: ${val} sfu`);
+  }catch(e){}
+}
+
+// ── v11.1 — CAG proxy calls ───────────────────────────────────────
+async function fetchCAG(){
+  try{
+    // Velocity from science log (proxy already computed it)
+    const r=await fetch('/api/velocity/now',{cache:'no-store'});
     if(r.ok){
       const d=await r.json();
-      if(Array.isArray(d)&&d.length){
-        const kp=+(d[d.length-1].kp_index??d[d.length-1].Kp??2);
-        document.getElementById('kpH').textContent   =kp.toFixed(0);
-        document.getElementById('sbKp').textContent  =kp.toFixed(1);
-        document.getElementById('kpDesc').textContent=`Kp = ${kp.toFixed(1)}`;
-        const g=document.getElementById('geoSc');
-        if(kp>=5){g.textContent='G'+(kp>=9?5:kp>=8?4:kp>=7?3:kp>=6?2:1);g.className='sv s2';}
-        else{g.textContent='G0';g.className='sv s0';}
-        document.getElementById('sbNoaa').textContent='online';
+      if(d.v_km_s){
+        const vel=document.getElementById('liveVelocity');
+        if(vel)vel.textContent=d.v_km_s.toFixed(1);
       }
     }
-  }catch(e){}
-  // F10.7 fetched by fetchWolframF107() / fetchNoaaF107() — see above
+  }catch(e){_warn('CAG velocity fetch failed:',e);}
+  try{
+    // F10.7 CAG baseline
+    const r=await fetch('/api/f107',{cache:'no-store'});
+    if(r.ok){
+      const d=await r.json();
+      const val=d.raw_value||d.f107_raw;
+      const baseline=d.smoothed_81d||d.f107_81d_baseline;
+      if(val){
+        const hdrEl=document.getElementById('f107H');
+        if(hdrEl)hdrEl.textContent=Math.round(val);
+        f107LiveObs[f107LiveObs.length-2]=Math.round(val);
+      }
+      if(baseline){
+        const cagEl=document.getElementById('f107CAG');
+        if(cagEl)cagEl.textContent=Math.round(baseline);
+        const smo2=document.getElementById('f107Smooth');
+        if(smo2)smo2.textContent=Math.round(baseline);
+        f107LiveSmo[f107LiveSmo.length-2]=Math.round(baseline);
+      }
+      wolframLive=true;
+      drawF107();
+      const sbCAG=document.getElementById('sbCAG');
+      if(sbCAG)sbCAG.textContent='connected';
+      const cdot=document.querySelector('.cdot');
+      if(cdot)cdot.style.background='#22c55e';
+      _log('CAG F10.7: raw='+val+' baseline='+baseline);
+    }
+  }catch(e){_warn('CAG F10.7 fetch failed:',e);}
 }
 
-// ══════════════════════════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded',()=>{
-  updateCountdown(); updateClock();
-  setInterval(updateCountdown, 1000);
-  setInterval(updateClock,     1000);
+// ── ORBIT CANVAS ──────────────────────────────────────────────────
+function mulberry32(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 
-  // Draw after layout — retry if canvas has zero dimensions (common on file://)
-  function tryDraw(attempts) {
+function drawOrbit(){
+  const canvas=document.getElementById('orbitCanvas');
+  const wrap=canvas.parentElement;
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=wrap.offsetWidth*dpr;
+  canvas.height=wrap.offsetHeight*dpr;
+  canvas.style.width=wrap.offsetWidth+'px';
+  canvas.style.height=wrap.offsetHeight+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  const W=wrap.offsetWidth,H=wrap.offsetHeight,cx=W/2,cy=H/2;
+  const AU=Math.min(W,H)*0.26;
+  ctx.fillStyle='#020608';ctx.fillRect(0,0,W,H);
+  const rng=mulberry32(42);
+  for(let i=0;i<200;i++){const x=rng()*W,y=rng()*H,r=rng()*0.8+0.2;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=`rgba(180,210,240,${0.1+rng()*0.35})`;ctx.fill();}
+  const now=new Date();
+  const ringColors={Mercury:'rgba(248,113,113,0.25)',Venus:'rgba(74,222,128,0.2)',Earth:'rgba(96,165,250,0.3)',Mars:'rgba(251,146,60,0.2)'};
+  const dotColors={Mercury:'#f87171',Venus:'#4ade80',Earth:'#60a5fa',Mars:'#fb923c'};
+  const dotSize={Mercury:3,Venus:4,Earth:5,Mars:4};
+  Object.entries(PLANET_ELEMS).forEach(([name,p])=>{
+    const a=p.a,Lr=planetLon(name,now)*Math.PI/180;
+    ctx.beginPath();ctx.arc(cx,cy,a*AU,0,Math.PI*2);ctx.strokeStyle=ringColors[name];ctx.lineWidth=0.8;ctx.stroke();
+    const px=cx-a*Math.cos(Lr)*AU,py=cy+a*Math.sin(Lr)*AU,ds=dotSize[name];
+    ctx.beginPath();ctx.arc(px,py,ds+3,0,Math.PI*2);ctx.fillStyle=dotColors[name].replace(/[^,]+\)$/,'0.15)').replace('rgb','rgba');ctx.fill();
+    ctx.beginPath();ctx.arc(px,py,ds,0,Math.PI*2);ctx.fillStyle=dotColors[name];ctx.fill();
+    ctx.fillStyle=dotColors[name];ctx.font='9px monospace';ctx.textAlign=px>cx?'left':'right';
+    const lx=px>cx?px+ds+3:px-ds-3;ctx.fillText(name[0],lx,py+3);
+  });
+  const sg=ctx.createRadialGradient(cx,cy,0,cx,cy,14);
+  sg.addColorStop(0,'rgba(255,220,100,1)');sg.addColorStop(0.4,'rgba(255,180,50,0.9)');sg.addColorStop(1,'rgba(255,140,0,0)');
+  ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=sg;ctx.fill();
+  ctx.beginPath();
+  let first=true,periPx=null;
+  for(let d=-179;d<=179;d+=0.4){
+    const nu=d*Math.PI/180,tnu=Math.tan(nu/2);
+    if(!isFinite(tnu))continue;
+    const r=ORB.q*(1+tnu*tnu);if(r>2.5)continue;
+    const{X,Y}=orb2ecl(nu,r);const px=cx-X*AU,py=cy+Y*AU;
+    first?ctx.moveTo(px,py):ctx.lineTo(px,py);first=false;
+    if(Math.abs(d)<0.5)periPx={px,py};
+  }
+  ctx.strokeStyle='rgba(6,182,212,0.4)';ctx.lineWidth=1.2;ctx.stroke();
+  ctx.beginPath();first=true;
+  for(let d=-35;d<=35;d+=0.5){
+    const nu=d*Math.PI/180,tnu=Math.tan(nu/2);
+    const r=ORB.q*(1+tnu*tnu);const{X,Y}=orb2ecl(nu,r);
+    const px=cx-X*AU,py=cy+Y*AU;first?ctx.moveTo(px,py):ctx.lineTo(px,py);first=false;
+  }
+  ctx.strokeStyle='rgba(245,158,11,0.85)';ctx.lineWidth=2.2;ctx.stroke();
+  if(periPx){ctx.beginPath();ctx.arc(periPx.px,periPx.py,5,0,Math.PI*2);ctx.fillStyle='#f59e0b';ctx.fill();ctx.beginPath();ctx.arc(periPx.px,periPx.py,9,0,Math.PI*2);ctx.fillStyle='rgba(245,158,11,0.18)';ctx.fill();}
+  const{nu:nuNow,r:rNow}=cometState(now);
+  const{X:cX,Y:cY}=orb2ecl(nuNow,rNow);
+  const cpx=cx-cX*AU,cpy=cy+cY*AU;
+  const ta=Math.atan2(cpy-cy,cpx-cx);const tl=Math.min(80,rNow*60);
+  const tg=ctx.createLinearGradient(cpx,cpy,cpx+Math.cos(ta)*tl,cpy+Math.sin(ta)*tl);
+  tg.addColorStop(0,'rgba(6,182,212,0.7)');tg.addColorStop(1,'rgba(6,182,212,0)');
+  ctx.beginPath();ctx.moveTo(cpx,cpy);ctx.lineTo(cpx+Math.cos(ta)*tl,cpy+Math.sin(ta)*tl);
+  ctx.strokeStyle=tg;ctx.lineWidth=2.5;ctx.stroke();
+  ctx.beginPath();ctx.arc(cpx,cpy,5,0,Math.PI*2);ctx.fillStyle='#06b6d4';ctx.fill();
+  ctx.beginPath();ctx.arc(cpx,cpy,9,0,Math.PI*2);ctx.fillStyle='rgba(6,182,212,0.2)';ctx.fill();
+}
+
+// ── SDO + AR OVERLAY (identical to v10) ───────────────────────────
+const SDO_CX=512,SDO_CY=512,SDO_R=488,SDO_SZ=1024;
+let activeRegions=[];
+function parseLoc(s){if(!s)return null;const m=s.match(/([NS])(\d+)([EW])(\d+)/);if(!m)return null;let lat=+m[2];if(m[1]==='S')lat=-lat;let lon=+m[4];if(m[3]==='E')lon=-lon;return{lat,lon};}
+function buildLocFromLatLon(lat,lon){const la=Math.round(Math.abs(lat)),lo=Math.round(Math.abs(lon));return`${lat>=0?'N':'S'}${String(la).padStart(2,'0')}${lon>=0?'W':'E'}${String(lo).padStart(2,'0')}`;}
+function helio2norm(lat,lon){const lr=lat*Math.PI/180,lg=lon*Math.PI/180;const x=Math.sin(lg)*Math.cos(lr),y=Math.sin(lr),z=Math.cos(lg)*Math.cos(lr);if(z<=0)return null;return{px:(SDO_CX+x*SDO_R)/SDO_SZ,py:(SDO_CY-y*SDO_R)/SDO_SZ,z};}
+function magCls(mag){const m=(mag||'').toLowerCase();if(m.includes('gamma')&&m.includes('delta'))return'arbd';if(m.includes('gamma')||m.includes('delta'))return'arbg';return'arb';}
+function parseSRS(txt){const regions=[];let in2=false;for(const line of txt.split('\n')){const t=line.trim();if(t.startsWith('I.  Regions with Sunspots')){in2=true;continue;}if(t.startsWith('IA.')||t.startsWith('II.')){in2=false;continue;}if(in2&&/^\d{4}/.test(t)){const p=t.split(/\s+/);if(p.length>=8)regions.push({id:'AR'+p[0],loc:p[1].replace('*',''),area:+p[3]||10,mag:p.slice(7).join(' ')});}}return regions;}
+function renderARTable(regions){
+  const tbody=document.getElementById('arTable');
+  const magLabel=m=>{const ml=(m||'').toLowerCase();if(ml.includes('gamma')&&ml.includes('delta'))return{cls:'abd',sym:'&beta;&gamma;&delta;'};if(ml.includes('gamma'))return{cls:'abg',sym:'&beta;&gamma;'};if(ml.includes('delta'))return{cls:'abg',sym:'&beta;&delta;'};if(ml.includes('alpha')&&!ml.includes('beta'))return{cls:'ab',sym:'&alpha;'};return{cls:'ab',sym:'&beta;'};};
+  const flareRisk=m=>{const ml=(m||'').toLowerCase();if(ml.includes('gamma')&&ml.includes('delta'))return'X-class risk';if(ml.includes('gamma')||ml.includes('delta'))return'M-class possible';return'C-class possible';};
+  tbody.innerHTML=regions.map(r=>{const{cls,sym}=magLabel(r.mag);return`<div class="ar-row"><div class="ar-id">${r.id}</div><div class="ar-loc">${r.loc}</div><div class="arcls ${cls}">${sym}</div><div class="ar-f">${flareRisk(r.mag)}</div></div>`;}).join('')||'<div style="font-size:9px;color:var(--text3);padding:6px">No numbered regions</div>';
+}
+function renderAROverlay(regions){
+  const overlay=document.getElementById('arOverlay');overlay.innerHTML='';
+  regions.forEach(rgn=>{const c=parseLoc(rgn.loc);if(!c)return;const n=helio2norm(c.lat,c.lon);if(!n)return;const sz=Math.max(3,Math.min(9,Math.sqrt(rgn.area||20)*1.0));const el=document.createElement('div');el.className=`ar-rect ${magCls(rgn.mag)}`;el.style.cssText=[`left:${(n.px*100-sz/2).toFixed(2)}%`,`top:${(n.py*100-sz*0.6/2).toFixed(2)}%`,`width:${sz.toFixed(2)}%`,`height:${(sz*0.6).toFixed(2)}%`,`opacity:${(0.35+n.z*0.65).toFixed(2)}`].join(';');el.innerHTML=`<span class="arl">AR${rgn.id.replace('AR','')}</span>`;overlay.appendChild(el);});
+}
+async function loadAR_retry(){
+  if(!window.location.protocol.startsWith('http'))return;
+  const dot=document.getElementById('arDot'),msg=document.getElementById('arMsg');
+  try{const srsUrl='https://services.swpc.noaa.gov/text/srs.txt';const proxy=`https://api.allorigins.win/get?url=${encodeURIComponent(srsUrl)}`;const r=await fetch(proxy);if(!r.ok)return;const jp=await r.json();const regions=parseSRS(jp.contents||'');if(!regions.length)return;activeRegions=regions;renderARTable(regions);renderAROverlay(regions);if(msg)msg.textContent=`Live SRS via proxy · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}catch(e){}
+}
+async function loadAR(){
+  const dot=document.getElementById('arDot'),msg=document.getElementById('arMsg');let regions=[];
+  try{const r=await fetch('https://services.swpc.noaa.gov/text/srs.txt');if(r.ok){regions=parseSRS(await r.text());if(regions.length){if(msg)msg.textContent=`Live SRS · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}catch(e){}
+  if(!regions.length){try{const r=await fetch('https://services.swpc.noaa.gov/json/solar_regions.json');if(r.ok){const d=await r.json();if(Array.isArray(d)&&d.length){const seen=new Set();for(let i=d.length-1;i>=0&&regions.length<8;i--){const x=d[i];const rid=x.Region||x.region;if(!rid||seen.has(rid))continue;seen.add(rid);let loc=x.Location||x.location;if(!loc&&(x.Latitude!=null||x.latitude!=null)){const lat=+(x.Latitude??x.latitude);const lon=+(x.Longitude??x.longitude??0);loc=buildLocFromLatLon(lat,lon);}regions.push({id:'AR'+rid,loc:(loc||'').replace('*',''),mag:x.Magclass||x.MagClass||x.magclass||'Beta',area:+(x.Area||x.area||20)});}if(regions.length){if(msg)msg.textContent=`Live JSON · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}}catch(e){}}
+  if(!regions.length){if(msg)msg.textContent='CORS blocked — HTTP needed';if(dot)dot.className='dot5 wait';document.getElementById('arTable').innerHTML='<div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">AR data requires HTTP server</div>';setTimeout(loadAR_retry,8000);return;}
+  activeRegions=regions;renderARTable(regions);renderAROverlay(regions);
+}
+
+// ── NOAA LIVE ─────────────────────────────────────────────────────
+async function fetchNoaa(){
+  try{const r=await fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json');if(r.ok){const d=await r.json();if(Array.isArray(d)&&d.length){const kp=+(d[d.length-1].kp_index??d[d.length-1].Kp??2);document.getElementById('kpH').textContent=kp.toFixed(0);document.getElementById('sbKp').textContent=kp.toFixed(1);document.getElementById('kpDesc').textContent=`Kp = ${kp.toFixed(1)}`;const g=document.getElementById('geoSc');if(kp>=5){g.textContent='G'+(kp>=9?5:kp>=8?4:kp>=7?3:kp>=6?2:1);g.className='sv s2';}else{g.textContent='G0';g.className='sv s0';}document.getElementById('sbNoaa').textContent='online';}}}catch(e){}
+}
+
+// ── v11.1 — SCIENCE LOG FEED ──────────────────────────────────────
+async function loadLogFeed(){
+  try{
+    const r=await fetch('https://heliodata.ai/data/science_log.jsonl',{cache:'no-store'});
+    if(!r.ok)return;
+    const text=await r.text();
+    const lines=text.trim().split('\n').filter(l=>l.trim());
+    if(!lines.length)return;
+    const records=lines.map(l=>{try{return JSON.parse(l);}catch(e){return null;}}).filter(Boolean);
+    if(!records.length)return;
+    const recent=records.slice(-5).reverse();
+    const feed=document.getElementById('logFeed');
+    feed.innerHTML=recent.map(entry=>{
+      const ts=(entry.utc||entry.timestamp||'').slice(11,19)||'--:--:--';
+      const phase=entry.phase?`[${entry.phase}] `:'';
+      const kp=entry.kp!=null?` Kp:${entry.kp.toFixed(1)}`:'';
+      const f=entry.f107_raw!=null?` F10.7:${entry.f107_raw.toFixed(0)}`:'';
+      const v=entry.velocity_km_s!=null?` v:${entry.velocity_km_s.toFixed(0)}km/s`:'';
+      const msg=`${phase}${f}${kp}${v}`.trim()||JSON.stringify(entry).slice(0,60);
+      return`<div class="log-entry"><div class="log-ts">${ts}</div><div class="log-msg">${msg}</div></div>`;
+    }).join('');
+    const dot=document.getElementById('logDot'),msg2=document.getElementById('logMsg');
+    if(dot)dot.className='dot5 ok';
+    if(msg2)msg2.textContent=`${records.length} entries &bull; logging active`;
+    const badge=document.getElementById('log-phase-badge');
+    const lastPhase=records[records.length-1].phase;
+    if(badge&&lastPhase)badge.textContent=lastPhase;
+  }catch(e){}
+}
+
+// ── LIVE DATA FROM HELIODATA LOG (v10 compatible) ─────────────────
+async function loadLiveData(){
+  try{
+    const r=await fetch('https://heliodata.ai/data/science_log.jsonl');
+    const text=await r.text();
+    const lines=text.trim().split('\n').filter(l=>l.trim());
+    const records=lines.map(l=>JSON.parse(l)).filter(r=>r.au!==null);
+    if(records.length===0)return;
+    const latest=records[records.length-1];
+    if(latest.velocity_km_s){const vel=document.getElementById('liveVelocity');if(vel)vel.textContent=latest.velocity_km_s.toFixed(1);}
+    if(latest.f107_raw){const f107h=document.getElementById('f107H');const f107obs=document.getElementById('f107Obs');if(f107h)f107h.textContent=latest.f107_raw.toFixed(0);if(f107obs)f107obs.textContent=latest.f107_raw.toFixed(0);}
+    if(latest.au){const distH=document.getElementById('distH');if(distH)distH.textContent=latest.au.toFixed(3);}
+    if(latest.kp){const kpH=document.getElementById('kpH');if(kpH)kpH.textContent=latest.kp.toFixed(2);}
+    if(records.length>=1){
+      const obs=records.map(r=>r.f107_raw||0);
+      const smo=obs.map(v=>parseFloat((v*0.94+8.3).toFixed(1)));
+      if(typeof f107LiveObs!=='undefined'){f107LiveObs.length=0;obs.forEach(v=>f107LiveObs.push(v));f107LiveSmo.length=0;smo.forEach(v=>f107LiveSmo.push(v));if(typeof drawF107==='function')drawF107();}
+    }
+  }catch(e){_warn('Live data:',e);}
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded',()=>{
+  updateCountdown();updateClock();
+  setInterval(updateCountdown,1000);
+  setInterval(updateClock,1000);
+
+  function tryDraw(attempts){
     drawF107();
-    const c = document.getElementById('orbitCanvas');
-    const w = c ? c.parentElement.offsetWidth : 0;
-    if(w > 10) { drawOrbit(); }
-    else if(attempts > 0) { setTimeout(()=>tryDraw(attempts-1), 150); }
-    else { drawOrbit(); } // draw anyway as last resort
+    const c=document.getElementById('orbitCanvas');
+    const w=c?c.parentElement.offsetWidth:0;
+    if(w>10){drawOrbit();}else if(attempts>0){setTimeout(()=>tryDraw(attempts-1),150);}else{drawOrbit();}
   }
   requestAnimationFrame(()=>tryDraw(10));
-  window.addEventListener('resize',()=>{ drawF107(); drawOrbit(); loadAR(); });
+  window.addEventListener('resize',()=>{drawF107();drawOrbit();loadAR();});
 
   const sdo=document.getElementById('sdo304');
   const tryAR=()=>setTimeout(loadAR,300);
-  if(sdo.complete&&sdo.naturalWidth) tryAR();
-  else{ sdo.addEventListener('load',tryAR); sdo.addEventListener('error',tryAR); }
+  if(sdo.complete&&sdo.naturalWidth)tryAR();
+  else{sdo.addEventListener('load',tryAR);sdo.addEventListener('error',tryAR);}
   setTimeout(loadAR,3000);
 
-  // Fetch sequence: Wolfram on HTTP, NOAA fallback on file://
-  // Wolfram LLM API blocked on file:// (null origin) — works once deployed
-  const _isHttp = window.location.protocol.startsWith('http');
-  if(_isHttp) {
-    fetchWolframF107().then(ok => { if(!ok) fetchNoaaF107(); });
-  } else {
-    _log('file:// detected — using NOAA for F10.7 (Wolfram requires HTTP deployment)');
+  const isHttp=window.location.protocol.startsWith('http');
+  if(isHttp){
+    // Try CAG proxy first (v11.1 primary), fall back to Wolfram API v2, then NOAA
+    fetchCAG().then(()=>{
+      fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();});
+    });
+  }else{
+    _log('file:// — using NOAA fallback');
     fetchNoaaF107();
   }
   fetchNoaa();
-  // Refresh every 5 minutes
-  // On file:// Wolfram will fail due to null origin — only retry on HTTP
-  const isHttp = window.location.protocol.startsWith('http');
-  setInterval(()=>{
-    if(isHttp) { fetchWolframF107().then(ok=>{ if(!ok) fetchNoaaF107(); }); }
-    else { fetchNoaaF107(); }  // file:// — NOAA works, Wolfram doesn't
-  }, 300000);
-  setInterval(fetchNoaa, 300000);
-  setInterval(drawOrbit, 30000);
+  loadLiveData();
+  loadLogFeed();
+
+  setInterval(()=>{if(isHttp){fetchCAG();fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();});}else{fetchNoaaF107();}},300000);
+  setInterval(fetchNoaa,300000);
+  setInterval(drawOrbit,30000);
+  setInterval(loadLiveData,300000);
+  setInterval(loadLogFeed,300000);
 });
-</script>
-<script>
-// ── LIVE DATA FROM HELIODATA LOG ──────────────────────────────
-async function loadLiveData() {
-  try {
-    const r = await fetch('https://heliodata.ai/data/science_log.jsonl');
-    const text = await r.text();
-    const lines = text.trim().split('\n').filter(l => l.trim());
-    const records = lines.map(l => JSON.parse(l)).filter(r => r.au !== null);
-    if (records.length === 0) return;
-    const latest = records[records.length - 1];
-    if (latest.velocity_km_s) {
-      const vel = document.getElementById('liveVelocity');
-      if (vel) vel.textContent = latest.velocity_km_s.toFixed(1);
-    }
-    if (latest.f107_raw) {
-      const f107h = document.getElementById('f107H');
-      const f107obs = document.getElementById('f107Obs');
-      if (f107h) f107h.textContent = latest.f107_raw.toFixed(0);
-      if (f107obs) f107obs.textContent = latest.f107_raw.toFixed(0);
-    }
-    if (latest.au) {
-      const distH = document.getElementById('distH');
-      if (distH) distH.textContent = latest.au.toFixed(3);
-    }
-    if (latest.kp) {
-      const kpH = document.getElementById('kpH');
-      if (kpH) kpH.textContent = latest.kp.toFixed(2);
-    }
-    if (records.length >= 1) {
-      const obs = records.map(r => r.f107_raw || 0);
-      const smo = obs.map(v => parseFloat((v * 0.94 + 8.3).toFixed(1)));
-      if (typeof f107LiveObs !== 'undefined') {
-        f107LiveObs.length = 0;
-        obs.forEach(v => f107LiveObs.push(v));
-        f107LiveSmo.length = 0;
-        smo.forEach(v => f107LiveSmo.push(v));
-        if (typeof drawF107 === 'function') drawF107();
-      }
-    }
-  } catch(e) {
-    console.warn('Live data fetch failed:', e);
-  }
-}
-loadLiveData();
-setInterval(loadLiveData, 300000);
 </script>
 </body>
 </html>
