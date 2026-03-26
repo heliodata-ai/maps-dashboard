@@ -656,19 +656,6 @@ body::before {
       </div>
     </div>
 
-    <!-- v11.1 — SCIENCE LOG FEED (live from Mar 28) -->
-    <div class="panel">
-      <div class="ptitle g">Science Log &mdash; <span id="log-phase-badge" style="color:var(--text3)">live from Mar 28</span></div>
-      <div id="logFeed">
-        <div style="font-size:9px;color:var(--text3);font-family:var(--mono);padding:4px">Logging activates at corona ingress Mar 28 00:00 UTC</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
-        <div class="dot5 wait" id="logDot"></div>
-        <span id="logMsg" style="color:var(--text3)">Awaiting ingress&hellip;</span>
-        <a href="https://heliodata.ai/data/science_log.jsonl" target="_blank"
-           style="color:var(--text3);text-decoration:none;margin-left:auto">science_log.jsonl &rarr;</a>
-      </div>
-    </div>
 
   </div><!-- /COL1 -->
 
@@ -724,6 +711,26 @@ body::before {
       <div class="tl peri"><div class="tld">Apr 04</div><div class="tle">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv">0.006 AU</div></div>
       <div class="tl"><div class="tld">May 1</div><div class="tle">Public scorecard &mdash; all 16 scored</div><div class="tlv">&mdash;</div></div>
     </div>
+
+    <!-- v11.1 — SCIENCE LOG FEED — grows downward as data arrives -->
+    <div class="panel">
+      <div class="ptitle g">Science Log &mdash; <span id="log-phase-badge" style="color:var(--text3)">live from Mar 28</span></div>
+      <div id="logFeed">
+        <div style="font-size:9px;color:var(--text3);font-family:var(--mono);padding:4px">Logging activates at corona ingress Mar 28 00:00 UTC</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="logDot"></div>
+        <span id="logMsg" style="color:var(--text3)">Awaiting ingress&hellip;</span>
+        <a href="https://heliodata.ai/data/science_log.jsonl" target="_blank"
+           style="color:var(--text3);text-decoration:none;margin-left:auto">science_log.jsonl &rarr;</a>
+      </div>
+    </div>
+
+    <!-- RESULTS PANEL — activates May 1, 2026 — the cherry -->
+    <!-- <div class="panel">
+      <div class="ptitle" style="color:var(--amber)">Prediction Scorecard &mdash; May 1, 2026</div>
+      Scoring results will appear here after perihelion assessment window closes.
+    </div> -->
 
   </div><!-- /COL2 -->
 
