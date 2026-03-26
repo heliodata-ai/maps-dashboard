@@ -1,0 +1,24 @@
+:Product: Solar Region Summary
+:Issued: 2026 Mar 26 0030 UTC
+# Prepared jointly by the U.S. Dept. of Commerce, NOAA,
+# Space Weather Prediction Center and the U.S. Air Force.
+#
+Joint USAF/NOAA Solar Region Summary
+SRS Number 85 Issued at 0030Z on 26 Mar 2026
+Report compiled from data received at SWO on 25 Mar
+I.  Regions with Sunspots.  Locations Valid at 25/2400Z 
+Nmbr Location  Lo  Area  Z   LL   NN Mag Type
+4397 N15W27   299  0005 Axx  01   02 Alpha
+4398 S17W27   299  0030 Dro  04   06 Beta
+4399 S17E28   245  0170 Hax  02   02 Alpha
+4400 S12W65   338  0050 Dao  05   05 Beta-Gamma
+4401 N25E24   248  0230 Eai  11   13 Beta
+4402 N17E32   241  0140 Dso  10   04 Beta
+4403 N16E67   205  0110 Hsx  03   01 Alpha
+IA. H-alpha Plages without Spots.  Locations Valid at 25/2400Z Mar
+Nmbr  Location  Lo
+4396  N20W85   357
+II. Regions Due to Return 26 Mar to 28 Mar
+Nmbr Lat    Lo
+4384 N08    169
+4388 S14    159
