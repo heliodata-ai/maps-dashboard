@@ -299,6 +299,14 @@ body::before {
   margin-bottom:2px;
 }
 
+/* v11.1 — far-side returning regions */
+.far-row { display:grid;grid-template-columns:44px 44px 1fr 60px;gap:3px;padding:4px 0;border-bottom:1px solid var(--bdr);align-items:center;font-family:var(--mono);font-size:10px; }
+.far-row:last-child { border-bottom:none; }
+.far-id  { color:var(--text3); }
+.far-lat { color:var(--text3); }
+.far-eta { color:var(--amber);font-size:9px; }
+.far-lo  { color:var(--text2);font-size:9px; }
+
 /* v11.1 — science log feed */
 .log-entry {
   display:flex;gap:6px;padding:4px 0;border-bottom:1px solid var(--bdr);
@@ -765,6 +773,22 @@ body::before {
       </div>
     </div>
 
+    <!-- v11.1 — FAR-SIDE ACTIVE REGIONS (NOAA SRS Section II) -->
+    <div class="panel">
+      <div class="ptitle" style="color:var(--text3)">Far-Side Regions &mdash; Due to Return</div>
+      <div id="farTable">
+        <div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">Loading&hellip;</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="farDot"></div>
+        <span id="farMsg" style="color:var(--text3)">NOAA SRS Section II&hellip;</span>
+      </div>
+      <div style="margin-top:6px;font-size:9px;color:var(--text3);font-family:var(--mono);line-height:1.6;border-top:1px solid var(--bdr);padding-top:5px">
+        Tracked via helioseismology &bull; STEREO-A &bull; Solar Orbiter<br>
+        Far-side regions invisible from Earth — rotation monitored by NOAA/GONG
+      </div>
+    </div>
+
     <div class="panel">
       <div class="ptitle">NOAA Space Weather Scales</div>
       <div class="scale-row"><div class="sn">R &mdash; Radio</div><div class="sd">Blackouts</div><div class="sv s0">R0</div></div>
@@ -1165,6 +1189,48 @@ function drawOrbit(){
   ctx.beginPath();ctx.arc(cpx,cpy,9,0,Math.PI*2);ctx.fillStyle='rgba(6,182,212,0.2)';ctx.fill();
 }
 
+// ── FAR-SIDE RETURNING REGIONS (NOAA SRS Section II) ─────────────────────────
+function parseFarSide(txt) {
+  const regions = [];
+  let inSection = false;
+  for (const line of txt.split('\n')) {
+    const t = line.trim();
+    if (t.startsWith('II.')) { inSection = true; continue; }
+    if (inSection && /^(I\.|III\.|IA\.)/.test(t)) break;
+    if (inSection && /^\d{4}/.test(t)) {
+      const p = t.split(/\s+/);
+      if (p.length >= 3) regions.push({ id: 'AR' + p[0], lat: p[1], lo: p[2] });
+    }
+  }
+  return regions;
+}
+
+function renderFarTable(regions) {
+  const el  = document.getElementById('farTable');
+  const dot = document.getElementById('farDot');
+  const msg = document.getElementById('farMsg');
+  if (!el) return;
+  if (!regions.length) {
+    el.innerHTML = '<div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">No far-side regions tracked in 3-day window</div>';
+    if (dot) dot.className = 'dot5 ok';
+    if (msg) msg.textContent = 'No returning regions · NOAA SRS §II';
+    return;
+  }
+  el.innerHTML = regions.map(r => {
+    // Rough days-to-return from Carrington longitude (13.2°/day solar rotation)
+    const lo  = parseInt(r.lo) || 0;
+    const eta = lo > 0 ? `~${Math.max(1, Math.round(lo / 13.2))}d` : '—';
+    return `<div class="far-row">
+      <div class="far-id">${r.id}</div>
+      <div class="far-lat">${r.lat}</div>
+      <div class="far-lo">Lo ${r.lo}&deg;</div>
+      <div class="far-eta">${eta}</div>
+    </div>`;
+  }).join('');
+  if (dot) dot.className = 'dot5 ok';
+  if (msg) msg.textContent = `${regions.length} region${regions.length>1?'s':''} returning · NOAA SRS §II`;
+}
+
 // ── SDO + AR OVERLAY (identical to v10) ───────────────────────────
 const SDO_CX=512,SDO_CY=512,SDO_R=488,SDO_SZ=1024;
 let activeRegions=[];
@@ -1190,7 +1256,12 @@ async function loadAR_retry(){
 }
 async function loadAR(){
   const dot=document.getElementById('arDot'),msg=document.getElementById('arMsg');let regions=[];
-  try{const r=await fetch('https://services.swpc.noaa.gov/text/srs.txt');if(r.ok){regions=parseSRS(await r.text());if(regions.length){if(msg)msg.textContent=`Live SRS · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}catch(e){}
+  try{const r=await fetch('https://services.swpc.noaa.gov/text/srs.txt');if(r.ok){
+    const text = await r.text();
+    regions=parseSRS(text);
+    renderFarTable(parseFarSide(text));
+    if(regions.length){if(msg)msg.textContent=`Live SRS · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}
+  }}catch(e){}
   if(!regions.length){try{const r=await fetch('https://services.swpc.noaa.gov/json/solar_regions.json');if(r.ok){const d=await r.json();if(Array.isArray(d)&&d.length){const seen=new Set();for(let i=d.length-1;i>=0&&regions.length<8;i--){const x=d[i];const rid=x.Region||x.region;if(!rid||seen.has(rid))continue;seen.add(rid);let loc=x.Location||x.location;if(!loc&&(x.Latitude!=null||x.latitude!=null)){const lat=+(x.Latitude??x.latitude);const lon=+(x.Longitude??x.longitude??0);loc=buildLocFromLatLon(lat,lon);}regions.push({id:'AR'+rid,loc:(loc||'').replace('*',''),mag:x.Magclass||x.MagClass||x.magclass||'Beta',area:+(x.Area||x.area||20)});}if(regions.length){if(msg)msg.textContent=`Live JSON · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}}catch(e){}}
   if(!regions.length){if(msg)msg.textContent='CORS blocked — HTTP needed';if(dot)dot.className='dot5 wait';document.getElementById('arTable').innerHTML='<div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">AR data requires HTTP server</div>';setTimeout(loadAR_retry,8000);return;}
   activeRegions=regions;renderARTable(regions);renderAROverlay(regions);
