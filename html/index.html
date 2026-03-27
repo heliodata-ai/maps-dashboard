@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>heliodata.ai — MAPS v11.1 · C/2026 A1 Perihelion</title>
+<title>heliodata.ai — MAPS v12 · C/2026 A1 Perihelion</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap');
 
@@ -299,6 +299,31 @@ body::before {
   margin-bottom:2px;
 }
 
+/* v12 — Solar Intelligence Panel */
+.sip-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px; }
+.sip-cell { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:7px 9px; }
+.sip-val  { font-family:var(--mono);font-size:20px;line-height:1;margin-bottom:2px; }
+.sip-lbl  { font-size:8px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase; }
+.sip-src  { font-size:8px;color:var(--text3);margin-top:3px;font-family:var(--mono); }
+.flare-badge {
+  display:inline-block;font-family:var(--mono);font-size:13px;font-weight:bold;
+  padding:2px 7px;border-radius:3px;margin-right:4px;
+}
+.fb-a { background:rgba(34,197,94,0.15);color:var(--green); }
+.fb-b { background:rgba(34,197,94,0.15);color:var(--green); }
+.fb-c { background:rgba(6,182,212,0.15);color:var(--cyan); }
+.fb-m { background:rgba(245,158,11,0.15);color:var(--amber); }
+.fb-x { background:rgba(239,68,68,0.15);color:var(--red); }
+.bz-pos { color:var(--green); }
+.bz-neg { color:var(--red); }
+.bz-mild { color:var(--amber); }
+.sip-alert { display:flex;align-items:center;gap:5px;padding:4px 7px;border-radius:3px;font-family:var(--mono);font-size:9px;margin-top:6px; }
+.sip-alert.warn { background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);color:var(--amber); }
+.sip-alert.crit { background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:var(--red); }
+.sip-alert.ok   { background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);color:var(--green); }
+.sip-fp-bar { height:3px;background:var(--bdr);border-radius:2px;overflow:hidden;margin:4px 0 2px; }
+.sip-fp-fill { height:100%;border-radius:2px;background:linear-gradient(90deg,var(--cyan3),var(--amber)); }
+
 /* v11.1 — far-side returning regions */
 .far-row { display:grid;grid-template-columns:44px 44px 1fr 60px;gap:3px;padding:4px 0;border-bottom:1px solid var(--bdr);align-items:center;font-family:var(--mono);font-size:10px; }
 .far-row:last-child { border-bottom:none; }
@@ -418,7 +443,7 @@ body::before {
 <!-- ── HEADER ── -->
 <header class="header">
   <div class="header-left">
-    <div class="logo">MAPS <span>v11.1</span></div>
+    <div class="logo">MAPS <span>v12</span></div>
     <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM F10.7</div>
     <div class="cag-badge"><div class="cdot"></div>CAG</div>
   </div>
@@ -714,8 +739,8 @@ body::before {
       </div>
       <div class="tl"><div class="tld">Jan 01</div><div class="tle">C/2026 A1 discovered, MPC confirmed</div><div class="tlv">3.1 AU</div></div>
       <div class="tl"><div class="tld">Feb 18</div><div class="tle">16 predictions locked &mdash; Consortium</div><div class="tlv">1.8 AU</div></div>
-      <div class="tl now"><div class="tld">Mar 26 &#9654;</div><div class="tle">NOW &mdash; Final approach, CAG active</div><div class="tlv">0.40 AU</div></div>
-      <div class="tl"><div class="tld">Mar 28</div><div class="tle">Corona ingress &mdash; logging begins</div><div class="tlv">0.10 AU</div></div>
+      <div class="tl now"><div class="tld">Mar 27 &#9654;</div><div class="tle">NOW &mdash; Final approach, CAG active</div><div class="tlv">0.55 AU</div></div>
+      <div class="tl" style="background:rgba(245,158,11,0.03)"><div class="tld" style="color:var(--amber)">Mar 28</div><div class="tle" style="color:var(--amber)">Corona ingress &mdash; T&#8722;24h &mdash; logging at max cadence</div><div class="tlv" style="color:var(--amber)">0.10 AU</div></div>
       <div class="tl peri"><div class="tld">Apr 04</div><div class="tle">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv">0.006 AU</div></div>
       <div class="tl"><div class="tld">May 1</div><div class="tle">Public scorecard &mdash; all 16 scored</div><div class="tlv">&mdash;</div></div>
     </div>
@@ -796,14 +821,45 @@ body::before {
       <div class="scale-row"><div class="sn">G &mdash; Geomag</div><div class="sd" id="kpDesc">Kp = 2</div><div class="sv s0" id="geoSc">G0</div></div>
     </div>
 
+    <!-- v12 — SOLAR INTELLIGENCE PANEL — The Sun is the cause -->
     <div class="panel">
-      <div class="ptitle r">Recent Flare Activity</div>
-      <div class="fl-row"><div class="flt">Mar 22</div><div class="flc fcc">C3.1</div><div class="flr">AR4372</div><div class="fli fin">No impact</div></div>
-      <div class="fl-row"><div class="flt">Mar 21</div><div class="flc fcm">M1.4</div><div class="flr">AR4370</div><div class="fli fil">R1, brief</div></div>
-      <div class="fl-row"><div class="flt">Mar 20</div><div class="flc fcc">C5.8</div><div class="flr">AR4372</div><div class="fli fil">Minor R1</div></div>
-      <div class="fl-row"><div class="flt">Mar 18</div><div class="flc fcc">C2.2</div><div class="flr">AR4368</div><div class="fli fin">No impact</div></div>
-      <div class="fl-row"><div class="flt">Mar 16</div><div class="flc fcb">B8.7</div><div class="flr">AR4365</div><div class="fli fin">No impact</div></div>
-      <div style="margin-top:7px;font-size:9px;font-family:var(--mono);color:var(--text3)">No X-class since Jan 2026 &bull; SC25 declining &bull; 9d to perihelion</div>
+      <div class="ptitle r">Solar Intelligence &mdash; <span style="color:var(--text3);font-weight:400">CAG · GOES · DSCOVR</span></div>
+      <div class="sip-grid">
+        <div class="sip-cell">
+          <div class="sip-val">
+            <span class="flare-badge fb-c" id="sipFlareClass">C—</span>
+          </div>
+          <div class="sip-lbl">GOES X-ray class</div>
+          <div class="sip-src" id="sipFlareTime">GOES 1–8Å &bull; updating</div>
+        </div>
+        <div class="sip-cell">
+          <div class="sip-val" id="sipARCount" style="color:var(--amber)">—</div>
+          <div class="sip-lbl">Active regions</div>
+          <div class="sip-src">Highest: <span id="sipARMax" style="color:var(--text2)">—</span></div>
+        </div>
+        <div class="sip-cell">
+          <div class="sip-val">
+            <span id="sipBzVal" class="bz-pos">+—</span>
+            <span style="font-size:10px;color:var(--text3);font-family:var(--mono)"> nT</span>
+          </div>
+          <div class="sip-lbl">Solar wind Bz</div>
+          <div class="sip-src">DSCOVR L1 &bull; <span id="sipBzStatus">—</span></div>
+        </div>
+        <div class="sip-cell">
+          <div class="sip-val" id="sipFlarePct" style="color:var(--cyan)">—%</div>
+          <div class="sip-lbl">CAG flare prob</div>
+          <div class="sip-fp-bar"><div class="sip-fp-fill" id="sipFpBar" style="width:0%"></div></div>
+          <div class="sip-src">C+ class &bull; 24h window</div>
+        </div>
+      </div>
+      <div id="sipAlert" class="sip-alert ok">
+        <div class="dot5" style="background:var(--green);flex-shrink:0"></div>
+        <span id="sipAlertText">Solar conditions nominal &bull; monitoring active</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="sipDot"></div>
+        <span id="sipMsg" style="color:var(--text3)">Fetching solar intelligence&hellip;</span>
+      </div>
     </div>
 
   </div><!-- /COL3 -->
@@ -873,7 +929,7 @@ body::before {
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span>Kp</span><span class="sbv" id="sbKp">2</span></div>
   <span class="sbsep">&mdash;</span>
-  <div class="sbi"><span>MAPS Dashboard</span><span class="sbv">v11.1 &bull; heliodata.ai &bull; Enneagrid Research Consortium</span></div>
+  <div class="sbi"><span>MAPS Dashboard</span><span class="sbv">v12 &bull; heliodata.ai &bull; Enneagrid Research Consortium</span></div>
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><span id="sbTime" style="color:var(--text2)">--</span></div>
 </footer>
@@ -885,12 +941,12 @@ const _warn = (typeof console!=='undefined'&&typeof console.warn==='function')?c
 
 // ── ORBITAL CONSTANTS ──────────────────────────────────────────────
 const ORB = {
-  q:     0.005714,
-  e:     0.99996266,
+  q:     0.0057324528844717,
+  e:     0.9999627756792491,
   i:     144.49,
   omega: 86.34,
   Omega: 7.88,
-  PERI:  new Date('2026-04-04T14:18:35Z')
+  PERI:  new Date('2026-04-04T14:24:00Z')  // JPL solution #9, 406 obs
 };
 const K_GAUSS   = 0.01720209895;
 const DISCOVERY = new Date('2026-01-01T00:00:00Z');
@@ -1264,7 +1320,7 @@ async function loadAR(){
   }}catch(e){}
   if(!regions.length){try{const r=await fetch('https://services.swpc.noaa.gov/json/solar_regions.json');if(r.ok){const d=await r.json();if(Array.isArray(d)&&d.length){const seen=new Set();for(let i=d.length-1;i>=0&&regions.length<8;i--){const x=d[i];const rid=x.Region||x.region;if(!rid||seen.has(rid))continue;seen.add(rid);let loc=x.Location||x.location;if(!loc&&(x.Latitude!=null||x.latitude!=null)){const lat=+(x.Latitude??x.latitude);const lon=+(x.Longitude??x.longitude??0);loc=buildLocFromLatLon(lat,lon);}regions.push({id:'AR'+rid,loc:(loc||'').replace('*',''),mag:x.Magclass||x.MagClass||x.magclass||'Beta',area:+(x.Area||x.area||20)});}if(regions.length){if(msg)msg.textContent=`Live JSON · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}}catch(e){}}
   if(!regions.length){if(msg)msg.textContent='CORS blocked — HTTP needed';if(dot)dot.className='dot5 wait';document.getElementById('arTable').innerHTML='<div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">AR data requires HTTP server</div>';setTimeout(loadAR_retry,8000);return;}
-  activeRegions=regions;renderARTable(regions);renderAROverlay(regions);
+  activeRegions=regions;window.activeRegions=regions;renderARTable(regions);renderAROverlay(regions);
 }
 
 // ── NOAA LIVE ─────────────────────────────────────────────────────
@@ -1294,6 +1350,18 @@ async function loadLogFeed(){
       const bz  = e.dscovr_bz_nT;
       const ph  = e.phase;
       const pph = prev&&prev.phase;
+      const goesRaw = e.goes_xray;  // raw W/m² flux from logger
+      const goesStr = e.goes_xray_class;  // derived string if present
+      let goesClass = goesStr ? goesStr.charAt(0).toUpperCase() : null;
+      if(!goesClass && goesRaw != null){
+        const f = parseFloat(goesRaw);
+        if(f >= 1e-3) goesClass='X';
+        else if(f >= 1e-4) goesClass='M';
+        else if(f >= 1e-5) goesClass='C';
+        else if(f >= 1e-6) goesClass='B';
+      }
+      if(goesClass==='X') flags.push({t:`◆ X-CLASS FLARE${goesStr?' '+goesStr:''}`,c:'var(--red)'});
+      else if(goesClass==='M') flags.push({t:`◆ M-class flare${goesStr?' '+goesStr:''}`,c:'var(--amber)'});
       if(kp!=null&&kp>=5)  flags.push({t:`◆ G${Math.min(5,Math.max(1,Math.floor(kp-4)))} STORM`,c:'var(--red)'});
       if(ed)               flags.push({t:'◆ EARTH-DIR CME',c:'var(--amber)'});
       if(bz!=null&&bz<-10) flags.push({t:'◆ Bz SOUTH',c:'var(--amber)'});
@@ -1332,10 +1400,172 @@ async function loadLogFeed(){
 
     // Update live header values from latest entry
     const latest=records[records.length-1];
+    window._latestLogEntry=latest;  // v12: SIP Bz fallback
     if(latest.velocity_km_s){const el=document.getElementById('liveVelocity');if(el)el.textContent=latest.velocity_km_s.toFixed(1);}
     if(latest.au){const el=document.getElementById('distH');if(el)el.textContent=latest.au.toFixed(3);}
     if(latest.kp){const el=document.getElementById('kpH');if(el)el.textContent=latest.kp.toFixed(0);}
   }catch(e){console.warn('logFeed:',e);}
+}
+
+// ── v12 — SOLAR INTELLIGENCE PANEL ────────────────────────────────
+async function fetchSolarIntelligence(){
+  const dot=document.getElementById('sipDot');
+  const msg=document.getElementById('sipMsg');
+  let anyOk=false;
+
+  // 1. GOES X-ray flux → flare class badge (try multiple NOAA endpoints)
+  try{
+    const goesUrls=[
+      'https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json',
+      'https://services.swpc.noaa.gov/json/goes/primary/xray-flux-6-hour.json',
+      'https://services.swpc.noaa.gov/json/goes/primary/xray-fluxes-6-hour.json'
+    ];
+    let goesData=null;
+    for(const url of goesUrls){
+      try{const r=await fetch(url);if(r.ok){goesData=await r.json();if(Array.isArray(goesData)&&goesData.length)break;}goesData=null;}catch(e){}
+    }
+    if(goesData&&Array.isArray(goesData)&&goesData.length){
+      // Most recent 1–8Å reading — accept both energy label formats
+      const longBand=goesData.filter(x=>{const e=(x.energy||x.band||'');return e.includes('1-8')||e.includes('0.1-0.8')||e.includes('1-8A')||e.includes('long');});
+      const latest=(longBand.length?longBand:goesData).slice(-1)[0];
+      const flux=+(latest.flux||latest.observed_flux||latest.value||0);
+      let cls='A',sub='0.0',badgeCls='fb-a';
+      if(flux>=1e-3){cls='X';sub=(flux/1e-3).toFixed(1);badgeCls='fb-x';}
+      else if(flux>=1e-4){cls='M';sub=(flux/1e-4).toFixed(1);badgeCls='fb-m';}
+      else if(flux>=1e-5){cls='C';sub=(flux/1e-5).toFixed(1);badgeCls='fb-c';}
+      else if(flux>=1e-6){cls='B';sub=(flux/1e-6).toFixed(1);badgeCls='fb-b';}
+      const badge=document.getElementById('sipFlareClass');
+      if(badge){badge.textContent=`${cls}${parseFloat(sub).toFixed(1)}`;badge.className=`flare-badge ${badgeCls}`;}
+      const ts=(latest.time_tag||latest.TimeStamp||latest.time||'').slice(11,16)||'--:--';
+      const ft=document.getElementById('sipFlareTime');
+      if(ft)ft.textContent=`GOES 1–8Å · ${ts} UTC`;
+      window._sipLastFlareClass=cls+parseFloat(sub).toFixed(1);
+      updateSipAlert(cls,null,null);
+      anyOk=true;
+    }
+  }catch(e){_warn('SIP GOES:',e.message);}
+
+  // 2. Active region count & highest complexity — retry once if AR not yet loaded
+  try{
+    let regions=window.activeRegions||[];
+    if(!regions.length){
+      await new Promise(res=>setTimeout(res,2000));
+      regions=window.activeRegions||[];
+    }
+    const cnt=document.getElementById('sipARCount');
+    const mx=document.getElementById('sipARMax');
+    if(cnt)cnt.textContent=regions.length||'0';
+    if(regions.length&&mx){
+      // Find highest Hale class by priority
+      const priority=['Beta-Gamma-Delta','Beta-Gamma','Beta-Delta','Beta','Alpha','unipolar'];
+      let highest='Beta';
+      regions.forEach(r=>{
+        const m=(r.mag||'').toLowerCase();
+        if(m.includes('gamma')&&m.includes('delta'))highest='β-γ-δ';
+        else if(highest!=='β-γ-δ'&&m.includes('gamma'))highest='β-γ';
+        else if(highest!=='β-γ-δ'&&highest!=='β-γ'&&m.includes('delta'))highest='β-δ';
+      });
+      mx.textContent=highest;
+      const hasDelta=highest.includes('δ');
+      if(hasDelta){mx.style.color='var(--red)';}else{mx.style.color='var(--amber)';}
+    }else if(mx){mx.textContent='no regions';}
+    anyOk=true;
+  }catch(e){}
+
+  // 3. DSCOVR Bz — with null guard and science log fallback
+  try{
+    let bz=null;
+    try{
+      const r=await fetch('https://services.swpc.noaa.gov/products/solar-wind/mag-1-day.json');
+      if(r.ok){
+        const d=await r.json();
+        if(Array.isArray(d)&&d.length>1){
+          // Format: [time_tag, bx_gsm, by_gsm, bz_gsm, bt, lon, lat]
+          for(let i=d.length-1;i>=1;i--){
+            const row=d[i];if(!Array.isArray(row))continue;
+            const candidate=parseFloat(row[3]);
+            if(!isNaN(candidate)&&candidate>-1000){bz=candidate;break;}
+          }
+        }
+      }
+    }catch(e){}
+    // Fallback: use latest science log entry's dscovr_bz_nT
+    if(bz===null&&window._latestLogEntry){bz=window._latestLogEntry.dscovr_bz_nT||null;}
+    if(bz!==null){
+      const el=document.getElementById('sipBzVal');
+      const st=document.getElementById('sipBzStatus');
+      if(el){
+        el.textContent=(bz>=0?'+':'')+bz.toFixed(1);
+        if(bz<=-10){el.className='bz-neg';}
+        else if(bz<=-5){el.className='bz-mild';}
+        else{el.className='bz-pos';}
+      }
+      if(st){
+        if(bz<=-10)st.textContent='⚠ STRONGLY SOUTH';
+        else if(bz<=-5)st.textContent='↓ southward';
+        else if(bz>5)st.textContent='↑ northward — quiet';
+        else st.textContent='nominal';
+      }
+      updateSipAlert(null,bz,null);
+      anyOk=true;
+    }
+  }catch(e){_warn('SIP Bz:',e.message);}
+
+  // 4. CAG flare probability — derive from GOES trend + AR complexity
+  try{
+    // Use science log latest entry for goes_xray if available
+    // Heuristic: base probability from AR count and highest class
+    const regions=window.activeRegions||[];
+    let prob=5; // baseline quiet
+    regions.forEach(r=>{
+      const m=(r.mag||'').toLowerCase();
+      if(m.includes('gamma')&&m.includes('delta'))prob+=25;
+      else if(m.includes('gamma'))prob+=15;
+      else if(m.includes('delta'))prob+=12;
+      else prob+=4;
+    });
+    // Boost from GOES current class
+    const badge=document.getElementById('sipFlareClass');
+    if(badge){
+      const cls=badge.textContent.charAt(0);
+      if(cls==='X')prob+=30;
+      else if(cls==='M')prob+=20;
+      else if(cls==='C')prob+=8;
+    }
+    prob=Math.min(95,Math.max(2,prob));
+    const pctEl=document.getElementById('sipFlarePct');
+    const barEl=document.getElementById('sipFpBar');
+    if(pctEl)pctEl.textContent=prob+'%';
+    if(barEl)barEl.style.width=prob+'%';
+    updateSipAlert(null,null,prob);
+    anyOk=true;
+  }catch(e){}
+
+  if(dot)dot.className='dot5 '+(anyOk?'ok':'wait');
+  if(msg)msg.textContent=anyOk?'Solar Intelligence live · GOES + DSCOVR + CAG':'Partial data — retrying';
+}
+
+function updateSipAlert(flareClass,bz,prob){
+  const al=document.getElementById('sipAlert');
+  const tx=document.getElementById('sipAlertText');
+  const dt=al?al.querySelector('.dot5'):null;
+  if(!al||!tx)return;
+  // Read current state from DOM to merge
+  const curBz=parseFloat((document.getElementById('sipBzVal')||{}).textContent||'0');
+  const curCls=(document.getElementById('sipFlareClass')||{}).textContent||'A';
+  const cls=flareClass?flareClass.charAt(0):curCls.charAt(0);
+  const bzVal=bz!=null?bz:curBz;
+  const pv=prob!=null?prob:0;
+
+  let level='ok',text='Solar conditions nominal · monitoring active';
+  if(cls==='X'){level='crit';text=`◆ X-CLASS EVENT DETECTED — prediction window active`;}
+  else if(cls==='M'||bzVal<=-10){level='warn';text=`◆ Elevated activity — M-class or strong Bz south`;}
+  else if(bzVal<=-5){level='warn';text=`↓ Bz southward ${bzVal.toFixed(1)} nT — watch CME arrival`;}
+  else if(pv>=40){level='warn';text=`CAG: ${pv}% flare probability · AR complexity elevated`;}
+
+  al.className='sip-alert '+level;
+  tx.textContent=text;
+  if(dt){dt.style.background=level==='crit'?'var(--red)':level==='warn'?'var(--amber)':'var(--green)';}
 }
 
 // ── INIT ──────────────────────────────────────────────────────────
@@ -1364,9 +1594,11 @@ window.addEventListener('DOMContentLoaded',()=>{
     fetchCAG().then(()=>{
       fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();});
     });
+    fetchSolarIntelligence();
   }else{
     _log('file:// — using NOAA fallback');
     fetchNoaaF107();
+    fetchSolarIntelligence();
   }
   fetchNoaa();
   loadLogFeed();
@@ -1375,6 +1607,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   setInterval(fetchNoaa,300000);
   setInterval(drawOrbit,30000);
   setInterval(loadLogFeed,300000);
+  setInterval(fetchSolarIntelligence,300000);
 });
 </script>
 </body>
