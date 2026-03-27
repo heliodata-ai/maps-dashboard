@@ -1282,45 +1282,60 @@ async function loadLogFeed(){
     if(!lines.length)return;
     const records=lines.map(l=>{try{return JSON.parse(l);}catch(e){return null;}}).filter(Boolean);
     if(!records.length)return;
-    const recent=records.slice(-5).reverse();
+
+    // Condition flag logic — only fires when something notable happens
+    function conditionFlag(e, prev){
+      const flags=[];
+      const kp  = e.kp;
+      const au  = e.au;
+      const f   = e.f107_raw;
+      const pf  = prev&&prev.f107_raw;
+      const ed  = e.donki_earth_directed;
+      const bz  = e.dscovr_bz_nT;
+      const ph  = e.phase;
+      const pph = prev&&prev.phase;
+      if(kp!=null&&kp>=5)  flags.push({t:`◆ G${Math.min(5,Math.max(1,Math.floor(kp-4)))} STORM`,c:'var(--red)'});
+      if(ed)               flags.push({t:'◆ EARTH-DIR CME',c:'var(--amber)'});
+      if(bz!=null&&bz<-10) flags.push({t:'◆ Bz SOUTH',c:'var(--amber)'});
+      if(f!=null&&pf!=null&&Math.abs(f-pf)>=5) flags.push({t:`◆ F10.7 ${f>pf?'▲':'▼'}${Math.abs(f-pf).toFixed(0)}`,c:'var(--cyan)'});
+      if(au!=null&&au<0.005733+0.001) flags.push({t:'◆ PERIHELION',c:'var(--amber)'});
+      else if(au!=null&&au<0.02)      flags.push({t:'◆ DEEP CORONA',c:'var(--red)'});
+      else if(au!=null&&au<0.10&&(pph==='pre-ingress'||!pph)) flags.push({t:'◆ CORONA INGRESS',c:'var(--cyan)'});
+      if(ph&&pph&&ph!==pph) flags.push({t:`◆ ${ph.toUpperCase()}`,c:'var(--purple)'});
+      return flags;
+    }
+
+    const recent=records.slice(-6).reverse();
     const feed=document.getElementById('logFeed');
-    feed.innerHTML=recent.map(entry=>{
-      const ts=(entry.utc||entry.timestamp||'').slice(11,19)||'--:--:--';
-      const phase=entry.phase?`[${entry.phase}] `:'';
-      const kp=entry.kp!=null?` Kp:${entry.kp.toFixed(1)}`:'';
-      const f=entry.f107_raw!=null?` F10.7:${entry.f107_raw.toFixed(0)}`:'';
-      const v=entry.velocity_km_s!=null?` v:${entry.velocity_km_s.toFixed(0)}km/s`:'';
-      const msg=`${phase}${f}${kp}${v}`.trim()||JSON.stringify(entry).slice(0,60);
-      return`<div class="log-entry"><div class="log-ts">${ts}</div><div class="log-msg">${msg}</div></div>`;
+    feed.innerHTML=recent.map((entry,i)=>{
+      const prev    = recent[i+1]||null;
+      const ts      = (entry.utc||'').slice(11,16)||'--:--';
+      const f107    = entry.f107_raw!=null?`F10.7:${entry.f107_raw.toFixed(0)} `:'';
+      const kp      = entry.kp!=null?`Kp:${entry.kp.toFixed(1)} `:'';
+      const v       = entry.velocity_km_s!=null?`v:${entry.velocity_km_s.toFixed(0)}km/s `:'';
+      const au      = entry.au!=null?`r:${entry.au.toFixed(3)}AU`:'';
+      const telemetry = `${f107}${kp}${v}${au}`.trim();
+      const flags   = conditionFlag(entry,prev);
+      const flagHtml= flags.map(fl=>`<span style="color:${fl.c};margin-left:6px;font-size:8px">${fl.t}</span>`).join('');
+      return`<div class="log-entry">
+        <div class="log-ts">${ts}</div>
+        <div class="log-msg" style="white-space:normal">${telemetry}${flagHtml}</div>
+      </div>`;
     }).join('');
+
     const dot=document.getElementById('logDot'),msg2=document.getElementById('logMsg');
     if(dot)dot.className='dot5 ok';
     if(msg2)msg2.textContent=`${records.length} entries &bull; logging active`;
     const badge=document.getElementById('log-phase-badge');
     const lastPhase=records[records.length-1].phase;
     if(badge&&lastPhase)badge.textContent=lastPhase;
-  }catch(e){}
-}
 
-// ── LIVE DATA FROM HELIODATA LOG (v10 compatible) ─────────────────
-async function loadLiveData(){
-  try{
-    const r=await fetch('https://heliodata.ai/data/science_log.jsonl');
-    const text=await r.text();
-    const lines=text.trim().split('\n').filter(l=>l.trim());
-    const records=lines.map(l=>JSON.parse(l)).filter(r=>r.au!==null);
-    if(records.length===0)return;
+    // Update live header values from latest entry
     const latest=records[records.length-1];
-    if(latest.velocity_km_s){const vel=document.getElementById('liveVelocity');if(vel)vel.textContent=latest.velocity_km_s.toFixed(1);}
-    if(latest.f107_raw){const f107h=document.getElementById('f107H');const f107obs=document.getElementById('f107Obs');if(f107h)f107h.textContent=latest.f107_raw.toFixed(0);if(f107obs)f107obs.textContent=latest.f107_raw.toFixed(0);}
-    if(latest.au){const distH=document.getElementById('distH');if(distH)distH.textContent=latest.au.toFixed(3);}
-    if(latest.kp){const kpH=document.getElementById('kpH');if(kpH)kpH.textContent=latest.kp.toFixed(2);}
-    if(records.length>=1){
-      const obs=records.map(r=>r.f107_raw||0);
-      const smo=obs.map(v=>parseFloat((v*0.94+8.3).toFixed(1)));
-      if(typeof f107LiveObs!=='undefined'){f107LiveObs.length=0;obs.forEach(v=>f107LiveObs.push(v));f107LiveSmo.length=0;smo.forEach(v=>f107LiveSmo.push(v));if(typeof drawF107==='function')drawF107();}
-    }
-  }catch(e){_warn('Live data:',e);}
+    if(latest.velocity_km_s){const el=document.getElementById('liveVelocity');if(el)el.textContent=latest.velocity_km_s.toFixed(1);}
+    if(latest.au){const el=document.getElementById('distH');if(el)el.textContent=latest.au.toFixed(3);}
+    if(latest.kp){const el=document.getElementById('kpH');if(el)el.textContent=latest.kp.toFixed(0);}
+  }catch(e){console.warn('logFeed:',e);}
 }
 
 // ── INIT ──────────────────────────────────────────────────────────
@@ -1346,7 +1361,6 @@ window.addEventListener('DOMContentLoaded',()=>{
 
   const isHttp=window.location.protocol.startsWith('http');
   if(isHttp){
-    // Try CAG proxy first (v11.1 primary), fall back to Wolfram API v2, then NOAA
     fetchCAG().then(()=>{
       fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();});
     });
@@ -1355,13 +1369,11 @@ window.addEventListener('DOMContentLoaded',()=>{
     fetchNoaaF107();
   }
   fetchNoaa();
-  loadLiveData();
   loadLogFeed();
 
   setInterval(()=>{if(isHttp){fetchCAG();fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();});}else{fetchNoaaF107();}},300000);
   setInterval(fetchNoaa,300000);
   setInterval(drawOrbit,30000);
-  setInterval(loadLiveData,300000);
   setInterval(loadLogFeed,300000);
 });
 </script>
