@@ -299,6 +299,24 @@ body::before {
   margin-bottom:2px;
 }
 
+/* v12 — CAG Classifier Status Row (Tier 2 observables) */
+.cag-cls-row {
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;
+  margin-top:7px;padding-top:7px;border-top:1px solid var(--bdr);
+}
+.cag-cls-cell {
+  background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;
+  padding:5px 6px;text-align:center;
+}
+.cag-cls-val { font-family:var(--mono);font-size:11px;line-height:1;margin-bottom:2px; }
+.cag-cls-lbl { font-size:7px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase; }
+.frag-intact   { color:var(--green); }
+.frag-partial  { color:var(--amber); }
+.frag-major    { color:var(--red); }
+.frag-pending  { color:var(--text3); }
+.shock-active  { color:var(--red);animation:pulse 1s ease-in-out infinite; }
+.shock-clear   { color:var(--green); }
+
 /* v12 — Solar Intelligence Panel */
 .sip-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px; }
 .sip-cell { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:7px 9px; }
@@ -856,6 +874,31 @@ body::before {
         <div class="dot5" style="background:var(--green);flex-shrink:0"></div>
         <span id="sipAlertText">Solar conditions nominal &bull; monitoring active</span>
       </div>
+
+      <!-- v12 Tier 2 — CAG Classifier Status Row -->
+      <div class="cag-cls-row">
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val frag-pending" id="clsFrag">—</div>
+          <div class="cag-cls-lbl">Frag state</div>
+        </div>
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val" id="clsTail" style="color:var(--cyan)">—°</div>
+          <div class="cag-cls-lbl">Tail length</div>
+        </div>
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val" id="clsIon" style="color:var(--text2)">0</div>
+          <div class="cag-cls-lbl">Ion events</div>
+        </div>
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val shock-clear" id="clsShock">clear</div>
+          <div class="cag-cls-lbl">SW shock</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:4px;font-family:var(--mono);font-size:8px;color:var(--text3)">
+        <div class="cdot" style="flex-shrink:0"></div>
+        CAG classifiers &bull; pred 1·4·8·14 &bull; from science_log.jsonl
+      </div>
+
       <div style="display:flex;align-items:center;gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px">
         <div class="dot5 wait" id="sipDot"></div>
         <span id="sipMsg" style="color:var(--text3)">Fetching solar intelligence&hellip;</span>
@@ -1370,6 +1413,17 @@ async function loadLogFeed(){
       else if(au!=null&&au<0.02)      flags.push({t:'◆ DEEP CORONA',c:'var(--red)'});
       else if(au!=null&&au<0.10&&(pph==='pre-ingress'||!pph)) flags.push({t:'◆ CORONA INGRESS',c:'var(--cyan)'});
       if(ph&&pph&&ph!==pph) flags.push({t:`◆ ${ph.toUpperCase()}`,c:'var(--purple)'});
+      // v12 Tier 2 — CAG classifier flags
+      const frag  = e.cag_fragmentation_state;
+      const tail  = e.cag_tail_length_deg;
+      const ion   = e.cag_ion_disconnections;
+      const shock = e.cag_shock_detected;
+      const pIon  = prev&&prev.cag_ion_disconnections;
+      if(frag==='major')   flags.push({t:'◆ MAJOR FRAGMENTATION',c:'var(--red)'});
+      else if(frag==='partial') flags.push({t:'◆ PARTIAL FRAGMENTATION',c:'var(--amber)'});
+      if(ion!=null&&pIon!=null&&ion>pIon) flags.push({t:`◆ ION DISCONNECTION #${ion}`,c:'var(--amber)'});
+      if(shock) flags.push({t:'◆ SOLAR WIND SHOCK — G-storm watch',c:'var(--red)'});
+      if(tail!=null&&tail>=20) flags.push({t:`◆ TAIL ${tail.toFixed(1)}°`,c:'var(--cyan)'});
       return flags;
     }
 
@@ -1404,7 +1458,71 @@ async function loadLogFeed(){
     if(latest.velocity_km_s){const el=document.getElementById('liveVelocity');if(el)el.textContent=latest.velocity_km_s.toFixed(1);}
     if(latest.au){const el=document.getElementById('distH');if(el)el.textContent=latest.au.toFixed(3);}
     if(latest.kp){const el=document.getElementById('kpH');if(el)el.textContent=latest.kp.toFixed(0);}
+
+    // v12 Tier 2 — update CAG classifier row from latest log entry
+    updateCagClassifierRow(latest);
   }catch(e){console.warn('logFeed:',e);}
+}
+
+// v12 — CAG Classifier Row updater (reads from science_log latest entry)
+function updateCagClassifierRow(entry){
+  if(!entry)return;
+
+  // Fragmentation state
+  const fragEl=document.getElementById('clsFrag');
+  if(fragEl){
+    const frag=entry.cag_fragmentation_state;
+    if(!frag||frag==='unavailable'||frag==='cag_timeout'){
+      fragEl.textContent='—';fragEl.className='cag-cls-val frag-pending';
+    } else {
+      fragEl.textContent=frag;
+      fragEl.className='cag-cls-val '+(frag==='intact'?'frag-intact':frag==='partial'?'frag-partial':'frag-major');
+    }
+  }
+
+  // Tail length
+  const tailEl=document.getElementById('clsTail');
+  if(tailEl){
+    const t=entry.cag_tail_length_deg;
+    if(t==null){tailEl.textContent='—°';tailEl.style.color='var(--text3)';}
+    else{
+      tailEl.textContent=t.toFixed(1)+'°';
+      tailEl.style.color=t>=20?'var(--cyan)':t>0?'var(--text2)':'var(--text3)';
+    }
+  }
+
+  // Ion disconnection count
+  const ionEl=document.getElementById('clsIon');
+  if(ionEl){
+    const ion=entry.cag_ion_disconnections;
+    if(ion==null){ionEl.textContent='—';ionEl.style.color='var(--text3)';}
+    else{
+      ionEl.textContent=String(ion);
+      // Color by relation to prediction 3±2
+      ionEl.style.color=ion===0?'var(--text2)':ion<=5?'var(--cyan)':'var(--amber)';
+    }
+  }
+
+  // Solar wind shock
+  const shockEl=document.getElementById('clsShock');
+  if(shockEl){
+    const shock=entry.cag_shock_detected;
+    if(shock){
+      shockEl.textContent='SHOCK';shockEl.className='cag-cls-val shock-active';
+      // Also escalate SIP alert
+      const al=document.getElementById('sipAlert');
+      const tx=document.getElementById('sipAlertText');
+      const dt=al?al.querySelector('.dot5'):null;
+      if(al){al.className='sip-alert crit';}
+      if(tx){
+        const eta=entry.cag_gstorm_eta_hours;
+        tx.textContent=`◆ SOLAR WIND SHOCK DETECTED${eta?' — G-storm ETA '+eta+'h':''}`;
+      }
+      if(dt)dt.style.background='var(--red)';
+    } else {
+      shockEl.textContent='clear';shockEl.className='cag-cls-val shock-clear';
+    }
+  }
 }
 
 // ── v12 — SOLAR INTELLIGENCE PANEL ────────────────────────────────
