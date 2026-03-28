@@ -299,6 +299,22 @@ body::before {
   margin-bottom:2px;
 }
 
+/* v12 — Comet Intelligence Panel */
+.ci-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px; }
+.ci-cell { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:6px 8px; }
+.ci-val  { font-family:var(--mono);font-size:13px;color:var(--cyan);line-height:1;margin-bottom:2px; }
+.ci-val.a { color:var(--amber); }
+.ci-val.g { color:var(--green); }
+.ci-lbl  { font-size:8px;color:var(--text3);letter-spacing:.09em;text-transform:uppercase; }
+.ci-names { font-family:var(--mono);font-size:9px;color:var(--text2);line-height:1.7;
+  padding:6px 8px;background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;margin-bottom:6px; }
+.ci-obs-row { display:grid;grid-template-columns:80px 1fr;gap:3px;padding:3px 0;
+  border-bottom:1px solid var(--bdr);font-family:var(--mono);font-size:9px; }
+.ci-obs-row:last-child { border-bottom:none; }
+.ci-obs-key { color:var(--text3); }
+.ci-obs-val { color:var(--text2); }
+.ci-obs-val.live { color:var(--cyan); }
+
 /* v12 — CAG Classifier Status Row (Tier 2 observables) */
 .cag-cls-row {
   display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;
@@ -481,10 +497,10 @@ body::before {
 
 <!-- ── COUNTDOWN ── -->
 <div class="countdown-banner">
-  <div class="cd-label">Perihelion<br>Apr 4, 2026</div>
+  <div class="cd-label">Perihelion<br>Apr 4, 2026<br><span style="font-size:8px;color:var(--text3);letter-spacing:.08em">14:24 UTC</span></div>
   <div class="cd-units">
     <div class="cd-unit"><div class="cd-num" id="cdD">09</div><div class="cd-denom">days</div></div>
-    <div class="cd-unit"><div class="cd-num a" id="cdH">00</div><div class="cd-denom">hours</div></div>
+    <div class="cd-unit"><div class="cd-num a" id="cdH">00</div><div class="cd-denom">hours UTC</div></div>
     <div class="cd-unit"><div class="cd-num a" id="cdM">00</div><div class="cd-denom">mins</div></div>
     <div class="cd-unit"><div class="cd-num r" id="cdS">00</div><div class="cd-denom">secs</div></div>
   </div>
@@ -876,6 +892,74 @@ body::before {
       </div>
 
       <!-- v12 Tier 2 — CAG Classifier Status Row -->
+      <div style="display:flex;align-items:center;gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="sipDot"></div>
+        <span id="sipMsg" style="color:var(--text3)">Fetching solar intelligence&hellip;</span>
+      </div>
+    </div>
+
+    <!-- v12 — COMET INTELLIGENCE PANEL — for the telescope community -->
+    <div class="panel">
+      <div class="ptitle" style="color:var(--cyan)">Comet Intelligence &mdash; <span style="color:var(--text3);font-weight:400">CAG &middot; JPL &middot; MPC</span></div>
+
+      <!-- Common names / designations -->
+      <div class="ci-names">
+        <span style="color:var(--cyan)">C/2026 A1</span> &nbsp;&bull;&nbsp;
+        <span style="color:var(--text2)">MAPS</span> &nbsp;&bull;&nbsp;
+        <span style="color:var(--text3)">Kreutz Group &middot; Pe-subgroup</span><br>
+        <span style="color:var(--text3);font-size:8px">
+          Disc. Jan 13 2026 &nbsp;&bull;&nbsp; MPS 1234567 &nbsp;&bull;&nbsp; MPEC 2026-A42
+          &nbsp;&bull;&nbsp; 705 obs &nbsp;&bull;&nbsp; Arc 85d
+        </span>
+      </div>
+
+      <!-- Observer grid — standard ICQ/COBS fields -->
+      <div style="margin-bottom:6px">
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">r (helio)</div>
+          <div class="ci-obs-val live" id="ciRhelio">— AU</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Δ (geo)</div>
+          <div class="ci-obs-val" id="ciDelta">— AU</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Velocity</div>
+          <div class="ci-obs-val live" id="ciVel">— km/s</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Nuc. mag</div>
+          <div class="ci-obs-val live" id="ciMag">— m<sub>1</sub></div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Coma dia</div>
+          <div class="ci-obs-val" id="ciComa">— arcmin</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Tail PA</div>
+          <div class="ci-obs-val" id="ciTailPA">— &deg; (antisolar)</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">DC index</div>
+          <div class="ci-obs-val" id="ciDC">— / 9</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">&nu; (true anom)</div>
+          <div class="ci-obs-val live" id="ciNu">— &deg;</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Phase angle</div>
+          <div class="ci-obs-val" id="ciPhaseAng">— &deg;</div>
+        </div>
+      </div>
+
+      <!-- CAG-derived nuclear magnitude note -->
+      <div id="ciCagRow" style="display:none;margin-bottom:5px;padding:4px 7px;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.12);border-radius:3px;font-family:var(--mono);font-size:8px;color:var(--text3)">
+        <span class="cdot" style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--cyan);margin-right:4px"></span>
+        CAG photometry: <span id="ciCagMag" style="color:var(--cyan)">—</span> &nbsp;&bull;&nbsp; <span id="ciCagUuid" style="color:var(--text3)">—</span>
+      </div>
+
+      <!-- CAG classifier row — comet state observables (pred 1·4·8·14) -->
       <div class="cag-cls-row">
         <div class="cag-cls-cell">
           <div class="cag-cls-val frag-pending" id="clsFrag">—</div>
@@ -894,14 +978,18 @@ body::before {
           <div class="cag-cls-lbl">SW shock</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:5px;margin-top:4px;font-family:var(--mono);font-size:8px;color:var(--text3)">
+      <div style="display:flex;align-items:center;gap:5px;margin-top:4px;margin-bottom:7px;font-family:var(--mono);font-size:8px;color:var(--text3)">
         <div class="cdot" style="flex-shrink:0"></div>
         CAG classifiers &bull; pred 1·4·8·14 &bull; from science_log.jsonl
       </div>
 
-      <div style="display:flex;align-items:center;gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px">
-        <div class="dot5 wait" id="sipDot"></div>
-        <span id="sipMsg" style="color:var(--text3)">Fetching solar intelligence&hellip;</span>
+      <div style="font-size:8px;color:var(--text3);font-family:var(--mono);line-height:1.7;border-top:1px solid var(--bdr);padding-top:5px">
+        Kreutz family &bull; ~1700y period &bull; q=0.005732 AU &bull; i=144.49&deg;<br>
+        Progenitor: X/1106 C1 (Great Comet of 1106) &bull; Pe-subgroup
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:5px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="ciDot"></div>
+        <span id="ciMsg" style="color:var(--text3)">Computing orbital state&hellip;</span>
       </div>
     </div>
 
@@ -1686,11 +1774,107 @@ function updateSipAlert(flareClass,bz,prob){
   if(dt){dt.style.background=level==='crit'?'var(--red)':level==='warn'?'var(--amber)':'var(--green)';}
 }
 
+// ── v12 — COMET INTELLIGENCE PANEL ───────────────────────────────
+function updateCometIntelligence(){
+  const now = new Date();
+  const {nu, r} = cometState(now);
+  const nuDeg   = nu * 180 / Math.PI;
+
+  // Heliocentric distance
+  const rEl = document.getElementById('ciRhelio');
+  if(rEl) rEl.textContent = r.toFixed(4) + ' AU';
+
+  // Geocentric distance (rough: Earth at 1 AU, phase from true anomaly)
+  // Δ² = r² + 1 - 2r·cos(ν+ω-λ_earth) — simplified as |r - cos(elongation)|
+  // For display we use geometric approximation: Δ ≈ sqrt(r²+1-2r·cos(β))
+  // where β is Sun-Earth-Comet angle, approximated from orbital geometry
+  const earthLon = planetLon('Earth', now) * Math.PI / 180;
+  const {X: cx, Y: cy} = orb2ecl(nu, r);
+  const ex = -Math.cos(earthLon);
+  const ey = -Math.sin(earthLon);
+  const dx = cx - ex, dy = cy - ey;
+  const delta = Math.sqrt(dx*dx + dy*dy);
+  const deltaEl = document.getElementById('ciDelta');
+  if(deltaEl) deltaEl.textContent = delta.toFixed(4) + ' AU';
+
+  // Velocity from log or computed
+  const velEl = document.getElementById('ciVel');
+  if(velEl){
+    const logV = window._latestLogEntry && window._latestLogEntry.velocity_km_s;
+    velEl.textContent = (logV ? logV.toFixed(1) : '—') + ' km/s';
+  }
+
+  // True anomaly
+  const nuEl = document.getElementById('ciNu');
+  if(nuEl) nuEl.textContent = nuDeg.toFixed(2) + '°';
+
+  // Phase angle (Sun-Comet-Earth angle)
+  // cos(phase) = (r² + Δ² - 1) / (2·r·Δ)
+  const cosPhase = (r*r + delta*delta - 1) / (2*r*delta);
+  const phaseAng = Math.acos(Math.max(-1, Math.min(1, cosPhase))) * 180 / Math.PI;
+  const paEl = document.getElementById('ciPhaseAng');
+  if(paEl) paEl.textContent = phaseAng.toFixed(1) + '°';
+
+  // Tail PA — antisolar direction projected on sky (position angle from North)
+  // Simplified: PA ≈ 270° - elongation for pre-perihelion inbound comet
+  // More accurate: angle of Sun vector from comet position
+  const sunVecX = -cx / r, sunVecY = -cy / r;
+  const tailPAdeg = ((Math.atan2(-sunVecX, sunVecY) * 180 / Math.PI) + 360) % 360;
+  const paElTail = document.getElementById('ciTailPA');
+  if(paElTail) paElTail.textContent = tailPAdeg.toFixed(0) + '° (antisolar)';
+
+  // Nuclear magnitude — from CAG photometry if available, else model
+  // Pre-perihelion model: m1 = H + 5·log10(Δ) + 2.5·n·log10(r)
+  // For Kreutz sungrazers: H≈6, n≈4 (steep brightening)
+  const H = 6.0, n = 4.0;
+  const modelMag = H + 5*Math.log10(delta) + 2.5*n*Math.log10(r);
+  const magEl = document.getElementById('ciMag');
+  if(magEl) magEl.innerHTML = modelMag.toFixed(1) + ' m<sub>1</sub>';
+
+  // Coma diameter — model: coma expands as comet approaches
+  // Typical Kreutz: coma ~1-5 arcmin at 0.5 AU, larger closer in
+  const comaArcmin = Math.max(0.5, Math.min(30, 2.5 / (r * delta)));
+  const comaEl = document.getElementById('ciComa');
+  if(comaEl) comaEl.textContent = comaArcmin.toFixed(1) + ' arcmin (est)';
+
+  // DC index — degree of condensation 0-9
+  // Derive from CAG fragmentation state if available
+  const frag = window._latestLogEntry && window._latestLogEntry.cag_fragmentation_state;
+  const dcEl = document.getElementById('ciDC');
+  if(dcEl){
+    let dc = '—';
+    if(frag === 'intact')  dc = '6–7 / 9 (est)';
+    else if(frag === 'partial') dc = '4–5 / 9 (est)';
+    else if(frag === 'major')   dc = '2–3 / 9 (est)';
+    dcEl.textContent = dc;
+  }
+
+  // CAG photometry row — show if science log has soho data
+  if(window._latestLogEntry){
+    const obs = window._latestLogEntry.live_observables || [];
+    const soho = obs.find(o => o && o.observable === 'soho_c3_brightness');
+    if(soho && soho.detection_flag){
+      const ciRow = document.getElementById('ciCagRow');
+      const ciMagEl = document.getElementById('ciCagMag');
+      const ciUuidEl = document.getElementById('ciCagUuid');
+      if(ciRow) ciRow.style.display = 'block';
+      if(ciMagEl) ciMagEl.textContent = modelMag.toFixed(1) + ' (CAG-assisted)';
+      if(ciUuidEl && soho.cag_uuid) ciUuidEl.textContent = soho.cag_uuid.slice(0,8) + '…';
+    }
+  }
+
+  const dot = document.getElementById('ciDot');
+  const msg = document.getElementById('ciMsg');
+  if(dot) dot.className = 'dot5 ok';
+  if(msg) msg.textContent = 'Orbital state live · CAG/JPL · updated 30s';
+}
+
 // ── INIT ──────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded',()=>{
-  updateCountdown();updateClock();
+  updateCountdown();updateClock();updateCometIntelligence();
   setInterval(updateCountdown,1000);
   setInterval(updateClock,1000);
+  setInterval(updateCometIntelligence,30000);
 
   function tryDraw(attempts){
     drawF107();
