@@ -6,7 +6,7 @@ Enneagrid Research Consortium · April 4, 2026 14:24 UTC
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Dashboard](https://img.shields.io/badge/Live-heliodata.ai-cyan)](https://heliodata.ai)
 [![Science Log](https://img.shields.io/badge/Science%20Log-public%20JSONL-green)](https://heliodata.ai/data/science_log.jsonl)
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19295676.svg)](https://doi.org/10.5281/zenodo.19295676)
 ---
 
 ## What this is
@@ -111,7 +111,7 @@ T  = 2026-Apr-04 14:24 UTC
 
 ## License
 
-Copyright 2026 Enneagrid Research Consortium
+Copyright 2026 Eugenio García López — Enneagrid Research Consortium
 
 Licensed under the Apache License, Version 2.0.  
 See [LICENSE](LICENSE) for full terms.
