@@ -412,6 +412,21 @@ body::before {
 /* ── RESPONSIVE ── */
 @media (max-width:1024px) {
   html { font-size:14px; }
+  .countdown-banner { flex-wrap:wrap;padding:8px 12px;gap:6px; }
+  .cd-label { width:100%;font-size:9px;color:var(--cyan);letter-spacing:.12em;margin-bottom:2px; }
+  .cd-units { width:100%;justify-content:space-around; }
+  .cd-num { font-size:32px; }
+  .cd-denom { font-size:9px; }
+  .cd-unit { padding:0 8px; }
+  .cd-prog-wrap { width:100%;padding:4px 0 0; }
+  .cd-status { width:100%;padding-left:0;text-align:center;font-size:12px; }
+  .header { grid-template-columns:1fr auto;grid-template-rows:auto auto;padding:8px 12px 6px;gap:4px; }
+  .header-left { grid-column:1;grid-row:1; }
+  .header-right { grid-column:2;grid-row:1;gap:8px; }
+  .header-center { grid-column:1 / -1;grid-row:2;text-align:left;border-top:1px solid var(--bdr);padding-top:5px;margin-top:2px; }
+  .comet-name { font-size:11px; }
+  .header-center > div:nth-child(2) { display:none; }
+  html { font-size:14px; }
   .header { grid-template-columns:1fr auto;grid-template-rows:auto auto;padding:8px 12px 6px;gap:4px; }
   .header-left  { grid-column:1;grid-row:1; }
   .header-right { grid-column:2;grid-row:1;gap:8px; }
