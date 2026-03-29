@@ -417,6 +417,11 @@ body::before {
   #col1 { grid-column:1; }
   #col3 { grid-column:2; }
   .orbit-outer { height:320px; }
+  /* v12 — tablet: keep 2×2 grids, compress observer rows */
+  .sip-grid { grid-template-columns:1fr 1fr; }
+  .ci-grid  { grid-template-columns:1fr 1fr; }
+  .cag-cls-row { grid-template-columns:1fr 1fr; }
+  .ci-obs-row { font-size:9px; }
 }
 @media (max-width:600px) {
   html { font-size:14px; }
@@ -469,6 +474,18 @@ body::before {
   .dec-sub { font-size:10px; }
   .status-bar { flex-wrap:wrap;font-size:10px;gap:6px 12px;padding:8px 12px;position:static; }
   .sbsep { display:none; }
+  /* v12 — Solar Intelligence Panel mobile */
+  .sip-grid { grid-template-columns:1fr 1fr; }
+  .sip-val  { font-size:16px; }
+  .flare-badge { font-size:11px; }
+  /* v12 — CAG classifier row mobile — 2×2 instead of 1×4 */
+  .cag-cls-row { grid-template-columns:1fr 1fr; }
+  .cag-cls-val { font-size:13px; }
+  /* v12 — Comet Intelligence Panel mobile */
+  .ci-grid { grid-template-columns:1fr 1fr; }
+  .ci-obs-row { grid-template-columns:72px 1fr;font-size:9px; }
+  .ci-val  { font-size:12px; }
+  .ci-names { font-size:9px; }
 }
 </style>
 </head>
@@ -773,9 +790,8 @@ body::before {
       </div>
       <div class="tl"><div class="tld">Jan 01</div><div class="tle">C/2026 A1 discovered, MPC confirmed</div><div class="tlv">3.1 AU</div></div>
       <div class="tl"><div class="tld">Feb 18</div><div class="tle">16 predictions locked &mdash; Consortium</div><div class="tlv">1.8 AU</div></div>
-      <div class="tl now"><div class="tld">Mar 27 &#9654;</div><div class="tle">NOW &mdash; Final approach, CAG active</div><div class="tlv">0.55 AU</div></div>
-      <div class="tl" style="background:rgba(245,158,11,0.03)"><div class="tld" style="color:var(--amber)">Mar 28</div><div class="tle" style="color:var(--amber)">Corona ingress &mdash; T&#8722;24h &mdash; logging at max cadence</div><div class="tlv" style="color:var(--amber)">0.10 AU</div></div>
-      <div class="tl peri"><div class="tld">Apr 04</div><div class="tle">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv">0.006 AU</div></div>
+      <div class="tl now"><div class="tld">Mar 28 &#9654;</div><div class="tle">NOW &mdash; Corona ingress, CAG active</div><div class="tlv">0.10 AU</div></div>
+      <div class="tl peri" style="background:rgba(245,158,11,0.03)"><div class="tld" style="color:var(--amber)">Apr 04</div><div class="tle" style="color:var(--amber)">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv" style="color:var(--amber)">0.006 AU</div></div>
       <div class="tl"><div class="tld">May 1</div><div class="tle">Public scorecard &mdash; all 16 scored</div><div class="tlv">&mdash;</div></div>
     </div>
 
