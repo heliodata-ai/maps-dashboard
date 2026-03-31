@@ -86,16 +86,23 @@ Full scoring window: **May 1–15, 2026**
 - SMOS solar flux dataset — Serco Red Lab / ESRIN  
   (Zenodo: [10.5281/zenodo.15275693](https://doi.org/10.5281/zenodo.15275693))
 - JPL SBDB / Horizons — orbital elements (solution #9 · 705 observations)
+- * REST API — [api.heliodata.ai](https://api.heliodata.ai) · `/predictions` · `/scoring` · `/visits` · `/latest`
 
 ---
 
 ## Evidence Chain
 
-The science log starts at corona ingress (March 28, 2026) and runs hourly 
-through the May scoring window. Every entry is git-committed. Every Wolfram CAG 
-computation carries a UUID for reproducibility.
+## Evidence Chain
 
-Public log: [heliodata.ai/data/science_log.jsonl](https://heliodata.ai/data/science_log.jsonl)
+The science log starts at corona ingress (March 28, 2026) and runs hourly 
+through the May scoring window. Every entry is git-committed and GPG-signed. 
+Every Wolfram CAG computation carries a UUID for reproducibility.
+
+- Public log: [heliodata.ai/data/science_log.jsonl](https://heliodata.ai/data/science_log.jsonl)
+- REST API: [api.heliodata.ai](https://api.heliodata.ai)
+- Pre-registered scoring rubric: [api.heliodata.ai/scoring](https://api.heliodata.ai/scoring)
+- Scorecard (post-perihelion): [heliodata.ai/may-scorecard](https://heliodata.ai/may-scorecard)
+- Zenodo deposit (published May 15): DOI [10.5281/zenodo.19295676](https://doi.org/10.5281/zenodo.19295676)
 
 ---
 
