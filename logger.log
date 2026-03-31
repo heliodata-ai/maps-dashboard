@@ -10,3 +10,3576 @@
   CAG LIVE: fetching photometry...
   Written to /var/log/heliodata/science_log.jsonl
   OK — phase=pre-ingress au=0.579913 kp=1.0
+[2026-03-26T22:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5790 AU  v=55.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=False
+  DSCOVR: Bz=1.95 sw_speed=472.5
+  Advisory: fetched=True comet=False
+  CAG: v=55.306 km/s  f107_baseline=121.64 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.578976 kp=2.0
+[2026-03-26T23:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5780 AU  v=55.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=False
+  DSCOVR: Bz=1.41 sw_speed=458.0
+  Advisory: fetched=True comet=False
+  CAG: v=55.351 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.578039 kp=2.0
+[2026-03-26T23:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5771 AU  v=55.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.88 sw_speed=465.1
+  Advisory: fetched=True comet=False
+  CAG: v=55.396 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.5771 kp=2.0
+[2026-03-27T00:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5762 AU  v=55.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.04 sw_speed=461.0
+  Advisory: fetched=True comet=False
+  CAG: v=55.441 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.576161 kp=2.0
+[2026-03-27T00:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5752 AU  v=55.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=0.34 sw_speed=472.2
+  Advisory: fetched=True comet=False
+  CAG: v=55.486 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.575221 kp=1.0
+[2026-03-27T01:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5743 AU  v=55.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.43 sw_speed=460.3
+  Advisory: fetched=True comet=False
+  CAG: v=55.532 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.57428 kp=1.0
+[2026-03-27T01:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5733 AU  v=55.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.27 sw_speed=468.6
+  Advisory: fetched=True comet=False
+  CAG: v=55.577 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.573339 kp=1.0
+[2026-03-27T02:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5724 AU  v=55.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.33 sw_speed=473.6
+  Advisory: fetched=True comet=False
+  CAG: v=55.623 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.572397 kp=1.0
+[2026-03-27T02:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5715 AU  v=55.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.02 sw_speed=479.7
+  Advisory: fetched=True comet=False
+  CAG: v=55.669 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.571454 kp=1.0
+[2026-03-27T03:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5705 AU  v=55.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.36 sw_speed=468.8
+  Advisory: fetched=True comet=False
+  CAG: v=55.715 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.57051 kp=1.0
+[2026-03-27T03:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5696 AU  v=55.8 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.57 sw_speed=462.6
+  Advisory: fetched=True comet=False
+  CAG: v=55.761 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.569565 kp=0.0
+[2026-03-27T04:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5686 AU  v=55.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=0.47 sw_speed=460.0
+  Advisory: fetched=True comet=False
+  CAG: v=55.808 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.56862 kp=1.0
+[2026-03-27T04:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5677 AU  v=55.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=0.0 sw_speed=451.2
+  Advisory: fetched=True comet=False
+  CAG: v=55.854 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.567674 kp=2.0
+[2026-03-27T05:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5667 AU  v=55.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.1 sw_speed=459.2
+  Advisory: fetched=True comet=False
+  CAG: v=55.901 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.566727 kp=2.0
+[2026-03-27T05:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5658 AU  v=55.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.17 sw_speed=444.1
+  Advisory: fetched=True comet=False
+  CAG: v=55.948 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.565779 kp=2.0
+[2026-03-27T06:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5648 AU  v=56.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.96 sw_speed=458.8
+  Advisory: fetched=True comet=False
+  CAG: v=55.995 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.564831 kp=2.0
+[2026-03-27T06:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5639 AU  v=56.0 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.85 sw_speed=466.1
+  Advisory: fetched=True comet=False
+  CAG: v=56.042 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.563882 kp=0.0
+[2026-03-27T07:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5629 AU  v=56.1 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.05 sw_speed=438.3
+  Advisory: fetched=True comet=False
+  CAG: v=56.09 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.562932 kp=0.0
+[2026-03-27T07:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5620 AU  v=56.1 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.26 sw_speed=444.6
+  Advisory: fetched=True comet=False
+  CAG: v=56.137 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.561981 kp=0.0
+[2026-03-27T08:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5610 AU  v=56.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=3.79 sw_speed=432.4
+  Advisory: fetched=True comet=False
+  CAG: v=56.185 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.561029 kp=1.0
+[2026-03-27T08:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5601 AU  v=56.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.91 sw_speed=425.3
+  Advisory: fetched=True comet=False
+  CAG: v=56.233 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.560077 kp=1.0
+[2026-03-27T09:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5591 AU  v=56.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=2.29 sw_speed=429.6
+  Advisory: fetched=True comet=False
+  CAG: v=56.281 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.559124 kp=1.0
+[2026-03-27T09:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5582 AU  v=56.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.44 sw_speed=411.3
+  Advisory: fetched=True comet=False
+  CAG: v=56.329 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.55817 kp=0.0
+[2026-03-27T10:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5572 AU  v=56.4 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.04 sw_speed=402.4
+  Advisory: fetched=True comet=False
+  CAG: v=56.377 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.557215 kp=0.0
+[2026-03-27T10:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5563 AU  v=56.4 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=0.09 sw_speed=403.1
+  Advisory: fetched=True comet=False
+  CAG: v=56.426 km/s  f107_baseline=121.8 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.556259 kp=0.0
+[2026-03-27T11:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5553 AU  v=56.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.65 sw_speed=399.8
+  Advisory: fetched=True comet=False
+  CAG: v=56.474 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.555303 kp=0.0
+[2026-03-27T11:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5543 AU  v=56.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=0.24 sw_speed=400.9
+  Advisory: fetched=True comet=False
+  CAG: v=56.523 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.554345 kp=0.0
+[2026-03-27T12:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5534 AU  v=56.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.43 sw_speed=432.8
+  Advisory: fetched=True comet=False
+  CAG: v=56.572 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.553387 kp=1.0
+[2026-03-27T12:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5524 AU  v=56.6 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.96 sw_speed=404.8
+  Advisory: fetched=True comet=False
+  CAG: v=56.621 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.552428 kp=0.0
+[2026-03-27T13:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5515 AU  v=56.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.32 sw_speed=427.7
+  Advisory: fetched=True comet=False
+  CAG: v=56.671 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.551469 kp=1.0
+[2026-03-27T13:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5505 AU  v=56.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.36 sw_speed=417.4
+  Advisory: fetched=True comet=False
+  CAG: v=56.72 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.550508 kp=1.0
+[2026-03-27T14:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5495 AU  v=56.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.81 sw_speed=399.2
+  Advisory: fetched=True comet=False
+  CAG: v=56.77 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.549547 kp=1.0
+[2026-03-27T14:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5486 AU  v=56.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.19 sw_speed=418.9
+  Advisory: fetched=True comet=False
+  CAG: v=56.82 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.548584 kp=1.0
+[2026-03-27T15:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5476 AU  v=56.9 km/s  phase=pre-ingress
+  fetch_json FAILED https://services.swpc.noaa.gov/json/goes/primary/xrays-7-day.json: Expecting ',' delimiter: line 1 column 4565722 (char 4565721)
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.68 sw_speed=417.6
+  Advisory: fetched=True comet=False
+  CAG: v=56.87 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.547621 kp=1.0
+[2026-03-27T15:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5467 AU  v=56.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.04 sw_speed=386.9
+  Advisory: fetched=True comet=False
+  CAG: v=56.92 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.546657 kp=1.0
+[2026-03-27T16:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5457 AU  v=57.0 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.26 sw_speed=412.1
+  Advisory: fetched=True comet=False
+  CAG: v=56.97 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.545693 kp=0.0
+[2026-03-27T16:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5447 AU  v=57.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.05 sw_speed=395.2
+  Advisory: fetched=True comet=False
+  CAG: v=57.021 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.544727 kp=1.0
+[2026-03-27T17:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5438 AU  v=57.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.25 sw_speed=413.4
+  Advisory: fetched=True comet=False
+  CAG: v=57.072 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.543761 kp=1.0
+[2026-03-27T17:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5428 AU  v=57.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.3 sw_speed=407.9
+  Advisory: fetched=True comet=False
+  CAG: v=57.123 km/s  f107_baseline=122.19 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.542793 kp=1.0
+[2026-03-27T18:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5418 AU  v=57.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.16 sw_speed=401.1
+  Advisory: fetched=True comet=False
+  CAG: v=57.174 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.541825 kp=1.0
+[2026-03-27T18:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5409 AU  v=57.2 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.1 sw_speed=400.3
+  Advisory: fetched=True comet=False
+  CAG: v=57.225 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.540856 kp=0.0
+[2026-03-27T19:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5399 AU  v=57.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.07 sw_speed=388.7
+  Advisory: fetched=True comet=False
+  CAG: v=57.276 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.539886 kp=0.0
+[2026-03-27T19:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5389 AU  v=57.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.16 sw_speed=395.9
+  Advisory: fetched=True comet=False
+  CAG: v=57.328 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=4b6d8bd9-861b-47d4-8ac1-648e188fee70
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9cce772e-c493-4ad9-ae60-20701d9f6c73
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2c3d3cd5-a316-4dd1-a0bc-f70f6faa1c27
+  TIER2: frag=intact tail=2.33° ion=0
+  SHOCK DETECTED: density=1.0 baseline=0.3 eta=1.1h
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.538915 kp=0.0
+[2026-03-27T20:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5379 AU  v=57.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.66 sw_speed=393.5
+  Advisory: fetched=True comet=False
+  CAG: v=57.38 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=665bd68b-e545-4a3a-81b8-2625c8f72478
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=053a72a5-ebb4-4bb6-a3d3-beb334b7ca83
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=bfe36121-2277-495c-a2e9-a4f379f14a2f
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.537944 kp=1.0
+[2026-03-27T20:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5370 AU  v=57.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.6 sw_speed=400.3
+  Advisory: fetched=True comet=False
+  CAG: v=57.432 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=6bcd3a3e-f053-4818-8691-4733b3ddc712
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=ee8abbe8-2e12-4d05-a2c5-932c7873634c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ab8c5263-1a5a-491d-806c-ee09dd891067
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.536971 kp=1.0
+[2026-03-27T21:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5360 AU  v=57.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.68 sw_speed=409.5
+  Advisory: fetched=True comet=False
+  CAG: v=57.484 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=260e8373-8585-44b8-a281-51a60302fec2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=02bef3eb-2f8a-486e-bf1c-04782e5d85d7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5c0d0f9c-6c4b-4ee5-b336-ce13af6abed5
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.535998 kp=1.0
+[2026-03-27T21:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5350 AU  v=57.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.22 sw_speed=416.3
+  Advisory: fetched=True comet=False
+  CAG: v=57.537 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=014a3d1f-65fa-4d9c-910c-9274fa24d241
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=af672a51-a5ab-4701-97ea-605a6d0c7572
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fd885070-d3d6-4b62-8dcf-0d6bf7e43534
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-1.22 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.535024 kp=0.0
+[2026-03-27T22:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5340 AU  v=57.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.04 sw_speed=403.6
+  Advisory: fetched=True comet=False
+  CAG: v=57.589 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9b1965de-9912-4bbf-b72e-2fcccd4510db
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a5f148b7-1b76-4277-8651-65f2257476d1
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1564bed8-45d9-49ac-92a1-2b4977be9bae
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.534049 kp=1.0
+[2026-03-27T22:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5331 AU  v=57.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.89 sw_speed=400.2
+  Advisory: fetched=True comet=False
+  CAG: v=57.642 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=22a7f28a-4b5e-4747-856a-68abceebf503
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=955210b3-746f-41ab-b80f-6b9a0767c8c3
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=8ddbe0d3-7bf5-41b7-bad8-a183e2a9c7ab
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.533073 kp=1.0
+[2026-03-27T23:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5321 AU  v=57.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.11 sw_speed=388.0
+  Advisory: fetched=True comet=False
+  CAG: v=57.695 km/s  f107_baseline=121.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5f47713d-80e5-4af1-9c10-c458e0cfc701
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=8aa1c8c2-2fda-4575-9fbc-e95ad6bc22a5
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5bafa0be-1de4-42d9-a1d3-1db5f42d3f5c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.532096 kp=2.0
+[2026-03-27T23:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5311 AU  v=57.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.1 sw_speed=403.6
+  Advisory: fetched=True comet=False
+  CAG: v=57.748 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=c980a9f7-9ea5-49f1-9b64-ac2fa957cd0c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a267bbc5-d213-4bd0-bdc5-e0c1a5d777ea
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=51cde857-ce69-4c51-9764-6c74a97060d0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.531118 kp=2.0
+[2026-03-28T00:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5301 AU  v=57.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.17 sw_speed=382.8
+  Advisory: fetched=True comet=False
+  CAG: v=57.801 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=388e4f8c-dc1d-4a3f-8510-c5d2d170fce5
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=acca453a-4e72-45ee-9746-10e2ea0124fe
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=6c517b14-b278-4881-8f3c-ecee008a66a4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.530139 kp=2.0
+[2026-03-28T00:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5292 AU  v=57.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.25 sw_speed=382.2
+  Advisory: fetched=True comet=False
+  CAG: v=57.855 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=b4e4938a-ea98-4c1c-8fa7-9c0341d6f4cf
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=766f934a-3ca5-47b8-8620-4caffb52ce52
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=4577a0e2-5d03-40a4-b121-9a5f056c777c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.52916 kp=3.0
+[2026-03-28T01:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5282 AU  v=57.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.12 sw_speed=392.8
+  Advisory: fetched=True comet=False
+  CAG: v=57.909 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2ce3186b-4840-421e-8802-7a0b301c8add
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4362f36d-59c9-44ac-8d0c-7f631a863de1
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9f30c7e1-90d2-4b73-8657-5273aa4acf85
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-3.12 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.528179 kp=2.0
+[2026-03-28T01:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5272 AU  v=58.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=0.98 sw_speed=372.5
+  Advisory: fetched=True comet=False
+  CAG: v=57.963 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=02b9aa0c-c1fe-430f-a25c-9ee69b00001b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=1f697c63-2255-45bf-b29f-080969d7cda4
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=6d1bebf1-b883-46d3-a003-0fdd5c404b5e
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=0.98 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.527198 kp=3.0
+[2026-03-28T02:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5262 AU  v=58.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=0.8 sw_speed=369.9
+  Advisory: fetched=True comet=False
+  CAG: v=58.017 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=397cfaf9-bc8b-440d-b5b9-ad4a64ce369b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=93aa8ddd-f2ce-4cdb-84c6-d4dfb301ff55
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=adfdcc09-14dc-4e39-a6ca-b37d8f03b98f
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.526216 kp=3.0
+[2026-03-28T02:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5252 AU  v=58.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.09 sw_speed=373.5
+  Advisory: fetched=True comet=False
+  CAG: v=58.071 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=288acaa1-e762-4929-866d-a4914f44e4d5
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4d2739e5-6e1b-4bba-b8ab-b5cccbbb6271
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9a46dacd-7e85-444c-8611-6ab94735499e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.525233 kp=2.0
+[2026-03-28T03:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5242 AU  v=58.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.19 sw_speed=379.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.126 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=82b67bcd-f9a3-444d-9ea3-3c2343a04ad6
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=50b96686-1bf0-42e7-a2d0-686cbcd3b623
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ffec38be-f2c4-4370-84ed-9c4176c8b7a1
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.524249 kp=3.0
+[2026-03-28T03:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5233 AU  v=58.2 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.31 sw_speed=381.5
+  Advisory: fetched=True comet=False
+  CAG: v=58.181 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=844591c2-6fcf-40f9-afe0-27fb58831f9f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=5b49995a-796e-4205-808e-f775c3bb3720
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d20ba022-a683-4d2b-9525-b05cd3c72fa0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.523264 kp=0.0
+[2026-03-28T04:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5223 AU  v=58.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=147.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.74 sw_speed=365.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.236 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=aab089a9-5ea4-4199-bac4-6be63048e215
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=f3bdc185-d6b8-48d8-8bfd-d076c64a259a
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ddc7283c-3c5d-4443-aa46-2f6983c924d9
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.522278 kp=1.0
+[2026-03-28T04:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5213 AU  v=58.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=147.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.1 sw_speed=362.4
+  Advisory: fetched=True comet=False
+  CAG: v=58.291 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9ccacdf7-7d6b-4851-8d1f-67667d8be9fb
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9c8f81e2-bd9a-4687-aedd-39b0707b43fb
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=501d7aa4-9289-4ab0-a67e-233e8ab5a7fc
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.521291 kp=1.0
+[2026-03-28T05:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5203 AU  v=58.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.22 sw_speed=398.7
+  Advisory: fetched=True comet=False
+  CAG: v=58.346 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5584a3e2-165a-4e37-be3a-7942046450bf
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2ee93d27-1731-4d78-a291-ff228e90c143
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5b900373-67db-4fa0-a96e-6a6f8852af27
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.520303 kp=2.0
+[2026-03-28T05:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5193 AU  v=58.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.13 sw_speed=371.0
+  Advisory: fetched=True comet=False
+  CAG: v=58.402 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=51d2ee5c-013d-4c54-8766-463d508e7a65
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a15d0517-01f3-493c-9bc9-fb10d3237edc
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d14c386f-56c9-46ba-b623-f142821014c9
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.519315 kp=2.0
+[2026-03-28T06:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5183 AU  v=58.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.71 sw_speed=385.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.458 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1860cffa-d163-44a2-a456-6f96baed8243
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=6acc7615-383d-48b7-b166-cd93de03fec0
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1a5f988f-0de2-4036-8df7-858592d5fffb
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.518325 kp=2.0
+[2026-03-28T06:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5173 AU  v=58.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.76 sw_speed=399.7
+  Advisory: fetched=True comet=False
+  CAG: v=58.514 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=989f7a25-b223-425b-a4d4-e69ffcba4904
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=384bddaf-853f-40e9-92ec-b2c2edeec2e3
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0278de16-3dec-4705-9543-ac9241f549f6
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.517335 kp=0.0
+[2026-03-28T07:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5163 AU  v=58.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.53 sw_speed=393.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.57 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=28ece607-7eb1-47b5-8485-cb8cf24e67b4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=d816df40-27b9-4d54-9d79-0a3a38a294c9
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=62e98a7a-3730-4edd-bf65-d29299d05a6d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.516343 kp=1.0
+[2026-03-28T07:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5154 AU  v=58.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.59 sw_speed=384.1
+  Advisory: fetched=True comet=False
+  CAG: v=58.626 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=bf5a2b0a-5272-411c-9002-1f7e5d2b77f6
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=bb983014-ca5d-4999-a231-4a7dcc5b989a
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d6dfbaa9-b99c-49a9-adf6-7c265eaee5a7
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.515351 kp=1.0
+[2026-03-28T08:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5144 AU  v=58.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.28 sw_speed=394.5
+  Advisory: fetched=True comet=False
+  CAG: v=58.683 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=00f8b261-26d2-4746-bfa2-4facf13f0c63
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=99a328c8-9b4c-452a-a178-84cd2e5a54eb
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=cd0af4bc-9586-4e57-a991-ed3c4ac4a6a4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.514357 kp=2.0
+[2026-03-28T08:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5134 AU  v=58.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.55 sw_speed=383.5
+  Advisory: fetched=True comet=False
+  CAG: v=58.74 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=4633cf72-1c00-445a-be90-851a24f186c3
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a8d84148-82fd-4ed1-a30b-a34c61c6e439
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=787c1329-4dfc-4391-acf5-187f7d8d0be7
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.513363 kp=2.0
+[2026-03-28T09:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5124 AU  v=58.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.42 sw_speed=374.1
+  Advisory: fetched=True comet=False
+  CAG: v=58.797 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=b63c9f56-fef3-4b29-b10a-9a872f62f16c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c160cc62-1b5e-4dc5-bb5a-f3adefa6fe34
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=b777671c-5a58-48fd-ba94-770bd4753512
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.512368 kp=2.0
+[2026-03-28T09:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5114 AU  v=58.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.96 sw_speed=386.6
+  Advisory: fetched=True comet=False
+  CAG: v=58.854 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=ea680eeb-e8f3-44aa-9233-61fa4c6fbff9
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=281443ad-af8c-427c-98a3-e52b55b8d0be
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=82c6d657-7104-421d-b8d4-46efb087303b
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.511372 kp=3.0
+[2026-03-28T10:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5104 AU  v=58.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.47 sw_speed=382.9
+  Advisory: fetched=True comet=False
+  CAG: v=58.912 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=fd3fefbe-4e90-4b1b-8604-1ff1cccccff7
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=f04befe6-b001-48e2-a8b0-923d88425ae7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=afd5ed54-5673-4885-b816-497266225862
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.510375 kp=3.0
+[2026-03-28T10:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5094 AU  v=59.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.01 sw_speed=407.1
+  Advisory: fetched=True comet=False
+  CAG: v=58.97 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=96e5eb12-ab8d-41ec-885c-3f8d8953cf1c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0a26bd45-eef4-496e-90bb-620704b9434f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3bdec743-1c40-4b36-a65f-87ff9dcb86b9
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.509376 kp=2.0
+[2026-03-28T11:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5084 AU  v=59.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.97 sw_speed=378.5
+  Advisory: fetched=True comet=False
+  CAG: v=59.028 km/s  f107_baseline=122.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=a98f3089-61e4-4d14-85d0-d1fb6eb61d6f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2e5c4cbc-dd6d-468f-8634-2429859522c4
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2bbded57-9896-4279-8c9a-ab3c6cf4f295
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.508377 kp=2.0
+[2026-03-28T11:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5074 AU  v=59.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.25 sw_speed=373.1
+  Advisory: fetched=True comet=False
+  CAG: v=59.086 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=dbe033d7-0b04-412f-a65b-ada0b45fa72d
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=5ca37d43-3deb-48c2-a58d-4e5d2aa5dba1
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d3ad0306-3561-4367-b022-d17df6b4dbc4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.507377 kp=2.0
+[2026-03-28T12:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5064 AU  v=59.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=0.14 sw_speed=381.6
+  Advisory: fetched=True comet=False
+  CAG: v=59.144 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9327b48f-b17a-4a04-a223-894bbdf142fe
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=5f4405d3-afb3-4191-b0fa-c47194ae3c57
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=132670cd-8310-4054-9c47-e298bae3ca83
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.506376 kp=2.0
+[2026-03-28T12:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5054 AU  v=59.2 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.25 sw_speed=376.0
+  Advisory: fetched=True comet=False
+  CAG: v=59.203 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=87b92682-4ae4-454d-b6f4-a8f0e7a7b1c8
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2232625e-59c5-4626-a51f-02e627c858a3
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=821d55f6-ff3d-4ddf-a8d5-aff0aa03f899
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.505374 kp=0.0
+[2026-03-28T13:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5044 AU  v=59.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 5 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.84 sw_speed=350.8
+  Advisory: fetched=True comet=False
+  CAG: v=59.262 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5b9bbd6a-1df3-417c-9d28-014059c06f54
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=51394276-9b6b-4347-8cde-ba24e4dcd6de
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f2a3ab35-8071-4708-a1d6-a88355e0b385
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.504371 kp=1.0
+[2026-03-28T13:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5034 AU  v=59.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 6 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.28 sw_speed=379.6
+  Advisory: fetched=True comet=False
+  CAG: v=59.321 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=240e595f-c891-4a38-a284-8be8520b6f21
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a719eece-449d-42e2-a51b-fdecea083a45
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2603e22d-2218-446c-8624-2c13166d177f
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-1.28 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.503367 kp=1.0
+[2026-03-28T14:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5024 AU  v=59.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 6 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.18 sw_speed=378.4
+  Advisory: fetched=True comet=False
+  CAG: v=59.381 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=98679175-1b24-4ad7-b143-bae073feb909
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=452eefab-52fd-4491-a9a6-2911860d1bc2
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0eac46ee-2dbf-4d6c-bba9-72114fd22fcd
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.502362 kp=1.0
+[2026-03-28T14:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5014 AU  v=59.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 6 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.82 sw_speed=365.3
+  Advisory: fetched=True comet=False
+  CAG: v=59.44 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1eda35f3-04e5-4448-93b3-48efa994ea11
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=77be77d4-7023-4a2b-88e6-a322a3491daa
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=409ecef0-4872-4cbf-a2c1-0006db175beb
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.501356 kp=1.0
+[2026-03-28T15:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.5003 AU  v=59.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.74 sw_speed=359.2
+  Advisory: fetched=True comet=False
+  CAG: v=59.5 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1567ef63-fc59-441c-b1d1-fbbf8d778118
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=b52c1436-755e-4699-8551-b44647da278f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=153b228d-0342-4eae-a437-dad681b03b64
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.500349 kp=1.0
+-bash: */30: No such file or directory
+-bash: 2-59/30: No such file or directory
+[2026-03-28T15:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4993 AU  v=59.6 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.46 sw_speed=359.6
+  Advisory: fetched=True comet=False
+  CAG: v=59.56 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=75150217-f2e2-4398-9f8a-0b6c77608bb9
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=b09518ab-4579-4d7c-b6d2-9c491cc16036
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0e4c7a7a-acf5-4696-8dca-998565140318
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.499341 kp=0.0
+[2026-03-28T16:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4983 AU  v=59.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.99 sw_speed=351.9
+  Advisory: fetched=True comet=False
+  CAG: v=59.621 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=442e99fd-4c52-43ff-b533-d4d639368ca2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=47d4dd29-bf91-4e81-aaa0-36c34a73c87a
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f87135b5-2a75-4da3-8580-ba8b5b856a4d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.498332 kp=1.0
+[2026-03-28T16:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4973 AU  v=59.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.3 sw_speed=344.9
+  Advisory: fetched=True comet=False
+  CAG: v=59.681 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=781cde9e-a411-40e3-9f29-40c293ca0a10
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=af076450-38b0-4abf-b8bd-205f094eb42d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f4814263-eccb-414c-9882-e8978ccbc0bd
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.497322 kp=1.0
+[2026-03-28T17:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4963 AU  v=59.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.25 sw_speed=345.2
+  Advisory: fetched=True comet=False
+  CAG: v=59.742 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=402036f0-f58d-42cd-a617-fb00d9fbc982
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=5c67d5c6-29a1-47ce-8d95-23ef93e68846
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=deac9b0c-b661-4a48-8471-033401a7d3c4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.496311 kp=1.0
+[2026-03-28T17:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4953 AU  v=59.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.0 sw_speed=351.3
+  Advisory: fetched=True comet=False
+  CAG: v=59.803 km/s  f107_baseline=122.51 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=3439ca1c-16df-4ea5-b87b-b9304cf7abd2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=6014a484-0185-43d9-8b58-7a4c49fa53a7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9353a5fd-3c55-423f-864d-e2dd75e587e7
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.495299 kp=1.0
+[2026-03-28T18:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4943 AU  v=59.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.12 sw_speed=366.2
+  Advisory: fetched=True comet=False
+  CAG: v=59.865 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=857a1825-5eae-401f-b9dc-0aa87e0a7462
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0082fc04-1df1-4145-b579-0c33cf997dc3
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5ad644ad-9253-410c-b1c5-6c0a9df97f66
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.494286 kp=1.0
+[2026-03-28T18:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4933 AU  v=59.9 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.26 sw_speed=349.7
+  Advisory: fetched=True comet=False
+  CAG: v=59.926 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 504: Gateway Time-out
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4fdbfbbb-6cf2-4f73-8ebc-63595ad3bb3c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=36a50e90-2b5d-4ba4-9b1b-f8f87b6ae3a2
+  TIER2: frag=None tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.493272 kp=0.0
+[2026-03-28T19:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4923 AU  v=60.0 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.47 sw_speed=370.0
+  Advisory: fetched=True comet=False
+  CAG: v=59.988 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=f06d3398-13a7-4125-b45f-88f481082250
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4003226c-fbd4-403f-94e0-3b953474669d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0d285f2b-221f-457c-96ec-5e1d6ae16586
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.492257 kp=0.0
+[2026-03-28T19:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4912 AU  v=60.1 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.09 sw_speed=353.8
+  Advisory: fetched=True comet=False
+  CAG: v=60.05 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2050dcdf-e8b5-419c-a76c-baa5ea941575
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c9c97689-4d9b-4d29-85d8-6c287f0998d9
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5da6d9bc-6a0c-4ed3-b6ab-1647704417a0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.491241 kp=0.0
+[2026-03-28T20:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4902 AU  v=60.1 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.32 sw_speed=368.5
+  Advisory: fetched=True comet=False
+  CAG: v=60.113 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9280afb5-f679-4b34-9e6a-b086df92880b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=6d2addcc-9c7f-4519-b5e0-e436d6c71b52
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=76ebcf32-1e31-46e6-b8a6-29175dbcb4e5
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.490224 kp=0.0
+[2026-03-28T20:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4892 AU  v=60.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-7.32 sw_speed=365.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.175 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0164127b-c0a1-48a8-868c-9c2c331cba6f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=30c6bd5f-b4e1-4fc7-a345-aa16b1a75aa7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=60ce8d87-631c-4e59-ae44-d03f904bd153
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.489206 kp=1.0
+[2026-03-28T21:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4882 AU  v=60.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-7.46 sw_speed=367.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.238 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=c43c7d19-60cf-4d14-a601-dd36bb32185c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=12d83d07-98a3-4441-b5d2-0bb7d8d03ac8
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1987bb83-3ae3-401b-829c-42ce97e87e05
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.488186 kp=1.0
+[2026-03-28T21:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4872 AU  v=60.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-7.22 sw_speed=358.2
+  Advisory: fetched=True comet=False
+  CAG: v=60.301 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=93c6b5e9-2edb-4b9a-a630-95180eaa16a2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=eb058475-2c9a-4af8-934e-8214747237f2
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=7724d0d0-c816-4a72-b69b-a4ffbf2bf4d0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.487166 kp=0.0
+[2026-03-28T22:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4861 AU  v=60.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-6.77 sw_speed=359.1
+  Advisory: fetched=True comet=False
+  CAG: v=60.365 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9cce0d5b-8693-41dd-9e05-b72a423ae1e4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=ab3ec82f-0589-4791-988c-1782fca7f996
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1ee6fd77-d228-4f2a-8622-1ea18934e608
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.486145 kp=2.0
+[2026-03-28T22:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4851 AU  v=60.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-5.23 sw_speed=358.4
+  Advisory: fetched=True comet=False
+  CAG: v=60.428 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=b49d749d-2bb8-4430-a6be-4d28b8b36c84
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0dc3f7c3-00b6-4157-b609-11ef47bcd4db
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=c518cd56-4883-4049-b6dd-c153508a38a3
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.485122 kp=2.0
+[2026-03-28T23:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4841 AU  v=60.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.83 sw_speed=343.7
+  Advisory: fetched=True comet=False
+  CAG: v=60.492 km/s  f107_baseline=122.56 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=e1638d4d-86b3-4a46-a8ff-04a0a6f557d8
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=cb03aeb7-3fa4-4b73-85e7-0a9e99974a7b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=bea75b46-19a4-487f-aaa8-129f96aed4a0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.484099 kp=2.0
+[2026-03-28T23:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4831 AU  v=60.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.68 sw_speed=344.2
+  Advisory: fetched=True comet=False
+  CAG: v=60.556 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=c0570de0-6ec4-470a-803d-a0202f755634
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=add9875b-4357-4cac-b703-a094cfa1979c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9a17b8c4-eedc-473d-8e0f-f3eb42d9e9c3
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.483074 kp=2.0
+[2026-03-29T00:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4820 AU  v=60.6 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-6.22 sw_speed=352.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.621 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=89a3e255-7d68-4d15-85d0-53db47d1ec01
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=d88572a8-f5e2-4bb4-9c19-928da8577bcb
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1d2e7003-f9d6-4fcf-a681-d3d673293c7b
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.482049 kp=3.0
+[2026-03-29T00:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4810 AU  v=60.7 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.77 sw_speed=347.8
+  Advisory: fetched=True comet=False
+  CAG: v=60.686 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=7e060275-ba9a-4d50-8440-c4c9c17c1ec2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0e490039-5001-46fd-baef-6d73b8297d18
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f559d401-4807-4174-b12d-812e26f3046c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.481022 kp=3.0
+[2026-03-29T01:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4800 AU  v=60.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.81 sw_speed=356.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.751 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=964c3736-31e4-4310-b3cf-1257be669a2b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=551ac8c1-206d-4b0d-b056-672a972f6347
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1180b43e-9c57-4ba0-8782-0f55d17b9c17
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.479994 kp=2.0
+[2026-03-29T01:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4790 AU  v=60.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.8 sw_speed=344.5
+  Advisory: fetched=True comet=False
+  CAG: v=60.816 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2c4ba670-696b-4dda-824d-0469b08e8d1c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=45775e0b-8323-4e00-9437-0ad57ec53a56
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=e1b40732-9b53-469b-ad21-8a36b79a3cd9
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.478965 kp=3.0
+[2026-03-29T02:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4779 AU  v=60.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.97 sw_speed=348.0
+  Advisory: fetched=True comet=False
+  CAG: v=60.882 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=f8c2397d-3c54-42ef-88a8-eaf5086ff5de
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=fc4178b1-b2f4-4330-bc63-925ffce2816c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=7027f1c6-41ed-44b3-bec8-eb9550037e37
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.477935 kp=3.0
+[2026-03-29T02:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4769 AU  v=60.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.33 sw_speed=359.2
+  Advisory: fetched=True comet=False
+  CAG: v=60.948 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=8be78a9f-df5d-4033-9d7e-e2d8977f90ac
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4b7bd401-1df0-40a8-9578-8b78afb69b94
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=06fdcb08-e64c-4706-b28c-9dd040a0045d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.476904 kp=3.0
+[2026-03-29T03:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4759 AU  v=61.0 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.47 sw_speed=357.1
+  Advisory: fetched=True comet=False
+  CAG: v=61.014 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=cfcb94ac-23f6-4727-9676-cb8f3f44175a
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=84ce439d-f582-4f8f-9f6a-d1d42df91cd0
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=bf10a964-32ee-454a-bd12-0aeca64c0390
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.475872 kp=4.0
+[2026-03-29T03:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4748 AU  v=61.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-5.67 sw_speed=345.4
+  Advisory: fetched=True comet=False
+  CAG: v=61.08 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=88d858b4-a502-45a0-ac42-a6f317f7835b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=23a49c27-4fb6-4569-b18d-1f7166b473a7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=56d589a3-457e-40a2-b623-a3c2b2223f67
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.474839 kp=2.0
+[2026-03-29T04:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4738 AU  v=61.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.12 sw_speed=355.2
+  Advisory: fetched=True comet=False
+  CAG: v=61.147 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=da8c0414-7b4a-4d76-8f3e-6c819f173ead
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=f635e623-5fc1-4585-99f2-7c9c96184298
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=a95bb458-88d3-4f5b-8a38-fa48ffe3ae50
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.473804 kp=2.0
+[2026-03-29T04:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4728 AU  v=61.2 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.29 sw_speed=354.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.214 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=d5666e1a-b6d4-4559-87dc-247ce8b1ed99
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=321b2108-042c-49ea-bb80-6073bae99054
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9f696119-9dd0-4587-815b-c5f534551fcf
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.472769 kp=3.0
+[2026-03-29T05:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4717 AU  v=61.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.6 sw_speed=342.8
+  Advisory: fetched=True comet=False
+  CAG: v=61.281 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=d3e4c2d6-baa8-4dc7-88cc-39807c46adef
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=747806de-30af-401f-90d3-3b271e4ed458
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=89598d59-3623-4969-a27f-fc8b57215297
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.471732 kp=2.0
+[2026-03-29T05:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4707 AU  v=61.3 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=0.75 sw_speed=342.5
+  Advisory: fetched=True comet=False
+  CAG: v=61.349 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=12f1ddf5-9cff-402e-a2e5-f5c6da57a965
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=12bdffd1-858c-4d66-92ca-a2dd0e5d39a7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ec4bdadc-9a60-49e7-80eb-88b0b5e21bcb
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.470694 kp=3.0
+[2026-03-29T06:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4697 AU  v=61.4 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.11 sw_speed=349.6
+  Advisory: fetched=True comet=False
+  CAG: v=61.417 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=3542602d-0467-4856-88b8-226cb608043c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a431835d-bfbf-44f2-9806-72d54a7194ed
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=912c7c23-d12b-478a-8807-9fbaafc331b1
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-2.11 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.469655 kp=4.0
+[2026-03-29T06:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4686 AU  v=61.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.99 sw_speed=338.8
+  Advisory: fetched=True comet=False
+  CAG: v=61.485 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=555b1562-571c-4a75-8c50-19152e6c3752
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=84d376c8-0719-4567-8723-4e42bc77eb1d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=92b41bd2-3333-40cf-acc8-47acb5b8a307
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.468615 kp=2.0
+[2026-03-29T07:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4676 AU  v=61.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.16 sw_speed=339.9
+  Advisory: fetched=True comet=False
+  CAG: v=61.554 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1b05feb7-29ed-4bc7-a9ec-2070bc4c1d8b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4b33bcee-2781-41e7-a448-8040c5502582
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d819b3e1-ad0a-474f-b81a-4c1a316d69bf
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.467574 kp=2.0
+[2026-03-29T07:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4665 AU  v=61.6 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.76 sw_speed=339.2
+  Advisory: fetched=True comet=False
+  CAG: v=61.622 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9ae782cd-3bf4-44a4-9dcf-7a6111b3b973
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0f2b02d9-f458-4857-a97a-658dffcfc1be
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=7d0b2e4d-b53e-496c-8096-39c1915e1bb6
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.466532 kp=3.0
+[2026-03-29T08:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4655 AU  v=61.7 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.54 sw_speed=343.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.691 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2065b69e-a10e-4b5d-817d-5a28d1f1f440
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=f498d292-f8af-4dd4-96e4-2578e54725de
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=8063d6d9-7023-4e35-960b-ecaaadec70f6
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.465488 kp=3.0
+[2026-03-29T08:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4644 AU  v=61.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=1.44 sw_speed=350.1
+  Advisory: fetched=True comet=False
+  CAG: v=61.761 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=17b6d918-3312-4cdb-8f2a-26468173b975
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=106085f0-0b96-42bd-a94d-ef1f1c3c676f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=cd14dc2d-863c-4760-bfa7-871f0f639963
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.464444 kp=3.0
+[2026-03-29T09:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4634 AU  v=61.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=0.23 sw_speed=348.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.831 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9d714edd-7f7d-4234-abe8-ce9cda91f3d4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=bdf0b16b-7291-46e6-8c78-79c65d996cd9
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1ddc0686-a651-4779-8827-0e5a5b8d4ef0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.463398 kp=3.0
+[2026-03-29T09:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4624 AU  v=61.9 km/s  phase=pre-ingress
+  fetch_json FAILED https://services.swpc.noaa.gov/json/goes/primary/xrays-7-day.json: Expecting ',' delimiter: line 1 column 4568863 (char 4568862)
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.23 sw_speed=351.9
+  Advisory: fetched=True comet=False
+  CAG: v=61.901 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=3142cb5a-e213-40ab-ae57-2c8d0208b9f2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c2c9bf68-7882-440e-9a33-88441597dffb
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f6fcadb5-e330-4dcc-a602-4a8611577d77
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.462351 kp=1.0
+[2026-03-29T10:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4613 AU  v=62.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.13 sw_speed=360.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.971 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=7884a632-a9ab-443c-8f47-463ee154f7eb
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=85338ba7-f156-4890-bb5a-9a9de5a76d91
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=113f2414-ed9d-4431-84ae-d74ecaa91478
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.461303 kp=1.0
+[2026-03-29T10:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4603 AU  v=62.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=1.35 sw_speed=355.6
+  Advisory: fetched=True comet=False
+  CAG: v=62.042 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9917e952-ae9d-4a8e-acf5-b3d5187517f8
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=bd6bafd5-d614-42a8-94fa-02a295f35425
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=348af727-2a04-4f42-96d3-d024a71d2be4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.460253 kp=1.0
+[2026-03-29T11:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4592 AU  v=62.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.54 sw_speed=360.8
+  Advisory: fetched=True comet=False
+  CAG: v=62.113 km/s  f107_baseline=122.86 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=64c43c28-7380-4625-80e4-7c61db5e664c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=745272c0-2eaf-4798-b2a3-0d3cdbae133d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5d52331a-bcd3-48ec-ad28-3991e6a1c1dc
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.459203 kp=1.0
+[2026-03-29T11:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4582 AU  v=62.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.67 sw_speed=368.5
+  Advisory: fetched=True comet=False
+  CAG: v=62.184 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=aa42f72e-ef20-491d-afe9-26111b022109
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=5eae5069-b577-4ff9-a7cb-31c5801bb60e
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=b9ec74c2-ee58-4be7-aa47-d54069c38eb1
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-1.67 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.458151 kp=2.0
+[2026-03-29T12:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4571 AU  v=62.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.19 sw_speed=373.3
+  Advisory: fetched=True comet=False
+  CAG: v=62.256 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0929e4c1-7d9d-426e-a54c-9c586286f463
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a312d64f-4096-4048-82f1-7ad09176eb2a
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=7722f3f2-2114-40e4-ac6d-11f83c1fea23
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.457098 kp=2.0
+[2026-03-29T12:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4560 AU  v=62.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.36 sw_speed=393.9
+  Advisory: fetched=True comet=False
+  CAG: v=62.328 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=8b9c7043-5b8d-4133-a20f-6a20e9efbdf0
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=65054541-9b12-4b67-b9e7-a38065ca8668
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9f401d89-bdf2-4ad2-9a2b-0399b38f34e5
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.456044 kp=1.0
+[2026-03-29T13:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4550 AU  v=62.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.91 sw_speed=363.1
+  Advisory: fetched=True comet=False
+  CAG: v=62.4 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=f07dc794-24db-4de4-a240-8ed35d9e435b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=31b1fe66-237f-47cd-b71b-b5b33581c170
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=6c8d3e60-c101-45e6-8eb5-02bdc8306d87
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.454989 kp=2.0
+[2026-03-29T13:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4539 AU  v=62.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.46 sw_speed=373.5
+  Advisory: fetched=True comet=False
+  CAG: v=62.473 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2dfcc135-5721-4c2e-9dd1-3a1400c64401
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=13a2c255-4c9f-4345-88bb-cf70618cdc94
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d5cf0576-8aae-424c-9d66-7578e7e1d9be
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.453932 kp=2.0
+[2026-03-29T14:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4529 AU  v=62.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.28 sw_speed=368.0
+  Advisory: fetched=True comet=False
+  CAG: v=62.546 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=94b22613-40ef-4f3c-ac9b-5e3a62e76ffe
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=427cd81c-d7f4-4a2f-aaa5-9ca864ac77e8
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9e0f41b1-d280-4c2f-8b58-1320d4d8744d
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-2.28 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.452875 kp=2.0
+[2026-03-29T14:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4518 AU  v=62.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=11.2 sw_speed=377.1
+  Advisory: fetched=True comet=False
+  CAG: v=62.619 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=d7d878c4-2013-4a4a-804a-5090a4daff76
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=7440c847-b267-4643-a481-d2abe54442e6
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2ed97c48-0b51-4482-b0b9-ad38887c9908
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.451816 kp=2.0
+[2026-03-29T15:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4508 AU  v=62.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.07 sw_speed=393.2
+  Advisory: fetched=True comet=False
+  CAG: v=62.693 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=4e0ce493-bb55-4981-8ac1-897815987879
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=38651d66-4489-4c79-a7aa-1ec46ba632ee
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2760dd5e-db1c-460c-b560-1d57b6fc9a40
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.450756 kp=2.0
+[2026-03-29T15:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4497 AU  v=62.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.8 sw_speed=402.8
+  Advisory: fetched=True comet=False
+  CAG: v=62.767 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=72722850-6ba9-4b2b-9ea4-b81e5ef942dd
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=1c90d4d9-4024-4bad-82c0-19e62fb1287d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=116ba290-502d-4d93-8b21-fa998bff9f0c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.449694 kp=3.0
+[2026-03-29T16:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4486 AU  v=62.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=5.68 sw_speed=399.9
+  Advisory: fetched=True comet=False
+  CAG: v=62.842 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0ef2b9d1-3208-444c-80b6-014298dee444
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=39b0476d-034b-4433-b604-362fa2dd85b7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f74abadf-e272-4b5f-b29d-dcfa2b0eda23
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.448632 kp=3.0
+[2026-03-29T16:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4476 AU  v=62.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=9.16 sw_speed=400.2
+  Advisory: fetched=True comet=False
+  CAG: v=62.916 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=850abf33-afcb-4e7c-bcd8-14ee8ea1da65
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=374ec203-5336-4d9c-ae84-e99e5f2f3e90
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ed473b6e-6b55-4c1f-bf9f-15172a0020aa
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.447568 kp=3.0
+[2026-03-29T17:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4465 AU  v=63.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=9.85 sw_speed=402.5
+  Advisory: fetched=True comet=False
+  CAG: v=62.991 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=67413a9a-199e-4ec6-b843-4c4d19b81fb6
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=48e76a48-fd8b-4c8a-b95e-eeecfb4c14e2
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=de69d0d6-5cdc-49e4-8cdc-0c0128932bc4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.446503 kp=3.0
+[2026-03-29T17:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4454 AU  v=63.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=8.3 sw_speed=412.8
+  Advisory: fetched=True comet=False
+  CAG: v=63.067 km/s  f107_baseline=123.36 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=87dad72c-e891-40cb-9191-2977c70d99c6
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e2336d5a-c7a6-47a4-b4be-4da880eafe02
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=941305f3-26ed-4198-ab18-7d290e8206bd
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.445436 kp=3.0
+[2026-03-29T18:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4444 AU  v=63.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 10 CMEs  earth_directed=True
+  DSCOVR: Bz=1.97 sw_speed=433.3
+  Advisory: fetched=True comet=False
+  CAG: v=63.143 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=ead61825-2b01-4299-8ab1-138e41599636
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=8008dda0-7727-41f9-9b78-0072a4d6bddd
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=52294aea-51a0-4923-bb30-4ec437ba0b4c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.444369 kp=3.0
+[2026-03-29T18:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4433 AU  v=63.2 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=8.88 sw_speed=460.5
+  Advisory: fetched=True comet=False
+  CAG: v=63.219 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=6fee90c5-e86d-455f-b916-1275f2bc39a3
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e347f755-0c02-4cd1-92c7-d3347f3aea91
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=53e52e55-51a3-4c1f-9b6d-d8994d0c53a9
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.4433 kp=0.0
+[2026-03-29T19:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4422 AU  v=63.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=3.45 sw_speed=421.3
+  Advisory: fetched=True comet=False
+  CAG: v=63.295 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=d4c013fb-d7c4-4498-81cd-6de7e81bfad4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4b7c7975-4b33-48eb-9a54-85d4abe29408
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3466d01a-0b91-43b6-a40c-6141b73b0dad
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=3.45 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.44223 kp=0.0
+[2026-03-29T19:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4412 AU  v=63.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=2.43 sw_speed=422.1
+  Advisory: fetched=True comet=False
+  CAG: v=63.372 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=99c4cf96-eb6c-484e-81a1-0ea5875d19cb
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=45fe0755-0436-4cbf-b046-0e832eb3b431
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=4cd8885c-e7a7-4502-8832-2b99e8b0d106
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.441158 kp=1.0
+[2026-03-29T20:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4401 AU  v=63.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=0.24 sw_speed=429.4
+  Advisory: fetched=True comet=False
+  CAG: v=63.45 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=d942ea3a-e3c5-45b9-9b14-10c118679c27
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=3c46c8f9-3fec-4a77-bf21-ef580c8cc14d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=82d97ca8-145f-4e00-ac2a-1e13faf98cd4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.440085 kp=1.0
+[2026-03-29T20:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4390 AU  v=63.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=6.85 sw_speed=429.8
+  Advisory: fetched=True comet=False
+  CAG: v=63.527 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=91d6e927-6a61-43ef-b498-0ba35c09dcae
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=91e834b5-a65d-4e4a-8fa8-d028365960f4
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3bb6d028-9b4f-4c9d-b7a4-89ff60e7c74e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.439011 kp=1.0
+[2026-03-29T21:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4379 AU  v=63.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=7.21 sw_speed=419.8
+  Advisory: fetched=True comet=False
+  CAG: v=63.605 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9cb311d1-88c1-40dc-8f11-d21f64d88361
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9c31ea12-e552-4235-bffa-521021151ad6
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=4b4bc9cd-3650-4032-8500-195f75f09b90
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.437936 kp=1.0
+[2026-03-29T21:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4369 AU  v=63.7 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=5.63 sw_speed=421.1
+  Advisory: fetched=True comet=False
+  CAG: v=63.684 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2e235198-af4c-40a2-87b3-a3a68ce0f162
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=12bf6d41-de63-435e-ae41-dab39272ec9b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=207fa5e3-71d5-441c-922c-38ed5a7ee35f
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.436859 kp=0.0
+[2026-03-29T22:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4358 AU  v=63.8 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=4.7 sw_speed=419.2
+  Advisory: fetched=True comet=False
+  CAG: v=63.763 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=29dc3744-afea-4ab3-9d8c-6c8f68b5d05b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4e4e8ef6-4747-47fa-94b1-ab4adc7e1b6e
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0565e0a4-0336-4fe6-ba49-81c8bc14a756
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.435781 kp=0.0
+[2026-03-29T22:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4347 AU  v=63.8 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=11.12 sw_speed=441.4
+  Advisory: fetched=True comet=False
+  CAG: v=63.842 km/s  f107_baseline=123.43 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=fb64d26c-c8bf-415d-9b5e-bd03dee6ca90
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c9cb7110-4630-4758-98ab-254aef9ea120
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=397684da-a639-40f6-baf5-9b0e753294c7
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.434702 kp=0.0
+[2026-03-29T23:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4336 AU  v=63.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=8.75 sw_speed=433.6
+  Advisory: fetched=True comet=False
+  CAG: v=63.921 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=667face1-9701-4cb6-84cf-263d5992ac7c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=d7e4afa2-0e0b-4974-93a5-ae0b7067aa6e
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=00786d9e-18f7-4450-b238-dc98a8b4820e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.433622 kp=1.0
+[2026-03-29T23:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4325 AU  v=64.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=10.93 sw_speed=441.7
+  Advisory: fetched=True comet=False
+  CAG: v=64.001 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=843d6ce0-2028-49a8-b127-000a2aa4f0da
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=da86ca46-3feb-4e0a-8516-bca336e05af3
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=dc2fe993-86e0-4820-a7f0-7a0e77fbe75c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.43254 kp=1.0
+[2026-03-30T00:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4315 AU  v=64.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=9.28 sw_speed=446.3
+  Advisory: fetched=True comet=False
+  CAG: v=64.082 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=991a8d80-f980-4451-b342-248a982b30bb
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=38a902ad-2d08-45bf-b212-d169b257d6c7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ed04a9b6-48e0-46b6-a3ac-46c8ea20027f
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.431456 kp=2.0
+[2026-03-30T00:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4304 AU  v=64.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=3.02 sw_speed=440.0
+  Advisory: fetched=True comet=False
+  CAG: v=64.163 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=42150728-2b1f-4521-9ecc-81e440afb22c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0e572208-1fb5-44b5-b3c7-7fa4cefd90ad
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 504: Gateway Time-out
+    ion: CAG timeout or failed
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=3.02 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.430372 kp=2.0
+[2026-03-30T01:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4293 AU  v=64.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=3.13 sw_speed=437.8
+  Advisory: fetched=True comet=False
+  CAG: v=64.244 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=dd150db1-2ab7-480a-a0cc-8d6e6fb1ac5d
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=cd828657-f713-46fd-90be-e10a983f754f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fc87707e-d408-4a03-955a-52a22999893f
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.429286 kp=2.0
+[2026-03-30T01:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4282 AU  v=64.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=1.86 sw_speed=440.1
+  Advisory: fetched=True comet=False
+  CAG: v=64.326 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0d3bc402-e4fd-4bcb-8456-61ae2270caa5
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=597cd4bd-f3be-47cf-9078-d27c4d14effc
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=86369b75-b9ca-4773-8dbe-f5c8d2dafde6
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.428199 kp=2.0
+[2026-03-30T02:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4271 AU  v=64.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=3.06 sw_speed=453.6
+  Advisory: fetched=True comet=False
+  CAG: v=64.408 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=87c2448e-3080-4cf0-9c25-0cef75f670e7
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c0895e0a-9a3e-4132-8eb8-34ba76f36874
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0b935377-baf6-4bfb-ae96-99e02af44594
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.42711 kp=2.0
+[2026-03-30T02:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4260 AU  v=64.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=0.51 sw_speed=459.7
+  Advisory: fetched=True comet=False
+  CAG: v=64.49 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=cf931b3f-ba79-4590-bcee-932abab07dde
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0909b21f-917e-4d4a-8bb2-96b04bbc72a0
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=41160e78-e9ff-41f5-b08e-081423f6d78e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.42602 kp=2.0
+[2026-03-30T03:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4249 AU  v=64.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.76 sw_speed=458.6
+  Advisory: fetched=True comet=False
+  CAG: v=64.573 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=a12d17a5-5022-4273-ad6b-bef3bb54a4a0
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=13b32a24-e724-4fc7-842d-fb8ee5daf193
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1691aab9-bc70-4a8a-9e01-501372f29857
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.424929 kp=2.0
+[2026-03-30T03:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4238 AU  v=64.7 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=162.0 R=3 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=0.95 sw_speed=460.3
+  Advisory: fetched=True comet=False
+  CAG: v=64.656 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=db69ff10-98de-463e-9600-a09ea8677c85
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2daa810b-ae0a-4c9d-838f-7587b7407c95
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=42db2c8f-1714-4e1c-9f79-04642a19bde5
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.423836 kp=0.0
+[2026-03-30T04:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4227 AU  v=64.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=162.0 R=2 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=-6.64 sw_speed=469.5
+  Advisory: fetched=True comet=False
+  CAG: v=64.74 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=e6528d84-1baa-49c5-b33a-59a2c069fefe
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=893fd4cc-67d2-40cd-a92c-d210a5910ebe
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=6a9ed045-9949-4abc-bcf9-bb30f30cb99b
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.422742 kp=1.0
+[2026-03-30T04:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4216 AU  v=64.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.02 sw_speed=465.8
+  Advisory: fetched=True comet=False
+  CAG: v=64.824 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=26436ac9-ab57-4266-952c-1d01bfb4279f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=6cc45f65-8371-4133-8cc3-a192aec19e41
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=02d486d4-ecd7-4409-a06f-ebf53a2696dd
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.421646 kp=2.0
+[2026-03-30T05:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4205 AU  v=64.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.16 sw_speed=476.7
+  Advisory: fetched=True comet=False
+  CAG: v=64.909 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=596dd4ea-5def-42a5-9141-668e43d93427
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=7c55399f-b422-446d-9e06-5553c12be375
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d1975fe8-71da-4752-83ae-6fb63b96f7a2
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.420549 kp=2.0
+[2026-03-30T05:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4195 AU  v=65.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.59 sw_speed=431.0
+  Advisory: fetched=True comet=False
+  CAG: v=64.994 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 500: Internal Server Error
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 500: Internal Server Error
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=73b056ab-5748-4c9e-8063-3e8460f7440b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=a688fa1a-1dbe-4155-8270-2ec2853e4b3d
+  TIER2: frag=None tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.419451 kp=2.0
+[2026-03-30T06:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4184 AU  v=65.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.51 sw_speed=464.7
+  Advisory: fetched=True comet=False
+  CAG: v=65.079 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=60c24d45-8d02-4aab-81d3-fba62d3c9519
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a2f4b013-f511-4927-8e97-d22399bb4865
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5ded31cc-e412-47e2-981d-c24f6094e15b
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.418351 kp=2.0
+[2026-03-30T06:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4172 AU  v=65.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=2.23 sw_speed=482.4
+  Advisory: fetched=True comet=False
+  CAG: v=65.165 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=a6705122-7698-413d-bc1b-71359014b548
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=f9cf5e79-1c7e-464d-a824-bb11b5ad7efa
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=91e06978-6e1a-4fe7-9b9d-2b1769f312d8
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.41725 kp=1.0
+[2026-03-30T07:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4161 AU  v=65.3 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.39 sw_speed=452.5
+  Advisory: fetched=True comet=False
+  CAG: v=65.252 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=3e235ae3-2bc8-47e9-b8a5-593e6a520234
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=1b69bd85-b76d-402c-bb81-f1badf09b885
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9798b6a6-fbf6-4fe9-b802-9940090a079f
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-2.39 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.416147 kp=3.0
+[2026-03-30T07:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4150 AU  v=65.3 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=6.79 sw_speed=463.7
+  Advisory: fetched=True comet=False
+  CAG: v=65.338 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=eb4f6440-552d-4062-b91c-66f84a6c1728
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=b071d8c8-c870-4be5-ad56-7d233957ea0f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d9665191-f915-432b-8908-8265921bdf18
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.415043 kp=3.0
+[2026-03-30T08:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4139 AU  v=65.4 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.87 sw_speed=445.0
+  Advisory: fetched=True comet=False
+  CAG: v=65.426 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=325296f6-f372-4e38-b308-16364854a32f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=11d44e6f-0015-4774-b28a-73a45278578c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5b6e6e46-56eb-48ce-842a-b88146f20bfd
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.413937 kp=3.0
+[2026-03-30T08:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4128 AU  v=65.5 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.43 sw_speed=472.6
+  Advisory: fetched=True comet=False
+  CAG: v=65.514 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=04c8f980-cae7-4ebc-a1e4-f483d662b4e3
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e157d2ad-2772-44f3-b743-95d5ac6bc107
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0403b740-f5bb-4f6c-95e4-071734167cc7
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.41283 kp=3.0
+[2026-03-30T09:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4117 AU  v=65.6 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.45 sw_speed=470.9
+  Advisory: fetched=True comet=False
+  CAG: v=65.602 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=080f5dc5-0c0e-4a5a-94f7-15f668a1109d
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=31991274-9c87-4854-a50d-ab947c4506df
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=458ea2d6-011f-4cb4-8deb-4138f5b65318
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.411722 kp=3.0
+[2026-03-30T09:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4106 AU  v=65.7 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.63 sw_speed=452.4
+  Advisory: fetched=True comet=False
+  CAG: v=65.691 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=ceb2d44d-9e40-48e7-b04f-30ea08418a63
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=33a68f6c-3acd-4650-b56f-131a8873e937
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=c7ae44d7-9b41-4964-93a7-b7720cec984a
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.410612 kp=0.0
+[2026-03-30T10:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4095 AU  v=65.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.18 sw_speed=449.4
+  Advisory: fetched=True comet=False
+  CAG: v=65.78 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=e0fec480-3e5c-451f-a96e-c86eab122dc0
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=5500acf2-f0b2-4af4-b6f1-7f7385184429
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=52813c41-d586-463f-b2c1-0c9852903ca3
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.4095 kp=1.0
+[2026-03-30T10:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4084 AU  v=65.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.29 sw_speed=450.3
+  Advisory: fetched=True comet=False
+  CAG: v=65.869 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=56b6033a-c480-4658-99f9-3ac15c34b08c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=fb2779aa-df6c-4cd1-91f1-4f8888631b63
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=626f436f-e4ba-4b09-854c-6f1c48397541
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.408387 kp=3.0
+[2026-03-30T11:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4073 AU  v=66.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.53 sw_speed=460.5
+  Advisory: fetched=True comet=False
+  CAG: v=65.96 km/s  f107_baseline=123.77 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=ae45efd1-cc18-464e-85a1-25e471dc7f56
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c9a853f7-1a57-4988-b523-978b9c5b6602
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fe3ad724-aa8a-48cb-b518-7786f6a42745
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.407273 kp=2.0
+[2026-03-30T11:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4062 AU  v=66.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.03 sw_speed=444.7
+  Advisory: fetched=True comet=False
+  CAG: v=66.05 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=36746532-06ba-432c-9239-fcd022e666e5
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=302b7569-602c-4fe6-bbbc-efd3fed0bc49
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=29483dee-5d77-4a1c-91e2-b2e21faf0885
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.406157 kp=3.0
+[2026-03-30T12:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4050 AU  v=66.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.54 sw_speed=447.2
+  Advisory: fetched=True comet=False
+  CAG: v=66.141 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5b705a79-9c8f-4f44-874c-5eb3aa270469
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=826e6e97-9e87-4f7c-95af-dadd95060705
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=b67f649f-bec8-4045-b6e8-34d31842229a
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.405039 kp=3.0
+[2026-03-30T12:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4039 AU  v=66.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.88 sw_speed=437.7
+  Advisory: fetched=True comet=False
+  CAG: v=66.233 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=6be4c9ef-8788-4280-939b-f4059190522f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=1a5a7beb-29e1-4375-861c-9fe3c87e1c04
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=37d39418-6d97-4340-9fb2-62b823c982ee
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.40392 kp=1.0
+[2026-03-30T13:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4028 AU  v=66.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.32 sw_speed=446.7
+  Advisory: fetched=True comet=False
+  CAG: v=66.325 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=852d494b-90f6-4d29-976b-bc90c1f4e7e3
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=91b4262d-97b4-419f-8d4b-7df1f0160815
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2c0e4e96-483e-482f-a183-9297434f6eaf
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.4028 kp=1.0
+[2026-03-30T13:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4017 AU  v=66.4 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-6.19 sw_speed=489.4
+  Advisory: fetched=True comet=False
+  CAG: v=66.418 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=af2c32f5-a829-4131-9750-8e473b5df416
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e0c53cdb-5e74-4772-a54b-65503d87eea3
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ab03ff55-9792-40ec-a308-a76e26dd213e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.401678 kp=3.0
+[2026-03-30T14:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.4006 AU  v=66.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.21 sw_speed=432.1
+  Advisory: fetched=True comet=False
+  CAG: v=66.511 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5e4a30cf-14ae-4b52-b9ee-976da53feeca
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=8d2c2319-4737-422a-9592-ad85fc347144
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=b9df8b5e-5d49-4f7d-9cc0-48f98b7bfaf8
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.400554 kp=2.0
+[2026-03-30T14:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3994 AU  v=66.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=4.05 sw_speed=414.3
+  Advisory: fetched=True comet=False
+  CAG: v=66.605 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5ce8855f-a729-4a80-9a1e-6836cdeb4fae
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=db35ade2-4e4e-4d09-88cc-7937c5846339
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=83176a91-4ee8-480a-b3a7-e448f404ec3c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.399429 kp=2.0
+[2026-03-30T15:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3983 AU  v=66.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=1.4 sw_speed=413.9
+  Advisory: fetched=True comet=False
+  CAG: v=66.699 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1b7e4b87-d62f-44b2-959a-5bfbbbba6671
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=375dfcb8-de8f-4d06-8824-8f5b6d818ffd
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=87b50b29-a9a9-45e2-94cc-3954af3de93e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.398302 kp=2.0
+[2026-03-30T15:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3972 AU  v=66.8 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.78 sw_speed=443.6
+  Advisory: fetched=True comet=False
+  CAG: v=66.794 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=36d34c78-b67f-48b6-84f6-243ccec08943
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=dd4d893e-0026-43f6-8060-de97d9b869ce
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=d992f135-fe6e-4549-970c-27b78375729d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.397174 kp=0.0
+[2026-03-30T16:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3960 AU  v=66.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=5.12 sw_speed=438.6
+  Advisory: fetched=True comet=False
+  CAG: v=66.889 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=94c3631c-0815-4475-a127-7263a1c78e44
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=fb2fac93-5e4e-4d69-a0eb-66ea2a312b0e
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9aed9ab5-68c6-468c-ab75-dccfd4758911
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.396044 kp=1.0
+[2026-03-30T16:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3949 AU  v=67.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-5.11 sw_speed=466.1
+  Advisory: fetched=True comet=False
+  CAG: v=66.985 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5e377105-dad3-479f-bfc9-4f9925aacc3f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4ea64e04-7acd-4c1f-a8e9-ea6355c4ea22
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=a573405f-216b-4947-aa3b-309b01d2ab87
+  TIER2: frag=intact tail=2.33° ion=0
+  SHOCK DETECTED: density=3.6 baseline=1.0 bz=-5.11 eta=0.9h
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.394913 kp=1.0
+[2026-03-30T17:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3938 AU  v=67.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=1.21 sw_speed=None
+  Advisory: fetched=True comet=False
+  CAG: v=67.082 km/s  f107_baseline=124.16 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=87463686-7711-47b2-ae1c-636f348b8b44
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=ba12e251-f9c9-4697-ae38-0abf90eb0a7d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fd05a38d-fe48-45d5-abf3-5c71dccff6b0
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.39378 kp=1.0
+[2026-03-30T17:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3926 AU  v=67.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.88 sw_speed=475.9
+  Advisory: fetched=True comet=False
+  CAG: v=67.179 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=ff61b1f1-0f51-4014-a3ec-9e2906c628b1
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=3cd49de0-a16d-475f-9568-6467f98e758f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=011a14c5-98e1-43d0-b83b-ca0af6c092c7
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.392645 kp=1.0
+[2026-03-30T18:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3915 AU  v=67.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.31 sw_speed=482.3
+  Advisory: fetched=True comet=False
+  CAG: v=67.276 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=68571a77-233b-4a70-8279-1bfdeba9e468
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2a2169f2-d32b-465b-933d-af6721de2e19
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3fa180e1-1b9e-4372-8e53-3a8de392f275
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.391509 kp=1.0
+[2026-03-30T18:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3904 AU  v=67.4 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=2.95 sw_speed=446.0
+  Advisory: fetched=True comet=False
+  CAG: v=67.374 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=a280b6b6-e72f-4687-901e-c1964cf3fe2f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=39ec6551-b252-4abf-9231-d88f671a56b8
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fd6b56c9-9bc5-49a1-ba8e-015a64495420
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.390371 kp=0.0
+[2026-03-30T19:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3892 AU  v=67.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.78 sw_speed=458.6
+  Advisory: fetched=True comet=False
+  CAG: v=67.473 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=48a9fea6-4c2c-44a9-ad3f-7bc588a15e6a
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=7ce7b7d1-659b-4589-832b-7dfe603887eb
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=dc1b6945-119f-4703-a607-03e1274b2376
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.389231 kp=0.0
+[2026-03-30T19:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3881 AU  v=67.6 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=5.04 sw_speed=469.7
+  Advisory: fetched=True comet=False
+  CAG: v=67.572 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=b2afd162-c2ba-4c4d-8599-8745fd521970
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e83ef1a8-b506-42a9-8765-b25e3d786ebe
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=eae2c161-b664-416e-ab74-16c0b8a05a21
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.38809 kp=0.0
+[2026-03-30T20:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3869 AU  v=67.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.69 sw_speed=421.3
+  Advisory: fetched=True comet=False
+  CAG: v=67.672 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1fc21a15-1d7b-4594-a3c6-52ac8f145b85
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=367dd55c-9d53-4470-9b05-d79bae58ce08
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1f6115ac-b807-477e-8c30-76f83d21fb23
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.386947 kp=1.0
+[2026-03-30T20:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3858 AU  v=67.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=1.94 sw_speed=463.6
+  Advisory: fetched=True comet=False
+  CAG: v=67.772 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5e99ddf4-0675-4467-825e-739687f8c5c1
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2826528e-483e-44bd-939c-24c229b138df
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0813a264-1724-462b-b3cd-aea1fdcea3b8
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.385803 kp=1.0
+[2026-03-30T21:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3847 AU  v=67.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=1.87 sw_speed=433.9
+  Advisory: fetched=True comet=False
+  CAG: v=67.873 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=18c29149-afa4-44a6-8e9e-328810be91ea
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=25d336cc-ede1-4931-b8f6-bb1d0a32e4b9
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=6b5d2392-0fc2-4c54-bd8e-0f3b50c0a3de
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.384657 kp=2.0
+[2026-03-30T21:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3835 AU  v=68.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=2.23 sw_speed=422.2
+  Advisory: fetched=True comet=False
+  CAG: v=67.975 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=b9a28d2b-6136-408f-9e8f-edbe8c71ac5b
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c2fb0078-2c51-4977-8959-3039f46d1a3b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3cd7e96b-a910-4d82-a0f7-07c2ee627877
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.383509 kp=1.0
+[2026-03-30T22:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3824 AU  v=68.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.94 sw_speed=438.4
+  Advisory: fetched=True comet=False
+  CAG: v=68.077 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=45b7556d-3df9-4a69-9dfc-8c3c2c89afe4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=91ec5641-12d6-4cbf-86c3-7ff00dab8c65
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=c8d87bad-cc19-4322-92df-ad4fb7fba32e
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.382359 kp=1.0
+[2026-03-30T22:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3812 AU  v=68.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=1.97 sw_speed=421.8
+  Advisory: fetched=True comet=False
+  CAG: v=68.18 km/s  f107_baseline=124.09 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5d1a6f67-8805-46f1-8e4a-9c544cdca4e6
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=460c5395-daab-49ef-a5b2-8738ddc0148d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=616c1221-8a44-4aac-b109-90890d04051a
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.381208 kp=1.0
+[2026-03-30T23:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3801 AU  v=68.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=5.17 sw_speed=453.3
+  Advisory: fetched=True comet=False
+  CAG: v=68.284 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=9255f7e2-df09-4bbd-a7da-072aa3403f33
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=cb57c9a1-d189-4b0b-8e59-33e67174ad37
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0864b534-f837-4c17-aafd-16ede7a8110a
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.380055 kp=1.0
+[2026-03-30T23:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3789 AU  v=68.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.3 sw_speed=447.0
+  Advisory: fetched=True comet=False
+  CAG: v=68.388 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1aec24ed-ff87-487f-b83f-131265238410
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9e94c759-4042-4bf1-a5de-45781851742d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=cc78cdd6-45a0-4f50-ad4f-dd3d0c88f545
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.3789 kp=1.0
+[2026-03-31T00:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3777 AU  v=68.5 km/s  phase=pre-ingress
+  fetch_json FAILED https://services.swpc.noaa.gov/products/noaa-scales.json: Extra data: line 1 column 1113 (char 1112)
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=True
+  DSCOVR: Bz=2.87 sw_speed=453.4
+  Advisory: fetched=True comet=False
+  CAG: v=68.492 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=b81bd176-6699-4ad7-81e4-f63ef2bcf171
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=66a1704e-d5a9-4fa0-afc1-19d6775f76c4
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=4c183646-3542-4114-8e69-05dc10322100
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.377744 kp=1.0
+[2026-03-31T00:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3766 AU  v=68.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=4.15 sw_speed=455.9
+  Advisory: fetched=True comet=False
+  CAG: v=68.598 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=a9f7e4b5-ff97-4e5a-b581-86fb38b5aa03
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9732c562-a03a-4a05-9fa7-134bf0ed1b6d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5b33aa10-183b-415f-a51e-8eaf9371fe2d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.376586 kp=1.0
+[2026-03-31T01:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3754 AU  v=68.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.95 sw_speed=456.7
+  Advisory: fetched=True comet=False
+  CAG: v=68.704 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=98c46ea8-b3b4-46c9-873f-29c90a62536d
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=4cc9f8e9-1aa3-427d-abb4-e10a14182245
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=99efcf75-fc14-4928-be5e-2957e5042e62
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.375426 kp=1.0
+[2026-03-31T01:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3743 AU  v=68.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 5 CMEs  earth_directed=True
+  DSCOVR: Bz=2.36 sw_speed=453.4
+  Advisory: fetched=True comet=False
+  CAG: v=68.811 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=08ff565b-750a-4031-b50d-c0cb7c85123a
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=32c9558b-c60a-4922-aada-3833bb106843
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=69f862fd-28c1-4290-a77b-315acf72d104
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.374264 kp=1.0
+[2026-03-31T02:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3731 AU  v=68.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.32 sw_speed=456.2
+  Advisory: fetched=True comet=False
+  CAG: v=68.918 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5caa4d92-3ce5-497f-8b23-660bd45adcac
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=76cf7b8a-b30e-4dee-b228-bb0eec5ca59f
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=afb7947d-32b8-46f3-88d5-89dc28ed3ef3
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.3731 kp=1.0
+[2026-03-31T02:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3719 AU  v=69.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.48 sw_speed=449.6
+  Advisory: fetched=True comet=False
+  CAG: v=69.026 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=27c7172c-2bc4-45c7-8cd2-e2fd3dcced1f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e408cb18-4c8c-46e6-b72a-9eaedb04d1b8
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=b2d1faeb-cfc8-48e6-bb75-323eec3eea32
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.371935 kp=1.0
+[2026-03-31T03:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3708 AU  v=69.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.99 sw_speed=444.4
+  Advisory: fetched=True comet=False
+  CAG: v=69.135 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=46e30b71-20c0-4285-b026-e805d58bb100
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=6e8bfa77-292a-4f14-ab4d-a2e015861d6b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=655c725f-7300-4b06-bf2c-e1736bfbb5de
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-2.99 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.370768 kp=1.0
+[2026-03-31T03:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3696 AU  v=69.2 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.34 sw_speed=443.2
+  Advisory: fetched=True comet=False
+  CAG: v=69.244 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0723615e-b2ea-4cbd-af23-be0c8f16ffee
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=cd2a3960-595a-406b-a214-02efc0dd9b5b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3d25313d-b359-4196-b4f8-1c2b3513a499
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.369599 kp=0.0
+[2026-03-31T04:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3684 AU  v=69.4 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.89 sw_speed=442.7
+  Advisory: fetched=True comet=False
+  CAG: v=69.354 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=690f69c3-4146-473d-912a-bdef4f7683c6
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9f2dfdc8-e023-42b3-85e3-869824535444
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fe357cab-98b1-46b2-94ac-ac730e829756
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.368428 kp=0.0
+[2026-03-31T04:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3673 AU  v=69.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.7 sw_speed=426.9
+  Advisory: fetched=True comet=False
+  CAG: v=69.465 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=95c6e11d-535a-4c2e-a966-264f4465e29d
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=81280091-e643-4bd3-9f42-85753b019e81
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=ab23784b-b6bf-41d7-8817-29e8468ddd06
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.367256 kp=0.0
+[2026-03-31T05:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3661 AU  v=69.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=1.25 sw_speed=428.7
+  Advisory: fetched=True comet=False
+  CAG: v=69.576 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=22f631bb-0e0e-4222-a476-a369f6abc6ac
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=802a14f4-228c-4102-9f41-50f5cb9a3c05
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=a2836fb5-5129-4b90-ad4f-3387008278cd
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.366082 kp=2.0
+[2026-03-31T05:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3649 AU  v=69.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.04 sw_speed=467.3
+  Advisory: fetched=True comet=False
+  CAG: v=69.688 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=034d7ef3-c25a-4cd0-92f1-f20300da779a
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=aa93d06c-0316-4e73-9c05-2d2e75ed3f21
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=bd4d9c7f-bb02-4ce9-bd1d-9111e6a1b7f8
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.364905 kp=2.0
+[2026-03-31T06:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3637 AU  v=69.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.63 sw_speed=437.0
+  Advisory: fetched=True comet=False
+  CAG: v=69.801 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=befdaf08-6ac9-48ab-8fc0-7c20110e4dd5
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2dc4156e-52a2-4ec3-a18c-17964708acad
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=4715b00a-f2ed-461c-a8d2-17de876869b4
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.363727 kp=2.0
+[2026-03-31T06:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3625 AU  v=69.9 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.3 sw_speed=458.8
+  Advisory: fetched=True comet=False
+  CAG: v=69.915 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=4bccb0dd-79b8-44d1-9835-5966e06f8834
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=de39d651-d4bf-4bca-90a6-aef97921a042
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1ea22949-17ee-411b-9d13-3c53513a495c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.362547 kp=0.0
+[2026-03-31T07:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3614 AU  v=70.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.57 sw_speed=430.6
+  Advisory: fetched=True comet=False
+  CAG: v=70.029 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0cf1e29d-ccf2-4075-bea0-8e93cc90e6c2
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=3c202b15-86c0-4fab-9e6b-66a2734038a7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fe6c672c-eacd-4450-8dad-cee1f5a3f4bc
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.361365 kp=1.0
+[2026-03-31T07:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3602 AU  v=70.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.1 sw_speed=431.6
+  Advisory: fetched=True comet=False
+  CAG: v=70.144 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=1b425508-7c9e-458e-bbea-4894c3c7b046
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=03a7310b-381c-4cf0-9108-adcb3a81414e
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=9114605e-6de3-400e-8e8a-33053faa1790
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.360181 kp=1.0
+[2026-03-31T08:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3590 AU  v=70.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.71 sw_speed=418.9
+  Advisory: fetched=True comet=False
+  CAG: v=70.26 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=fa72b74a-3a04-4858-97c0-bad2895baebd
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=b4ebfbad-9417-4b4d-b792-bcd37fe2805c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5ab981d3-b7b0-41e3-a19a-c83fccc9418d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.358996 kp=2.0
+[2026-03-31T08:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3578 AU  v=70.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=2.38 sw_speed=442.4
+  Advisory: fetched=True comet=False
+  CAG: v=70.377 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=c4294f53-d79b-499d-95fc-6b24070567a3
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=7977f6a0-63bb-464d-86d5-d41307f6a406
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fb218d2e-200d-48f7-a0e0-775aaabe9d2c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.357808 kp=2.0
+[2026-03-31T09:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3566 AU  v=70.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.51 sw_speed=418.6
+  Advisory: fetched=True comet=False
+  CAG: v=70.494 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=e33b668e-0374-4de5-b68e-50af4b0799aa
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=12aeb518-24aa-406b-8959-46a5900e0e1e
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=18904083-e142-474a-b783-dad45a8c9f95
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.356619 kp=2.0
+[2026-03-31T09:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3554 AU  v=70.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.63 sw_speed=435.2
+  Advisory: fetched=True comet=False
+  CAG: v=70.613 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=a40b6558-82e1-4b0c-bc53-156854986af9
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=11f21a7c-19c5-4547-a030-f3d8202e2509
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=fc931306-58c6-43d2-be4c-66966f017b2a
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.355427 kp=1.0
+[2026-03-31T10:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3542 AU  v=70.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.33 sw_speed=430.5
+  Advisory: fetched=True comet=False
+  CAG: v=70.732 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=e1273f3f-22f1-4ba6-86f7-9b8a9d7818b4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0f0064cb-ce9b-4105-911b-b0c5f6dfdc32
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1adfba2a-8b1c-487a-9562-b3c80559216d
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.354234 kp=2.0
+[2026-03-31T10:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3530 AU  v=70.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.97 sw_speed=429.8
+  Advisory: fetched=True comet=False
+  CAG: v=70.851 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=04c453bd-d4f9-47e9-9d88-bf25912d0fd4
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a691afe6-a504-4844-86a8-56f7d2567fc8
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=adf5d60e-dcea-49a8-8a4c-56d81eb90a17
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-2.97 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.353038 kp=2.0
+[2026-03-31T11:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3518 AU  v=71.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.0 sw_speed=431.3
+  Advisory: fetched=True comet=False
+  CAG: v=70.972 km/s  f107_baseline=124.28 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=2984d5a3-3167-4959-81d2-3d698baa2e25
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=2d95ee27-5568-4de8-b7f7-84d720b87f50
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0dbaa05e-6780-4e25-bd1c-bd9df8f30037
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.351841 kp=2.0
+[2026-03-31T11:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3506 AU  v=71.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.26 sw_speed=440.5
+  Advisory: fetched=True comet=False
+  CAG: v=71.093 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=58bf9834-f911-45be-8333-86a18d695bf8
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=a777c75d-993a-47ee-9e34-78f53c8a9082
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=a6f81598-df34-43b6-9d8e-174c1da6993d
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=0.26 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.350641 kp=2.0
+[2026-03-31T12:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3494 AU  v=71.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.17 sw_speed=406.6
+  Advisory: fetched=True comet=False
+  CAG: v=71.216 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=af86603b-1f60-4bb7-968d-6dcdd12fee10
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=cfe08cf1-390e-4147-be02-3b31bfcb00a1
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=0bb693a9-76c0-436c-aebb-38102bb778ca
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.34944 kp=2.0
+[2026-03-31T12:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3482 AU  v=71.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.91 sw_speed=403.7
+  Advisory: fetched=True comet=False
+  CAG: v=71.339 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=996f0bc6-cbbc-4269-9a0e-864346444035
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=278a8d17-e2a3-4c3b-b720-13259b94fb7c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=7674fbdd-45d6-4875-8a38-4d9989ba6506
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.348236 kp=0.0
+[2026-03-31T13:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3470 AU  v=71.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.74 sw_speed=420.4
+  Advisory: fetched=True comet=False
+  CAG: v=71.463 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=4970e30a-6be5-4ae4-8409-91f680786a69
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=cac7bf5c-e4e1-4a78-98a7-0b8bb88253c5
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2e49563f-e7e5-4e71-ad88-360ff90d3584
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.34703 kp=0.0
+[2026-03-31T13:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3458 AU  v=71.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.07 sw_speed=398.8
+  Advisory: fetched=True comet=False
+  CAG: v=71.588 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=8942d2c3-c167-45c4-98b9-b228c0158f63
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=748a7e8d-c2f0-4b09-80d6-361323b5bdbe
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=4705ff5e-09a1-4a13-86ea-955f9e9a3da0
+  TIER2: frag=intact tail=2.33° ion=0
+  fetch_json FAILED https://services.swpc.noaa.gov/products/solar-wind/plasma-7-day.json: Expecting value: line 1 column 501579 (char 501578)
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.345823 kp=1.0
+[2026-03-31T14:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3446 AU  v=71.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.87 sw_speed=409.7
+  Advisory: fetched=True comet=False
+  CAG: v=71.713 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=bef06f5c-6921-43b5-a566-26829d8f8ae7
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=ed86cf1b-7942-4525-af14-75131dac74af
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=922a724a-c12f-4fcd-b879-e3c4426d1a21
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.344613 kp=1.0
+[2026-03-31T14:30:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3434 AU  v=71.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.22 sw_speed=407.2
+  Advisory: fetched=True comet=False
+  CAG: v=71.84 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=bc325c1f-9820-46be-ac41-465ea250894f
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=c722f55a-2a0b-402d-ab67-13fed1abbf8b
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=b7777bd3-621f-4977-8076-81579561e12c
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.343401 kp=1.0
+[2026-03-31T15:00:00+00:00] Building log entry (cag_live=True)
+  Orbital: r=0.3422 AU  v=72.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.32 sw_speed=405.7
+  Advisory: fetched=True comet=False
+  CAG: v=71.967 km/s  f107_baseline=124.69 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=79160468-567b-4025-969f-4dad66d3ad58
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=0533b08a-6902-4dec-8429-1621f5717922
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=214b1c15-8042-421b-be2e-3609b5cd6679
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.342187 kp=1.0

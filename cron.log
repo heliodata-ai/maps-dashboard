@@ -307,3 +307,1028 @@
   CAG: v=55.261 km/s  f107_baseline=None sfu
   Written to /var/log/heliodata/science_log.jsonl
   OK — phase=pre-ingress au=0.579913 kp=1.0
+[2026-03-26T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5780 AU  v=55.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=False
+  DSCOVR: Bz=1.41 sw_speed=458.0
+  Advisory: fetched=True comet=False
+  CAG: v=55.351 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.578039 kp=2.0
+[2026-03-27T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5762 AU  v=55.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.04 sw_speed=461.0
+  Advisory: fetched=True comet=False
+  CAG: v=55.441 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.576161 kp=2.0
+[2026-03-27T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5743 AU  v=55.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.43 sw_speed=460.3
+  Advisory: fetched=True comet=False
+  CAG: v=55.532 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.57428 kp=1.0
+[2026-03-27T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5724 AU  v=55.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.33 sw_speed=473.6
+  Advisory: fetched=True comet=False
+  CAG: v=55.623 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.572397 kp=1.0
+[2026-03-27T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5705 AU  v=55.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.36 sw_speed=468.8
+  Advisory: fetched=True comet=False
+  CAG: v=55.715 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.57051 kp=1.0
+[2026-03-27T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5686 AU  v=55.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=0.47 sw_speed=460.0
+  Advisory: fetched=True comet=False
+  CAG: v=55.808 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.56862 kp=1.0
+[2026-03-27T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5667 AU  v=55.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.1 sw_speed=459.2
+  Advisory: fetched=True comet=False
+  CAG: v=55.901 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.566727 kp=2.0
+[2026-03-27T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5648 AU  v=56.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.96 sw_speed=458.8
+  Advisory: fetched=True comet=False
+  CAG: v=55.995 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.564831 kp=2.0
+[2026-03-27T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5629 AU  v=56.1 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.05 sw_speed=438.3
+  Advisory: fetched=True comet=False
+  CAG: v=56.09 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.562932 kp=0.0
+[2026-03-27T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5610 AU  v=56.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=3.79 sw_speed=432.4
+  Advisory: fetched=True comet=False
+  CAG: v=56.185 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.561029 kp=1.0
+[2026-03-27T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5591 AU  v=56.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=2.29 sw_speed=429.6
+  Advisory: fetched=True comet=False
+  CAG: v=56.281 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.559124 kp=1.0
+[2026-03-27T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5572 AU  v=56.4 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=144.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=1.04 sw_speed=402.4
+  Advisory: fetched=True comet=False
+  CAG: v=56.377 km/s  f107_baseline=121.8 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.557215 kp=0.0
+[2026-03-27T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5553 AU  v=56.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.65 sw_speed=399.8
+  Advisory: fetched=True comet=False
+  CAG: v=56.474 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.555303 kp=0.0
+[2026-03-27T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5534 AU  v=56.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.43 sw_speed=432.8
+  Advisory: fetched=True comet=False
+  CAG: v=56.572 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.553387 kp=1.0
+[2026-03-27T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5515 AU  v=56.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.32 sw_speed=427.7
+  Advisory: fetched=True comet=False
+  CAG: v=56.671 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.551469 kp=1.0
+[2026-03-27T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5495 AU  v=56.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.81 sw_speed=399.2
+  Advisory: fetched=True comet=False
+  CAG: v=56.77 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.549547 kp=1.0
+[2026-03-27T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5476 AU  v=56.9 km/s  phase=pre-ingress
+  fetch_json FAILED https://services.swpc.noaa.gov/json/goes/primary/xrays-7-day.json: Expecting ',' delimiter: line 1 column 4565722 (char 4565721)
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.68 sw_speed=417.6
+  Advisory: fetched=True comet=False
+  CAG: v=56.87 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.547621 kp=1.0
+[2026-03-27T16:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5457 AU  v=57.0 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.26 sw_speed=412.1
+  Advisory: fetched=True comet=False
+  CAG: v=56.97 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.545693 kp=0.0
+[2026-03-27T17:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5438 AU  v=57.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.25 sw_speed=413.4
+  Advisory: fetched=True comet=False
+  CAG: v=57.072 km/s  f107_baseline=122.19 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.543761 kp=1.0
+[2026-03-27T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5418 AU  v=57.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.16 sw_speed=401.1
+  Advisory: fetched=True comet=False
+  CAG: v=57.174 km/s  f107_baseline=121.9 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.541825 kp=1.0
+[2026-03-27T19:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5399 AU  v=57.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.07 sw_speed=388.7
+  Advisory: fetched=True comet=False
+  CAG: v=57.276 km/s  f107_baseline=121.9 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.539886 kp=0.0
+[2026-03-27T20:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5379 AU  v=57.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.66 sw_speed=393.5
+  Advisory: fetched=True comet=False
+  CAG: v=57.38 km/s  f107_baseline=121.9 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.537944 kp=1.0
+[2026-03-27T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5360 AU  v=57.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.68 sw_speed=409.5
+  Advisory: fetched=True comet=False
+  CAG: v=57.484 km/s  f107_baseline=121.9 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.535998 kp=1.0
+[2026-03-27T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5340 AU  v=57.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.04 sw_speed=403.6
+  Advisory: fetched=True comet=False
+  CAG: v=57.589 km/s  f107_baseline=121.9 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.534049 kp=1.0
+[2026-03-27T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5321 AU  v=57.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=157.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.11 sw_speed=388.0
+  Advisory: fetched=True comet=False
+  CAG: v=57.695 km/s  f107_baseline=121.9 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.532096 kp=2.0
+[2026-03-28T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5301 AU  v=57.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.17 sw_speed=382.8
+  Advisory: fetched=True comet=False
+  CAG: v=57.801 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.530139 kp=2.0
+[2026-03-28T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5282 AU  v=57.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.12 sw_speed=392.8
+  Advisory: fetched=True comet=False
+  CAG: v=57.909 km/s  f107_baseline=122.16 sfu
+  density spike noted but Bz=-3.12 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.528179 kp=2.0
+[2026-03-28T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5262 AU  v=58.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=0.8 sw_speed=369.9
+  Advisory: fetched=True comet=False
+  CAG: v=58.017 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.526216 kp=3.0
+[2026-03-28T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5242 AU  v=58.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.19 sw_speed=379.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.126 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.524249 kp=3.0
+[2026-03-28T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5223 AU  v=58.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=147.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.74 sw_speed=365.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.236 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.522278 kp=1.0
+[2026-03-28T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5203 AU  v=58.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.22 sw_speed=398.7
+  Advisory: fetched=True comet=False
+  CAG: v=58.346 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.520303 kp=2.0
+[2026-03-28T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5183 AU  v=58.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.71 sw_speed=385.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.458 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.518325 kp=2.0
+[2026-03-28T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5163 AU  v=58.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.53 sw_speed=393.3
+  Advisory: fetched=True comet=False
+  CAG: v=58.57 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.516343 kp=1.0
+[2026-03-28T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5144 AU  v=58.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.28 sw_speed=394.5
+  Advisory: fetched=True comet=False
+  CAG: v=58.683 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.514357 kp=2.0
+[2026-03-28T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5124 AU  v=58.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.42 sw_speed=374.1
+  Advisory: fetched=True comet=False
+  CAG: v=58.797 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.512368 kp=2.0
+[2026-03-28T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5104 AU  v=58.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=147.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.47 sw_speed=382.9
+  Advisory: fetched=True comet=False
+  CAG: v=58.912 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.510375 kp=3.0
+[2026-03-28T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5084 AU  v=59.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.97 sw_speed=378.5
+  Advisory: fetched=True comet=False
+  CAG: v=59.028 km/s  f107_baseline=122.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.508377 kp=2.0
+[2026-03-28T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5064 AU  v=59.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=False
+  DSCOVR: Bz=0.14 sw_speed=381.6
+  Advisory: fetched=True comet=False
+  CAG: v=59.144 km/s  f107_baseline=122.51 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.506376 kp=2.0
+[2026-03-28T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5044 AU  v=59.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 5 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.84 sw_speed=350.8
+  Advisory: fetched=True comet=False
+  CAG: v=59.262 km/s  f107_baseline=122.51 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.504371 kp=1.0
+[2026-03-28T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5024 AU  v=59.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 6 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.18 sw_speed=378.4
+  Advisory: fetched=True comet=False
+  CAG: v=59.381 km/s  f107_baseline=122.51 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.502362 kp=1.0
+[2026-03-28T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.5003 AU  v=59.5 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.74 sw_speed=359.2
+  Advisory: fetched=True comet=False
+  CAG: v=59.5 km/s  f107_baseline=122.51 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.500349 kp=1.0
+[2026-03-28T16:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4983 AU  v=59.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=152.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.99 sw_speed=351.9
+  Advisory: fetched=True comet=False
+  CAG: v=59.621 km/s  f107_baseline=122.51 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.498332 kp=1.0
+[2026-03-28T17:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4963 AU  v=59.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.25 sw_speed=345.2
+  Advisory: fetched=True comet=False
+  CAG: v=59.742 km/s  f107_baseline=122.51 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.496311 kp=1.0
+[2026-03-28T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4943 AU  v=59.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.12 sw_speed=366.2
+  Advisory: fetched=True comet=False
+  CAG: v=59.865 km/s  f107_baseline=122.56 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.494286 kp=1.0
+[2026-03-28T19:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4923 AU  v=60.0 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.47 sw_speed=370.0
+  Advisory: fetched=True comet=False
+  CAG: v=59.988 km/s  f107_baseline=122.56 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.492257 kp=0.0
+[2026-03-28T20:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4902 AU  v=60.1 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.32 sw_speed=368.5
+  Advisory: fetched=True comet=False
+  CAG: v=60.113 km/s  f107_baseline=122.56 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.490224 kp=0.0
+[2026-03-28T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4882 AU  v=60.2 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-7.46 sw_speed=367.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.238 km/s  f107_baseline=122.56 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.488186 kp=1.0
+[2026-03-28T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4861 AU  v=60.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-6.77 sw_speed=359.1
+  Advisory: fetched=True comet=False
+  CAG: v=60.365 km/s  f107_baseline=122.56 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.486145 kp=2.0
+[2026-03-28T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4841 AU  v=60.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=159.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.83 sw_speed=343.7
+  Advisory: fetched=True comet=False
+  CAG: v=60.492 km/s  f107_baseline=122.56 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.484099 kp=2.0
+[2026-03-29T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4820 AU  v=60.6 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-6.22 sw_speed=352.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.621 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.482049 kp=3.0
+[2026-03-29T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4800 AU  v=60.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.81 sw_speed=356.3
+  Advisory: fetched=True comet=False
+  CAG: v=60.751 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.479994 kp=2.0
+[2026-03-29T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4779 AU  v=60.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.97 sw_speed=348.0
+  Advisory: fetched=True comet=False
+  CAG: v=60.882 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.477935 kp=3.0
+[2026-03-29T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4759 AU  v=61.0 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.47 sw_speed=357.1
+  Advisory: fetched=True comet=False
+  CAG: v=61.014 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.475872 kp=4.0
+[2026-03-29T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4738 AU  v=61.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.12 sw_speed=355.2
+  Advisory: fetched=True comet=False
+  CAG: v=61.147 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.473804 kp=2.0
+[2026-03-29T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4717 AU  v=61.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.6 sw_speed=342.8
+  Advisory: fetched=True comet=False
+  CAG: v=61.281 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.471732 kp=2.0
+[2026-03-29T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4697 AU  v=61.4 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.11 sw_speed=349.6
+  Advisory: fetched=True comet=False
+  CAG: v=61.417 km/s  f107_baseline=122.86 sfu
+  density spike noted but Bz=-2.11 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.469655 kp=4.0
+[2026-03-29T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4676 AU  v=61.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.16 sw_speed=339.9
+  Advisory: fetched=True comet=False
+  CAG: v=61.554 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.467574 kp=2.0
+[2026-03-29T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4655 AU  v=61.7 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.54 sw_speed=343.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.691 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.465488 kp=3.0
+[2026-03-29T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4634 AU  v=61.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=0.23 sw_speed=348.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.831 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.463398 kp=3.0
+[2026-03-29T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4613 AU  v=62.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.13 sw_speed=360.7
+  Advisory: fetched=True comet=False
+  CAG: v=61.971 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.461303 kp=1.0
+[2026-03-29T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4592 AU  v=62.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.54 sw_speed=360.8
+  Advisory: fetched=True comet=False
+  CAG: v=62.113 km/s  f107_baseline=122.86 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.459203 kp=1.0
+[2026-03-29T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4571 AU  v=62.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.19 sw_speed=373.3
+  Advisory: fetched=True comet=False
+  CAG: v=62.256 km/s  f107_baseline=123.36 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.457098 kp=2.0
+[2026-03-29T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4550 AU  v=62.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.91 sw_speed=363.1
+  Advisory: fetched=True comet=False
+  CAG: v=62.4 km/s  f107_baseline=123.36 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.454989 kp=2.0
+[2026-03-29T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4529 AU  v=62.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.28 sw_speed=368.0
+  Advisory: fetched=True comet=False
+  CAG: v=62.546 km/s  f107_baseline=123.36 sfu
+  density spike noted but Bz=-2.28 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.452875 kp=2.0
+[2026-03-29T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4508 AU  v=62.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.07 sw_speed=393.2
+  Advisory: fetched=True comet=False
+  CAG: v=62.693 km/s  f107_baseline=123.36 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.450756 kp=2.0
+[2026-03-29T16:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4486 AU  v=62.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=5.68 sw_speed=399.9
+  Advisory: fetched=True comet=False
+  CAG: v=62.842 km/s  f107_baseline=123.36 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.448632 kp=3.0
+[2026-03-29T17:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4465 AU  v=63.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=9.85 sw_speed=402.5
+  Advisory: fetched=True comet=False
+  CAG: v=62.991 km/s  f107_baseline=123.36 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.446503 kp=3.0
+[2026-03-29T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4444 AU  v=63.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 10 CMEs  earth_directed=True
+  DSCOVR: Bz=1.97 sw_speed=433.3
+  Advisory: fetched=True comet=False
+  CAG: v=63.143 km/s  f107_baseline=123.43 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.444369 kp=3.0
+[2026-03-29T19:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4422 AU  v=63.3 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=3.45 sw_speed=421.3
+  Advisory: fetched=True comet=False
+  CAG: v=63.295 km/s  f107_baseline=123.43 sfu
+  density spike noted but Bz=3.45 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.44223 kp=0.0
+[2026-03-29T20:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4401 AU  v=63.4 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=0.24 sw_speed=429.4
+  Advisory: fetched=True comet=False
+  CAG: v=63.45 km/s  f107_baseline=123.43 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.440085 kp=1.0
+[2026-03-29T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4379 AU  v=63.6 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=7.21 sw_speed=419.8
+  Advisory: fetched=True comet=False
+  CAG: v=63.605 km/s  f107_baseline=123.43 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.437936 kp=1.0
+[2026-03-29T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4358 AU  v=63.8 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=4.7 sw_speed=419.2
+  Advisory: fetched=True comet=False
+  CAG: v=63.763 km/s  f107_baseline=123.43 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.435781 kp=0.0
+[2026-03-29T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4336 AU  v=63.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 11 CMEs  earth_directed=True
+  DSCOVR: Bz=8.75 sw_speed=433.6
+  Advisory: fetched=True comet=False
+  CAG: v=63.921 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.433622 kp=1.0
+[2026-03-30T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4315 AU  v=64.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=148.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=9.28 sw_speed=446.3
+  Advisory: fetched=True comet=False
+  CAG: v=64.082 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.431456 kp=2.0
+[2026-03-30T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4293 AU  v=64.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=3.13 sw_speed=437.8
+  Advisory: fetched=True comet=False
+  CAG: v=64.244 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.429286 kp=2.0
+[2026-03-30T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4271 AU  v=64.4 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=3.06 sw_speed=453.6
+  Advisory: fetched=True comet=False
+  CAG: v=64.408 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.42711 kp=2.0
+[2026-03-30T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4249 AU  v=64.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.76 sw_speed=458.6
+  Advisory: fetched=True comet=False
+  CAG: v=64.573 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.424929 kp=2.0
+[2026-03-30T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4227 AU  v=64.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=162.0 R=2 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=False
+  DSCOVR: Bz=-6.64 sw_speed=469.5
+  Advisory: fetched=True comet=False
+  CAG: v=64.74 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.422742 kp=1.0
+[2026-03-30T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4205 AU  v=64.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.16 sw_speed=476.7
+  Advisory: fetched=True comet=False
+  CAG: v=64.909 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.420549 kp=2.0
+[2026-03-30T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4184 AU  v=65.1 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=162.0 R=1 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.51 sw_speed=464.7
+  Advisory: fetched=True comet=False
+  CAG: v=65.079 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.418351 kp=2.0
+[2026-03-30T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4161 AU  v=65.3 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.39 sw_speed=452.5
+  Advisory: fetched=True comet=False
+  CAG: v=65.252 km/s  f107_baseline=123.77 sfu
+  density spike noted but Bz=-2.39 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.416147 kp=3.0
+[2026-03-30T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4139 AU  v=65.4 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=0.87 sw_speed=445.0
+  Advisory: fetched=True comet=False
+  CAG: v=65.426 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.413937 kp=3.0
+[2026-03-30T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4117 AU  v=65.6 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.45 sw_speed=470.9
+  Advisory: fetched=True comet=False
+  CAG: v=65.602 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.411722 kp=3.0
+[2026-03-30T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4095 AU  v=65.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=162.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.18 sw_speed=449.4
+  Advisory: fetched=True comet=False
+  CAG: v=65.78 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.4095 kp=1.0
+[2026-03-30T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4073 AU  v=66.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.53 sw_speed=460.5
+  Advisory: fetched=True comet=False
+  CAG: v=65.96 km/s  f107_baseline=123.77 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.407273 kp=2.0
+[2026-03-30T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4050 AU  v=66.1 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.54 sw_speed=447.2
+  Advisory: fetched=True comet=False
+  CAG: v=66.141 km/s  f107_baseline=124.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.405039 kp=3.0
+[2026-03-30T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4028 AU  v=66.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.32 sw_speed=446.7
+  Advisory: fetched=True comet=False
+  CAG: v=66.325 km/s  f107_baseline=124.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.4028 kp=1.0
+[2026-03-30T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.4006 AU  v=66.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.21 sw_speed=432.1
+  Advisory: fetched=True comet=False
+  CAG: v=66.511 km/s  f107_baseline=124.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.400554 kp=2.0
+[2026-03-30T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3983 AU  v=66.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=1.4 sw_speed=413.9
+  Advisory: fetched=True comet=False
+  CAG: v=66.699 km/s  f107_baseline=124.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.398302 kp=2.0
+[2026-03-30T16:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3960 AU  v=66.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 3 CMEs  earth_directed=True
+  DSCOVR: Bz=5.12 sw_speed=438.6
+  Advisory: fetched=True comet=False
+  CAG: v=66.889 km/s  f107_baseline=124.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.396044 kp=1.0
+[2026-03-30T17:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3938 AU  v=67.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=141.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=1.21 sw_speed=None
+  Advisory: fetched=True comet=False
+  CAG: v=67.082 km/s  f107_baseline=124.16 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.39378 kp=1.0
+[2026-03-30T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3915 AU  v=67.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.31 sw_speed=482.3
+  Advisory: fetched=True comet=False
+  CAG: v=67.276 km/s  f107_baseline=124.09 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.391509 kp=1.0
+[2026-03-30T19:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3892 AU  v=67.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.78 sw_speed=458.6
+  Advisory: fetched=True comet=False
+  CAG: v=67.473 km/s  f107_baseline=124.09 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.389231 kp=0.0
+[2026-03-30T20:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3869 AU  v=67.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.69 sw_speed=421.3
+  Advisory: fetched=True comet=False
+  CAG: v=67.672 km/s  f107_baseline=124.09 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.386947 kp=1.0
+[2026-03-30T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3847 AU  v=67.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=1.87 sw_speed=433.9
+  Advisory: fetched=True comet=False
+  CAG: v=67.873 km/s  f107_baseline=124.09 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.384657 kp=2.0
+[2026-03-30T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3824 AU  v=68.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=149.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.94 sw_speed=438.4
+  Advisory: fetched=True comet=False
+  CAG: v=68.077 km/s  f107_baseline=124.09 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.382359 kp=1.0
+[2026-03-30T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3801 AU  v=68.3 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=5.17 sw_speed=453.3
+  Advisory: fetched=True comet=False
+  CAG: v=68.284 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.380055 kp=1.0
+[2026-03-31T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3777 AU  v=68.5 km/s  phase=pre-ingress
+  fetch_json FAILED https://services.swpc.noaa.gov/products/noaa-scales.json: Extra data: line 1 column 1113 (char 1112)
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 2 CMEs  earth_directed=True
+  DSCOVR: Bz=2.87 sw_speed=453.4
+  Advisory: fetched=True comet=False
+  CAG: v=68.492 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.377744 kp=1.0
+[2026-03-31T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3754 AU  v=68.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 4 CMEs  earth_directed=True
+  DSCOVR: Bz=3.95 sw_speed=456.7
+  Advisory: fetched=True comet=False
+  CAG: v=68.704 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.375426 kp=1.0
+[2026-03-31T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3731 AU  v=68.9 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.32 sw_speed=456.2
+  Advisory: fetched=True comet=False
+  CAG: v=68.918 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.3731 kp=1.0
+[2026-03-31T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3708 AU  v=69.1 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.99 sw_speed=444.4
+  Advisory: fetched=True comet=False
+  CAG: v=69.135 km/s  f107_baseline=124.28 sfu
+  density spike noted but Bz=-2.99 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.370768 kp=1.0
+[2026-03-31T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3684 AU  v=69.4 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.89 sw_speed=442.7
+  Advisory: fetched=True comet=False
+  CAG: v=69.354 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.368428 kp=0.0
+[2026-03-31T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3661 AU  v=69.6 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=1.25 sw_speed=428.7
+  Advisory: fetched=True comet=False
+  CAG: v=69.576 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.366082 kp=2.0
+[2026-03-31T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3637 AU  v=69.8 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.63 sw_speed=437.0
+  Advisory: fetched=True comet=False
+  CAG: v=69.801 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.363727 kp=2.0
+[2026-03-31T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3614 AU  v=70.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.57 sw_speed=430.6
+  Advisory: fetched=True comet=False
+  CAG: v=70.029 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.361365 kp=1.0
+[2026-03-31T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3590 AU  v=70.3 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=0.71 sw_speed=418.9
+  Advisory: fetched=True comet=False
+  CAG: v=70.26 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.358996 kp=2.0
+[2026-03-31T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3566 AU  v=70.5 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.51 sw_speed=418.6
+  Advisory: fetched=True comet=False
+  CAG: v=70.494 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.356619 kp=2.0
+[2026-03-31T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3542 AU  v=70.7 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.33 sw_speed=430.5
+  Advisory: fetched=True comet=False
+  CAG: v=70.732 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.354234 kp=2.0
+[2026-03-31T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3518 AU  v=71.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=145.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=3.0 sw_speed=431.3
+  Advisory: fetched=True comet=False
+  CAG: v=70.972 km/s  f107_baseline=124.28 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.351841 kp=2.0
+[2026-03-31T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3494 AU  v=71.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.17 sw_speed=406.6
+  Advisory: fetched=True comet=False
+  CAG: v=71.216 km/s  f107_baseline=124.69 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.34944 kp=2.0
+[2026-03-31T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3470 AU  v=71.5 km/s  phase=pre-ingress
+  NOAA: kp=0.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-3.74 sw_speed=420.4
+  Advisory: fetched=True comet=False
+  CAG: v=71.463 km/s  f107_baseline=124.69 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.34703 kp=0.0
+[2026-03-31T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3446 AU  v=71.7 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.87 sw_speed=409.7
+  Advisory: fetched=True comet=False
+  CAG: v=71.713 km/s  f107_baseline=124.69 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.344613 kp=1.0
+[2026-03-31T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3422 AU  v=72.0 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=137.0 R=0 S=0 G=0
+  DONKI: 8 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.32 sw_speed=405.7
+  Advisory: fetched=True comet=False
+  CAG: v=71.967 km/s  f107_baseline=124.69 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.342187 kp=1.0

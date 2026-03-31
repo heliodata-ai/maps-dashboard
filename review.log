@@ -1,1 +1,76 @@
 0: command not found
+[2026-03-27T08:00:01.553017+00:00] queue_manual_review.py running
+  Science log entries with live_observables: 20
+  Pred 4 (Maximum tail length): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 5 (Post-perihelion fragment count): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 8 (Ion tail disconnection events): NEEDS REVIEW (conf=0.0 obs=0)
+  Queue written: /var/log/heliodata/review_queue.jsonl
+  Report published to /var/www/heliodata.ai/html/data/review_queue.md
+  Markdown report: /var/log/heliodata/review_queue.md
+
+  Preds needing review: ['4', '5', '8']
+
+Review queue complete.
+  Pred 4: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 5: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 8: ⚠️  REVIEW — No CAG photometry observations yet
+[2026-03-28T08:00:01.992999+00:00] queue_manual_review.py running
+  Science log entries with live_observables: 70
+  Pred 4 (Maximum tail length): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 5 (Post-perihelion fragment count): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 8 (Ion tail disconnection events): NEEDS REVIEW (conf=0.0 obs=0)
+  Queue written: /var/log/heliodata/review_queue.jsonl
+  Report published to /var/www/heliodata.ai/html/data/review_queue.md
+  Markdown report: /var/log/heliodata/review_queue.md
+
+  Preds needing review: ['4', '5', '8']
+
+Review queue complete.
+  Pred 4: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 5: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 8: ⚠️  REVIEW — No CAG photometry observations yet
+[2026-03-29T07:00:01.040460+00:00] queue_manual_review.py running
+  Science log entries with live_observables: 116
+  Pred 4 (Maximum tail length): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 5 (Post-perihelion fragment count): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 8 (Ion tail disconnection events): NEEDS REVIEW (conf=0.0 obs=0)
+  Queue written: /var/log/heliodata/review_queue.jsonl
+  Report published to /var/www/heliodata.ai/html/data/review_queue.md
+  Markdown report: /var/log/heliodata/review_queue.md
+
+  Preds needing review: ['4', '5', '8']
+
+Review queue complete.
+  Pred 4: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 5: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 8: ⚠️  REVIEW — No CAG photometry observations yet
+[2026-03-30T07:00:01.757623+00:00] queue_manual_review.py running
+  Science log entries with live_observables: 164
+  Pred 4 (Maximum tail length): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 5 (Post-perihelion fragment count): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 8 (Ion tail disconnection events): NEEDS REVIEW (conf=0.0 obs=0)
+  Queue written: /var/log/heliodata/review_queue.jsonl
+  Report published to /var/www/heliodata.ai/html/data/review_queue.md
+  Markdown report: /var/log/heliodata/review_queue.md
+
+  Preds needing review: ['4', '5', '8']
+
+Review queue complete.
+  Pred 4: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 5: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 8: ⚠️  REVIEW — No CAG photometry observations yet
+[2026-03-31T07:00:01.376591+00:00] queue_manual_review.py running
+  Science log entries with live_observables: 212
+  Pred 4 (Maximum tail length): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 5 (Post-perihelion fragment count): NEEDS REVIEW (conf=0.0 obs=0)
+  Pred 8 (Ion tail disconnection events): NEEDS REVIEW (conf=0.0 obs=0)
+  Queue written: /var/log/heliodata/review_queue.jsonl
+  Report published to /var/www/heliodata.ai/html/data/review_queue.md
+  Markdown report: /var/log/heliodata/review_queue.md
+
+  Preds needing review: ['4', '5', '8']
+
+Review queue complete.
+  Pred 4: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 5: ⚠️  REVIEW — No CAG photometry observations yet
+  Pred 8: ⚠️  REVIEW — No CAG photometry observations yet

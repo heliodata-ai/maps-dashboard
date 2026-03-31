@@ -1,7 +1,7 @@
 # Manual Review Queue — Enneagrid Research Consortium
 
-**Generated:** 2026-03-26 21:48 UTC  
-**Science log entries with CAG photometry:** 0  
+**Generated:** 2026-03-31 07:00 UTC  
+**Science log entries with CAG photometry:** 212  
 **Confidence threshold:** 0.8
 
 ---

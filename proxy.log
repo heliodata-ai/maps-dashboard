@@ -156,3 +156,183 @@ INFO:     127.0.0.1:41278 - "GET /f107 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:34218 - "GET /velocity/now HTTP/1.1" 200 OK
 INFO:     127.0.0.1:34228 - "GET /f107 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:58718 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58720 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38024 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38028 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40136 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40138 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48698 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48702 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43824 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43834 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58508 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58516 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54236 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54252 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47118 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47124 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56188 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56194 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40136 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40138 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58896 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58902 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56608 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56622 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55792 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55808 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48782 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48798 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57340 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57346 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57348 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57352 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38882 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38892 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44084 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44094 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42452 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42460 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39012 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39018 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34424 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34438 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35034 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35048 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56538 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56544 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43364 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43376 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53892 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53906 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46496 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46508 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55026 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55040 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46170 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46182 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43986 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43988 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47462 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47464 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37594 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37604 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43956 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43958 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44298 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44300 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37152 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37160 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40480 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40484 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53342 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53344 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47406 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47408 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57486 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57492 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35760 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35770 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45026 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45040 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38638 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38640 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57206 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57208 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57818 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57828 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40928 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40936 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45738 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45742 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46206 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60676 - "GET /config HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60692 - "GET /v2/config HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60694 - "GET /v1/config HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:41810 - "GET /stripe.js HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:41816 - "GET /stripe.ts HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:35516 - "GET /webhook.js HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38534 - "GET /v1/stripe/config.js HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38538 - "GET /v2/payment/keys.js HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38554 - "GET /phpinfo.php HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38564 - "GET /info.php HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50242 - "GET /.git/config HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46524 - "GET /.env.local HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46532 - "GET /.env.production HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50142 - "GET /.env.staging HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:41520 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:47912 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38452 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38464 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50076 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50092 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48368 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48382 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59774 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59776 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55784 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55786 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43184 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43196 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50884 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50898 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36356 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36366 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40914 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40930 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33470 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33486 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38158 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38160 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42710 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42714 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43242 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43258 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55002 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55004 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41940 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41946 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56352 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52574 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52582 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56036 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56052 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39144 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39156 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33538 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33550 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54428 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54432 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51512 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51514 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55338 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55344 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53200 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53208 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53220 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53224 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49834 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49840 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49798 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49800 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53654 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53668 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33202 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33210 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60860 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55294 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32978 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42482 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42490 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47670 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47682 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37824 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37836 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39044 - "GET /velocity/now HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39046 - "GET /f107 HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [51751]
