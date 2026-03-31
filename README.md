@@ -86,7 +86,7 @@ Full scoring window: **May 1–15, 2026**
 - SMOS solar flux dataset — Serco Red Lab / ESRIN  
   (Zenodo: [10.5281/zenodo.15275693](https://doi.org/10.5281/zenodo.15275693))
 - JPL SBDB / Horizons — orbital elements (solution #9 · 705 observations)
-- * REST API — [api.heliodata.ai](https://api.heliodata.ai) · `/predictions` · `/scoring` · `/visits` · `/latest`
+- REST API — [api.heliodata.ai](https://api.heliodata.ai) · `/predictions` · `/scoring` · `/visits` · `/latest`
 
 ---
 
