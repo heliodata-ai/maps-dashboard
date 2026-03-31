@@ -135,8 +135,6 @@ SMOS dataset integration · EU magnetometer network proposal
 *heliodata.ai · Enneagrid Research Consortium · Basque Country, Spain*
 ```
 
----
 
-Paste that directly into the README editor on GitHub. It renders cleanly with the badges, table, and all sections. Hit **Commit changes** with message:
 ```
 Initial README — MAPS dashboard v12, 16 predictions, corona ingress day
