@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAPS Scoring Rubric — Enneagrid Research Consortium</title>
+<style>
+  :root {
+    --bg:    #080d12;
+    --bg2:   #0d1520;
+    --bg3:   #111d2a;
+    --bdr:   #1a2f42;
+    --cyan:  #00b4d8;
+    --cyan2: #0096b4;
+    --cyan3: #006480;
+    --text1: #e2eef5;
+    --text2: #a0c4d8;
+    --text3: #5a8a9f;
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --red:   #ef4444;
+    --mono:  'JetBrains Mono','Fira Mono','Courier New',monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text1);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 32px 20px 64px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    border-bottom: 1px solid var(--bdr);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 18px;
+    color: var(--cyan);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    color: var(--text3);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.3);
+    color: var(--green);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--bdr);
+  }
+
+  .meta-block {
+    background: var(--bg2);
+    border: 1px solid var(--bdr);
+    border-left: 3px solid var(--cyan);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text2);
+  }
+  .meta-block .key {
+    color: var(--text3);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .meta-block .val { color: var(--text1); }
+
+  .criterion-block {
+    background: var(--bg2);
+    border: 1px solid var(--bdr);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .criterion-block .label {
+    color: var(--amber);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .criterion-block .formula {
+    color: var(--text1);
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .criterion-block .note {
+    color: var(--text3);
+    font-size: 11px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+  th {
+    background: var(--bg3);
+    color: var(--text3);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--bdr);
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(26,47,66,0.5);
+    color: var(--text2);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(0,180,216,0.03); }
+  .id-cell { color: var(--cyan); font-weight: 700; width: 28px; }
+  .pred-cell { color: var(--text1); }
+  .rule-cell { color: var(--amber); }
+  .source-cell { color: var(--text3); font-size: 10px; }
+  .polarity-inv { color: var(--red); font-size: 10px; }
+  .polarity-pos { color: var(--green); font-size: 10px; }
+  .contingent { color: var(--amber); font-size: 10px; }
+  .control { color: var(--cyan3); font-size: 10px; }
+  .phase-header td {
+    background: var(--bg3);
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    font-weight: 700;
+  }
+
+  .coupling-block {
+    background: var(--bg2);
+    border: 1px solid var(--bdr);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    color: var(--text2);
+  }
+  .coupling-ids {
+    color: var(--cyan);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--bdr);
+    color: var(--text3);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+  .footer a { color: var(--cyan3); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="sub">ENNEAGRID RESEARCH CONSORTIUM · MAPS v12</div>
+  <h1>Pre-Registered Scoring Rubric</h1>
+  <div class="sub">C/2026 A1 (Kreutz sungrazer) · 16 Predictions · Locked February 18, 2026</div>
+  <div class="badge">&#10003; Published before perihelion — April 1, 2026</div>
+</div>
+
+<div class="section-title">Publication Record</div>
+<div class="meta-block">
+  <div class="key">Rubric published</div>
+  <div class="val">2026-04-01 — three days before perihelion (2026-04-04 14:24 UTC)</div>
+</div>
+<div class="meta-block">
+  <div class="key">Predictions locked</div>
+  <div class="val">2026-02-18 · AI Consortium Final Consolidated Scoring Document</div>
+</div>
+<div class="meta-block">
+  <div class="key">Scoring window</div>
+  <div class="val">May 1–15, 2026 · Scorecard: <a href="/may-scorecard">heliodata.ai/may-scorecard</a></div>
+</div>
+<div class="meta-block">
+  <div class="key">Audit basis</div>
+  <div class="val">Independent technical audits by Grok (xAI) and DeepSeek · March 31, 2026</div>
+</div>
+<div class="meta-block">
+  <div class="key">Machine-readable rubric</div>
+  <div class="val"><a href="https://api.heliodata.ai/scoring">api.heliodata.ai/scoring</a> (JSON)</div>
+</div>
+
+<div class="section-title">Composite Success Criterion</div>
+<div class="criterion-block">
+  <div class="label">Primary</div>
+  <div class="formula">Mean Brier score &lt; 0.25 across all probability predictions</div>
+</div>
+<div class="criterion-block">
+  <div class="label">Secondary</div>
+  <div class="formula">Mean absolute error &lt; 1.0&sigma; across all quantitative predictions</div>
+</div>
+<div class="criterion-block">
+  <div class="label">Success rule</div>
+  <div class="formula">Both criteria must be met simultaneously</div>
+  <div class="note">
+    Contingent predictions (id=5) scored N/A if antecedent fails — excluded from mean.<br>
+    Control prediction (id=9, PanSTARRS C/2025 R3) excluded from C/2026 A1 composite.<br>
+    Coupled pairs (10+11, 11+12, 1+5, 13+14) reported separately to account for non-independence.
+  </div>
+</div>
+
+<div class="section-title">Scoring Rules — All 16 Predictions</div>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Prediction</th>
+      <th>Rule</th>
+      <th>Threshold</th>
+      <th>Adjudicator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="phase-header"><td colspan="5">Phase 1 — Survival &amp; Brightness</td></tr>
+    <tr>
+      <td class="id-cell">1</td>
+      <td class="pred-cell">Fragmentation outcome<br><span class="polarity-pos">&#9679; positive · Brier</span></td>
+      <td class="rule-cell">Brier score<br>BS = (0.55 &minus; outcome)&sup2;</td>
+      <td>BS &lt; 0.25</td>
+      <td class="source-cell">SOHO/LASCO C2+C3<br>Ground obs Apr 5&ndash;15</td>
+    </tr>
+    <tr>
+      <td class="id-cell">2</td>
+      <td class="pred-cell">Peak apparent magnitude &minus;7 &plusmn; 2<br><span class="polarity-pos">&#9679; positive · abs error</span></td>
+      <td class="rule-cell">Absolute error<br>AE = |observed &minus; (&minus;7)|</td>
+      <td>AE &le; 2 mag</td>
+      <td class="source-cell">COBS database<br>SOHO photometry</td>
+    </tr>
+
+    <tr class="phase-header"><td colspan="5">Phase 2 — Detailed Observables</td></tr>
+    <tr>
+      <td class="id-cell">3</td>
+      <td class="pred-cell">Peak brightness time Apr 4 ~14:20 UTC &plusmn; 3h<br><span class="polarity-pos">&#9679; positive · abs error</span></td>
+      <td class="rule-cell">Absolute error<br>AE = |observed &minus; 14:20| in hours</td>
+      <td>AE &le; 3 hours</td>
+      <td class="source-cell">SOHO photometry time series</td>
+    </tr>
+    <tr>
+      <td class="id-cell">4</td>
+      <td class="pred-cell">Maximum tail length 30&deg; &plusmn; 10&deg;<br><span class="polarity-pos">&#9679; positive · abs error</span></td>
+      <td class="rule-cell">Absolute error<br>AE = |observed &minus; 30|</td>
+      <td>AE &le; 10&deg;</td>
+      <td class="source-cell">CCD imaging<br>Professional surveys</td>
+    </tr>
+    <tr>
+      <td class="id-cell">5</td>
+      <td class="pred-cell">Fragment count 3&ndash;5<br><span class="contingent">&#9888; contingent on #1</span></td>
+      <td class="rule-cell">Range check<br>3 &le; observed &le; 5</td>
+      <td>N/A if #1 = false<br>else in [3,5]</td>
+      <td class="source-cell">SOHO C2/C3<br>Ground observations</td>
+    </tr>
+    <tr>
+      <td class="id-cell">6</td>
+      <td class="pred-cell">Naked-eye window Apr 5&ndash;21 &plusmn; 5d<br><span class="polarity-pos">&#9679; positive · window</span></td>
+      <td class="rule-cell">Window overlap<br>Any report Mar 31&ndash;Apr 26</td>
+      <td>At least 1 report</td>
+      <td class="source-cell">COBS visual reports<br>MPC observer reports</td>
+    </tr>
+    <tr>
+      <td class="id-cell">7</td>
+      <td class="pred-cell">SOHO coronal detection 75%<br><span class="polarity-pos">&#9679; positive · Brier</span></td>
+      <td class="rule-cell">Brier score<br>BS = (0.75 &minus; outcome)&sup2;</td>
+      <td>BS &lt; 0.25</td>
+      <td class="source-cell">SOHO/LASCO C2+C3</td>
+    </tr>
+    <tr>
+      <td class="id-cell">8</td>
+      <td class="pred-cell">Ion tail disconnections 3 &plusmn; 2<br><span class="polarity-pos">&#9679; positive · abs error</span></td>
+      <td class="rule-cell">Absolute error<br>AE = |observed &minus; 3|</td>
+      <td>AE &le; 2 events</td>
+      <td class="source-cell">SOHO C3 imagery<br>CAG classifier</td>
+    </tr>
+    <tr>
+      <td class="id-cell">9</td>
+      <td class="pred-cell">PanSTARRS C/2025 R3 peak mag 3.5 &plusmn; 1.5<br><span class="control">&#9632; control prediction — separate comet</span></td>
+      <td class="rule-cell">Absolute error<br>AE = |observed &minus; 3.5|</td>
+      <td>AE &le; 1.5 mag</td>
+      <td class="source-cell">COBS, MPC<br>(perihelion Apr 20)</td>
+    </tr>
+    <tr>
+      <td class="id-cell">10</td>
+      <td class="pred-cell">In-situ detection (any) No&mdash;85%<br><span class="polarity-inv">&#9650; INVERSE &rarr; scored as Pr=0.15</span></td>
+      <td class="rule-cell">Brier score<br>BS = (0.15 &minus; outcome)&sup2;</td>
+      <td>BS &lt; 0.25</td>
+      <td class="source-cell">Parker Solar Probe<br>telemetry</td>
+    </tr>
+
+    <tr class="phase-header"><td colspan="5">Phase 3 — Space Weather</td></tr>
+    <tr>
+      <td class="id-cell">11</td>
+      <td class="pred-cell">CME within &plusmn;12h perihelion Yes&mdash;80%<br><span class="polarity-pos">&#9679; positive · Brier</span></td>
+      <td class="rule-cell">Brier score<br>BS = (0.80 &minus; outcome)&sup2;</td>
+      <td>BS &lt; 0.25</td>
+      <td class="source-cell">SOHO/LASCO CME catalog<br>NASA DONKI</td>
+    </tr>
+    <tr>
+      <td class="id-cell">12</td>
+      <td class="pred-cell">Earth-directed CME No&mdash;90%<br><span class="polarity-inv">&#9650; INVERSE &rarr; scored as Pr=0.10</span></td>
+      <td class="rule-cell">Brier score<br>BS = (0.10 &minus; outcome)&sup2;</td>
+      <td>BS &lt; 0.25</td>
+      <td class="source-cell">NOAA SWPC alerts<br>ACE/DSCOVR L1</td>
+    </tr>
+    <tr>
+      <td class="id-cell">13</td>
+      <td class="pred-cell">Max Kp Apr 1&ndash;7 = 5 &plusmn; 1.5<br><span class="polarity-pos">&#9679; positive · abs error</span></td>
+      <td class="rule-cell">Absolute error<br>AE = |observed &minus; 5|</td>
+      <td>AE &le; 1.5</td>
+      <td class="source-cell">NOAA Kp archive<br>Kyoto Dst</td>
+    </tr>
+    <tr>
+      <td class="id-cell">14</td>
+      <td class="pred-cell">G1+ storm Apr 1&ndash;7 = 58% &plusmn; 25%<br><span class="polarity-pos">&#9679; positive · interval score</span></td>
+      <td class="rule-cell">Interval score<br>Interval [0.33, 0.83]</td>
+      <td>Storm occurs or not</td>
+      <td class="source-cell">NOAA storm archive<br>INTERMAGNET</td>
+    </tr>
+    <tr>
+      <td class="id-cell">15</td>
+      <td class="pred-cell">NOAA advisory mentions comet Yes&mdash;70%<br><span class="polarity-pos">&#9679; positive · Brier</span></td>
+      <td class="rule-cell">Brier score<br>BS = (0.70 &minus; outcome)&sup2;</td>
+      <td>BS &lt; 0.25</td>
+      <td class="source-cell">SWPC advisory archive</td>
+    </tr>
+
+    <tr class="phase-header"><td colspan="5">Phase 4 — Satellite Fleet</td></tr>
+    <tr>
+      <td class="id-cell">16</td>
+      <td class="pred-cell">Fleet survival to May &gt;99%<br><span class="polarity-pos">&#9679; positive · threshold</span></td>
+      <td class="rule-cell">Threshold check<br>surviving / total &ge; 0.99</td>
+      <td>&ge; 99% survival</td>
+      <td class="source-cell">NORAD/CelesTrak TLE<br>SpaceX deorbit logs</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-title">Coupled Prediction Pairs</div>
+<div class="coupling-block">
+  <div class="coupling-ids">IDs 10 + 11</div>
+  CME before peak brightness (#10) is a subset of all CMEs within &plusmn;12h (#11). Non-independent — reported separately in scorecard.
+</div>
+<div class="coupling-block">
+  <div class="coupling-ids">IDs 11 + 12</div>
+  Earth-directed CME (#12) is conditional on CME occurrence (#11). Strong positive coupling — reported separately.
+</div>
+<div class="coupling-block">
+  <div class="coupling-ids">IDs 1 + 5</div>
+  Fragment count (#5) is contingent on fragmentation (#1). Deterministic antecedent — #5 scored N/A if #1 = false.
+</div>
+<div class="coupling-block">
+  <div class="coupling-ids">IDs 13 + 14</div>
+  G1+ storm (#14) physically corresponds to Kp &ge; 5 (#13). Moderate coupling — reported separately.
+</div>
+
+<div class="section-title">Polarity Notes</div>
+<div class="meta-block">
+  <div class="key">Predictions 10 and 12 — inverse polarity</div>
+  <div class="val">
+    These predictions are stated as "No — X%" where X% = Pr(event does NOT occur).<br>
+    Scoring uses the complement: Pr(event occurs) = 1 &minus; X%.<br>
+    Prediction 10: Pr(in-situ detection) = 0.15 &nbsp;|&nbsp; Prediction 12: Pr(Earth-directed CME) = 0.10
+  </div>
+</div>
+
+<div class="footer">
+  <div>Enneagrid Research Consortium · <a href="https://heliodata.ai">heliodata.ai</a> · MAPS v12</div>
+  <div style="margin-top:4px;">Rubric published 2026-04-01 · Perihelion 2026-04-04 14:24 UTC · Scorecard May 1&ndash;15, 2026</div>
+  <div style="margin-top:4px;">Machine-readable: <a href="https://api.heliodata.ai/scoring">api.heliodata.ai/scoring</a> &nbsp;|&nbsp; Predictions: <a href="https://api.heliodata.ai/predictions">api.heliodata.ai/predictions</a></div>
+  <div style="margin-top:4px;">ESA BASS PoC grant target · Zenodo DOI: <a href="https://doi.org/10.5281/zenodo.19295676">10.5281/zenodo.19295676</a> (published May 15, 2026)</div>
+</div>
+
+</body>
+</html>
