@@ -135,6 +135,4 @@ SMOS dataset integration · EU magnetometer network proposal
 *heliodata.ai · Enneagrid Research Consortium · Basque Country, Spain*
 ```
 
-
-```
 Initial README — MAPS dashboard v12, 16 predictions, corona ingress day
