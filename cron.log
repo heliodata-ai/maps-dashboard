@@ -1350,3 +1350,12 @@
   CAG: v=72.486 km/s  f107_baseline=124.69 sfu
   Written to /var/log/heliodata/science_log.jsonl
   OK — phase=pre-ingress au=0.33731 kp=1.0
+[2026-03-31T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.3349 AU  v=72.8 km/s  phase=pre-ingress
+  NOAA: kp=1.0 f107=172.0 R=0 S=0 G=0
+  DONKI: 9 CMEs  earth_directed=True
+  DSCOVR: Bz=2.02 sw_speed=408.4
+  Advisory: fetched=True comet=False
+  CAG: v=72.751 km/s  f107_baseline=124.57 sfu
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.334859 kp=1.0
