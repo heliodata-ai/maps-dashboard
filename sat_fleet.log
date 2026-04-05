@@ -72,3 +72,21 @@ Pred 16 preliminary: insufficient_data (score=None)
   Scoring entry written: status=insufficient_data score=None
 
 Pred 16 preliminary: insufficient_data (score=None)
+[2026-04-03T02:00:01.567489+00:00] score_sat_fleet.py running
+  fetch_text FAILED https://celestrak.org/pub/TLE/active.txt: HTTP Error 403: Forbidden
+  fetch_text FAILED https://celestrak.org/pub/TLE/stations.txt: HTTP Error 403: Forbidden
+  CelesTrak: leo_approx=None  total=None
+  G4+ storms since Apr 1: 0
+  Written to /var/log/heliodata/sat_fleet_log.jsonl
+  Scoring entry written: status=insufficient_data score=None
+
+Pred 16 preliminary: insufficient_data (score=None)
+[2026-04-04T02:00:01.590090+00:00] score_sat_fleet.py running
+  fetch_text FAILED https://celestrak.org/pub/TLE/active.txt: HTTP Error 403: Forbidden
+  fetch_text FAILED https://celestrak.org/pub/TLE/stations.txt: HTTP Error 403: Forbidden
+  CelesTrak: leo_approx=None  total=None
+  G4+ storms since Apr 1: 0
+  Written to /var/log/heliodata/sat_fleet_log.jsonl
+  Scoring entry written: status=insufficient_data score=None
+
+Pred 16 preliminary: insufficient_data (score=None)

@@ -2181,3 +2181,1232 @@
   TIER2: frag=None tail=None° ion=0
   Written to /var/log/heliodata/science_log.jsonl
   OK — phase=pre-ingress au=0.197001 kp=4.0
+[2026-04-02T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1938 AU  v=95.7 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=139.0 R=0 S=0 G=1
+  DONKI: 19 CMEs  earth_directed=True
+  DSCOVR: Bz=-5.62 sw_speed=687.6
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.193806 kp=4.0
+[2026-04-02T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1906 AU  v=96.5 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=139.0 R=0 S=0 G=0
+  DONKI: 19 CMEs  earth_directed=True
+  DSCOVR: Bz=2.12 sw_speed=679.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.190585 kp=3.0
+[2026-04-02T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1873 AU  v=97.3 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 21 CMEs  earth_directed=True
+  DSCOVR: Bz=0.78 sw_speed=657.6
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.187338 kp=3.0
+[2026-04-03T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1841 AU  v=98.2 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.38 sw_speed=666.4
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.184063 kp=3.0
+[2026-04-03T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1808 AU  v=99.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.05 sw_speed=674.4
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.18076 kp=3.0
+[2026-04-03T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1774 AU  v=100.0 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.19 sw_speed=647.2
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.177427 kp=3.0
+[2026-04-03T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1741 AU  v=100.9 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.66 sw_speed=661.6
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.174064 kp=4.0
+[2026-04-03T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1707 AU  v=101.9 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.04 sw_speed=641.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.170669 kp=2.0
+[2026-04-03T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1672 AU  v=103.0 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=0.38 sw_speed=660.2
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  density spike noted but Bz=0.38 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.167241 kp=2.0
+[2026-04-03T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1638 AU  v=104.1 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.6 sw_speed=663.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.163779 kp=4.0
+[2026-04-03T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1603 AU  v=105.2 km/s  phase=pre-ingress
+  NOAA: kp=2.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.83 sw_speed=687.7
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.160282 kp=2.0
+[2026-04-03T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1567 AU  v=106.4 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.46 sw_speed=629.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  density spike noted but Bz=-0.46 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.156747 kp=4.0
+[2026-04-03T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1532 AU  v=107.6 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=131.0 R=0 S=0 G=1
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.37 sw_speed=616.0
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.153173 kp=4.0
+[2026-04-03T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1496 AU  v=108.9 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=131.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=1.36 sw_speed=624.4
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  density spike noted but Bz=1.36 nT — not a shock
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.149559 kp=3.0
+[2026-04-03T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1459 AU  v=110.2 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=130.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.24 sw_speed=644.4
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.145902 kp=3.0
+[2026-04-03T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1422 AU  v=111.7 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=130.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=2.07 sw_speed=628.8
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.142201 kp=3.0
+[2026-04-03T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1385 AU  v=113.2 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=130.0 R=1 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-2.63 sw_speed=604.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.138454 kp=3.0
+[2026-04-03T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1347 AU  v=114.8 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=130.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-0.36 sw_speed=605.2
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.134657 kp=3.0
+[2026-04-03T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1308 AU  v=116.4 km/s  phase=pre-ingress
+  NOAA: kp=3.0 f107=130.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-3.69 sw_speed=631.4
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.130808 kp=3.0
+[2026-04-03T16:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1269 AU  v=118.2 km/s  phase=pre-ingress
+  NOAA: kp=6.0 f107=130.0 R=0 S=0 G=2
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-6.89 sw_speed=780.6
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.126904 kp=6.0
+[2026-04-03T17:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1229 AU  v=120.1 km/s  phase=pre-ingress
+  NOAA: kp=7.0 f107=132.0 R=0 S=0 G=3
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-8.8 sw_speed=784.8
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.122942 kp=7.0
+[2026-04-03T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1189 AU  v=122.1 km/s  phase=pre-ingress
+  NOAA: kp=7.0 f107=132.0 R=0 S=0 G=3
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-5.26 sw_speed=772.8
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.118919 kp=7.0
+[2026-04-03T19:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1148 AU  v=124.3 km/s  phase=pre-ingress
+  NOAA: kp=4.0 f107=132.0 R=0 S=0 G=0
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.33 sw_speed=720.7
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.11483 kp=4.0
+[2026-04-03T20:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1107 AU  v=126.6 km/s  phase=pre-ingress
+  NOAA: kp=5.0 f107=132.0 R=0 S=0 G=1
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-6.16 sw_speed=745.2
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.110671 kp=5.0
+[2026-04-03T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1064 AU  v=129.1 km/s  phase=pre-ingress
+  NOAA: kp=5.0 f107=132.0 R=0 S=0 G=1
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-1.39 sw_speed=703.0
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.106436 kp=5.0
+[2026-04-03T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.1021 AU  v=131.8 km/s  phase=pre-ingress
+  NOAA: kp=5.0 f107=132.0 R=0 S=0 G=1
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=0.5 sw_speed=654.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=pre-ingress au=0.102121 kp=5.0
+[2026-04-03T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0977 AU  v=134.7 km/s  phase=ingress
+  NOAA: kp=5.0 f107=132.0 R=0 S=0 G=1
+  DONKI: 7 CMEs  earth_directed=False
+  DSCOVR: Bz=-4.48 sw_speed=684.7
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.097718 kp=5.0
+[2026-04-04T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0932 AU  v=137.9 km/s  phase=ingress
+  NOAA: kp=5.0 f107=125.0 R=0 S=0 G=2
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-3.76 sw_speed=677.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.09322 kp=5.0
+[2026-04-04T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0886 AU  v=141.5 km/s  phase=ingress
+  NOAA: kp=3.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-0.16 sw_speed=648.0
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.088618 kp=3.0
+[2026-04-04T02:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0839 AU  v=145.4 km/s  phase=ingress
+  NOAA: kp=4.0 f107=125.0 R=1 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-1.18 sw_speed=651.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.083902 kp=4.0
+[2026-04-04T03:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0791 AU  v=149.8 km/s  phase=ingress
+  NOAA: kp=4.0 f107=125.0 R=0 S=0 G=1
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-0.77 sw_speed=632.8
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.079059 kp=4.0
+[2026-04-04T04:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0741 AU  v=154.7 km/s  phase=ingress
+  NOAA: kp=2.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-1.47 sw_speed=644.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.074076 kp=2.0
+[2026-04-04T05:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0689 AU  v=160.4 km/s  phase=ingress
+  NOAA: kp=4.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-2.2 sw_speed=649.1
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.068935 kp=4.0
+[2026-04-04T06:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0636 AU  v=167.0 km/s  phase=ingress
+  NOAA: kp=4.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-1.83 sw_speed=628.6
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.063612 kp=4.0
+[2026-04-04T07:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0581 AU  v=174.8 km/s  phase=ingress
+  NOAA: kp=1.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-0.24 sw_speed=600.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.058081 kp=1.0
+[2026-04-04T08:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0523 AU  v=184.2 km/s  phase=ingress
+  NOAA: kp=2.0 f107=125.0 R=1 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-0.7 sw_speed=630.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.052304 kp=2.0
+[2026-04-04T09:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0462 AU  v=195.9 km/s  phase=ingress
+  NOAA: kp=3.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-1.38 sw_speed=622.1
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.046233 kp=3.0
+[2026-04-04T10:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0398 AU  v=211.1 km/s  phase=ingress
+  NOAA: kp=1.0 f107=125.0 R=0 S=0 G=0
+  DONKI: None CMEs  earth_directed=None
+  DSCOVR: Bz=-1.97 sw_speed=624.9
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.039797 kp=1.0
+[2026-04-04T11:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0329 AU  v=232.2 km/s  phase=ingress
+  NOAA: kp=2.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=0.94 sw_speed=620.4
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.032895 kp=2.0
+[2026-04-04T12:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0254 AU  v=264.5 km/s  phase=ingress
+  NOAA: kp=2.0 f107=121.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=0.77 sw_speed=641.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=ingress au=0.025366 kp=2.0
+[2026-04-04T13:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0170 AU  v=323.5 km/s  phase=perihelion
+  NOAA: kp=1.0 f107=121.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=3.59 sw_speed=657.6
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=perihelion au=0.016954 kp=1.0
+[2026-04-04T14:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0077 AU  v=478.8 km/s  phase=perihelion
+  NOAA: kp=0.0 f107=121.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=2.86 sw_speed=586.3
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=perihelion au=0.007739 kp=0.0
+[2026-04-04T15:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0095 AU  v=431.8 km/s  phase=perihelion
+  NOAA: kp=1.0 f107=121.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=2.16 sw_speed=605.0
+  Advisory: fetched=True comet=False
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG: v=None km/s  f107_baseline=None sfu
+  CAG LIVE: fetching photometry...
+  CAG FAILED: HTTP Error 401: Unauthorized
+  CAG TIER2: fragmentation classifier...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    frag: CAG timeout or failed
+  CAG TIER2: tail length estimator...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    tail: CAG timeout or failed
+  CAG TIER2: ion disconnection detector...
+  CAG FAILED: HTTP Error 401: Unauthorized
+    ion: CAG timeout or failed
+  TIER2: frag=None tail=None° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=perihelion au=0.009514 kp=1.0
+[2026-04-04T16:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0187 AU  v=307.8 km/s  phase=perihelion
+  NOAA: kp=0.0 f107=121.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=2.85 sw_speed=596.2
+  Advisory: fetched=True comet=False
+  CAG: v=307.837 km/s  f107_baseline=125.22 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=25e01b6f-1a18-4106-8f50-317762b5d779
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=61d52ccd-e74a-460f-a88b-4b4c980043ed
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=f42df55f-a2ad-44a0-8a3d-fe9264fa7b25
+  TIER2: frag=intact tail=2.33° ion=0
+  Written to /var/log/heliodata/science_log.jsonl
+  OK — phase=perihelion au=0.018722 kp=0.0
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T17:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0269 AU  v=256.7 km/s  phase=egress
+  NOAA: kp=0.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=0.51 sw_speed=597.3
+  Advisory: fetched=True comet=False
+  CAG: v=256.657 km/s  f107_baseline=125.22 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=3b8e0797-a6e9-4727-8f3c-bf53374201c9
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=1d308e8a-5887-481c-ae53-26e2f4027f85
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=3abfcb8c-3022-46a1-b280-f3a7174af2ff
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=0.51 nT — not a shock
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T18:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0343 AU  v=227.4 km/s  phase=egress
+  NOAA: kp=1.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=1.63 sw_speed=582.3
+  Advisory: fetched=True comet=False
+  CAG: v=227.361 km/s  f107_baseline=124.98 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=e1bec2c9-9e8e-4a16-9af1-445db70da081
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=62a9c996-50f6-4254-9e9d-913b7763df55
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=26d4c0d5-3797-47af-bbc1-d97c377b617b
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=1.63 nT — not a shock
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T19:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0411 AU  v=207.7 km/s  phase=egress
+  NOAA: kp=2.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=-2.18 sw_speed=579.2
+  Advisory: fetched=True comet=False
+  CAG: v=207.714 km/s  f107_baseline=124.98 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=0dea04c7-4bf1-4ae5-ab81-cea16b5d6c9c
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=40e1f67e-08cd-4c32-a16d-51ac13be2d55
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1edd54ca-fa68-4938-9280-7936bbc0a6a3
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=-2.18 nT — not a shock
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T20:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0475 AU  v=193.3 km/s  phase=egress
+  NOAA: kp=3.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=0.42 sw_speed=553.7
+  Advisory: fetched=True comet=False
+  CAG: v=193.308 km/s  f107_baseline=124.98 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=6470b766-2fb5-41dc-a284-6cf24b6d53e0
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=62955686-aae1-4b66-afbc-7fa87086029c
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=1e4c49e8-382f-4665-a0c9-5131c5d93fb6
+  TIER2: frag=intact tail=2.33° ion=0
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T21:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0535 AU  v=182.1 km/s  phase=egress
+  NOAA: kp=3.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=-1.27 sw_speed=564.2
+  Advisory: fetched=True comet=False
+  CAG: v=182.125 km/s  f107_baseline=124.98 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=5bc76efc-2c02-48a2-a329-44d4f97e0cfa
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=e5a4e248-0fd4-4ad3-ae16-29ef218af84d
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=6800d438-a84a-4586-98ec-66b40156bc0d
+  TIER2: frag=intact tail=2.33° ion=0
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T22:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0592 AU  v=173.1 km/s  phase=egress
+  NOAA: kp=2.0 f107=125.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=0.87 sw_speed=568.0
+  Advisory: fetched=True comet=False
+  CAG: v=173.095 km/s  f107_baseline=124.98 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=962aaf2d-dd86-4abf-b1fd-7d59af9b4a98
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=9e65f6be-2c70-48ee-8d8f-08139c6da595
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=5e328990-a36c-422d-a489-46d134a6298d
+  TIER2: frag=intact tail=2.33° ion=0
+  density spike noted but Bz=0.87 nT — not a shock
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-04T23:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0647 AU  v=165.6 km/s  phase=egress
+  NOAA: kp=2.0 f107=117.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=-0.48 sw_speed=578.1
+  Advisory: fetched=True comet=False
+  CAG: v=165.591 km/s  f107_baseline=124.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=806b0baa-59c6-4446-8085-235452f13f66
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=b5e9e5f1-463c-4fab-a246-153138bca7e7
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=95dca59e-7761-411f-b257-e068c9e63a7d
+  TIER2: frag=intact tail=2.33° ion=0
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-05T00:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0700 AU  v=159.2 km/s  phase=egress
+  NOAA: kp=2.0 f107=117.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=0.71 sw_speed=592.8
+  Advisory: fetched=True comet=False
+  CAG: v=159.214 km/s  f107_baseline=124.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=76ea2d5f-c2e2-48f8-8213-e92688c8eabf
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=90069377-f0fd-4c34-9332-e8ae48d80840
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=25368933-7326-45bd-8a9c-0c4e8e80da39
+  TIER2: frag=intact tail=2.33° ion=0
+FATAL: name 'cag_velocity' is not defined
+Traceback (most recent call last):
+  File "/opt/heliodata/logger.py", line 969, in <module>
+    entry = build_entry(now, cag_live=cag_live)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/heliodata/logger.py", line 930, in build_entry
+    'velocity':   'Wolfram-CAG' if cag_velocity else 'Kepler-JPL9-fallback',
+                                   ^^^^^^^^^^^^
+NameError: name 'cag_velocity' is not defined
+[2026-04-05T01:00:00+00:00] Building log entry (cag_live=False)
+  Orbital: r=0.0751 AU  v=153.7 km/s  phase=egress
+  NOAA: kp=2.0 f107=117.0 R=0 S=0 G=0
+  DONKI: 1 CMEs  earth_directed=True
+  DSCOVR: Bz=-4.09 sw_speed=590.2
+  Advisory: fetched=True comet=False
+  CAG: v=153.702 km/s  f107_baseline=124.9 sfu
+  CAG LIVE: fetching photometry...
+  CAG TIER2: fragmentation classifier...
+    frag: state=intact components=1 conf=0.98 uuid=946ff000-d1a9-40fb-99b4-0afb514f1aac
+  CAG TIER2: tail length estimator...
+    tail: 2.33° conf=0.85 uuid=dda9bf9e-cca9-4e90-9085-bc99ee6a85ff
+  CAG TIER2: ion disconnection detector...
+    ion: mean=0.0000 change=0.0000 spikes=0 count=0 uuid=2756e385-7223-47e9-8123-f8709803b506
+  TIER2: frag=intact tail=2.33° ion=0
+FATAL: name 'cag_velocity' is not defined
