@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>heliodata.ai — MAPS v12 · C/2026 A1 Perihelion</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/logo-512.png">
+    <title>heliodata.ai — MAPS v12 · C/2026 A1 Perihelion</title>
 <style>
-@font-face { font-family: 'Share Tech Mono'; src: url('/fonts/ShareTechMono.woff2') format('woff2'); font-weight: 400; font-style: normal; }
-@font-face { font-family: 'Barlow Condensed'; src: url('/fonts/BarlowCondensed-Regular.woff2') format('woff2'); font-weight: 300 400; font-style: normal; }
-@font-face { font-family: 'Barlow Condensed'; src: url('/fonts/BarlowCondensed-Bold.woff2') format('woff2'); font-weight: 600 700; font-style: normal; }
-@font-face { font-family: 'Barlow'; src: url('/fonts/Barlow-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; }
-@font-face { font-family: 'Barlow'; src: url('/fonts/Barlow-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap');
 
 :root {
   --bg:     #060a0f;
@@ -330,7 +328,7 @@ body::before {
 }
 .cag-cls-val { font-family:var(--mono);font-size:11px;line-height:1;margin-bottom:2px; }
 .cag-cls-lbl { font-size:7px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase; }
-.frag-intact   { color:var(--green); }
+.frag-intact   { color:var(--text3); }
 .frag-partial  { color:var(--amber); }
 .frag-major    { color:var(--red); }
 .frag-pending  { color:var(--text3); }
@@ -491,7 +489,7 @@ body::before {
 <!-- ── HEADER ── -->
 <header class="header">
   <div class="header-left">
-    <div class="logo">MAPS <span>v12</span></div>
+    <div class="logo" style="display:flex;align-items:center;gap:10px;"><img src="/favicon.png" style="width:32px;height:32px;display:block;" alt="heliodata.ai">MAPS <span>v12</span></div>
     <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM F10.7</div>
     <div class="cag-badge"><div class="cdot"></div>CAG</div>
   </div>
@@ -772,23 +770,23 @@ body::before {
       <div class="phase-bar">
         <div class="pseg pdone"></div>
         <div class="pseg pdone"></div>
+        <div class="pseg pdone"></div>
+        <div class="pseg pdone"></div>
         <div class="pseg pactive"></div>
-        <div class="pseg palert"></div>
-        <div class="pseg"></div>
         <div class="pseg"></div>
       </div>
       <div class="phase-lbl-row">
         <div class="plbl">Discovery</div>
         <div class="plbl">Ingress</div>
-        <div class="plbl active">Final Approach</div>
-        <div class="plbl alert">Perihelion Zone</div>
-        <div class="plbl">Egress</div>
+        <div class="plbl">Final Approach</div>
+        <div class="plbl">Perihelion Zone</div>
+        <div class="plbl active">Egress</div>
         <div class="plbl">Post</div>
       </div>
       <div class="tl"><div class="tld">Jan 01</div><div class="tle">C/2026 A1 discovered, MPC confirmed</div><div class="tlv">3.1 AU</div></div>
       <div class="tl"><div class="tld">Feb 18</div><div class="tle">16 predictions locked &mdash; Consortium</div><div class="tlv">1.8 AU</div></div>
-      <div class="tl now"><div class="tld">Mar 28 &#9654;</div><div class="tle">NOW &mdash; Corona ingress, CAG active</div><div class="tlv">0.10 AU</div></div>
-      <div class="tl peri" style="background:rgba(245,158,11,0.03)"><div class="tld" style="color:var(--amber)">Apr 04</div><div class="tle" style="color:var(--amber)">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv" style="color:var(--amber)">0.006 AU</div></div>
+      <div class="tl"><div class="tld">Mar 28</div><div class="tle">Corona ingress, CAG active</div><div class="tlv">0.10 AU</div></div>
+      <div class="tl now peri" style="background:rgba(245,158,11,0.03)"><div class="tld" style="color:var(--amber)">Apr 04 &#9654;</div><div class="tle" style="color:var(--amber)">PERIHELION &mdash; q = 0.005732 AU</div><div class="tlv" style="color:var(--amber)">0.006 AU</div></div>
       <div class="tl"><div class="tld">May 1</div><div class="tle">Public scorecard &mdash; all 16 scored</div><div class="tlv">&mdash;</div></div>
     </div>
 
@@ -801,7 +799,7 @@ body::before {
       <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
         <div class="dot5 wait" id="logDot"></div>
         <span id="logMsg" style="color:var(--text3)">Awaiting ingress&hellip;</span>
-        <a href="https://heliodata.ai/data/science_log.jsonl" target="_blank"
+        <a href="https://api.heliodata.ai/science-log" target="_blank"
            style="color:var(--text3);text-decoration:none;margin-left:auto">science_log.jsonl &rarr;</a>
       </div>
     </div>
@@ -998,7 +996,7 @@ body::before {
         </div>
         <div class="cag-cls-cell">
           <div class="cag-cls-val" id="clsTail" style="color:var(--cyan)">—°</div>
-          <div class="cag-cls-lbl">Tail length</div>
+          <div class="cag-cls-lbl">Tail orientation</div>
         </div>
         <div class="cag-cls-cell">
           <div class="cag-cls-val" id="clsIon" style="color:var(--text2)">0</div>
@@ -1056,7 +1054,7 @@ body::before {
     </div>
     <div class="dec-card">
       <div class="dec-card-title">Who is the Consortium?</div>
-      <div class="dec-card-body">The Enneagrid Research Consortium is a multi-AI scientific collaboration coordinated by Eugharaz (G.L. Eukene), a professional geodesist and surveyor in the Basque Country, Spain. Members are Claude (Anthropic), Grok (xAI), DeepSeek, and Wolfram Alpha. Each contributes a different capability &mdash; from orbital mechanics to statistical verification. OpenAI/ChatGPT participated in early phases and departed in February 2026.</div>
+      <div class="dec-card-body">The Enneagrid Research Consortium is a multi-AI scientific collaboration coordinated by Eugharaz (G.L. Eukene), a geomatician in the Basque Country. Members are Claude (Anthropic), Grok (xAI), DeepSeek, and Wolfram Alpha. Each contributes a different capability &mdash; from orbital mechanics to statistical verification. OpenAI/ChatGPT participated in early phases and departed in February 2026.</div>
     </div>
     <div class="dec-card">
       <div class="dec-card-title">How to read the orbit diagram</div>
@@ -1241,7 +1239,7 @@ async function fetchWolframF107(){
   if(!appid){try{appid=localStorage.getItem('wolfram_appid');}catch(e){}}
   if(appid&&appid.length>4&&appid!=='YOUR-APPID-HERE'){try{localStorage.setItem('wolfram_appid',appid);}catch(e){}}
   _log('Wolfram AppID:',appid?appid.substring(0,4)+'****':'NONE');
-  if(!appid){_warn('AppID missing — run: localStorage.setItem(\'wolfram_appid\',\'WGV2E2HYQ7\')');return false;}
+  if(!appid){_warn('AppID missing — run: localStorage.setItem(\'wolfram_appid\',\'YOUR-APPID-HERE\')');return false;}
   try{
     const query=encodeURIComponent('current F10.7 solar flux index');
     const directUrl=`https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
@@ -1493,7 +1491,7 @@ async function fetchNoaa(){
 // ── v11.1 — SCIENCE LOG FEED ──────────────────────────────────────
 async function loadLogFeed(){
   try{
-    const r=await fetch('https://heliodata.ai/data/science_log.jsonl',{cache:'no-store'});
+    const r=await fetch('https://api.heliodata.ai/science-log',{cache:'no-store'});
     if(!r.ok)return;
     const text=await r.text();
     const lines=text.trim().split('\n').filter(l=>l.trim());
@@ -1590,24 +1588,19 @@ function updateCagClassifierRow(entry){
   // Fragmentation state
   const fragEl=document.getElementById('clsFrag');
   if(fragEl){
-    const frag=entry.cag_fragmentation_state;
-    if(!frag||frag==='unavailable'||frag==='cag_timeout'){
-      fragEl.textContent='—';fragEl.className='cag-cls-val frag-pending';
-    } else {
-      fragEl.textContent=frag;
-      fragEl.className='cag-cls-val '+(frag==='intact'?'frag-intact':frag==='partial'?'frag-partial':'frag-major');
-    }
+    // CAG PINNED: static output entire campaign — not a dynamic detector
+  // Ground truth: disintegrated Apr 4 08:15 UTC
+  if(fragEl){
+    fragEl.textContent='disintegrated';
+    fragEl.className='cag-cls-val frag-major';
+  }
   }
 
-  // Tail length
+  // Tail orientation — pinned (static throughout campaign)
   const tailEl=document.getElementById('clsTail');
   if(tailEl){
-    const t=entry.cag_tail_length_deg;
-    if(t==null){tailEl.textContent='—°';tailEl.style.color='var(--text3)';}
-    else{
-      tailEl.textContent=t.toFixed(1)+'°';
-      tailEl.style.color=t>=20?'var(--cyan)':t>0?'var(--text2)':'var(--text3)';
-    }
+    tailEl.textContent='2.3°';
+    tailEl.style.color='var(--text3)';
   }
 
   // Ion disconnection count
@@ -1874,7 +1867,7 @@ function updateCometIntelligence(){
   const dcEl = document.getElementById('ciDC');
   if(dcEl){
     let dc = '—';
-    if(frag === 'intact')  dc = '6–7 / 9 (est)';
+    if(frag === 'intact')  dc = '0 / 9 (disintegrated)';
     else if(frag === 'partial') dc = '4–5 / 9 (est)';
     else if(frag === 'major')   dc = '2–3 / 9 (est)';
     dcEl.textContent = dc;
@@ -1905,7 +1898,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   updateCountdown();updateClock();updateCometIntelligence();
   setInterval(updateCountdown,1000);
   setInterval(updateClock,1000);
-  setInterval(updateCometIntelligence,30000);
+  // ARCHIVE MODE: campaign closed Apr 5 2026 — live fetch intervals disabled
 
   function tryDraw(attempts){
     drawF107();
@@ -1936,11 +1929,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   fetchNoaa();
   loadLogFeed();
 
-  setInterval(()=>{if(isHttp){fetchCAG();fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();});}else{fetchNoaaF107();}},300000);
-  setInterval(fetchNoaa,300000);
+  // ARCHIVE MODE: live fetches stopped — orbital track continues
   setInterval(drawOrbit,30000);
-  setInterval(loadLogFeed,300000);
-  setInterval(fetchSolarIntelligence,300000);
 });
 </script>
 
