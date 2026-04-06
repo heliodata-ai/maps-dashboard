@@ -1251,8 +1251,7 @@ async function fetchWolframF107(){
   if(!appid){const m=window.location.href.match(/[?&]wappid=([^&\s#]+)/);if(m)appid=decodeURIComponent(m[1]);}
   if(!appid){try{appid=localStorage.getItem('wolfram_appid');}catch(e){}}
   if(appid&&appid.length>4&&appid!=='YOUR-APPID-HERE'){try{localStorage.setItem('wolfram_appid',appid);}catch(e){}}
-  _log('Wolfram AppID:',appid?appid.substring(0,4)+'****':'NONE');
-  if(!appid){_warn('AppID missing — run: localStorage.setItem(\'wolfram_appid\',\'YOUR-APPID-HERE\')');return false;}
+  if(!appid){return false;}
   try{
     const query=encodeURIComponent('current F10.7 solar flux index');
     const directUrl=`https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
