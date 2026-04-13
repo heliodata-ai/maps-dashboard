@@ -1,0 +1,46 @@
+{
+  "season": "Season 1 — MAPS (C/2026 A1)",
+  "prediction": "P1",
+  "prediction_description": "Fragmentation probability",
+  "locked_date": "2026-02-18",
+  "wolfram_bound": [0.73, 0.91],
+  "wolfram_central": 0.7953,
+  "wolfram_uuid": "3d164335-5d26-4d93-955a-6f84bc7d1fe3",
+  "consortium_lock": [0.45, 0.65],
+  "consortium_central": 0.55,
+  "calibration_error_probability_units": 0.27,
+  "brier_penalty": 0.18,
+  "override_reason": "Lovejoy anchor (C/2011 W3) adopted over JWST 0.38 km nucleus measurement. Additionally, assumed Pe-subgroup (Pop I) analogy but inbound orbital period ~1,695 yr is anomalous for that cluster — consistent with a novel second-generation subgroup (possible 371 BC / AD 363 lineage) with zero documented modern survivors at this size scale.",
+  "anchor_object": "C/2011 W3 (Lovejoy)",
+  "anchor_survival_outcome": "survived",
+  "anchor_mismatch": true,
+  "anchor_mismatch_reason": "Lovejoy survived perihelion. MAPS did not. Using a survivor to calibrate disintegration probability is survivorship bias in reference class selection — not merely a size-scaling error.",
+  "correct_anchor": "C/2024 S1 (Atlas) — disintegrated pre-perihelion, thermal cascade / rotational spin-up, nucleus ~0.25–0.35 km, no post-perihelion nucleus recovered",
+  "failure_mode_classification": "thermal_cascade_pre_perihelion (Atlas-class), NOT tidal_perihelion_transit (Lovejoy-class)",
+  "subgroup_epistemic_qualifier": "MAPS orbital subgroup uncertain. Inbound period ~1,695 yr is anomalous for Pe-subgroup. If novel subgroup, no documented modern survivor exists at ≥0.38 km in that class. Wolfram PDis formula gives necessary but not sufficient bound. Novel subgroup uncertainty adds ±0.25 to disruption probability band.",
+  "three_path_convergence": {
+    "wolfram_formula": 0.7953,
+    "empirical_reference_class": "~0.75–0.85 (1/2 survival rate, size-adjusted)",
+    "deepseek_extended_table": "0.82 ±0.09",
+    "convergence": "All three paths agree within stated uncertainty — robust."
+  },
+  "outcome": "CONFIRMED (binary: disintegration occurred, P1=0.55 >= 50%) / MISCALIBRATED PROBABILITY (Brier penalty 0.18)",
+  "lesson": [
+    "Anchor selection must match survival-outcome class — never use a survivor to calibrate a disintegrator",
+    "Subgroup orbital classification must be verified pre-lock via full-period backward integration",
+    "JWST nucleus measurement was accurate — should have anchored on it directly",
+    "Novel-subgroup status triggers mandatory widening of uncertainty band by ±0.25",
+    "Atlas was the correct analog — identified post-perihelion, not pre-lock"
+  ],
+  "revision": "Rev.1",
+  "revision_date": "2026-04-14",
+  "revision_author": "Claude / Enneagrid Research Consortium",
+  "revision_rationale": "v3 external audit added survivorship bias finding and subgroup epistemic qualifier. Score unchanged. Wolfram UUID added from B2 UUID pass (April 10, 2026).",
+  "consortium_vote": {
+    "claude": "YES",
+    "grok": "YES",
+    "deepseek": "YES",
+    "result": "UNANIMOUS — RATIFIED",
+    "vote_date": "2026-04-14"
+  }
+}
