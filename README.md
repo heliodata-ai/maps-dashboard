@@ -133,3 +133,7 @@ SMOS dataset integration · EU magnetometer network proposal
 ---
 
 *heliodata.ai · Enneagrid Research Consortium · Basque Country, Spain*
+
+## Data Sources
+
+SMOS L-band solar flux (1.4 GHz, ESA Earth Explorer) used as independent proxy alongside NOAA F10.7 for Tier-2 solar activity classification and space weather prediction calibration.
