@@ -400,6 +400,15 @@ body::before {
   position:sticky;bottom:0;z-index:100;
 }
 .sbi { display:flex;align-items:center;gap:4px; }
+.season-nav {
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:9px;
+  background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);
+  border-radius:3px;padding:2px 8px;
+}
+.season-nav a { color:var(--text3);text-decoration:none; }
+.season-nav a:hover { color:var(--cyan); }
+.season-nav .active { color:var(--cyan); }
 .sbd { width:4px;height:4px;border-radius:50%; }
 .sbg { background:var(--green); }
 .sba { background:var(--amber);animation:pulse 3s infinite; }
@@ -505,6 +514,7 @@ body::before {
     <div class="logo" style="display:flex;align-items:center;gap:10px;"><img src="/favicon.png" style="width:32px;height:32px;display:block;" alt="heliodata.ai">MAPS <span>v12</span></div>
     <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM F10.7</div>
     <div class="cag-badge"><div class="cdot"></div>CAG</div>
+    <div class="season-nav"><span class="active">MAPS S1</span> <span style="color:var(--bdr2)">&bull;</span> <a href="/">HALE S2</a></div>
   </div>
   <div class="header-center">
     <div class="comet-name">C/2026 A1 &middot; Kreutz Sungrazer &middot; Pe-subgroup</div>
