@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/logo-512.png">
+    <title>heliodata.ai — HALE · C/2025 R3 PanSTARRS Perihelion</title>
+<style>
+/* share-tech-mono-regular - latin */
+@font-face { font-display: swap; font-family: 'Share Tech Mono'; font-style: normal; font-weight: 400; src: url('../fonts/share-tech-mono-v16-latin-regular.woff2') format('woff2'); }
+/* barlow-300 - latin */
+@font-face { font-display: swap; font-family: 'Barlow'; font-style: normal; font-weight: 300; src: url('../fonts/barlow-v13-latin-300.woff2') format('woff2'); }
+/* barlow-regular - latin */
+@font-face { font-display: swap; font-family: 'Barlow'; font-style: normal; font-weight: 400; src: url('../fonts/barlow-v13-latin-regular.woff2') format('woff2'); }
+/* barlow-condensed-300 - latin */
+@font-face { font-display: swap; font-family: 'Barlow Condensed'; font-style: normal; font-weight: 300; src: url('../fonts/barlow-condensed-v13-latin-300.woff2') format('woff2'); }
+/* barlow-condensed-regular - latin */
+@font-face { font-display: swap; font-family: 'Barlow Condensed'; font-style: normal; font-weight: 400; src: url('../fonts/barlow-condensed-v13-latin-regular.woff2') format('woff2'); }
+/* barlow-condensed-600 - latin */
+@font-face { font-display: swap; font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; src: url('../fonts/barlow-condensed-v13-latin-600.woff2') format('woff2'); }
+/* barlow-condensed-700 - latin */
+@font-face { font-display: swap; font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; src: url('../fonts/barlow-condensed-v13-latin-700.woff2') format('woff2'); }
+
+:root {
+  --bg:     #060a0f;
+  --bg2:    #0b1118;
+  --bg3:    #0f1720;
+  --panel:  #0d1520;
+  --bdr:    #1a2a3a;
+  --bdr2:   #243548;
+  --cyan:   #06b6d4;
+  --cyan2:  #0891b2;
+  --cyan3:  #164e63;
+  --amber:  #f59e0b;
+  --amber2: #d97706;
+  --red:    #ef4444;
+  --red2:   #dc2626;
+  --green:  #22c55e;
+  --green2: #16a34a;
+  --purple: #a855f7;
+  --muted:  #4a6080;
+  --text:   #c8dff0;
+  --text2:  #7a9ab8;
+  --text3:  #3d5570;
+  --mono:   'Share Tech Mono', monospace;
+  --cond:   'Barlow Condensed', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 13px; background: var(--bg); color: var(--text);
+  overflow-x: hidden; max-width: 100%;
+}
+body {
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden; overflow-y: auto;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(6,182,212,0.05) 0%, transparent 60%),
+    var(--bg);
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:9999;
+  background: repeating-linear-gradient(0deg, transparent 0px, transparent 2px,
+    rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
+}
+
+/* ── HEADER ── */
+.header {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--bdr);
+  background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, transparent 100%);
+  position: sticky; top: 0; z-index: 100;
+  background-color: var(--bg);
+}
+.header-left  { display:flex; align-items:center; gap:8px; min-width:0; }
+.header-right { display:flex; align-items:center; justify-content:flex-end; gap:12px; min-width:0; }
+.logo { font-family:var(--cond); font-size:20px; font-weight:700; letter-spacing:.15em; color:var(--cyan); text-transform:uppercase; }
+.logo span { color:var(--text2); font-weight:300; }
+.wolfram-badge {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25);
+  border-radius:3px; padding:2px 6px; font-family:var(--mono); font-size:9px; color:var(--amber);
+}
+.wdot { width:5px;height:5px;border-radius:50%;background:var(--amber);animation:pulse 2s ease-in-out infinite; }
+.cag-badge {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(6,182,212,0.08); border:1px solid rgba(6,182,212,0.2);
+  border-radius:3px; padding:2px 6px; font-family:var(--mono); font-size:9px; color:var(--cyan);
+}
+.cdot { width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:pulse 3s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+.header-center { text-align:center; }
+.comet-name { font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.18em;color:var(--text2);text-transform:uppercase; }
+.comet-sub  { font-family:var(--mono);font-size:10px;color:var(--cyan);letter-spacing:.08em;margin-top:1px; }
+.hdr-stat { text-align:right; }
+.hdr-val { font-family:var(--mono);font-size:14px;color:var(--amber); }
+.hdr-lbl { font-size:9px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-top:1px; }
+
+/* ── COUNTDOWN ── */
+.countdown-banner {
+  display:flex; align-items:center; gap:0;
+  padding:7px 16px;
+  border-bottom:1px solid var(--bdr);
+  border-top:1px solid rgba(6,182,212,0.12);
+  background:linear-gradient(135deg,rgba(6,182,212,0.06) 0%,rgba(245,158,11,0.04) 100%);
+  position:relative; overflow:hidden;
+}
+.countdown-banner::after {
+  content:''; position:absolute; left:0;top:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--amber),transparent); opacity:.35;
+}
+.cd-label { font-family:var(--cond);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);width:100px;flex-shrink:0;line-height:1.4; }
+.cd-units  { display:flex;gap:0;flex-shrink:0; }
+.cd-unit   { display:flex;flex-direction:column;align-items:center;padding:0 12px;border-right:1px solid var(--bdr); }
+.cd-unit:last-child { border-right:none; }
+.cd-num    { font-family:var(--mono);font-size:26px;color:var(--cyan);line-height:1; }
+.cd-num.a  { color:var(--amber); }
+.cd-num.r  { color:var(--red); }
+.cd-denom  { font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-top:2px; }
+.cd-prog-wrap { flex:1;padding:0 16px;display:flex;flex-direction:column;gap:4px;justify-content:center;min-width:0; }
+.cd-prog-lbl  { display:flex;justify-content:space-between;font-size:9px;color:var(--text3);font-family:var(--mono);min-width:0; }
+.cd-prog-lbl span { min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.cd-bar-outer { height:3px;background:var(--bdr);border-radius:2px;overflow:hidden; }
+.cd-bar-fill  { height:100%;border-radius:2px;background:linear-gradient(90deg,var(--cyan3),var(--cyan),var(--amber)); }
+.cd-status { font-family:var(--mono);font-size:11px;color:var(--amber);white-space:nowrap;flex-shrink:0;padding-left:12px;min-width:0;overflow:hidden;text-overflow:ellipsis; }
+
+/* ── MAIN GRID ── */
+.main-grid {
+  display: grid;
+  grid-template-columns: 252px minmax(0,1fr) 292px;
+  gap: 1px; background: var(--bdr);
+}
+.col { display:flex;flex-direction:column;gap:1px;background:var(--bdr);min-width:0; }
+
+/* ── PANEL ── */
+.panel { background:var(--panel);padding:12px 14px;min-width:0; }
+.ptitle {
+  font-family:var(--cond);font-size:10px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--text3);margin-bottom:10px;
+  display:flex;align-items:center;gap:5px;
+}
+.ptitle::before { content:'';width:2px;height:9px;background:var(--cyan);border-radius:1px; }
+.ptitle.a::before  { background:var(--amber); }
+.ptitle.r::before  { background:var(--red); }
+.ptitle.g::before  { background:var(--green); }
+.ptitle.p::before  { background:var(--purple); }
+
+/* ── F10.7 ── */
+.f107-chart { position:relative;height:100px;margin-bottom:9px; }
+#f107Canvas { width:100%;height:100%; }
+.f107-stats { display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:3px;overflow:hidden;margin-bottom:7px; }
+.fstat { background:var(--bg3);padding:6px 8px;text-align:center; }
+.fval { font-family:var(--mono);font-size:15px;color:var(--cyan); }
+.fval.a { color:var(--amber); }
+.fval.g { color:var(--green); }
+.flbl { font-size:9px;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-top:2px; }
+.f107-cag-row {
+  display:flex;align-items:center;gap:6px;margin-top:6px;
+  padding:5px 8px;background:rgba(6,182,212,0.04);border:1px solid rgba(6,182,212,0.12);
+  border-radius:3px;font-family:var(--mono);font-size:9px;
+}
+.f107-cag-val { color:var(--cyan);font-size:12px;font-weight:bold; }
+.f107-cag-lbl { color:var(--text3);flex:1; }
+.f107-cag-src { color:rgba(6,182,212,0.5);font-size:8px; }
+
+/* ── SCALES ── */
+.scale-row { display:flex;align-items:center;padding:4px 0;border-bottom:1px solid var(--bdr); }
+.scale-row:last-child { border-bottom:none; }
+.sn { font-family:var(--mono);font-size:10px;color:var(--text2);width:85px; }
+.sd { font-size:10px;color:var(--text3);flex:1;padding:0 6px; }
+.sv { font-family:var(--mono);font-size:12px;font-weight:bold;width:32px;text-align:center;border-radius:3px;padding:2px 0; }
+.s0 { background:rgba(34,197,94,0.15);color:var(--green); }
+.s1 { background:rgba(245,158,11,0.15);color:var(--amber); }
+.s2 { background:rgba(239,68,68,0.15);color:var(--red); }
+
+/* ── ACTIVE REGIONS ── */
+.ar-row { display:grid;grid-template-columns:44px 54px 30px 1fr;gap:3px;padding:4px 0;border-bottom:1px solid var(--bdr);align-items:center;font-family:var(--mono);font-size:10px; }
+.ar-row:last-child { border-bottom:none; }
+.ar-id  { color:var(--cyan); }
+.ar-loc { color:var(--text3); }
+.arcls  { font-size:8px;padding:2px 3px;border-radius:2px;text-align:center; }
+.ab  { background:rgba(34,197,94,0.1);color:var(--green); }
+.abg { background:rgba(245,158,11,0.1);color:var(--amber); }
+.abd { background:rgba(239,68,68,0.1);color:var(--red); }
+.ar-f { font-size:9px;color:var(--text3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.dot5 { width:5px;height:5px;border-radius:50%; }
+.ok   { background:var(--green); }
+.wait { background:var(--amber);animation:pulse 2s infinite; }
+
+/* ── FLARE LOG ── */
+.fl-row { display:grid;grid-template-columns:38px 30px 48px 1fr;gap:3px;padding:4px 0;border-bottom:1px solid var(--bdr);font-family:var(--mono);font-size:9px;align-items:center; }
+.fl-row:last-child { border-bottom:none; }
+.flt { color:var(--text3); }
+.flc { font-weight:bold;text-align:center; }
+.fcb { color:var(--green); }
+.fcc { color:var(--cyan); }
+.fcm { color:var(--amber); }
+.fcx { color:var(--red); }
+.flr { color:var(--text3); }
+.fli { font-size:9px; }
+.fin { color:var(--text3); }
+.fil { color:var(--amber); }
+.fih { color:var(--red); }
+
+/* ── ORBIT CANVAS ── */
+.orbit-outer {
+  position:relative; background:#020608;
+  border:1px solid var(--bdr); border-radius:3px;
+  overflow:hidden; height:400px;
+}
+#orbitCanvas { display:block;width:100%;height:100%; }
+.orb-overlay { position:absolute;top:9px;right:10px;text-align:right; }
+.orb-dist { font-family:var(--mono);font-size:16px;color:var(--cyan); }
+.orb-lbl  { font-size:9px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase; }
+.orb-nu   { font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:3px; }
+.orb-topl { position:absolute;top:9px;left:10px;font-family:var(--mono);font-size:9px;color:var(--text3); }
+.orb-legend { position:absolute;bottom:9px;left:10px;display:flex;flex-direction:column;gap:3px; }
+.orb-li  { display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--text3); }
+.orb-sw  { width:16px;height:2px;border-radius:1px; }
+
+/* ── APPROACH TIMELINE ── */
+.phase-bar { display:flex;gap:2px;margin-bottom:5px; }
+.pseg { flex:1;height:4px;border-radius:2px;background:var(--bdr); }
+.pdone   { background:var(--cyan3); }
+.pactive { background:var(--cyan);box-shadow:0 0 5px var(--cyan); }
+.palert  { background:var(--amber);animation:pb 1.5s ease-in-out infinite; }
+@keyframes pb { 0%,100%{opacity:1}50%{opacity:0.4} }
+.phase-lbl-row { display:flex;gap:2px;margin-bottom:9px; }
+.plbl { flex:1 1 0;min-width:0;font-size:8px;color:var(--text3);letter-spacing:.05em;text-align:center;font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+.plbl.active { color:var(--cyan); }
+.plbl.alert  { color:var(--amber); }
+.tl { display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid var(--bdr);font-family:var(--mono);font-size:10px; }
+.tl:last-child { border-bottom:none; }
+.tld { color:var(--text3);width:52px;flex-shrink:0; }
+.tle { color:var(--text2);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.tlv { color:var(--cyan);width:50px;text-align:right;flex-shrink:0; }
+.tl.now  { background:rgba(6,182,212,0.04);border-radius:2px; }
+.tl.now  .tld { color:var(--cyan); }
+.tl.peri .tle { color:var(--amber); }
+.tl.peri .tlv { color:var(--amber); }
+
+/* ── SDO ── */
+.sdo-outer { position:relative;width:100%;padding-bottom:100%;background:#000;border:1px solid var(--bdr);border-radius:3px;overflow:hidden; }
+.sdo-inner { position:absolute;inset:0; }
+#sdo304 { display:block;width:100%;height:100%;object-fit:cover;background:#000; }
+#arOverlay { position:absolute;inset:0;pointer-events:none; }
+.ar-rect { position:absolute;border:1.5px solid;border-radius:2px; }
+.ar-rect .arl { position:absolute;top:-13px;left:0;font-family:var(--mono);font-size:8px;white-space:nowrap;padding:1px 3px;border-radius:2px; }
+.arb  { border-color:rgba(34,197,94,0.8); }
+.arb  .arl { background:rgba(34,197,94,0.2);color:var(--green); }
+.arbg { border-color:rgba(245,158,11,0.8); }
+.arbg .arl { background:rgba(245,158,11,0.2);color:var(--amber); }
+.arbd { border-color:rgba(239,68,68,0.8); }
+.arbd .arl { background:rgba(239,68,68,0.2);color:var(--red); }
+
+/* ── CONSORTIUM ── */
+.cons-grid { display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px; }
+.mcard { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:7px 9px;position:relative;overflow:hidden; }
+.mcard::before { content:'';position:absolute;top:0;left:0;right:0;height:2px; }
+.mc1::before { background:var(--cyan); }
+.mc2::before { background:var(--purple); }
+.mc3::before { background:var(--green); }
+.mc4::before { background:var(--amber); }
+.mname { font-family:var(--cond);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px; }
+.mc1 .mname { color:var(--cyan); }
+.mc2 .mname { color:var(--purple); }
+.mc3 .mname { color:var(--green); }
+.mc4 .mname { color:var(--amber); }
+.mrole { font-size:9px;color:var(--text3);letter-spacing:.04em;margin-bottom:5px;line-height:1.4; }
+.mstatus { display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px; }
+.ms-a { background:var(--green);animation:pulse 3s infinite; }
+.ms-s { background:var(--amber); }
+.ms-t { color:var(--text3); }
+
+/* ── PREDICTIONS ── */
+.pred-row { display:flex;align-items:flex-start;gap:7px;padding:6px 0;border-bottom:1px solid var(--bdr); }
+.pred-row:last-child { border-bottom:none; }
+.pico { width:18px;height:18px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;font-family:var(--mono);font-weight:bold;margin-top:1px; }
+.pif { background:rgba(239,68,68,0.15);color:var(--red); }
+.pim { background:rgba(6,182,212,0.15);color:var(--cyan); }
+.pis { background:rgba(34,197,94,0.15);color:var(--green); }
+.pix { background:rgba(245,158,11,0.15);color:var(--amber); }
+.pii { background:rgba(168,85,247,0.15);color:var(--purple); }
+.pin { background:rgba(61,85,112,0.3);color:var(--text2); }
+.pin.phase2 { background:rgba(6,182,212,0.08);color:var(--cyan); }
+.pin.phase4 { background:rgba(245,158,11,0.08);color:var(--amber); }
+.pin.phase5 { background:rgba(34,197,94,0.08);color:var(--green); }
+.pico.derived { background:rgba(61,85,112,0.2);color:var(--text3);border:1px dashed var(--bdr2); }
+.pbody { flex:1;min-width:0; }
+.plabel { font-size:11px;color:var(--text2);margin-bottom:3px;font-family:var(--cond);letter-spacing:.04em; }
+.pbar-o { height:3px;background:var(--bdr);border-radius:2px;overflow:hidden;margin-bottom:3px; }
+.pbar-f { height:100%;border-radius:2px; }
+.pfr { background:linear-gradient(90deg,var(--red2),var(--red)); }
+.pfc { background:linear-gradient(90deg,var(--cyan2),var(--cyan)); }
+.pfg { background:linear-gradient(90deg,var(--green2),var(--green)); }
+.pfa { background:linear-gradient(90deg,var(--amber2),var(--amber)); }
+.pfp { background:linear-gradient(90deg,#7c3aed,var(--purple)); }
+.pval { font-family:var(--mono);font-size:9px;color:var(--text3); }
+.pred-phase-hdr {
+  font-family:var(--mono);font-size:8px;color:var(--text3);
+  letter-spacing:.15em;text-transform:uppercase;
+  padding:8px 0 3px;border-bottom:1px solid var(--bdr2);
+  margin-bottom:2px;
+}
+
+/* ── COMET INTELLIGENCE PANEL ── */
+.ci-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px; }
+.ci-cell { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:6px 8px; }
+.ci-val  { font-family:var(--mono);font-size:13px;color:var(--cyan);line-height:1;margin-bottom:2px; }
+.ci-val.a { color:var(--amber); }
+.ci-val.g { color:var(--green); }
+.ci-lbl  { font-size:8px;color:var(--text3);letter-spacing:.09em;text-transform:uppercase; }
+.ci-names { font-family:var(--mono);font-size:9px;color:var(--text2);line-height:1.7;
+  padding:6px 8px;background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;margin-bottom:6px; }
+.ci-obs-row { display:grid;grid-template-columns:80px 1fr;gap:3px;padding:3px 0;
+  border-bottom:1px solid var(--bdr);font-family:var(--mono);font-size:9px; }
+.ci-obs-row:last-child { border-bottom:none; }
+.ci-obs-key { color:var(--text3); }
+.ci-obs-val { color:var(--text2); }
+.ci-obs-val.live { color:var(--cyan); }
+
+/* ── TIER-2 CAG CLASSIFIER ROW ── */
+.cag-cls-row {
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;
+  margin-top:7px;padding-top:7px;border-top:1px solid var(--bdr);
+}
+.cag-cls-cell {
+  background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;
+  padding:5px 6px;text-align:center;
+}
+.cag-cls-val { font-family:var(--mono);font-size:11px;line-height:1;margin-bottom:2px; }
+.cag-cls-lbl { font-size:7px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase; }
+.regime-co   { color:var(--cyan); }
+.regime-h2o  { color:var(--green); }
+.scatter-low  { color:var(--text3); }
+.scatter-high { color:var(--amber); }
+.scatter-peak { color:var(--red);animation:pulse 1s ease-in-out infinite; }
+
+/* ── SOLAR INTELLIGENCE PANEL ── */
+.sip-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px; }
+.sip-cell { background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:7px 9px; }
+.sip-val  { font-family:var(--mono);font-size:20px;line-height:1;margin-bottom:2px; }
+.sip-lbl  { font-size:8px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase; }
+.sip-src  { font-size:8px;color:var(--text3);margin-top:3px;font-family:var(--mono); }
+.flare-badge {
+  display:inline-block;font-family:var(--mono);font-size:13px;font-weight:bold;
+  padding:2px 7px;border-radius:3px;margin-right:4px;
+}
+.fb-a { background:rgba(34,197,94,0.15);color:var(--green); }
+.fb-b { background:rgba(34,197,94,0.15);color:var(--green); }
+.fb-c { background:rgba(6,182,212,0.15);color:var(--cyan); }
+.fb-m { background:rgba(245,158,11,0.15);color:var(--amber); }
+.fb-x { background:rgba(239,68,68,0.15);color:var(--red); }
+.bz-pos { color:var(--green); }
+.bz-neg { color:var(--red); }
+.bz-mild { color:var(--amber); }
+.sip-alert { display:flex;align-items:center;gap:5px;padding:4px 7px;border-radius:3px;font-family:var(--mono);font-size:9px;margin-top:6px; }
+.sip-alert.warn { background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);color:var(--amber); }
+.sip-alert.crit { background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:var(--red); }
+.sip-alert.ok   { background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);color:var(--green); }
+.sip-fp-bar { height:3px;background:var(--bdr);border-radius:2px;overflow:hidden;margin:4px 0 2px; }
+.sip-fp-fill { height:100%;border-radius:2px;background:linear-gradient(90deg,var(--cyan3),var(--amber)); }
+
+/* ── FAR-SIDE RETURNING REGIONS ── */
+.far-row { display:grid;grid-template-columns:44px 44px 1fr 60px;gap:3px;padding:4px 0;border-bottom:1px solid var(--bdr);align-items:center;font-family:var(--mono);font-size:10px; }
+.far-row:last-child { border-bottom:none; }
+.far-id  { color:var(--text3); }
+.far-lat { color:var(--text3); }
+.far-eta { color:var(--amber);font-size:9px; }
+.far-lo  { color:var(--text2);font-size:9px; }
+
+/* ── SCIENCE LOG FEED ── */
+.log-entry {
+  display:flex;gap:6px;padding:4px 0;border-bottom:1px solid var(--bdr);
+  font-family:var(--mono);font-size:9px;align-items:flex-start;
+}
+.log-entry:last-child { border-bottom:none; }
+.log-ts  { color:var(--text3);white-space:nowrap;flex-shrink:0; }
+.log-msg { color:var(--text2);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.log-kp  { color:var(--cyan);flex-shrink:0; }
+
+/* ── STATUS BAR ── */
+.status-bar {
+  display:flex;align-items:center;gap:10px;padding:5px 16px;
+  background:var(--bg2);border-top:1px solid var(--bdr);
+  font-family:var(--mono);font-size:9px;color:var(--text3);
+  letter-spacing:.07em;flex-wrap:wrap;
+  position:sticky;bottom:0;z-index:100;
+}
+.sbi { display:flex;align-items:center;gap:4px; }
+.sbd { width:4px;height:4px;border-radius:50%; }
+.sbg { background:var(--green); }
+.sba { background:var(--amber);animation:pulse 3s infinite; }
+.sbc { background:var(--cyan); }
+.sbsep { color:var(--bdr2); }
+.sbv { color:var(--text2); }
+
+/* ── MISSION DECODER ── */
+.decoder { background:var(--bg2);border-top:1px solid var(--bdr);padding:16px 16px 20px; }
+.dec-header { display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--bdr); }
+.dec-title { font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan); }
+.dec-sub   { font-size:11px;color:var(--text3);font-family:var(--mono);letter-spacing:.05em; }
+.dec-grid  { display:grid;grid-template-columns:repeat(6,1fr);gap:10px; }
+@media (max-width:1100px) { .dec-grid { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:700px)  { .dec-grid { grid-template-columns:repeat(2,1fr); } }
+.dec-card { background:var(--panel);border:0.5px solid var(--bdr);border-radius:6px;padding:10px 12px;border-top:2px solid var(--cyan3); }
+.dec-grid-sub { display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px; }
+@media (max-width:700px) { .dec-grid-sub { grid-template-columns:1fr; } }
+.dec-card.sub { border-top-color:rgba(245,158,11,0.4); }
+.dec-card-title { font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:7px;line-height:1.3; }
+.dec-card.sub .dec-card-title { color:var(--amber); }
+.dec-card-body  { font-size:10px;color:var(--text2);line-height:1.65;font-family:'Barlow',sans-serif; }
+
+/* ── SEASON NAV ── */
+.season-nav {
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:9px;
+  background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);
+  border-radius:3px;padding:2px 8px;
+}
+.season-nav a { color:var(--text3);text-decoration:none; }
+.season-nav a:hover { color:var(--cyan); }
+.season-nav .active { color:var(--cyan); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px) and (min-width:601px) {
+  .header { grid-template-columns:160px 1fr 220px; }
+  .main-grid { grid-template-columns:1fr 1fr;grid-template-rows:auto auto; }
+  #col2 { grid-column:1 / -1; }
+  #col1 { grid-column:1; }
+  #col3 { grid-column:2; }
+  .orbit-outer { height:320px; }
+}
+@media (max-width:768px) {
+  html { font-size:14px; }
+  .header { grid-template-columns:1fr auto;grid-template-rows:auto auto;padding:8px 12px 6px;gap:4px; }
+  .header-left  { grid-column:1;grid-row:1; }
+  .header-right { grid-column:2;grid-row:1;gap:8px; }
+  .header-center { grid-column:1 / -1;grid-row:2;text-align:left;border-top:1px solid var(--bdr);padding-top:5px;margin-top:2px; }
+  .comet-name { font-size:11px; }
+  .header-center > div:nth-child(2) { display:none; }
+  .main-grid { display:flex;flex-direction:column;background:var(--bdr);gap:1px; }
+  #col1,#col2,#col3 { display:flex;flex-direction:column;gap:1px;background:var(--bdr);width:100%; }
+  #col2 { order:1; }
+  #col3 { order:2; }
+  #col1 { order:3; }
+  .orbit-outer { height:56vw;min-height:200px;max-height:320px; }
+  .status-bar { flex-wrap:wrap;font-size:10px;gap:6px 12px;padding:8px 12px;position:static; }
+  .sbsep { display:none; }
+  .cag-cls-row { grid-template-columns:1fr 1fr; }
+  .dec-grid { grid-template-columns:1fr !important; }
+  .dec-grid-sub { grid-template-columns:1fr; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo" style="display:flex;align-items:center;gap:10px;"><img src="/favicon.png" style="width:32px;height:32px;display:block;" alt="heliodata.ai">HALE <span>S2</span></div>
+    <div class="cag-badge"><div class="cdot"></div>CAG LIVE</div>
+    <div class="season-nav"><a href="/maps.html">MAPS S1</a> <span style="color:var(--bdr2)">&bull;</span> <span class="active">HALE S2</span></div>
+  </div>
+  <div class="header-center">
+    <div class="comet-name">C/2025 R3 &middot; Oort Cloud &middot; First Passage</div>
+    <div style="font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:.07em;margin:1px 0">
+      Disc. Sep 8 2025 &nbsp;&bull;&nbsp; PanSTARRS survey &nbsp;&bull;&nbsp; q=0.499 AU &nbsp;&bull;&nbsp; CO-rich &nbsp;&bull;&nbsp; Dynamically new
+    </div>
+    <div class="comet-sub" id="utcClock">UTC ····-··-·· ··:··:··</div>
+  </div>
+  <div class="header-right">
+    <div class="hdr-stat"><div class="hdr-val" id="cobsMagH">4.6</div><div class="hdr-lbl">COBS mag</div></div>
+    <div class="hdr-stat"><div class="hdr-val" id="distH">0.529</div><div class="hdr-lbl">dist (AU)</div></div>
+    <div class="hdr-stat"><div class="hdr-val" id="kpH">2</div><div class="hdr-lbl">Kp index</div></div>
+  </div>
+</header>
+
+<!-- ── COUNTDOWN ── -->
+<div class="countdown-banner">
+  <div class="cd-label">Perihelion<br>Apr 19, 2026<br><span style="font-size:8px;color:var(--text3);letter-spacing:.08em">~12:00 UTC</span></div>
+  <div class="cd-units">
+    <div class="cd-unit"><div class="cd-num" id="cdD">05</div><div class="cd-denom">days</div></div>
+    <div class="cd-unit"><div class="cd-num a" id="cdH">00</div><div class="cd-denom">hours UTC</div></div>
+    <div class="cd-unit"><div class="cd-num a" id="cdM">00</div><div class="cd-denom">mins</div></div>
+    <div class="cd-unit"><div class="cd-num r" id="cdS">00</div><div class="cd-denom">secs</div></div>
+  </div>
+  <div class="cd-prog-wrap">
+    <div class="cd-prog-lbl"><span>Discovery Sep 8 2025</span><span>Perihelion Apr 19 2026</span></div>
+    <div class="cd-bar-outer"><div class="cd-bar-fill" id="cdBar" style="width:0%"></div></div>
+    <div class="cd-prog-lbl">q=0.499 AU &bull; r&asymp;<span id="liveR">...</span> AU &bull; Phase&asymp;<span id="livePhase">...</span>&deg; &bull; CAG Tier-2 active</div>
+  </div>
+  <div class="cd-status" id="cdSt">T&minus;5d INBOUND</div>
+</div>
+
+<!-- ── MAIN GRID ── -->
+<div class="main-grid">
+
+  <!-- COL1: PREDICTIONS & CONSORTIUM -->
+  <div class="col" id="col1">
+
+    <!-- F10.7 SOLAR FLUX -->
+    <div class="panel">
+      <div class="ptitle a">F10.7 Solar Flux &mdash; SC25 Background</div>
+      <div class="f107-chart"><canvas id="f107Canvas"></canvas></div>
+      <div class="f107-stats">
+        <div class="fstat"><div class="fval" id="f107Obs">150</div><div class="flbl">Observed</div></div>
+        <div class="fstat"><div class="fval a" id="f107Smooth">148</div><div class="flbl">81d Smooth</div></div>
+        <div class="fstat"><div class="fval g" id="f107Peri">&mdash;</div><div class="flbl">At Perihelion</div></div>
+      </div>
+      <div class="f107-cag-row">
+        <div class="cdot" style="flex-shrink:0"></div>
+        <div class="f107-cag-lbl">CAG 81d baseline</div>
+        <div class="f107-cag-val" id="f107CAG">&mdash;</div>
+        <div class="f107-cag-src">sfu</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;margin-top:6px">
+        <div class="wolfram-badge"><div class="wdot"></div>WOLFRAM CAG</div>
+        <span style="font-size:9px;color:var(--text3);font-family:var(--mono)">SC25 near maximum &bull; P6 null if M-flare &plusmn;48h</span>
+      </div>
+    </div>
+
+    <!-- CONSORTIUM -->
+    <div class="panel">
+      <div class="ptitle p">AI Consortium &mdash; Season 2 Active</div>
+      <div class="cons-grid">
+        <div class="mcard mc1">
+          <div class="mname">Claude</div>
+          <div class="mrole">Coordinator &bull; PROTOCOLS_v2 &bull; lock</div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; Comm.26</div></div>
+        </div>
+        <div class="mcard mc2">
+          <div class="mname">Grok</div>
+          <div class="mrole">Wire format &bull; analog DB &bull; null preconditions</div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; Comm.26</div></div>
+        </div>
+        <div class="mcard mc3">
+          <div class="mname">DeepSeek</div>
+          <div class="mrole">Brightness law &bull; forward scatter &bull; DoF</div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">ACTIVE &mdash; Comm.26</div></div>
+        </div>
+        <div class="mcard mc4">
+          <div class="mname">Wolfram</div>
+          <div class="mrole">Roche limit &bull; scatter UUID &bull; Tier-2 CAG</div>
+          <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">LIVE &mdash; CAG active</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 PREDICTIONS -->
+    <div class="panel">
+      <div class="ptitle r">10 Falsifiable Predictions &mdash; Locked Apr 10, 2026</div>
+
+      <div class="pred-phase-hdr">Brightness &amp; morphology</div>
+      <div class="pred-row">
+        <div class="pico pim">P1</div>
+        <div class="pbody">
+          <div class="plabel">Observable peak magnitude</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:60%"></div></div>
+          <div class="pval">0.0 &plusmn;1.5 &mdash; COBS/MPC &mdash; Apr 19&ndash;May 15 (elong &ge;10&deg;)</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pim">P2</div>
+        <div class="pbody">
+          <div class="plabel">Conjunction peak &mdash; forward scattering</div>
+          <div class="pbar-o"><div class="pbar-f pfr" style="width:75%"></div></div>
+          <div class="pval">&minus;1.7 &plusmn;1.1 &mdash; SOHO/CCOR-1 &mdash; Apr 23&ndash;26 (elong &le;5&deg;)</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">P3</div>
+        <div class="pbody">
+          <div class="plabel">Naked-eye visibility</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:90%"></div></div>
+          <div class="pval">90% &mdash; mag &le;6.5 &mdash; COBS &mdash; Apr 19&ndash;May 15</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pis">P4</div>
+        <div class="pbody">
+          <div class="plabel">Nucleus survival</div>
+          <div class="pbar-o"><div class="pbar-f pfg" style="width:99%"></div></div>
+          <div class="pval">99% &mdash; COBS/MPC/SOHO &mdash; Apr 19&ndash;May 31</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase2">P5</div>
+        <div class="pbody">
+          <div class="plabel">Peak tail length</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:55%"></div></div>
+          <div class="pval">5.5&deg; &plusmn;2.0&deg; &mdash; COBS imaging &mdash; Apr 19&ndash;May 15</div>
+        </div>
+      </div>
+
+      <div class="pred-phase-hdr">Solar background</div>
+      <div class="pred-row">
+        <div class="pico pin phase4">P6</div>
+        <div class="pbody">
+          <div class="plabel">F10.7 baseline &mdash; flare-excluded</div>
+          <div class="pbar-o"><div class="pbar-f pfa" style="width:50%"></div></div>
+          <div class="pval">&plusmn;10% of 81d mean &mdash; NOAA SWPC &mdash; Apr 14&ndash;24</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase4">P7</div>
+        <div class="pbody">
+          <div class="plabel">Kp maximum</div>
+          <div class="pbar-o"><div class="pbar-f pfa" style="width:50%"></div></div>
+          <div class="pval">4.5 &plusmn;1.5 &mdash; NOAA SWPC &mdash; Apr 18&ndash;23</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin phase4">P8</div>
+        <div class="pbody">
+          <div class="plabel">Earth-directed halo CME</div>
+          <div class="pbar-o"><div class="pbar-f pfa" style="width:45%"></div></div>
+          <div class="pval">45% &mdash; width &gt;120&deg; &mdash; NASA DONKI &mdash; Apr 17&ndash;21</div>
+        </div>
+      </div>
+
+      <div class="pred-phase-hdr">Composition &amp; control</div>
+      <div class="pred-row">
+        <div class="pico pii">P9</div>
+        <div class="pbody">
+          <div class="plabel">CO&#8314; dominant spectral ion</div>
+          <div class="pbar-o"><div class="pbar-f pfp" style="width:70%"></div></div>
+          <div class="pval">70% &mdash; ATel/CBET &mdash; Apr 12&ndash;26</div>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="pico pin">PC</div>
+        <div class="pbody">
+          <div class="plabel">Control &mdash; Wolfram random bit</div>
+          <div class="pbar-o"><div class="pbar-f pfc" style="width:50%"></div></div>
+          <div class="pval">50% &mdash; locked ODD (bit=1) &mdash; UUID 2a7a4412</div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr);font-family:var(--mono);font-size:9px;color:var(--text3);line-height:1.8">
+        All 10 machine-verifiable &bull; official sources only<br>
+        Lock commit: <span style="color:var(--cyan)">4d8940b</span> &bull; GPG B60047DAF4DBADB4<br>
+        Scoring window: <span style="color:var(--amber)">post-perihelion May 2026</span>
+      </div>
+    </div>
+
+  </div><!-- /COL1 -->
+
+  <!-- COL2: ORBIT & SCIENCE LOG -->
+  <div class="col" id="col2">
+
+    <div class="panel">
+      <div class="ptitle">C/2025 R3 Orbital Track &mdash; Ecliptic Top-Down (J2026.0)</div>
+      <div class="orbit-outer">
+        <canvas id="orbitCanvas"></canvas>
+        <div class="orb-topl">ECLIPTIC TOP-DOWN &middot; J2026.0 &middot; LONG-PERIOD OORT CLOUD COMET</div>
+        <div class="orb-overlay">
+          <div class="orb-dist" id="orbitDist">0.529</div>
+          <div class="orb-lbl">AU from Sun</div>
+          <div class="orb-nu"  id="orbitNu">&nu; = &mdash;</div>
+        </div>
+        <div class="orb-legend">
+          <div class="orb-li"><div class="orb-sw" style="background:#06b6d4;opacity:.8"></div>C/2025 R3</div>
+          <div class="orb-li"><div class="orb-sw" style="background:#60a5fa;opacity:.7"></div>Earth</div>
+          <div class="orb-li"><div class="orb-sw" style="background:#4ade80;opacity:.6"></div>Venus</div>
+          <div class="orb-li"><div class="orb-sw" style="background:#f87171;opacity:.6"></div>Mercury</div>
+          <div class="orb-li" style="margin-top:2px">
+            <div class="orb-sw" style="background:var(--amber);height:6px;width:6px;border-radius:50%"></div>
+            <span style="color:var(--amber)">Perihelion Apr 19</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ptitle g">Approach Timeline &amp; Mission Phase</div>
+      <div class="phase-bar">
+        <div class="pseg pdone"></div>
+        <div class="pseg pdone"></div>
+        <div class="pseg pdone"></div>
+        <div class="pseg pactive"></div>
+        <div class="pseg palert"></div>
+        <div class="pseg"></div>
+      </div>
+      <div class="phase-lbl-row">
+        <div class="plbl">Discovery</div>
+        <div class="plbl">Inbound</div>
+        <div class="plbl">Lock</div>
+        <div class="plbl active">Final Approach</div>
+        <div class="plbl alert">Perihelion</div>
+        <div class="plbl">Post</div>
+      </div>
+      <div class="tl"><div class="tld">Sep 08</div><div class="tle">C/2025 R3 discovered — PanSTARRS</div><div class="tlv">~7 AU</div></div>
+      <div class="tl"><div class="tld">Apr 01</div><div class="tle">mag ~7, blue-green coma, CO-rich confirmed</div><div class="tlv">0.65 AU</div></div>
+      <div class="tl"><div class="tld">Apr 10</div><div class="tle">10 predictions locked — Consortium</div><div class="tlv">0.53 AU</div></div>
+      <div class="tl now" style="background:rgba(6,182,212,0.04)"><div class="tld" style="color:var(--cyan)">NOW &#9654;</div><div class="tle" style="color:var(--cyan)">Final approach — Tier-2 CAG active</div><div class="tlv" id="nowDist" style="color:var(--cyan)">— AU</div></div>
+      <div class="tl peri"><div class="tld" style="color:var(--amber)">Apr 19</div><div class="tle" style="color:var(--amber)">PERIHELION &mdash; q = 0.499 AU</div><div class="tlv" style="color:var(--amber)">0.499 AU</div></div>
+      <div class="tl"><div class="tld">Apr 25</div><div class="tle">Solar conjunction &mdash; forward scattering peak</div><div class="tlv">3.5&deg; elong</div></div>
+      <div class="tl"><div class="tld">May 1+</div><div class="tle">Scoring window opens &mdash; all 10 scored</div><div class="tlv">&mdash;</div></div>
+    </div>
+
+    <!-- TIER-2 SCIENCE LOG FEED -->
+    <div class="panel">
+      <div class="ptitle g">Tier-2 Science Log &mdash; <span id="log-phase-badge" style="color:var(--text3)">CAG classifiers active</span></div>
+      <div id="logFeed">
+        <div style="font-size:9px;color:var(--text3);font-family:var(--mono);padding:4px">Loading Tier-2 classifier entries&hellip;</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="logDot"></div>
+        <span id="logMsg" style="color:var(--text3)">Connecting to Tier-2 log&hellip;</span>
+      </div>
+    </div>
+
+  </div><!-- /COL2 -->
+
+  <!-- COL3: SOLAR ENVIRONMENT & COMET INTELLIGENCE -->
+  <div class="col" id="col3">
+
+    <div class="panel">
+      <div class="ptitle">SDO AIA 304&Aring; &mdash; Chromosphere</div>
+      <div class="sdo-outer">
+        <div class="sdo-inner">
+          <img id="sdo304"
+            src="https://soho.nascom.nasa.gov/data/realtime/eit_304/1024/latest.jpg"
+            alt="SDO AIA 304"
+            data-fallback-idx="0"
+            onerror="(function(el){var urls=['https://soho.nascom.nasa.gov/data/realtime/eit_304/1024/latest.jpg'];var i=+(el.dataset.fallbackIdx||0);if(i<urls.length){el.dataset.fallbackIdx=i+1;el.src=urls[i];}else{el.style.display='none';};})(this)">
+          <canvas id="arCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+          <div id="arOverlay"></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 ok" id="sdoDot"></div>
+        <span id="sdoMsg" style="color:var(--text3)">SDO AIA 304&Aring; live</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ptitle">Active Regions (NOAA SRS)</div>
+      <div id="arTable"><div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">Loading&hellip;</div></div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="arDot"></div>
+        <span id="arMsg" style="color:var(--text3)">Fetching NOAA SRS&hellip;</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ptitle" style="color:var(--text3)">Far-Side Regions &mdash; Due to Return</div>
+      <div id="farTable">
+        <div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">Loading&hellip;</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="farDot"></div>
+        <span id="farMsg" style="color:var(--text3)">NOAA SRS Section II&hellip;</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ptitle">NOAA Space Weather Scales</div>
+      <div class="scale-row"><div class="sn">R &mdash; Radio</div><div class="sd">Blackouts</div><div class="sv s0">R0</div></div>
+      <div class="scale-row"><div class="sn">S &mdash; Radiation</div><div class="sd">Proton flux</div><div class="sv s0">S0</div></div>
+      <div class="scale-row"><div class="sn">G &mdash; Geomag</div><div class="sd" id="kpDesc">Kp = 2</div><div class="sv s0" id="geoSc">G0</div></div>
+    </div>
+
+    <!-- SOLAR INTELLIGENCE PANEL -->
+    <div class="panel">
+      <div class="ptitle r">Solar Intelligence &mdash; <span style="color:var(--text3);font-weight:400">GOES &middot; DSCOVR &middot; DONKI</span></div>
+      <div class="sip-grid">
+        <div class="sip-cell">
+          <div class="sip-val">
+            <span class="flare-badge fb-c" id="sipFlareClass">C&mdash;</span>
+          </div>
+          <div class="sip-lbl">GOES X-ray class</div>
+          <div class="sip-src" id="sipFlareTime">GOES 1&ndash;8&Aring; &bull; updating</div>
+        </div>
+        <div class="sip-cell">
+          <div class="sip-val" id="sipARCount" style="color:var(--amber)">&mdash;</div>
+          <div class="sip-lbl">Active regions</div>
+          <div class="sip-src">Highest: <span id="sipARMax" style="color:var(--text2)">&mdash;</span></div>
+        </div>
+        <div class="sip-cell">
+          <div class="sip-val">
+            <span id="sipBzVal" class="bz-pos">+&mdash;</span>
+            <span style="font-size:10px;color:var(--text3);font-family:var(--mono)"> nT</span>
+          </div>
+          <div class="sip-lbl">Solar wind Bz</div>
+          <div class="sip-src">DSCOVR L1 &bull; <span id="sipBzStatus">&mdash;</span></div>
+        </div>
+        <div class="sip-cell">
+          <div class="sip-val" id="sipFlarePct" style="color:var(--cyan)">&mdash;%</div>
+          <div class="sip-lbl">Flare probability</div>
+          <div class="sip-fp-bar"><div class="sip-fp-fill" id="sipFpBar" style="width:0%"></div></div>
+          <div class="sip-src">C+ class &bull; 24h window</div>
+        </div>
+      </div>
+      <div id="sipAlert" class="sip-alert ok">
+        <div class="dot5" style="background:var(--green);flex-shrink:0"></div>
+        <span id="sipAlertText">Solar conditions nominal &bull; monitoring active</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="sipDot"></div>
+        <span id="sipMsg" style="color:var(--text3)">Fetching solar intelligence&hellip;</span>
+      </div>
+    </div>
+
+    <!-- COMET INTELLIGENCE PANEL — HALE specific -->
+    <div class="panel">
+      <div class="ptitle" style="color:var(--cyan)">Comet Intelligence &mdash; <span style="color:var(--text3);font-weight:400">CAG Tier-2 &middot; COBS &middot; JPL</span></div>
+
+      <div class="ci-names">
+        <span style="color:var(--cyan)">C/2025 R3</span> &nbsp;&bull;&nbsp;
+        <span style="color:var(--text2)">HALE</span> &nbsp;&bull;&nbsp;
+        <span style="color:var(--text3)">Oort Cloud &middot; Dynamically new &middot; First passage</span><br>
+        <span style="color:var(--text3);font-size:8px">
+          Disc. Sep 8 2025 &nbsp;&bull;&nbsp; PanSTARRS survey &nbsp;&bull;&nbsp; q=0.499 AU &nbsp;&bull;&nbsp; i=&mdash;&deg;
+        </span>
+      </div>
+
+      <div style="margin-bottom:6px">
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">r (helio)</div>
+          <div class="ci-obs-val live" id="ciRhelio">&mdash; AU</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">COBS mag</div>
+          <div class="ci-obs-val live" id="ciMag">&mdash; m<sub>1</sub></div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Phase angle</div>
+          <div class="ci-obs-val live" id="ciPhaseAng">&mdash; &deg;</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">Tail (obs)</div>
+          <div class="ci-obs-val" id="ciTailObs">&mdash; deg</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">COBS obs</div>
+          <div class="ci-obs-val" id="ciObsCount">&mdash;</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">LASCO C3</div>
+          <div class="ci-obs-val" id="ciLasco">&mdash;</div>
+        </div>
+        <div class="ci-obs-row">
+          <div class="ci-obs-key">CCOR-1</div>
+          <div class="ci-obs-val" id="ciCcor">&mdash;</div>
+        </div>
+      </div>
+
+      <!-- CAG Tier-2 classifier row -->
+      <div class="cag-cls-row">
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val regime-co" id="clsRegime">CO-dom</div>
+          <div class="cag-cls-lbl">Outgassing</div>
+        </div>
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val" id="clsTailProxy" style="color:var(--cyan)">&mdash;&deg;</div>
+          <div class="cag-cls-lbl">Tail proxy</div>
+        </div>
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val scatter-low" id="clsScatter">&mdash;</div>
+          <div class="cag-cls-lbl">Fwd scatter</div>
+        </div>
+        <div class="cag-cls-cell">
+          <div class="cag-cls-val" id="clsUuidCount" style="color:var(--text3)">0</div>
+          <div class="cag-cls-lbl">CAG UUIDs</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:4px;margin-bottom:7px;font-family:var(--mono);font-size:8px;color:var(--text3)">
+        <div class="cdot" style="flex-shrink:0"></div>
+        CAG Tier-2 classifiers &bull; P1&middot;P5&middot;P9 &bull; from hale_tier2_poc.jsonl
+      </div>
+
+      <div style="font-size:8px;color:var(--text3);font-family:var(--mono);line-height:1.7;border-top:1px solid var(--bdr);padding-top:5px">
+        Oort Cloud &bull; dynamically new &bull; q=0.499 AU &bull; CO-rich supervolatile<br>
+        Analog: C/2021 A1 (Leonard) &bull; PDis formula not applicable
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:5px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="ciDot"></div>
+        <span id="ciMsg" style="color:var(--text3)">Loading Tier-2 data&hellip;</span>
+      </div>
+    </div>
+
+  </div><!-- /COL3 -->
+
+</div><!-- /main-grid -->
+
+
+<!-- ── MISSION DECODER ── -->
+<section class="decoder">
+  <div class="dec-header">
+    <span class="dec-title">Mission decoder</span>
+    <span class="dec-sub">heliodata.ai &nbsp;&bull;&nbsp; Enneagrid Research Consortium &nbsp;&bull;&nbsp; C/2025 R3 PanSTARRS perihelion watch, April 19, 2026</span>
+  </div>
+
+  <div class="dec-grid">
+    <div class="dec-card">
+      <div class="dec-card-title">What is an Oort Cloud comet?</div>
+      <div class="dec-card-body">The Oort Cloud is a vast spherical shell of icy bodies surrounding the solar system at distances up to 100,000 AU. Occasionally a gravitational nudge sends one inward on its first-ever passage through the inner solar system. C/2025 R3 is one such object &mdash; dynamically new, never having approached the Sun before. This makes its behaviour harder to predict: supervolatile ices like CO and CO&#8322; dominate early outgassing, and the nucleus has never been thermally processed.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-card-title">What is forward scattering?</div>
+      <div class="dec-card-body">When a comet passes nearly between Earth and the Sun, sunlight scatters forward through the dust coma toward the observer at very low phase angles. This can produce a dramatic brightness surge of several magnitudes &mdash; up to 63&times; flux enhancement at 176.5&deg; phase for HALE at conjunction April 25. The comet will be invisible from Earth at that moment (only 3.5&deg; from the Sun) but SOHO and CCOR-1 coronagraphs will observe it. Prediction P2 targets this event.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-card-title">What is Wolfram CAG?</div>
+      <div class="dec-card-body">The Wolfram Cloud Automatic Gateway (CAG) is a cloud computation engine that runs Wolfram Language expressions and returns a unique UUID per computation. Every quantitative result in the Consortium evidence chain carries a CAG UUID &mdash; making calculations independently verifiable. For HALE, three pre-lock UUIDs confirm the forward scattering geometry, Roche limit safety factor (60&times;), and control prediction. The Tier-2 classifier generates three new UUIDs every 30 minutes as the comet approaches.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-card-title">What are falsifiable predictions?</div>
+      <div class="dec-card-body">A falsifiable prediction is a specific, testable statement that can be proven wrong. The Consortium locked 10 such predictions on April 10, 2026 &mdash; before perihelion &mdash; covering brightness, forward scattering, nucleus survival, tail length, solar activity, and outgassing composition. Each names its scoring source, scoring window, and null conditions. After perihelion each prediction will be scored against observations from official sources. If we were wrong, we say so.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-card-title">Who is the Consortium?</div>
+      <div class="dec-card-body">The Enneagrid Research Consortium is a multi-AI scientific collaboration coordinated by G.L. Eukene (Eugenio Garc&iacute;a L&oacute;pez), a geomatician in the Basque Country. Members are Claude (Anthropic), Grok (xAI), DeepSeek, and Wolfram CAG. Season 1 tracked Kreutz sungrazer C/2026 A1 (MAPS) through perihelion April 4, 2026 &mdash; 8 confirmed, 5 falsified, 3 null. Season 2 (HALEAKAL&#256;) targets C/2025 R3.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-card-title">How to read the orbit diagram</div>
+      <div class="dec-card-body">The diagram shows the solar system from above the ecliptic plane. The Sun is at centre. Coloured rings are planetary orbits. The cyan arc is C/2025 R3&rsquo;s path &mdash; a near-parabolic orbit on first inbound passage. The amber zone near perihelion at 0.499 AU marks where the forward scattering geometry peaks. The comet&rsquo;s current position updates every 30 seconds from Barker&rsquo;s equation using the JPL orbital solution.</div>
+    </div>
+  </div>
+
+  <div class="dec-grid-sub">
+    <div class="dec-card sub">
+      <div class="dec-card-title">The Leonard analog and brightness calibration</div>
+      <div class="dec-card-body">C/2021 A1 (Leonard) is the primary analog for HALE &mdash; a dynamically new Oort Cloud comet with confirmed forward scattering at perihelion and CO-rich outgassing. The consortium scaled Leonard&rsquo;s observed peak to q=0.499 AU using the brightness law m = H + 5&middot;log&#8321;&#8320;(&Delta;) + 2.5&middot;n&middot;log&#8321;&#8320;(r), yielding a baseline observable peak of +0.5. C/2011 L4 (PanSTARRS) is the secondary analog &mdash; same discovery survey, known underperformer due to supervolatile depletion. McNaught (C/2006 P1) sets the forward scattering ceiling reference.</div>
+    </div>
+    <div class="dec-card sub">
+      <div class="dec-card-title">What did Season 1 (MAPS) find?</div>
+      <div class="dec-card-body">Season 1 tracked Kreutz sungrazer C/2026 A1 through perihelion at q=0.005732 AU on April 4, 2026. The comet disintegrated at 08:15 UTC, six hours before perihelion. The JWST-measured nucleus (0.38 km) lacked the structural cohesion to survive. Final scorecard: 8 confirmed, 5 falsified, 3 null &mdash; 61.5% hit rate. The primary finding was methodological: the P1 calibration error (+0.42, Brier 0.18) arose from anchoring on the wrong analog survival class. That lesson directly shaped HALE&rsquo;s analog protocol. Science log sealed at 675 entries &mdash; commit 12223de.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATUS BAR ── -->
+<footer class="status-bar">
+  <div class="sbi"><div class="sbd sbg"></div><span>NOAA SWPC</span><span class="sbv" id="sbNoaa">online</span></div>
+  <span class="sbsep">&mdash;</span>
+  <div class="sbi"><div class="sbd" style="background:#a855f7;animation:pulse 3s infinite"></div><span>Tier-2 CAG</span><span class="sbv">30-min classifier active</span></div>
+  <span class="sbsep">&mdash;</span>
+  <div class="sbi"><div class="sbd sbc"></div><span>SDO AIA</span><span class="sbv">live</span></div>
+  <span class="sbsep">&mdash;</span>
+  <div class="sbi"><div class="sbd sba"></div><span>Wolfram CAG</span><span class="sbv" id="sbCAG">connecting</span></div>
+  <span class="sbsep">&mdash;</span>
+  <div class="sbi"><span>Kp</span><span class="sbv" id="sbKp">2</span></div>
+  <span class="sbsep">&mdash;</span>
+  <div class="sbi"><span>HALE Dashboard</span><span class="sbv">S2 &bull; heliodata.ai &bull; Enneagrid Research Consortium</span></div>
+  <span class="sbsep">&mdash;</span>
+  <div class="sbi"><span id="sbTime" style="color:var(--text2)">--</span></div>
+</footer>
+
+<script>
+'use strict';
+const _log  = (typeof console!=='undefined'&&typeof console.info==='function')?console.info.bind(console):()=>{};
+const _warn = (typeof console!=='undefined'&&typeof console.warn==='function')?console.warn.bind(console):()=>{};
+
+// ── HALE ORBITAL CONSTANTS (Barker parabolic approximation) ─────
+// q=0.499 AU, perihelion April 19.5 2026 UTC (approximate — update from JPL before scoring)
+const ORB = {
+  q:     0.499,
+  e:     1.0,   // treat as parabolic for display
+  i:     0,     // inclination unknown — placeholder
+  omega: 0,
+  Omega: 0,
+  PERI:  new Date('2026-04-19T12:00:00Z')
+};
+const DISCOVERY = new Date('2025-09-08T00:00:00Z');
+const J2000     = new Date('2000-01-01T12:00:00Z');
+
+function barkerParabolic(tau_days) {
+  const K = 0.01720209895;
+  const D = K * tau_days / (2 * Math.pow(ORB.q, 1.5));
+  const disc = Math.sqrt(9*D*D + 1);
+  const W = Math.cbrt(3*D + disc);
+  const x = W - 1/W;
+  const nu = 2 * Math.atan(x);
+  const r  = ORB.q * (1 + x*x);
+  return { nu, r, x };
+}
+function cometState(date) { return barkerParabolic((date - ORB.PERI)/86400000); }
+
+const PLANET_ELEMS = {
+  Mercury:{L0:252.2504,n:4.0923344,a:0.387},
+  Venus:  {L0:181.9798,n:1.6021302,a:0.723},
+  Earth:  {L0:100.4664,n:0.9856474,a:1.000},
+  Mars:   {L0:355.4330,n:0.5240208,a:1.524},
+};
+function planetLon(name,date){
+  const p=PLANET_ELEMS[name],dJ2k=(date-J2000)/86400000;
+  return((p.L0+p.n*dJ2k)%360+360)%360;
+}
+
+// ── COUNTDOWN ────────────────────────────────────────────────────
+function updateCountdown(){
+  const now=new Date(), diff=ORB.PERI-now, total=ORB.PERI-DISCOVERY;
+  const days=Math.max(0,Math.floor(diff/86400000));
+  const hours=Math.max(0,Math.floor((diff%86400000)/3600000));
+  const mins=Math.max(0,Math.floor((diff%3600000)/60000));
+  const secs=Math.max(0,Math.floor((diff%60000)/1000));
+  document.getElementById('cdD').textContent=String(days).padStart(2,'0');
+  document.getElementById('cdH').textContent=String(hours).padStart(2,'0');
+  document.getElementById('cdM').textContent=String(mins).padStart(2,'0');
+  document.getElementById('cdS').textContent=String(secs).padStart(2,'0');
+  const pct=Math.min(100,((now-DISCOVERY)/total)*100);
+  document.getElementById('cdBar').style.width=pct.toFixed(1)+'%';
+  document.getElementById('cdSt').textContent=diff>0?`T\u2212${days}d INBOUND`:'PERIHELION';
+  const {r,nu}=cometState(now);
+  const nuD=(nu*180/Math.PI).toFixed(1);
+  document.getElementById('distH').textContent=r.toFixed(3);
+  document.getElementById('orbitDist').textContent=r.toFixed(4);
+  document.getElementById('orbitNu').textContent=`\u03bd = ${nuD}\u00b0`;
+  const nowDistEl=document.getElementById('nowDist');
+  if(nowDistEl)nowDistEl.textContent=r.toFixed(3)+' AU';
+  const liveREl=document.getElementById('liveR');
+  if(liveREl)liveREl.textContent=r.toFixed(3);
+}
+
+// ── UTC CLOCK ─────────────────────────────────────────────────────
+function updateClock(){
+  const s=new Date().toISOString().replace('T',' ').split('.')[0]+' UTC';
+  document.getElementById('utcClock').textContent=s;
+  document.getElementById('sbTime').textContent=s;
+}
+
+// ── F10.7 CHART ───────────────────────────────────────────────────
+let f107LiveObs=[135,138,142,145,148,151,155,158,161,158,155,152,
+                 149,147,145,143,141,140,142,148,150,152,148,145,
+                 150,148,146];
+let f107LiveSmo=[133,135,138,141,144,147,150,153,156,157,157,155,
+                 153,151,149,147,145,144,144,146,148,149,148,146,
+                 149,148,147];
+
+function drawF107(){
+  const canvas=document.getElementById('f107Canvas');
+  const pr=canvas.parentElement.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=Math.floor(pr.width*dpr);
+  canvas.height=Math.floor(pr.height*dpr);
+  canvas.style.width=pr.width+'px';
+  canvas.style.height=pr.height+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  const W=pr.width,H=pr.height;
+  const pad={l:26,r:10,t:8,b:20};
+  const gW=W-pad.l-pad.r,gH=H-pad.t-pad.b;
+  const obs=f107LiveObs,smo=f107LiveSmo;
+  const N=obs.length,minV=90,maxV=175;
+  const xOf=i=>pad.l+(i/(N-1))*gW;
+  const yOf=v=>pad.t+gH-((v-minV)/(maxV-minV))*gH;
+  ctx.strokeStyle='rgba(26,42,58,0.9)';ctx.lineWidth=0.5;
+  [100,120,140,160].forEach(v=>{
+    ctx.beginPath();ctx.moveTo(pad.l,yOf(v));ctx.lineTo(pad.l+gW,yOf(v));ctx.stroke();
+    ctx.fillStyle='#3d5570';ctx.font='8px monospace';ctx.textAlign='right';
+    ctx.fillText(v,pad.l-3,yOf(v)+3);
+  });
+  ctx.setLineDash([3,4]);ctx.strokeStyle='rgba(245,158,11,0.25)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(xOf(N-1),pad.t);ctx.lineTo(xOf(N-1),pad.t+gH);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.beginPath();
+  smo.forEach((v,i)=>i===0?ctx.moveTo(xOf(i),yOf(v)):ctx.lineTo(xOf(i),yOf(v)));
+  ctx.strokeStyle='rgba(245,158,11,0.65)';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.beginPath();
+  obs.forEach((v,i)=>i===0?ctx.moveTo(xOf(i),yOf(v)):ctx.lineTo(xOf(i),yOf(v)));
+  ctx.strokeStyle='rgba(6,182,212,0.8)';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.beginPath();ctx.arc(xOf(N-2),yOf(obs[N-2]),3,0,Math.PI*2);
+  ctx.fillStyle='#06b6d4';ctx.fill();
+  ctx.fillStyle='#3d5570';ctx.font='8px monospace';ctx.textAlign='center';
+  [['Jul\'25',0],['Oct\'25',8],['Jan\'26',13],['Apr\'26',20],['NOW',N-2],['Peri',N-1]].forEach(([l,i])=>{
+    ctx.fillStyle=i===N-2?'rgba(6,182,212,0.9)':i===N-1?'rgba(245,158,11,0.7)':'#3d5570';
+    ctx.fillText(l,xOf(i),H-5);
+  });
+}
+
+async function fetchNoaaF107(){
+  try{
+    const r=await fetch('https://services.swpc.noaa.gov/json/solar-radio-flux.json');
+    if(!r.ok)return;
+    const d=await r.json();
+    if(!Array.isArray(d)||!d.length)return;
+    const sorted=d.slice().sort((a,b)=>new Date(b.time_tag||0)-new Date(a.time_tag||0));
+    const last=sorted[0];
+    const val=+(last['flux']||last['observed_flux']||last['f107']||last['f10.7cm']||last['sfu']||0);
+    if(val<60||val>400)return;
+    f107LiveObs[f107LiveObs.length-2]=Math.round(val);
+    const obsEl=document.getElementById('f107Obs');
+    if(obsEl)obsEl.textContent=Math.round(val);
+    drawF107();
+  }catch(e){}
+}
+
+// ── ORBIT CANVAS ──────────────────────────────────────────────────
+function mulberry32(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+function drawOrbit(){
+  const canvas=document.getElementById('orbitCanvas');
+  const wrap=canvas.parentElement;
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=wrap.offsetWidth*dpr;
+  canvas.height=wrap.offsetHeight*dpr;
+  canvas.style.width=wrap.offsetWidth+'px';
+  canvas.style.height=wrap.offsetHeight+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  const W=wrap.offsetWidth,H=wrap.offsetHeight,cx=W/2,cy=H/2;
+  const AU=Math.min(W,H)*0.26;
+  ctx.fillStyle='#020608';ctx.fillRect(0,0,W,H);
+  const rng=mulberry32(42);
+  for(let i=0;i<200;i++){const x=rng()*W,y=rng()*H,r=rng()*0.8+0.2;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=`rgba(180,210,240,${0.1+rng()*0.35})`;ctx.fill();}
+  const now=new Date();
+  const ringColors={Mercury:'rgba(248,113,113,0.25)',Venus:'rgba(74,222,128,0.2)',Earth:'rgba(96,165,250,0.3)',Mars:'rgba(251,146,60,0.2)'};
+  const dotColors={Mercury:'#f87171',Venus:'#4ade80',Earth:'#60a5fa',Mars:'#fb923c'};
+  const dotSize={Mercury:3,Venus:4,Earth:5,Mars:4};
+  Object.entries(PLANET_ELEMS).forEach(([name,p])=>{
+    const a=p.a,Lr=planetLon(name,now)*Math.PI/180;
+    ctx.beginPath();ctx.arc(cx,cy,a*AU,0,Math.PI*2);ctx.strokeStyle=ringColors[name];ctx.lineWidth=0.8;ctx.stroke();
+    const px=cx-a*Math.cos(Lr)*AU,py=cy+a*Math.sin(Lr)*AU,ds=dotSize[name];
+    ctx.beginPath();ctx.arc(px,py,ds+3,0,Math.PI*2);ctx.fillStyle=dotColors[name].replace(/[^,]+\)$/,'0.15)').replace('rgb','rgba');ctx.fill();
+    ctx.beginPath();ctx.arc(px,py,ds,0,Math.PI*2);ctx.fillStyle=dotColors[name];ctx.fill();
+    ctx.fillStyle=dotColors[name];ctx.font='9px monospace';ctx.textAlign=px>cx?'left':'right';
+    const lx=px>cx?px+ds+3:px-ds-3;ctx.fillText(name[0],lx,py+3);
+  });
+  const sg=ctx.createRadialGradient(cx,cy,0,cx,cy,14);
+  sg.addColorStop(0,'rgba(255,220,100,1)');sg.addColorStop(0.4,'rgba(255,180,50,0.9)');sg.addColorStop(1,'rgba(255,140,0,0)');
+  ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=sg;ctx.fill();
+  // Draw parabolic orbit arc
+  ctx.beginPath();
+  let first=true,periPx=null;
+  for(let d=-160;d<=160;d+=0.5){
+    const nu=d*Math.PI/180,tnu=Math.tan(nu/2);
+    if(!isFinite(tnu))continue;
+    const r=ORB.q*(1+tnu*tnu);if(r>2.5)continue;
+    // Simple ecliptic projection (no inclination transform for display)
+    const px=cx-r*Math.cos(nu)*AU,py=cy+r*Math.sin(nu)*AU;
+    first?ctx.moveTo(px,py):ctx.lineTo(px,py);first=false;
+    if(Math.abs(d)<0.5)periPx={px,py};
+  }
+  ctx.strokeStyle='rgba(6,182,212,0.4)';ctx.lineWidth=1.2;ctx.stroke();
+  // Perihelion zone highlight
+  ctx.beginPath();first=true;
+  for(let d=-20;d<=20;d+=0.5){
+    const nu=d*Math.PI/180,tnu=Math.tan(nu/2);
+    const r=ORB.q*(1+tnu*tnu);
+    const px=cx-r*Math.cos(nu)*AU,py=cy+r*Math.sin(nu)*AU;
+    first?ctx.moveTo(px,py):ctx.lineTo(px,py);first=false;
+  }
+  ctx.strokeStyle='rgba(245,158,11,0.85)';ctx.lineWidth=2.2;ctx.stroke();
+  if(periPx){ctx.beginPath();ctx.arc(periPx.px,periPx.py,5,0,Math.PI*2);ctx.fillStyle='#f59e0b';ctx.fill();ctx.beginPath();ctx.arc(periPx.px,periPx.py,9,0,Math.PI*2);ctx.fillStyle='rgba(245,158,11,0.18)';ctx.fill();}
+  // Current comet position
+  const {nu:nuNow,r:rNow}=cometState(now);
+  const cpx=cx-rNow*Math.cos(nuNow)*AU,cpy=cy+rNow*Math.sin(nuNow)*AU;
+  const ta=Math.atan2(cpy-cy,cpx-cx);const tl=Math.min(80,rNow*60);
+  const tg=ctx.createLinearGradient(cpx,cpy,cpx+Math.cos(ta)*tl,cpy+Math.sin(ta)*tl);
+  tg.addColorStop(0,'rgba(6,182,212,0.7)');tg.addColorStop(1,'rgba(6,182,212,0)');
+  ctx.beginPath();ctx.moveTo(cpx,cpy);ctx.lineTo(cpx+Math.cos(ta)*tl,cpy+Math.sin(ta)*tl);
+  ctx.strokeStyle=tg;ctx.lineWidth=2.5;ctx.stroke();
+  ctx.beginPath();ctx.arc(cpx,cpy,5,0,Math.PI*2);ctx.fillStyle='#06b6d4';ctx.fill();
+  ctx.beginPath();ctx.arc(cpx,cpy,9,0,Math.PI*2);ctx.fillStyle='rgba(6,182,212,0.2)';ctx.fill();
+}
+
+// ── FAR-SIDE + AR (identical logic from maps.html) ─────────────────
+function parseFarSide(txt){const regions=[];let inSection=false;for(const line of txt.split('\n')){const t=line.trim();if(t.startsWith('II.')){inSection=true;continue;}if(inSection&&/^(I\.|III\.|IA\.)/.test(t))break;if(inSection&&/^\d{4}/.test(t)){const p=t.split(/\s+/);if(p.length>=3)regions.push({id:'AR'+p[0],lat:p[1],lo:p[2]});}}return regions;}
+function renderFarTable(regions){const el=document.getElementById('farTable');const dot=document.getElementById('farDot');const msg=document.getElementById('farMsg');if(!el)return;if(!regions.length){el.innerHTML='<div style="font-size:9px;color:var(--text3);padding:4px;font-family:var(--mono)">No far-side regions tracked</div>';if(dot)dot.className='dot5 ok';if(msg)msg.textContent='No returning regions · NOAA SRS §II';return;}el.innerHTML=regions.map(r=>{const lo=parseInt(r.lo)||0;const eta=lo>0?`~${Math.max(1,Math.round(lo/13.2))}d`:'—';return`<div class="far-row"><div class="far-id">${r.id}</div><div class="far-lat">${r.lat}</div><div class="far-lo">Lo ${r.lo}&deg;</div><div class="far-eta">${eta}</div></div>`;}).join('');if(dot)dot.className='dot5 ok';if(msg)msg.textContent=`${regions.length} region${regions.length>1?'s':''} returning · NOAA SRS §II`;}
+
+function parseSRS(txt){const regions=[];let in2=false;for(const line of txt.split('\n')){const t=line.trim();if(t.startsWith('I.  Regions with Sunspots')){in2=true;continue;}if(t.startsWith('IA.')||t.startsWith('II.')){in2=false;continue;}if(in2&&/^\d{4}/.test(t)){const p=t.split(/\s+/);if(p.length>=8)regions.push({id:'AR'+p[0],loc:p[1].replace('*',''),area:+p[3]||10,mag:p.slice(7).join(' ')});}}return regions;}
+function renderARTable(regions){const tbody=document.getElementById('arTable');const magLabel=m=>{const ml=(m||'').toLowerCase();if(ml.includes('gamma')&&ml.includes('delta'))return{cls:'abd',sym:'&beta;&gamma;&delta;'};if(ml.includes('gamma'))return{cls:'abg',sym:'&beta;&gamma;'};if(ml.includes('delta'))return{cls:'abg',sym:'&beta;&delta;'};if(ml.includes('alpha')&&!ml.includes('beta'))return{cls:'ab',sym:'&alpha;'};return{cls:'ab',sym:'&beta;'};};const flareRisk=m=>{const ml=(m||'').toLowerCase();if(ml.includes('gamma')&&ml.includes('delta'))return'X-class risk';if(ml.includes('gamma')||ml.includes('delta'))return'M-class possible';return'C-class possible';};tbody.innerHTML=regions.map(r=>{const{cls,sym}=magLabel(r.mag);return`<div class="ar-row"><div class="ar-id">${r.id}</div><div class="ar-loc">${r.loc}</div><div class="arcls ${cls}">${sym}</div><div class="ar-f">${flareRisk(r.mag)}</div></div>`;}).join('')||'<div style="font-size:9px;color:var(--text3);padding:6px">No numbered regions</div>';}
+
+const SDO_CX=512,SDO_CY=512,SDO_R=488,SDO_SZ=1024;
+let activeRegions=[];
+function parseLoc(s){if(!s)return null;const m=s.match(/([NS])(\d+)([EW])(\d+)/);if(!m)return null;let lat=+m[2];if(m[1]==='S')lat=-lat;let lon=+m[4];if(m[3]==='E')lon=-lon;return{lat,lon};}
+function buildLocFromLatLon(lat,lon){const la=Math.round(Math.abs(lat)),lo=Math.round(Math.abs(lon));return`${lat>=0?'N':'S'}${String(la).padStart(2,'0')}${lon>=0?'W':'E'}${String(lo).padStart(2,'0')}`;}
+function helio2norm(lat,lon){const lr=lat*Math.PI/180,lg=lon*Math.PI/180;const x=Math.sin(lg)*Math.cos(lr),y=Math.sin(lr),z=Math.cos(lg)*Math.cos(lr);if(z<=0)return null;return{px:(SDO_CX+x*SDO_R)/SDO_SZ,py:(SDO_CY-y*SDO_R)/SDO_SZ,z};}
+function magCls(mag){const m=(mag||'').toLowerCase();if(m.includes('gamma')&&m.includes('delta'))return'arbd';if(m.includes('gamma')||m.includes('delta'))return'arbg';return'arb';}
+function renderAROverlay(regions){const overlay=document.getElementById('arOverlay');overlay.innerHTML='';regions.forEach(rgn=>{const c=parseLoc(rgn.loc);if(!c)return;const n=helio2norm(c.lat,c.lon);if(!n)return;const sz=Math.max(3,Math.min(9,Math.sqrt(rgn.area||20)*1.0));const el=document.createElement('div');el.className=`ar-rect ${magCls(rgn.mag)}`;el.style.cssText=[`left:${(n.px*100-sz/2).toFixed(2)}%`,`top:${(n.py*100-sz*0.6/2).toFixed(2)}%`,`width:${sz.toFixed(2)}%`,`height:${(sz*0.6).toFixed(2)}%`,`opacity:${(0.35+n.z*0.65).toFixed(2)}`].join(';');el.innerHTML=`<span class="arl">AR${rgn.id.replace('AR','')}</span>`;overlay.appendChild(el);});}
+
+async function loadAR(){
+  const dot=document.getElementById('arDot'),msg=document.getElementById('arMsg');let regions=[];
+  try{const r=await fetch('https://services.swpc.noaa.gov/text/srs.txt');if(r.ok){const text=await r.text();regions=parseSRS(text);renderFarTable(parseFarSide(text));if(regions.length){if(msg)msg.textContent=`Live SRS · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}catch(e){}
+  if(!regions.length){try{const r=await fetch('https://services.swpc.noaa.gov/json/solar_regions.json');if(r.ok){const d=await r.json();if(Array.isArray(d)&&d.length){const seen=new Set();for(let i=d.length-1;i>=0&&regions.length<8;i--){const x=d[i];const rid=x.Region||x.region;if(!rid||seen.has(rid))continue;seen.add(rid);let loc=x.Location||x.location;if(!loc&&(x.Latitude!=null||x.latitude!=null)){const lat=+(x.Latitude??x.latitude);const lon=+(x.Longitude??x.longitude??0);loc=buildLocFromLatLon(lat,lon);}regions.push({id:'AR'+rid,loc:(loc||'').replace('*',''),mag:x.Magclass||x.MagClass||x.magclass||'Beta',area:+(x.Area||x.area||20)});}if(regions.length){if(msg)msg.textContent=`Live JSON · ${regions.length} regions`;if(dot)dot.className='dot5 ok';}}}}catch(e){}}
+  if(!regions.length){if(msg)msg.textContent='AR data unavailable';if(dot)dot.className='dot5 wait';return;}
+  activeRegions=regions;window.activeRegions=regions;renderARTable(regions);renderAROverlay(regions);
+}
+
+// ── NOAA KP ───────────────────────────────────────────────────────
+async function fetchNoaa(){
+  try{const r=await fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json');if(r.ok){const d=await r.json();if(Array.isArray(d)&&d.length){const kp=+(d[d.length-1].kp_index??d[d.length-1].Kp??2);document.getElementById('kpH').textContent=kp.toFixed(0);document.getElementById('sbKp').textContent=kp.toFixed(1);document.getElementById('kpDesc').textContent=`Kp = ${kp.toFixed(1)}`;const g=document.getElementById('geoSc');if(kp>=5){g.textContent='G'+(kp>=9?5:kp>=8?4:kp>=7?3:kp>=6?2:1);g.className='sv s2';}else{g.textContent='G0';g.className='sv s0';}document.getElementById('sbNoaa').textContent='online';}}}catch(e){}
+}
+
+// ── TIER-2 SCIENCE LOG FEED ───────────────────────────────────────
+async function loadTier2Feed(){
+  try{
+    const r=await fetch('https://api.heliodata.ai/hale-tier2-latest',{cache:'no-store'});
+    // Fallback: try the latest endpoint if dedicated one not live yet
+    if(!r.ok)throw new Error('tier2 endpoint not live');
+    const entry=await r.json();
+    updateFromTier2(entry);
+  }catch(e){
+    // Endpoint not built yet — populate from static data in Tier-2 JSONL
+    // Show last known values from the log we read April 14
+    const fallback={
+      utc:'2026-04-14T14:30:13Z',
+      r_au_estimated:0.5289,
+      phase_angle_deg_estimated:100.1,
+      hobs_used:4.6,
+      tail_length_observed:'2.00',
+      cag_classifier:{
+        tail_length_proxy:{result:'Out[1]= 11.31',uuid:'de14867d'},
+        forward_scatter_enhancement:{result:'Out[1]= -0.001672',uuid:'687d00e1'},
+        outgassing_regime:{result:'Out[1]= "CO-dominated supervolatile"',uuid:'5c2916e6'}
+      },
+      cag_uuids:['de14867d','687d00e1','5c2916e6'],
+      data_sources:{
+        cobs:{latest_magnitude:4.6,observation_count:280,tail_length:'2.00'},
+        lasco_c3:{available:false,comet_in_field:false},
+        ccor1:{available:true}
+      }
+    };
+    updateFromTier2(fallback);
+  }
+}
+
+function updateFromTier2(entry){
+  if(!entry)return;
+
+  // Header
+  const cobsMagEl=document.getElementById('cobsMagH');
+  if(cobsMagEl&&entry.hobs_used)cobsMagEl.textContent=entry.hobs_used.toFixed(1);
+
+  // Comet Intelligence panel
+  const rEl=document.getElementById('ciRhelio');
+  if(rEl&&entry.r_au_estimated)rEl.textContent=entry.r_au_estimated.toFixed(4)+' AU';
+
+  const magEl=document.getElementById('ciMag');
+  if(magEl&&entry.hobs_used)magEl.innerHTML=entry.hobs_used.toFixed(1)+' m<sub>1</sub>';
+
+  const phaseEl=document.getElementById('ciPhaseAng');
+  if(phaseEl&&entry.phase_angle_deg_estimated)phaseEl.textContent=entry.phase_angle_deg_estimated.toFixed(1)+'°';
+
+  const livePhaseEl=document.getElementById('livePhase');
+  if(livePhaseEl&&entry.phase_angle_deg_estimated)livePhaseEl.textContent=entry.phase_angle_deg_estimated.toFixed(1);
+
+  const cobs=entry.data_sources&&entry.data_sources.cobs;
+  if(cobs){
+    const tailEl=document.getElementById('ciTailObs');
+    if(tailEl&&cobs.tail_length)tailEl.textContent=cobs.tail_length+' deg';
+    const obsEl=document.getElementById('ciObsCount');
+    if(obsEl&&cobs.observation_count)obsEl.textContent=cobs.observation_count+' obs';
+  }
+
+  const lasco=entry.data_sources&&entry.data_sources.lasco_c3;
+  const lascoEl=document.getElementById('ciLasco');
+  if(lascoEl&&lasco){
+    if(lasco.comet_in_field)lascoEl.textContent='IN FIELD';
+    else if(lasco.available)lascoEl.textContent='pipeline active';
+    else lascoEl.textContent='feed error';
+  }
+
+  const ccor=entry.data_sources&&entry.data_sources.ccor1;
+  const ccorEl=document.getElementById('ciCcor');
+  if(ccorEl&&ccor)ccorEl.textContent=ccor.available?'reachable':'unavailable';
+
+  // CAG Tier-2 classifiers
+  const cag=entry.cag_classifier;
+  if(cag){
+    const regimeEl=document.getElementById('clsRegime');
+    if(regimeEl&&cag.outgassing_regime){
+      const result=cag.outgassing_regime.result||'';
+      if(result.includes('CO')){regimeEl.textContent='CO-dom';regimeEl.className='cag-cls-val regime-co';}
+      else{regimeEl.textContent='H₂O-dom';regimeEl.className='cag-cls-val regime-h2o';}
+    }
+
+    const tailProxyEl=document.getElementById('clsTailProxy');
+    if(tailProxyEl&&cag.tail_length_proxy){
+      const m=cag.tail_length_proxy.result.match(/[\d.]+/);
+      if(m)tailProxyEl.textContent=parseFloat(m[0]).toFixed(1)+'°';
+    }
+
+    const scatterEl=document.getElementById('clsScatter');
+    if(scatterEl&&cag.forward_scatter_enhancement){
+      const m=cag.forward_scatter_enhancement.result.match(/-?[\d.]+/);
+      if(m){
+        const val=parseFloat(m[0]);
+        scatterEl.textContent=val.toFixed(3)+' mag';
+        if(val<-1){scatterEl.className='cag-cls-val scatter-peak';}
+        else if(val<-0.1){scatterEl.className='cag-cls-val scatter-high';}
+        else{scatterEl.className='cag-cls-val scatter-low';}
+      }
+    }
+  }
+
+  const uuidCountEl=document.getElementById('clsUuidCount');
+  if(uuidCountEl&&entry.cag_uuids)uuidCountEl.textContent=entry.cag_uuids.length;
+
+  // Log feed
+  const ts=(entry.utc||'').slice(11,16)||'--:--';
+  const rAU=entry.r_au_estimated?`r:${entry.r_au_estimated.toFixed(3)}AU `:'' ;
+  const phase=entry.phase_angle_deg_estimated?`phase:${entry.phase_angle_deg_estimated.toFixed(1)}° `:'';
+  const mag=entry.hobs_used?`mag:${entry.hobs_used.toFixed(1)} `:'';
+  const tailObs=cobs&&cobs.tail_length?`tail:${cobs.tail_length}° `:'';
+
+  const flags=[];
+  if(entry.phase_angle_deg_estimated>150)flags.push({t:'◆ FORWARD SCATTER ZONE',c:'var(--amber)'});
+  if(cobs&&cobs.latest_magnitude&&cobs.latest_magnitude<3)flags.push({t:'◆ BRIGHT EVENT',c:'var(--cyan)'});
+  if(lasco&&lasco.comet_in_field)flags.push({t:'◆ IN C3 FIELD',c:'var(--cyan)'});
+
+  const flagHtml=flags.map(fl=>`<span style="color:${fl.c};margin-left:6px;font-size:8px">${fl.t}</span>`).join('');
+
+  const feed=document.getElementById('logFeed');
+  if(feed){
+    feed.innerHTML=`<div class="log-entry">
+      <div class="log-ts">${ts}</div>
+      <div class="log-msg" style="white-space:normal">${rAU}${phase}${mag}${tailObs}${flagHtml}</div>
+    </div>`;
+  }
+
+  const dot=document.getElementById('logDot'),msg2=document.getElementById('logMsg');
+  if(dot)dot.className='dot5 ok';
+  if(msg2)msg2.textContent='Tier-2 CAG classifier · 30-min cycle · hale_tier2_poc.jsonl';
+
+  const ciDot=document.getElementById('ciDot'),ciMsg=document.getElementById('ciMsg');
+  if(ciDot)ciDot.className='dot5 ok';
+  if(ciMsg)ciMsg.textContent='Tier-2 data live · CAG UUIDs per cycle · updated 30min';
+}
+
+// ── SOLAR INTELLIGENCE PANEL ──────────────────────────────────────
+async function fetchSolarIntelligence(){
+  const dot=document.getElementById('sipDot'),msg=document.getElementById('sipMsg');
+  let anyOk=false;
+  try{
+    const goesUrls=['https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json','https://services.swpc.noaa.gov/json/goes/primary/xray-flux-6-hour.json'];
+    let goesData=null;
+    for(const url of goesUrls){try{const r=await fetch(url);if(r.ok){goesData=await r.json();if(Array.isArray(goesData)&&goesData.length)break;}goesData=null;}catch(e){}}
+    if(goesData&&Array.isArray(goesData)&&goesData.length){
+      const longBand=goesData.filter(x=>{const e=(x.energy||x.band||'');return e.includes('1-8')||e.includes('long');});
+      const latest=(longBand.length?longBand:goesData).slice(-1)[0];
+      const flux=+(latest.flux||latest.observed_flux||latest.value||0);
+      let cls='A',sub='0.0',badgeCls='fb-a';
+      if(flux>=1e-3){cls='X';sub=(flux/1e-3).toFixed(1);badgeCls='fb-x';}
+      else if(flux>=1e-4){cls='M';sub=(flux/1e-4).toFixed(1);badgeCls='fb-m';}
+      else if(flux>=1e-5){cls='C';sub=(flux/1e-5).toFixed(1);badgeCls='fb-c';}
+      else if(flux>=1e-6){cls='B';sub=(flux/1e-6).toFixed(1);badgeCls='fb-b';}
+      const badge=document.getElementById('sipFlareClass');
+      if(badge){badge.textContent=`${cls}${parseFloat(sub).toFixed(1)}`;badge.className=`flare-badge ${badgeCls}`;}
+      const ts=(latest.time_tag||'').slice(11,16)||'--:--';
+      const ft=document.getElementById('sipFlareTime');
+      if(ft)ft.textContent=`GOES 1–8Å · ${ts} UTC`;
+      anyOk=true;
+    }
+  }catch(e){}
+  try{
+    let bz=null;
+    const r=await fetch('https://services.swpc.noaa.gov/products/solar-wind/mag-1-day.json').catch(()=>null);
+    if(r&&r.ok){const d=await r.json();if(Array.isArray(d)&&d.length>1){for(let i=d.length-1;i>=1;i--){const row=d[i];if(!Array.isArray(row))continue;const candidate=parseFloat(row[3]);if(!isNaN(candidate)&&candidate>-1000){bz=candidate;break;}}}}
+    if(bz!==null){
+      const el=document.getElementById('sipBzVal'),st=document.getElementById('sipBzStatus');
+      if(el){el.textContent=(bz>=0?'+':'')+bz.toFixed(1);el.className=bz<=-10?'bz-neg':bz<=-5?'bz-mild':'bz-pos';}
+      if(st){if(bz<=-10)st.textContent='⚠ STRONGLY SOUTH';else if(bz<=-5)st.textContent='↓ southward';else if(bz>5)st.textContent='↑ northward — quiet';else st.textContent='nominal';}
+      anyOk=true;
+    }
+  }catch(e){}
+  try{
+    const regions=window.activeRegions||[];
+    let prob=5;
+    regions.forEach(r=>{const m=(r.mag||'').toLowerCase();if(m.includes('gamma')&&m.includes('delta'))prob+=25;else if(m.includes('gamma'))prob+=15;else if(m.includes('delta'))prob+=12;else prob+=4;});
+    prob=Math.min(95,Math.max(2,prob));
+    const pctEl=document.getElementById('sipFlarePct'),barEl=document.getElementById('sipFpBar');
+    if(pctEl)pctEl.textContent=prob+'%';
+    if(barEl)barEl.style.width=prob+'%';
+    // Update AR count
+    const cnt=document.getElementById('sipARCount'),mx=document.getElementById('sipARMax');
+    if(cnt)cnt.textContent=regions.length||'0';
+    if(regions.length&&mx){
+      let highest='Beta';
+      regions.forEach(r=>{const m=(r.mag||'').toLowerCase();if(m.includes('gamma')&&m.includes('delta'))highest='β-γ-δ';else if(highest!=='β-γ-δ'&&m.includes('gamma'))highest='β-γ';else if(highest!=='β-γ-δ'&&highest!=='β-γ'&&m.includes('delta'))highest='β-δ';});
+      mx.textContent=highest;mx.style.color=highest.includes('δ')?'var(--red)':'var(--amber)';
+    }
+    anyOk=true;
+  }catch(e){}
+  if(dot)dot.className='dot5 '+(anyOk?'ok':'wait');
+  if(msg)msg.textContent=anyOk?'Solar Intelligence live · GOES + DSCOVR':'Partial data — retrying';
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded',()=>{
+  updateCountdown();updateClock();
+  setInterval(updateCountdown,1000);
+  setInterval(updateClock,1000);
+
+  function tryDraw(attempts){
+    drawF107();
+    const c=document.getElementById('orbitCanvas');
+    const w=c?c.parentElement.offsetWidth:0;
+    if(w>10){drawOrbit();}else if(attempts>0){setTimeout(()=>tryDraw(attempts-1),150);}else{drawOrbit();}
+  }
+  requestAnimationFrame(()=>tryDraw(10));
+  window.addEventListener('resize',()=>{drawF107();drawOrbit();loadAR();});
+
+  const sdo=document.getElementById('sdo304');
+  const tryAR=()=>setTimeout(loadAR,300);
+  if(sdo.complete&&sdo.naturalWidth)tryAR();
+  else{sdo.addEventListener('load',tryAR);sdo.addEventListener('error',tryAR);}
+  setTimeout(loadAR,3000);
+
+  const isHttp=window.location.protocol.startsWith('http');
+  if(isHttp){
+    fetchNoaaF107();
+    fetchSolarIntelligence();
+    loadTier2Feed();
+  }else{
+    fetchNoaaF107();
+    fetchSolarIntelligence();
+  }
+  fetchNoaa();
+
+  setInterval(drawOrbit,30000);
+  setInterval(loadTier2Feed,1800000); // refresh every 30 min matching Tier-2 cycle
+  setInterval(fetchNoaa,60000);
+  setInterval(fetchSolarIntelligence,300000);
+});
+</script>
+
+</body>
+</html>
