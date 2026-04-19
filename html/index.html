@@ -1277,13 +1277,13 @@ function updateFromTier2(entry){
 
     const tailProxyEl=document.getElementById('clsTailProxy');
     if(tailProxyEl&&cag.tail_length_proxy){
-      const m=cag.tail_length_proxy.result.match(/[\d.]+/);
+      const m=cag.tail_length_proxy.result.match(/=\s*(-?[\d.]+)/);
       if(m)tailProxyEl.textContent=parseFloat(m[0]).toFixed(1)+'°';
     }
 
     const scatterEl=document.getElementById('clsScatter');
     if(scatterEl&&cag.forward_scatter_enhancement){
-      const m=cag.forward_scatter_enhancement.result.match(/-?[\d.]+/);
+      const m=cag.forward_scatter_enhancement.result.match(/=\s*(-?[\d.]+)/);
       if(m){
         const val=parseFloat(m[0]);
         scatterEl.textContent=val.toFixed(3)+' mag';
