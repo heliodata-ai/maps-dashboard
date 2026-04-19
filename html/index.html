@@ -1226,7 +1226,7 @@ async function loadTier2History(){
     const dot=document.getElementById('logDot');
     const msg=document.getElementById('logMsg');
     if(dot)dot.className='dot5 ok';
-    if(msg)msg.textContent='Tier-2 CAG · '+lines.length+' entries · hale_tier2_poc.jsonl → <a href="https://heliodata.ai/data/hale_tier2_poc.jsonl" style="color:var(--cyan);text-decoration:none">download</a>';
+    if(msg)msg.innerHTML='Tier-2 CAG · '+lines.length+' entries · hale_tier2_poc.jsonl → <a href="https://heliodata.ai/data/hale_tier2_poc.jsonl" style="color:var(--cyan);text-decoration:none">download</a>';
   }catch(e){
     const msg=document.getElementById('logMsg');
     if(msg)msg.textContent='Tier-2 log unavailable';
