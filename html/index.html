@@ -1195,7 +1195,7 @@ async function fetchNoaa(){
 // ── TIER-2 SCIENCE LOG FEED ───────────────────────────────────────
 async function loadTier2Feed(){
   try{
-    const r=await fetch('https://api.heliodata.ai/hale-tier2-latest',{cache:'no-store'});
+    const r=await fetch('https://heliodata.ai/hale-tier2-latest',{cache:'no-store'});
     // Fallback: try the latest endpoint if dedicated one not live yet
     if(!r.ok)throw new Error('tier2 endpoint not live');
     const entry=await r.json();
