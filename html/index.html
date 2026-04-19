@@ -1193,6 +1193,45 @@ async function fetchNoaa(){
 }
 
 // ── TIER-2 SCIENCE LOG FEED ───────────────────────────────────────
+
+async function loadTier2History(){
+  try{
+    const r=await fetch('https://heliodata.ai/data/hale_tier2_poc.jsonl',{cache:'no-store'});
+    if(!r.ok)return;
+    const text=await r.text();
+    const lines=text.trim().split('\n').filter(l=>l.length>5);
+    const last5=lines.slice(-5).reverse();
+    const feed=document.getElementById('logFeed');
+    if(!feed)return;
+    feed.innerHTML=last5.map(line=>{
+      try{
+        const e=JSON.parse(line);
+        const ts=(e.utc||'').slice(0,16).replace('T',' ');
+        const r=e.r_au_estimated?'r='+e.r_au_estimated.toFixed(3)+'AU':'';
+        const ph=e.phase_angle_deg_estimated?' phase='+e.phase_angle_deg_estimated.toFixed(1)+'°':'';
+        const mg=e.hobs_used?' mag='+e.hobs_used.toFixed(1):'';
+        const dtd=e.days_to_perihelion!=null?' Δt='+e.days_to_perihelion.toFixed(2)+'d':'';
+        const cag=e.cag_classifier||{};
+        const tail=cag.tail_length_proxy?'tail~'+(cag.tail_length_proxy.result.match(/=\s*(-?[\d.]+)/)||['','?'])[1]+'°':'';
+        const scatter=cag.forward_scatter_enhancement?'fwd='+(cag.forward_scatter_enhancement.result.match(/=\s*(-?[\d.]+)/)||['','?'])[1]:'';
+        const uuids=(e.cag_uuids||[]).map(u=>u.slice(0,8)).join(' ');
+        return `<div class="log-entry">
+          <div class="log-ts">${ts}${dtd}</div>
+          <div class="log-msg" style="white-space:normal;color:var(--text2)">${r}${ph}${mg}</div>
+          <div style="font-size:8px;color:var(--cyan);font-family:var(--mono);margin-top:2px">${tail} ${scatter}</div>
+          <div style="font-size:8px;color:var(--text3);font-family:var(--mono);margin-top:1px">${uuids}</div>
+        </div>`;
+      }catch(ex){return '';}
+    }).join('');
+    const dot=document.getElementById('logDot');
+    const msg=document.getElementById('logMsg');
+    if(dot)dot.className='dot5 ok';
+    if(msg)msg.textContent='Tier-2 CAG · '+lines.length+' entries · hale_tier2_poc.jsonl → <a href="https://heliodata.ai/data/hale_tier2_poc.jsonl" style="color:var(--cyan);text-decoration:none">download</a>';
+  }catch(e){
+    const msg=document.getElementById('logMsg');
+    if(msg)msg.textContent='Tier-2 log unavailable';
+  }
+}
 async function loadTier2Feed(){
   try{
     const r=await fetch('https://heliodata.ai/hale-tier2-latest',{cache:'no-store'});
@@ -1412,6 +1451,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     fetchNoaaF107();
     fetchSolarIntelligence();
     loadTier2Feed();
+    loadTier2History();
   }else{
     fetchNoaaF107();
     fetchSolarIntelligence();
@@ -1420,6 +1460,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 
   setInterval(drawOrbit,30000);
   setInterval(loadTier2Feed,1800000); // refresh every 30 min matching Tier-2 cycle
+  setInterval(loadTier2History,1800000);
   setInterval(fetchNoaa,60000);
   setInterval(fetchSolarIntelligence,300000);
 });
