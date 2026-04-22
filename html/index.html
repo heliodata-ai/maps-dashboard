@@ -723,6 +723,58 @@ body::before {
       </div>
     </div>
 
+
+    <!-- CORONAGRAPH IMAGERY PANEL -->
+    <div class="panel">
+      <div class="ptitle g">Coronagraph Watch &mdash; <span style="color:var(--text3);font-weight:400">STEREO-A COR2 &middot; SOHO LASCO C3</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+        <div>
+          <div style="font-family:var(--mono);font-size:8px;color:var(--text3);margin-bottom:3px;letter-spacing:.08em">STEREO-A COR2 &middot; beacon</div>
+          <div style="position:relative;background:#000;border:1px solid var(--bdr);border-radius:2px;overflow:hidden;aspect-ratio:1">
+            <img id="cor2Img"
+              src="https://stereo-ssc.nascom.nasa.gov/beacon/latest/ahead_cor2_latest.jpg"
+              style="width:100%;height:100%;object-fit:cover;display:block;background:#000"
+              alt="STEREO-A COR2"
+              onerror="this.style.opacity='0.2';document.getElementById('cor2Err').style.display='block'">
+            <div id="cor2Err" style="display:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--text3)">unavailable</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:8px;color:var(--text3);margin-top:3px">
+            &delta; <span id="cor2Delta" style="color:var(--cyan)">&mdash;</span>
+            &nbsp;&bull;&nbsp;
+            <span id="cor2Uuid" style="color:var(--text3);font-size:7px">&mdash;</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:8px;color:var(--text3);margin-bottom:3px;letter-spacing:.08em">SOHO LASCO C3 &middot; realtime</div>
+          <div style="position:relative;background:#000;border:1px solid var(--bdr);border-radius:2px;overflow:hidden;aspect-ratio:1">
+            <img id="c3Img"
+              src="https://soho.nascom.nasa.gov/data/realtime/c3/512/latest.jpg"
+              style="width:100%;height:100%;object-fit:cover;display:block;background:#000"
+              alt="SOHO LASCO C3"
+              onerror="this.style.opacity='0.2';document.getElementById('c3Err').style.display='block'">
+            <div id="c3Err" style="display:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--text3)">unavailable</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:8px;color:var(--text3);margin-top:3px">
+            &delta; <span id="c3Delta" style="color:var(--cyan)">&mdash;</span>
+            &nbsp;&bull;&nbsp;
+            <span id="c3Uuid" style="color:var(--text3);font-size:7px">&mdash;</span>
+          </div>
+        </div>
+      </div>
+      <div style="font-family:var(--mono);font-size:8px;color:var(--text3);line-height:1.7;border-top:1px solid var(--bdr);padding-top:5px">
+        <span id="cgContamFlag" style="color:var(--green)">&#9679;</span>
+        GOES <span id="cgGoesClass" style="color:var(--cyan)">&mdash;</span>
+        &nbsp;&bull;&nbsp;
+        Solar contamination: <span id="cgContam" style="color:var(--green)">none</span>
+        &nbsp;&bull;&nbsp;
+        Fwd scatter: <span id="cgFwdScatter" style="color:var(--text3)">monitoring</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:5px;font-family:var(--mono);font-size:9px">
+        <div class="dot5 wait" id="cgDot"></div>
+        <span id="cgMsg" style="color:var(--text3)">Loading coronagraph data&hellip;</span>
+      </div>
+    </div>
+
   </div><!-- /COL2 -->
 
   <!-- COL3: SOLAR ENVIRONMENT & COMET INTELLIGENCE -->
@@ -1524,6 +1576,69 @@ async function fetchSolarIntelligence(){
   if(msg)msg.textContent=anyOk?'Solar Intelligence live · GOES + DSCOVR':'Partial data — retrying';
 }
 
+
+// ── CORONAGRAPH PIPELINE FEED ─────────────────────────────────────────
+async function loadCoronagraphFeed(){
+  const dot=document.getElementById('cgDot');
+  const msg=document.getElementById('cgMsg');
+  try{
+    const r=await fetch('/data/hale_coronagraph.jsonl',{cache:'no-store'});
+    if(!r.ok)throw new Error('coronagraph jsonl '+r.status);
+    const text=await r.text();
+    const lines=text.trim().split('\n').filter(Boolean);
+    if(!lines.length)throw new Error('empty');
+    // Get latest entry
+    const entry=JSON.parse(lines[lines.length-1]);
+    const cor2=entry.instruments&&entry.instruments.cor2;
+    const c3=entry.instruments&&entry.instruments.c3;
+    // COR2
+    if(cor2){
+      const d=cor2.brightness_delta;
+      const el=document.getElementById('cor2Delta');
+      if(el)el.textContent=d!=null?(d>=0?'+':'')+d.toFixed(4):'--';
+      const uel=document.getElementById('cor2Uuid');
+      if(uel&&cor2.cag_uuid)uel.textContent=cor2.cag_uuid.slice(0,8);
+    }
+    // C3
+    if(c3){
+      const d=c3.brightness_delta;
+      const el=document.getElementById('c3Delta');
+      if(el)el.textContent=d!=null?(d>=0?'+':'')+d.toFixed(4):'--';
+      const uel=document.getElementById('c3Uuid');
+      if(uel&&c3.cag_uuid)uel.textContent=c3.cag_uuid.slice(0,8);
+    }
+    // GOES + contamination
+    const gc=document.getElementById('cgGoesClass');
+    if(gc)gc.textContent=entry.goes_class||'--';
+    const ct=document.getElementById('cgContam');
+    const cf=document.getElementById('cgContamFlag');
+    if(ct&&cf){
+      if(entry.solar_contamination_flag){
+        ct.textContent='flagged';ct.style.color='var(--amber)';
+        cf.style.color='var(--amber)';
+      }else{
+        ct.textContent='none';ct.style.color='var(--green)';
+        cf.style.color='var(--green)';
+      }
+    }
+    // Forward scatter candidate
+    const fs=document.getElementById('cgFwdScatter');
+    if(fs){
+      if(entry.forward_scatter_candidate){
+        fs.textContent='CANDIDATE';fs.style.color='var(--amber)';
+      }else{
+        fs.textContent='monitoring';fs.style.color='var(--text3)';
+      }
+    }
+    const ts=(entry.utc||'').slice(11,16);
+    if(dot)dot.className='dot5 ok';
+    if(msg)msg.textContent='Coronagraph pipeline live · '+ts+' UTC · 30-min cycle';
+  }catch(e){
+    if(dot)dot.className='dot5 wait';
+    if(msg)msg.textContent='Coronagraph data unavailable';
+  }
+}
+
 // ── INIT ──────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded',()=>{
   updateCountdown();updateClock();
@@ -1545,6 +1660,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   else{sdo.addEventListener('load',tryAR);sdo.addEventListener('error',tryAR);}
   setTimeout(loadAR,3000);
 
+  loadCoronagraphFeed();
+  setInterval(loadCoronagraphFeed,1800000);
   const isHttp=window.location.protocol.startsWith('http');
   if(isHttp){
     fetchNoaaF107();
