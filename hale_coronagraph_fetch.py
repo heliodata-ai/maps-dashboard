@@ -6,8 +6,8 @@ Enneagrid Research Consortium · heliodata.ai
 
 Instruments: STEREO-A COR2 + SOHO LASCO C3
 Cadence: every 30 min (cron)
-Output: /var/www/heliodata.ai/data/hale_coronagraph.jsonl
-Frames: /var/www/heliodata.ai/data/coronagraph/ (rolling window, max 10 pairs)
+Output: /var/www/heliodata.ai/html/data/hale_coronagraph.jsonl
+Frames: /var/www/heliodata.ai/html/data/coronagraph/ (rolling window, max 10 pairs)
 
 Change detection: Wolfram Engine (wolframscript)
   - Masked brightness computation (comet quadrant only)
@@ -32,7 +32,7 @@ from PIL import Image
 import numpy as np
 
 # ── Paths ─────────────────────────────────────────────────────────────────
-BASE        = Path('/var/www/heliodata.ai/data')
+BASE        = Path('/var/www/heliodata.ai/html/data')
 FRAME_DIR   = BASE / 'coronagraph'
 JSONL_PATH  = BASE / 'hale_coronagraph.jsonl'
 LOG_PATH    = Path('/var/log/hale_coronagraph.log')
