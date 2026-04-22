@@ -2,3 +2,6 @@ logs/
 *.gz
 *.json.1.gz
 cag_health.log
+data/coronagraph/
+html/*.bak.*
+*.bak.*

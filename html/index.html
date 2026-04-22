@@ -550,9 +550,6 @@ body::before {
           <div class="mname">Wolfram</div>
           <div class="mrole">Roche limit &bull; scatter UUID &bull; Tier-2 CAG</div>
           <div class="mstatus"><div class="dot5 ms-a"></div><div class="ms-t">LIVE &mdash; CAG active</div></div>
-          <div style="margin-top:5px;font-size:8px;color:var(--text3);font-family:var(--mono);line-height:1.55;border-top:1px solid var(--bdr);padding-top:4px">
-            WLJS S3: <code style="color:var(--amber)">ParametricPlot3D</code> + CAG ephemeris &bull; <span style="color:var(--cyan)">lab.heliodata.ai</span>
-          </div>
         </div>
       </div>
     </div>
@@ -671,17 +668,13 @@ body::before {
         </div>
         <div class="orb-legend">
           <div class="orb-li"><div class="orb-sw" style="background:#06b6d4;opacity:.8"></div>C/2025 R3</div>
-          <div class="orb-li"><div class="orb-sw" style="background:#60a5fa;opacity:.7"></div>Earth</div>
-          <div class="orb-li"><div class="orb-sw" style="background:#4ade80;opacity:.6"></div>Venus</div>
-          <div class="orb-li"><div class="orb-sw" style="background:#f87171;opacity:.6"></div>Mercury</div>
-          <div class="orb-li"><div class="orb-sw" style="background:#fb923c;opacity:.6"></div>Mars</div>
+          <div class="orb-li"><div class="orb-sw" style="background:#60a5fa;opacity:.7"></div>Earth <span id="legLonEarth" style="color:var(--text3);font-size:8px">&#8213;</span></div>
+          <div class="orb-li"><div class="orb-sw" style="background:#4ade80;opacity:.6"></div>Venus <span id="legLonVenus" style="color:var(--text3);font-size:8px">&#8213;</span></div>
+          <div class="orb-li"><div class="orb-sw" style="background:#f87171;opacity:.6"></div>Mercury <span id="legLonMercury" style="color:var(--text3);font-size:8px">&#8213;</span></div>
+          <div class="orb-li"><div class="orb-sw" style="background:#fb923c;opacity:.6"></div>Mars <span id="legLonMars" style="color:var(--text3);font-size:8px">&#8213;</span></div>
           <div class="orb-li" style="margin-top:2px">
             <div class="orb-sw" style="background:var(--amber);height:6px;width:6px;border-radius:50%"></div>
             <span style="color:var(--amber)">Perihelion Apr 19</span>
-          </div>
-          <div class="orb-li">
-            <div class="orb-sw" style="background:var(--purple);height:6px;width:6px;border-radius:50%"></div>
-            <span style="color:var(--purple)">Conjunction Apr 25</span>
           </div>
           <div class="orb-li" style="margin-top:1px">
             <div class="orb-sw" style="background:rgba(245,158,11,0.35);height:3px;border:1px dashed rgba(245,158,11,0.55)"></div>
@@ -1126,95 +1119,140 @@ function drawOrbit(){
   const rng=mulberry32(42);
   for(let i=0;i<200;i++){const x=rng()*W,y=rng()*H,r=rng()*0.8+0.2;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=`rgba(180,210,240,${0.1+rng()*0.35})`;ctx.fill();}
   const now=new Date();
+
   const ringColors={Mercury:'rgba(248,113,113,0.25)',Venus:'rgba(74,222,128,0.2)',Earth:'rgba(96,165,250,0.3)',Mars:'rgba(251,146,60,0.2)'};
   const dotColors={Mercury:'#f87171',Venus:'#4ade80',Earth:'#60a5fa',Mars:'#fb923c'};
   const dotSize={Mercury:3,Venus:4,Earth:5,Mars:4};
-  const CAG_UUID={Mercury:'cag:merc',Venus:'cag:venu',Earth:'cag:eart',Mars:'cag:mars'};
-  // Grid rings
+
+  // ── Grid rings — no AU labels on canvas ──────────────────────────────
   [0.5,1.0,1.5,2.0].forEach(r=>{
-    ctx.beginPath();ctx.arc(cx,cy,r*AU,0,Math.PI*2);ctx.strokeStyle='rgba(26,42,58,0.6)';ctx.lineWidth=0.5;ctx.stroke();
-    if(r<=1.5){ctx.fillStyle='rgba(61,85,112,0.55)';ctx.font='7px monospace';ctx.textAlign='left';ctx.fillText(r+'AU',cx+r*AU+3,cy-3);}
+    ctx.beginPath();ctx.arc(cx,cy,r*AU,0,Math.PI*2);
+    ctx.strokeStyle='rgba(26,42,58,0.6)';ctx.lineWidth=0.5;ctx.stroke();
   });
-  ctx.save();ctx.setLineDash([4,8]);ctx.strokeStyle='rgba(245,158,11,0.18)';ctx.lineWidth=0.7;
-  ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+2.2*AU,cy);ctx.stroke();ctx.setLineDash([]);
-  ctx.fillStyle='rgba(245,158,11,0.28)';ctx.font='8px monospace';ctx.textAlign='left';
-  ctx.fillText('\u2648 0\u00b0',cx+2.0*AU,cy-4);ctx.restore();
-  // Planets — CORRECTED sign (DeepSeek validated Apr 22 2026)
-  // px = cx + a*cos(Lr)*AU  -> Earth at 211.77deg goes lower-left (correct)
-  // OLD was cx - a*cos(Lr)*AU -> Earth went upper-right (wrong, comet's side)
+
+  // ── Planets ───────────────────────────────────────────────────────────
+  // Sign fix (DeepSeek validated): px=cx+a*cos(L)*AU, py=cy-a*sin(L)*AU
   Object.entries(PLANET_ELEMS).forEach(([name,p])=>{
     const a=p.a,Lr=planetLon(name,now)*Math.PI/180;
+    const lon=((planetLon(name,now)%360)+360)%360;
     ctx.beginPath();ctx.arc(cx,cy,a*AU,0,Math.PI*2);ctx.strokeStyle=ringColors[name];ctx.lineWidth=0.8;ctx.stroke();
     const px=cx+a*Math.cos(Lr)*AU;
     const py=cy-a*Math.sin(Lr)*AU;
     const ds=dotSize[name],gc=dotColors[name];
-    const r_=parseInt(gc.slice(1,3),16),g_=parseInt(gc.slice(3,5),16),b_=parseInt(gc.slice(5,7),16);
-    ctx.beginPath();ctx.arc(px,py,ds+4,0,Math.PI*2);ctx.fillStyle=`rgba(${r_},${g_},${b_},0.12)`;ctx.fill();
+    const rv=parseInt(gc.slice(1,3),16),gv=parseInt(gc.slice(3,5),16),bv=parseInt(gc.slice(5,7),16);
+    ctx.beginPath();ctx.arc(px,py,ds+4,0,Math.PI*2);ctx.fillStyle=`rgba(${rv},${gv},${bv},0.12)`;ctx.fill();
     ctx.beginPath();ctx.arc(px,py,ds,0,Math.PI*2);ctx.fillStyle=gc;ctx.fill();
-    ctx.fillStyle=gc;ctx.font='9px monospace';ctx.textAlign=px>cx?'left':'right';
-    const lx=px>cx?px+ds+4:px-ds-4;
-    ctx.fillText(name[0],lx,py+3);
-    ctx.font='6px monospace';ctx.fillStyle=name==='Earth'?'rgba(96,165,250,0.5)':'rgba(61,85,112,0.5)';
-    ctx.fillText(CAG_UUID[name],lx,py+11);
+    // Initial only — no text beyond single letter
+    ctx.fillStyle=gc;ctx.font='9px monospace';
+    ctx.textAlign=px>cx?'left':'right';
+    ctx.fillText(name[0],px>cx?px+ds+4:px-ds-4,py+3);
+    // Live longitude → legend span
+    const el=document.getElementById('legLon'+name);
+    if(el)el.textContent=lon.toFixed(1)+'\u00b0';
   });
-  // Sun
+
+  // ── Sun ───────────────────────────────────────────────────────────────
   const sg=ctx.createRadialGradient(cx,cy,0,cx,cy,14);
   sg.addColorStop(0,'rgba(255,220,100,1)');sg.addColorStop(0.4,'rgba(255,180,50,0.9)');sg.addColorStop(1,'rgba(255,140,0,0)');
   ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=sg;ctx.fill();
-  // Corrected hyperbolic orbit — e=1.0003, peri dir lambda~20deg ecliptic
-  const q_o=ORB.q,e_o=1.0003,pA=20*Math.PI/180,iC=Math.cos(125*Math.PI/180);
+
+  // ── Orbit arc (hyperbolic, e=1.0003) ─────────────────────────────────
+  // pA=202deg: perihelion ecliptic direction — comet between Earth(212deg) and Sun
+  // iC=cos(125deg)=-0.574: inclination projection onto ecliptic plane
+  // nu>0 = post-perihelion (outbound/egress, moving south in projection)
+  // nu<0 = pre-perihelion (inbound)
+  const q_o=ORB.q, e_o=1.0003;
+  const pA=202*Math.PI/180;
+  const iC=Math.cos(125*Math.PI/180);
+
   function cXY(nu){
+    // Hyperbolic: r = q(1+e)/(1+e*cos(nu))
     const r=q_o*(1+e_o)/(1+e_o*Math.cos(nu));
     if(!isFinite(r)||r>3.2)return null;
-    const xo=r*Math.cos(nu),yo=r*Math.sin(nu);
-    const xe=xo*Math.cos(pA)-yo*iC*Math.sin(pA);
-    const ye=xo*Math.sin(pA)+yo*iC*Math.cos(pA);
-    return{xe,ye,r};
+    const xo=r*Math.cos(nu), yo=r*Math.sin(nu);
+    // Rotate orbital plane to ecliptic, apply inclination to y-component
+    return{
+      xe: xo*Math.cos(pA) - yo*iC*Math.sin(pA),
+      ye: xo*Math.sin(pA) + yo*iC*Math.cos(pA),
+      r
+    };
   }
-  ctx.save();ctx.beginPath();let o1=true;
-  for(let d=-155;d<=155;d+=0.5){const pt=cXY(d*Math.PI/180);if(!pt)continue;const px=cx+pt.xe*AU,py=cy-pt.ye*AU;o1?ctx.moveTo(px,py):ctx.lineTo(px,py);o1=false;}
-  ctx.strokeStyle='rgba(6,182,212,0.35)';ctx.lineWidth=1.1;ctx.stroke();
+
+  // Full orbit arc (inbound cyan, outbound slightly dimmer)
+  ctx.save();
+  // Inbound leg: nu -155 to 0
+  ctx.beginPath();let ib=true;
+  for(let d=-155;d<=0;d+=0.5){
+    const pt=cXY(d*Math.PI/180);if(!pt)continue;
+    const px=cx+pt.xe*AU,py=cy-pt.ye*AU;
+    ib?ctx.moveTo(px,py):ctx.lineTo(px,py);ib=false;
+  }
+  ctx.strokeStyle='rgba(6,182,212,0.28)';ctx.lineWidth=1.0;ctx.stroke();
+  // Outbound leg: nu 0 to 155
+  ctx.beginPath();let ob=true;
+  for(let d=0;d<=155;d+=0.5){
+    const pt=cXY(d*Math.PI/180);if(!pt)continue;
+    const px=cx+pt.xe*AU,py=cy-pt.ye*AU;
+    ob?ctx.moveTo(px,py):ctx.lineTo(px,py);ob=false;
+  }
+  ctx.strokeStyle='rgba(6,182,212,0.42)';ctx.lineWidth=1.1;ctx.stroke();
+  // Perihelion zone highlight ±20deg
   ctx.beginPath();let p1=true;
-  for(let d=-20;d<=20;d+=0.5){const pt=cXY(d*Math.PI/180);if(!pt)continue;const px=cx+pt.xe*AU,py=cy-pt.ye*AU;p1?ctx.moveTo(px,py):ctx.lineTo(px,py);p1=false;}
-  ctx.strokeStyle='rgba(245,158,11,0.85)';ctx.lineWidth=2.2;ctx.stroke();ctx.restore();
-  const pp=cXY(0);
-  if(pp){const ppx=cx+pp.xe*AU,ppy=cy-pp.ye*AU;ctx.beginPath();ctx.arc(ppx,ppy,5,0,Math.PI*2);ctx.fillStyle='#f59e0b';ctx.fill();ctx.beginPath();ctx.arc(ppx,ppy,9,0,Math.PI*2);ctx.fillStyle='rgba(245,158,11,0.18)';ctx.fill();ctx.fillStyle='rgba(245,158,11,0.7)';ctx.font='8px monospace';ctx.textAlign='left';ctx.fillText('Peri 19Apr',ppx+7,ppy-3);}
-  // Tail sweep zone Apr 23-25 (anti-solar wedge from Sun)
-  const ptA=cXY(12*Math.PI/180),ptB=cXY(30*Math.PI/180);
-  if(ptA&&ptB){
-    ctx.save();ctx.globalAlpha=0.08;
-    const aA=Math.atan2(-ptA.ye,ptA.xe),aB=Math.atan2(-ptB.ye,ptB.xe);
-    const tA=aA+Math.PI,tB=aB+Math.PI;
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,1.9*AU,Math.min(tA,tB),Math.max(tA,tB),false);ctx.closePath();
-    ctx.fillStyle='rgba(245,158,11,0.8)';ctx.fill();
-    ctx.globalAlpha=0.38;ctx.strokeStyle='rgba(245,158,11,0.5)';ctx.lineWidth=0.8;ctx.setLineDash([3,7]);ctx.stroke();ctx.setLineDash([]);
-    ctx.globalAlpha=1;ctx.fillStyle='rgba(245,158,11,0.45)';ctx.font='7px monospace';ctx.textAlign='center';
-    const mA=(tA+tB)/2;
-    ctx.fillText('TAIL SWEEP',cx+1.55*AU*Math.cos(mA),cy+1.55*AU*Math.sin(mA));
-    ctx.fillText('23\u201325 Apr',cx+1.55*AU*Math.cos(mA),cy+1.55*AU*Math.sin(mA)+9);
-    ctx.restore();
+  for(let d=-20;d<=20;d+=0.5){
+    const pt=cXY(d*Math.PI/180);if(!pt)continue;
+    const px=cx+pt.xe*AU,py=cy-pt.ye*AU;
+    p1?ctx.moveTo(px,py):ctx.lineTo(px,py);p1=false;
   }
-  // Solar conjunction marker Apr 25
-  const pc=cXY(30*Math.PI/180);
-  if(pc){const cjx=cx+pc.xe*AU,cjy=cy-pc.ye*AU;ctx.save();ctx.setLineDash([3,5]);ctx.strokeStyle='rgba(168,85,247,0.3)';ctx.lineWidth=0.8;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cjx,cjy);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.arc(cjx,cjy,4,0,Math.PI*2);ctx.fillStyle='#a855f7';ctx.fill();ctx.beginPath();ctx.arc(cjx,cjy,8,0,Math.PI*2);ctx.fillStyle='rgba(168,85,247,0.15)';ctx.fill();ctx.fillStyle='rgba(168,85,247,0.65)';ctx.font='8px monospace';ctx.textAlign='left';ctx.fillText('Conj 25Apr 3.5\u00b0',cjx+7,cjy+3);ctx.restore();}
-  // Current comet position
+  ctx.strokeStyle='rgba(245,158,11,0.7)';ctx.lineWidth=2.0;ctx.stroke();
+  ctx.restore();
+
+  // ── Perihelion dot — nu=0, no label ──────────────────────────────────
+  // Perihelion dot removed — amber arc zone + legend communicate Apr 19
+
+
+  // ── Current comet position ────────────────────────────────────────────
+  // cometState uses Barker parabolic eq — returns nu>0 post-perihelion
+  // So comet dot sits on outbound arc, PAST perihelion dot toward egress
   const {nu:nuNow,r:rNow}=cometState(now);
   const ptN=cXY(nuNow);
   if(ptN){
     const cpx=cx+ptN.xe*AU,cpy=cy-ptN.ye*AU;
-    const tailAng=Math.atan2(cpy-cy,cpx-cx);
-    const tl=Math.min(70,rNow*55);
-    const tg=ctx.createLinearGradient(cpx,cpy,cpx+Math.cos(tailAng)*tl,cpy+Math.sin(tailAng)*tl);
-    tg.addColorStop(0,'rgba(6,182,212,0.75)');tg.addColorStop(1,'rgba(6,182,212,0)');
-    ctx.beginPath();ctx.moveTo(cpx,cpy);ctx.lineTo(cpx+Math.cos(tailAng)*tl,cpy+Math.sin(tailAng)*tl);ctx.strokeStyle=tg;ctx.lineWidth=2.5;ctx.stroke();
+
+    // ── Tail sweep wedge — from comet, anti-solar, no canvas text ────
+    const sunToCometAng=Math.atan2(cpy-cy,cpx-cx); // Sun→comet = tail direction
+    const fanHalf=14*Math.PI/180;
+    const tailLen=Math.min(W,H)*0.25;
+    ctx.save();
+    ctx.globalAlpha=0.08;
+    ctx.beginPath();
+    ctx.moveTo(cpx,cpy);
+    ctx.arc(cpx,cpy,tailLen,sunToCometAng-fanHalf,sunToCometAng+fanHalf,false);
+    ctx.closePath();
+    ctx.fillStyle='rgba(245,158,11,0.9)';ctx.fill();
+    ctx.globalAlpha=0.35;
+    ctx.strokeStyle='rgba(245,158,11,0.55)';ctx.lineWidth=0.8;
+    ctx.setLineDash([3,7]);ctx.stroke();ctx.setLineDash([]);
+    ctx.globalAlpha=1;ctx.restore();
+    // No text — legend swatch communicates this
+
+    // Ion tail line — anti-solar from comet dot
+    const tl=Math.min(60,rNow*48);
+    const tg=ctx.createLinearGradient(cpx,cpy,cpx+Math.cos(sunToCometAng)*tl,cpy+Math.sin(sunToCometAng)*tl);
+    tg.addColorStop(0,'rgba(6,182,212,0.8)');tg.addColorStop(1,'rgba(6,182,212,0)');
+    ctx.beginPath();ctx.moveTo(cpx,cpy);
+    ctx.lineTo(cpx+Math.cos(sunToCometAng)*tl,cpy+Math.sin(sunToCometAng)*tl);
+    ctx.strokeStyle=tg;ctx.lineWidth=2.5;ctx.stroke();
+
+    // Comet dot — no label
     ctx.beginPath();ctx.arc(cpx,cpy,5,0,Math.PI*2);ctx.fillStyle='#06b6d4';ctx.fill();
     ctx.beginPath();ctx.arc(cpx,cpy,9,0,Math.PI*2);ctx.fillStyle='rgba(6,182,212,0.2)';ctx.fill();
-    ctx.fillStyle='rgba(6,182,212,0.85)';ctx.font='8px monospace';ctx.textAlign='left';
-    ctx.fillText('NOW',cpx+8,cpy-3);ctx.fillText(rNow.toFixed(3)+' AU',cpx+8,cpy+7);
+
+    // DOM updates (overlay panel, not canvas text)
     const od=document.getElementById('orbitDist');if(od)od.textContent=rNow.toFixed(4);
     const on_=document.getElementById('orbitNu');if(on_)on_.textContent='\u03bd = '+(nuNow*180/Math.PI).toFixed(1)+'\u00b0';
     const liveREl=document.getElementById('liveR');if(liveREl)liveREl.textContent=rNow.toFixed(3);
     const distH=document.getElementById('distH');if(distH)distH.textContent=rNow.toFixed(3);
+    // Solar elongation
     const eLon=planetLon('Earth',now)*Math.PI/180;
     const eX=Math.cos(eLon),eY=Math.sin(eLon);
     const eCx=ptN.xe-eX,eCy=ptN.ye-eY,eClen=Math.sqrt(eCx*eCx+eCy*eCy)||1;
