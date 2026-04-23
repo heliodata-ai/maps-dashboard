@@ -101,6 +101,180 @@ def goes_contamination_flag(flux):
     else:
         return False, f'B{flux/1e-6:.1f}' if flux >= 1e-6 else 'A'
 
+
+# ── COMET CENTROID DETECTION ──────────────────────────────────────────────
+def detect_comet_centroid(image_path, search_rows=(200,450), search_cols=(20,250),
+                           occulter_centre=(256,256), occulter_radius=110):
+    """
+    Detects brightest compact source in COR2 image — the comet.
+    Uses weighted centroid with compactness filter to distinguish comet
+    from diffuse coronal streamers (remote sensing anomaly detection approach).
+
+    Returns dict with centroid_x, centroid_y, coma_radius_px, peak_brightness,
+    compactness_ratio. Returns None if no compact source found.
+    """
+    try:
+        from PIL import Image, ImageDraw
+        import numpy as np
+
+        img = Image.open(image_path)
+        arr = np.array(img)
+        h, w = arr.shape[:2]
+        gray = np.mean(arr, axis=2)
+
+        # Mask occulter disk
+        Y, X = np.ogrid[:h, :w]
+        cy_o, cx_o = occulter_centre
+        occulter_mask = (Y - cy_o)**2 + (X - cx_o)**2 < occulter_radius**2
+        masked = gray.copy()
+        masked[occulter_mask] = 0
+
+        # Extract search ROI
+        r0, r1 = search_rows
+        c0, c1 = search_cols
+        roi = masked[r0:r1, c0:c1]
+
+        if roi.max() < 50:
+            log.warning("detect_comet_centroid: ROI too dim, no source found")
+            return None
+
+        # Find brightest pixel in ROI
+        flat = roi.flatten()
+        best_flat = int(np.argmax(flat))
+        best_r = best_flat // roi.shape[1] + r0
+        best_c = best_flat % roi.shape[1] + c0
+
+        # Compactness check — reject diffuse streamers
+        margin = 15
+        neigh = gray[max(0,best_r-margin):best_r+margin,
+                     max(0,best_c-margin):best_c+margin]
+        peak_val = float(gray[best_r, best_c])
+        compactness = peak_val / (neigh.mean() + 1e-6)
+        log.info(f"Centroid candidate ({best_r},{best_c}) brightness={peak_val:.1f} "
+                 f"compactness={compactness:.2f}")
+
+        if compactness < 2.5:
+            log.warning(f"detect_comet_centroid: compactness {compactness:.2f} < 2.5, "
+                        "likely streamer not comet")
+            return None
+
+        # Refine centroid with weighted mean (squared weights emphasise peak)
+        reg = gray[best_r-margin:best_r+margin, best_c-margin:best_c+margin]
+        weights = reg ** 2
+        total = weights.sum()
+        ry = np.arange(best_r-margin, best_r+margin)
+        rx = np.arange(best_c-margin, best_c+margin)
+        refined_y = int((weights.sum(axis=1) * ry).sum() / total)
+        refined_x = int((weights.sum(axis=0) * rx).sum() / total)
+
+        # Dynamic coma radius from brightness falloff
+        peak = gray[refined_y, refined_x]
+        threshold = peak * 0.15
+        radius = 8
+        for r in range(8, 45):
+            r0b = max(0, refined_y-r); r1b = min(h, refined_y+r)
+            c0b = max(0, refined_x-r); c1b = min(w, refined_x+r)
+            ring_mean = gray[r0b:r1b, c0b:c1b].mean()
+            if ring_mean < threshold:
+                radius = r + 6
+                break
+
+        log.info(f"Refined centroid: ({refined_y},{refined_x}) "
+                 f"coma_radius={radius}px compactness={compactness:.2f}")
+
+        return {
+            'centroid_y': refined_y,
+            'centroid_x': refined_x,
+            'coma_radius_px': radius,
+            'peak_brightness': round(peak_val, 3),
+            'compactness_ratio': round(compactness, 3),
+        }
+
+    except Exception as e:
+        log.error(f"detect_comet_centroid: {e}")
+        return None
+
+
+def annotate_cor2_frame(image_path, output_path, detection):
+    """
+    Draws double circle + crosshair on COR2 frame at detected comet position.
+    Saves to output_path. Never modifies the original.
+    """
+    try:
+        from PIL import Image, ImageDraw
+        img = Image.open(image_path).copy()
+        draw = ImageDraw.Draw(img)
+        cy = detection['centroid_y']
+        cx = detection['centroid_x']
+        r  = detection['coma_radius_px']
+
+        # Outer circle — region of interest boundary
+        draw.ellipse([cx-r-5, cy-r-5, cx+r+5, cy+r+5],
+                     outline=(0, 255, 200), width=1)
+        # Inner circle — coma boundary
+        draw.ellipse([cx-r, cy-r, cx+r, cy+r],
+                     outline=(0, 200, 160), width=1)
+        # Crosshair
+        gap = 3
+        arm = 7
+        draw.line([(cx-arm-gap, cy), (cx-gap, cy)], fill=(0,255,200), width=1)
+        draw.line([(cx+gap, cy), (cx+arm+gap, cy)], fill=(0,255,200), width=1)
+        draw.line([(cx, cy-arm-gap), (cx, cy-gap)], fill=(0,255,200), width=1)
+        draw.line([(cx, cy+gap), (cx, cy+arm+gap)], fill=(0,255,200), width=1)
+
+        img.save(output_path, quality=92)
+        # Fix permissions
+        os.chmod(output_path, 0o644)
+        try:
+            import pwd, grp
+            uid = pwd.getpwnam('www-data').pw_uid
+            gid = grp.getgrnam('www-data').gr_gid
+            os.chown(output_path, uid, gid)
+        except Exception:
+            pass
+        log.info(f"Annotated frame saved: {output_path}")
+        return True
+    except Exception as e:
+        log.error(f"annotate_cor2_frame: {e}")
+        return False
+
+
+def wolfram_centroid_uuid(detection):
+    """
+    Stamps centroid detection with Wolfram CAG UUID.
+    Returns uuid string or None.
+    """
+    wl = f"""
+Module[{{uuid}},
+  uuid = ToString[CreateUUID[]];
+  ExportString[{{
+    "centroid_x"       -> {detection['centroid_x']},
+    "centroid_y"       -> {detection['centroid_y']},
+    "coma_radius_px"   -> {detection['coma_radius_px']},
+    "peak_brightness"  -> {detection['peak_brightness']},
+    "compactness"      -> {detection['compactness_ratio']},
+    "method"           -> "weighted_centroid_v1",
+    "cag_uuid"         -> uuid
+  }}, "JSON"]
+]
+"""
+    try:
+        result = subprocess.run(
+            ['wolframscript', '-code', wl],
+            capture_output=True, text=True, timeout=90
+        )
+        if result.returncode != 0:
+            log.error(f"wolfram_centroid_uuid: {result.stderr[:150]}")
+            return None
+        parsed = json.loads(result.stdout.strip())
+        if isinstance(parsed, list):
+            d = {item[0]: item[1] for item in parsed if isinstance(item, list)}
+            return d.get('cag_uuid')
+        return parsed.get('cag_uuid')
+    except Exception as e:
+        log.error(f"wolfram_centroid_uuid: {e}")
+        return None
+
 # ── Frame fetch ───────────────────────────────────────────────────────────
 def fetch_frame(instrument, source):
     """
@@ -272,6 +446,7 @@ def main():
     log.info(f"GOES flux: {goes_flux} — class: {flare_class} — contamination_flag: {contaminated}")
 
     results = {}
+    centroid_result = None
 
     for instrument, source in SOURCES.items():
         log.info(f"--- {instrument.upper()} ---")
@@ -284,6 +459,20 @@ def main():
             continue
 
         # 3. Change detection (requires both frames)
+        # COR2: run centroid detection on every frame (not just when diff available)
+        if instrument == 'cor2' and cur_path is not None:
+            detection = detect_comet_centroid(str(cur_path))
+            if detection:
+                centroid_uuid = wolfram_centroid_uuid(detection)
+                detection['cag_uuid'] = centroid_uuid
+                centroid_result = detection
+                annotated_path = FRAME_DIR / 'cor2_annotated.jpg'
+                annotate_cor2_frame(str(cur_path), str(annotated_path), detection)
+                log.info(f"Centroid detection: ({detection['centroid_y']},{detection['centroid_x']}) "
+                         f"r={detection['coma_radius_px']}px uuid={centroid_uuid}")
+            else:
+                log.warning("cor2: centroid detection failed — annotated frame not updated")
+
         if prev_path is None:
             log.info(f"{instrument}: no previous frame yet — first run, skipping diff")
             results[instrument] = {
@@ -332,6 +521,14 @@ def main():
             'error':               r.get('error'),
             'note':                r.get('note'),
         }
+
+    # Centroid detection result
+    entry['comet_detection'] = centroid_result if centroid_result else {
+        'centroid_x': None, 'centroid_y': None,
+        'coma_radius_px': None, 'peak_brightness': None,
+        'compactness_ratio': None, 'cag_uuid': None,
+        'note': 'no_detection'
+    }
 
     # Forward scatter flag: C3 brightness rising + low solar contamination
     c3 = entry['instruments'].get('c3', {})
