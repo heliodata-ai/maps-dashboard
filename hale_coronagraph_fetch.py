@@ -362,6 +362,15 @@ def detect_c3_centroid(image_path):
         if compactness < 2.5:
             log.warning(f"detect_c3_centroid: compactness {compactness:.2f} < 2.5")
             return None
+        # Reject frame-edge detections — row < 25 is artifact zone
+        if best_r < 25:
+            log.warning(f"detect_c3_centroid: candidate at row {best_r} is frame edge artifact")
+            return None
+        # Reject stars — elongation check
+        # Stars have horiz/vert extent ratio ~1.0, comet coma is rounder but brighter
+        # For now disable C3 centroid — comet is in streak phase, needs ImageLines
+        log.info("detect_c3_centroid: comet in streak phase — centroid disabled pending ImageLines implementation")
+        return None
 
         # Refined weighted centroid
         reg = gray[max(0,best_r-margin):best_r+margin,
