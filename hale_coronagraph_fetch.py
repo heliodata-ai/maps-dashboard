@@ -314,6 +314,13 @@ def fetch_frame(instrument, source):
 
         # Save new current
         shutil.move(tmp_path, cur)
+        # Fix permissions immediately so PIL can read it
+        os.chmod(cur, 0o644)
+        try:
+            import pwd, grp
+            os.chown(cur, pwd.getpwnam('www-data').pw_uid, grp.getgrnam('www-data').gr_gid)
+        except Exception:
+            pass
         log.info(f"{instrument}: frame saved ({len(raw)/1024:.1f} KB)")
         return cur, prev if prev.exists() else None
 
@@ -415,7 +422,7 @@ def cleanup_rolling_window():
     for f in sorted(FRAME_DIR.glob('*.jpg')):
         name = f.stem
         # Keep: cor2_current, cor2_previous, c3_current, c3_previous
-        if any(name.endswith(s) for s in ['_current', '_previous']):
+        if any(name.endswith(s) for s in ['_current', '_previous', '_annotated']):
             kept += 1
         else:
             log.info(f"Rolling window: removing {f.name}")
