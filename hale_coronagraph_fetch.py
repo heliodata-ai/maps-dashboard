@@ -948,6 +948,20 @@ Module[{{uuid}},
     log.info(f"JSONL entry written: {utc_now} "
              f"forward_scatter={entry['forward_scatter_candidate']}")
 
+    # 4b. Update UUID count summary
+    try:
+        import re as _re
+        _t2 = open('/var/log/heliodata/hale_tier2_poc.jsonl').read()
+        _cg = JSONL_PATH.read_text()
+        _all = set(_re.findall(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}', _t2+_cg))
+        _summary = {'total_uuids':len(_all),'tier2_entries':len(_t2.strip().splitlines()),'coronagraph_entries':len(_cg.strip().splitlines())}
+        _sp = BASE / 'cag_uuid_count.json'
+        _sp.write_text(json.dumps(_summary))
+        os.chmod(_sp, 0o644)
+        log.info(f"UUID summary: {len(_all)} total")
+    except Exception as _e:
+        log.warning(f"UUID summary update failed: {_e}")
+
     # 5. Rolling window cleanup
     cleanup_rolling_window()
 

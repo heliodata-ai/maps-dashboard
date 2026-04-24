@@ -1486,6 +1486,10 @@ function updateFromTier2(entry){
 
   const uuidCountEl=document.getElementById('clsUuidCount');
   if(uuidCountEl&&entry.cag_uuids)uuidCountEl.textContent=entry.cag_uuids.length;
+  // Also fetch total UUID count from summary file
+  fetch('/data/cag_uuid_count.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+    if(uuidCountEl&&d.total_uuids)uuidCountEl.textContent=d.total_uuids;
+  }).catch(()=>{});
 
   // Log feed
   const ts=(entry.utc||'').slice(11,16)||'--:--';
