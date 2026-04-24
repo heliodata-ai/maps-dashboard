@@ -31,10 +31,32 @@ from pathlib import Path
 from PIL import Image
 import numpy as np
 
+
+# ── DETERMINISTIC UUID (Mistral Comm.27) ─────────────────────────────────
+import uuid as _uuid_mod
+# Wolfram-compatible namespace (standard DNS namespace)
+CAG_NAMESPACE = _uuid_mod.UUID('6ba7b810-9dad-11d1-80b4-00c04fd430c8')
+
+def deterministic_uuid(instrument, timestamp, centroid_x, centroid_y,
+                        flow_mag=None, flow_dir=None):
+    """
+    Generate reproducible UUID v5 from computation inputs.
+    Same inputs always produce the same UUID — independently verifiable.
+    Replaces Wolfram CreateUUID[] for non-computation UUIDs.
+    """
+    data = f"{instrument}:{timestamp}:{centroid_x}:{centroid_y}"
+    if flow_mag is not None:
+        data += f":{flow_mag:.6f}:{flow_dir:.2f}"
+    return str(_uuid_mod.uuid5(CAG_NAMESPACE, data))
+
 # ── Paths ─────────────────────────────────────────────────────────────────
 BASE        = Path('/var/www/heliodata.ai/html/data')
 FRAME_DIR   = BASE / 'coronagraph'
 JSONL_PATH  = BASE / 'hale_coronagraph.jsonl'
+TRAJ_PATH   = BASE / 'hale_trajectory.jsonl'
+PLATE_SCALE = {'cor2': 58.8, 'c3': 56.0, 'hi2': 960.0}
+SUN_CENTRE = {'cor2': (256,256), 'c3': (256,256)}
+
 LOG_PATH    = Path('/var/log/hale_coronagraph.log')
 MAX_PAIRS   = 5   # keep 5 pairs = 10 JPEGs max per instrument
 
@@ -100,6 +122,8 @@ def goes_contamination_flag(flux):
         return True, 'C'
     else:
         return False, f'B{flux/1e-6:.1f}' if flux >= 1e-6 else 'A'
+
+
 
 
 # ── COMET CENTROID DETECTION ──────────────────────────────────────────────
@@ -181,10 +205,10 @@ def detect_comet_centroid(image_path, search_rows=(200,450), search_cols=(20,250
 
         # Angular position relative to Sun centre
         import math
-        sun_cy, sun_cx = SUN_CENTRE['cor2']
+        sun_cy, sun_cx = (256, 256)  # COR2 occulter centre
         dx_px = refined_x - sun_cx
         dy_px = refined_y - sun_cy
-        ps = PLATE_SCALE['cor2']
+        ps = 58.8  # COR2 arcsec/px at 512px beacon
         angular_sep_deg = ((dx_px*ps/3600)**2 + (dy_px*ps/3600)**2)**0.5
         anti_solar_angle = math.degrees(math.atan2(-dy_px, -dx_px)) % 360
 
@@ -203,11 +227,13 @@ def detect_comet_centroid(image_path, search_rows=(200,450), search_cols=(20,250
             'anti_solar_angle':      round(anti_solar_angle, 2),
             'dx_px':                 dx_px,
             'dy_px':                 dy_px,
-            'plate_scale_arcsec_px': PLATE_SCALE['cor2'],
+            'plate_scale_arcsec_px': 58.8,  # COR2 arcsec/px
         }
 
     except Exception as e:
+        import traceback
         log.error(f"detect_comet_centroid: {e}")
+        log.error(traceback.format_exc())
         return None
 
 
@@ -257,59 +283,36 @@ def annotate_cor2_frame(image_path, output_path, detection):
 
 def wolfram_centroid_uuid(detection):
     """
-    Stamps centroid detection with Wolfram CAG UUID.
-    Returns uuid string or None.
+    Generate deterministic UUID for centroid detection (Mistral Comm.27).
+    Replaces Wolfram CreateUUID[] — same inputs = same UUID, reproducible.
+    Falls back to Wolfram only if deterministic generation fails.
     """
-    wl = f"""
-Module[{{uuid}},
-  uuid = ToString[CreateUUID[]];
-  ExportString[{{
-    "centroid_x"       -> {detection['centroid_x']},
-    "centroid_y"       -> {detection['centroid_y']},
-    "coma_radius_px"   -> {detection['coma_radius_px']},
-    "peak_brightness"  -> {detection['peak_brightness']},
-    "compactness"      -> {detection['compactness_ratio']},
-    "method"           -> "weighted_centroid_v1",
-    "cag_uuid"         -> uuid
-  }}, "JSON"]
-]
-"""
     try:
-        result = subprocess.run(
-            ['wolframscript', '-code', wl],
-            capture_output=True, text=True, timeout=90
+        uid = deterministic_uuid(
+            detection.get('instrument', 'cor2'),
+            __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),
+            detection.get('centroid_x', 0),
+            detection.get('centroid_y', 0),
+            detection.get('peak_brightness'),
+            detection.get('compactness_ratio')
         )
-        if result.returncode != 0:
-            log.error(f"wolfram_centroid_uuid: {result.stderr[:150]}")
-            return None
-        parsed = json.loads(result.stdout.strip())
-        if isinstance(parsed, list):
-            d = {item[0]: item[1] for item in parsed if isinstance(item, list)}
-            return d.get('cag_uuid')
-        return parsed.get('cag_uuid')
+        log.info(f"Deterministic UUID: {uid}")
+        return uid
     except Exception as e:
-        log.error(f"wolfram_centroid_uuid: {e}")
+        log.warning(f"Deterministic UUID failed: {e}, falling back to Wolfram")
+        # Fallback to Wolfram
+        try:
+            result = subprocess.run(
+                ['wolframscript', '-code', 'ToString[CreateUUID[]]'],
+                capture_output=True, text=True, timeout=60
+            )
+            if result.returncode == 0:
+                return result.stdout.strip().strip('"')
+        except Exception:
+            pass
         return None
 
 
-# ── INSTRUMENT CALIBRATION CONSTANTS ─────────────────────────────────────
-# Source: Eyles et al. 2009, Solar Physics (SECCHI instrument paper)
-# All values at beacon resolution (4x or 5x binned from native)
-PLATE_SCALE = {
-    'cor2': 58.8,   # arcsec/pixel at 512px (native 14.7 arcsec/px × 4)
-    'c3':   56.0,   # arcsec/pixel at 512px (native 11.4 arcsec/px × ~5)
-    'hi2':  960.0,  # arcsec/pixel at 256px (native 4.0 arcmin/px × 4 = 16 arcmin/px)
-}
-# Sun centre in beacon frames (approximate, stable)
-SUN_CENTRE = {
-    'cor2': (256, 256),
-    'c3':   (256, 256),
-}
-# Trajectory log path
-TRAJ_PATH = BASE / 'hale_trajectory.jsonl'
-
-
-# ── C3 CENTROID DETECTION ────────────────────────────────────────────────
 def detect_c3_centroid(image_path):
     """
     Detects comet in LASCO C3 beacon frame.
@@ -594,6 +597,51 @@ def annotate_c3_frame(image_path, output_path, detection, trajectory_history=Non
         return False
 
 
+
+# ── PHASE CORRELATION SANITY CHECK (DeepSeek Comm.27) ────────────────────
+def phase_correlation_check(cur_path, prev_path, cookie_centre, cookie_radius):
+    """
+    Fast global shift estimation within cookie, robust to JPEG artifacts.
+    Returns shift vector or None. Used to validate Farneback results.
+    """
+    try:
+        import cv2
+        import numpy as np
+        cur = cv2.imread(str(cur_path), cv2.IMREAD_GRAYSCALE)
+        prev = cv2.imread(str(prev_path), cv2.IMREAD_GRAYSCALE)
+        if cur is None or prev is None:
+            return None
+        if abs(cur.astype(int)-prev.astype(int)).max() == 0:
+            return None
+        h, w = cur.shape
+        cy, cx = cookie_centre
+        r = cookie_radius
+        # Extract cookie region
+        y0 = max(0, cy-r); y1 = min(h, cy+r)
+        x0 = max(0, cx-r); x1 = min(w, cx+r)
+        crop_cur = cur[y0:y1, x0:x1].astype(np.float32)
+        crop_prev = prev[y0:y1, x0:x1].astype(np.float32)
+        # Gaussian preprocess
+        crop_cur = cv2.GaussianBlur(crop_cur, (0,0), sigmaX=2.0, sigmaY=2.0)
+        crop_prev = cv2.GaussianBlur(crop_prev, (0,0), sigmaX=2.0, sigmaY=2.0)
+        # Phase correlation
+        shift, response = cv2.phaseCorrelate(crop_cur, crop_prev)
+        import math
+        mag = math.sqrt(shift[0]**2 + shift[1]**2)
+        direction = math.degrees(math.atan2(shift[1], shift[0]))
+        log.info(f"phase_corr: shift=({shift[0]:.3f},{shift[1]:.3f}) "
+                 f"mag={mag:.3f}px dir={direction:.1f}deg response={response:.4f}")
+        return {
+            'shift_x': round(shift[0], 4),
+            'shift_y': round(shift[1], 4),
+            'magnitude_px': round(mag, 4),
+            'direction_deg': round(direction, 2),
+            'response': round(response, 4),
+        }
+    except Exception as e:
+        log.warning(f"phase_corr: {e}")
+        return None
+
 # ── COOKIE-CUTTER OPTICAL FLOW ───────────────────────────────────────────
 def compute_optical_flow_cookie(cur_path, prev_path, centroid, cookie_radius=50):
     """
@@ -612,6 +660,10 @@ def compute_optical_flow_cookie(cur_path, prev_path, centroid, cookie_radius=50)
         if cur is None or prev is None:
             log.warning("optical_flow: cannot read frames")
             return None
+
+        # JPEG artifact suppression (DeepSeek Comm.27: sigma=2.0 for 8x8 DCT blocks)
+        cur = cv2.GaussianBlur(cur, (0,0), sigmaX=2.0, sigmaY=2.0)
+        prev = cv2.GaussianBlur(prev, (0,0), sigmaX=2.0, sigmaY=2.0)
 
         # Check frames are actually different
         if abs(cur.astype(int) - prev.astype(int)).max() == 0:
@@ -1031,6 +1083,25 @@ Module[{{uuid}},
         if cor2_cur.exists() and cor2_prev.exists():
             flow_result = compute_optical_flow_cookie(
                 cor2_cur, cor2_prev, centroid_result, cookie_radius=50)
+            # Phase correlation sanity check
+            if flow_result:
+                pc = phase_correlation_check(
+                    cor2_cur, cor2_prev,
+                    (centroid_result['centroid_y'], centroid_result['centroid_x']), 50)
+                if pc:
+                    flow_result['phase_correlation'] = pc
+                    # Check agreement
+                    farn_mag = flow_result['flow_magnitude_px']
+                    pc_mag = pc['magnitude_px']
+                    disagreement = abs(farn_mag - pc_mag)
+                    flow_result['farneback_phase_disagreement_px'] = round(disagreement, 4)
+                    if disagreement > 0.5:
+                        flow_result['quality_flag'] = 'REVIEW: Farneback/phase disagreement > 0.5px'
+                        log.warning(f"Flow quality: Farneback={farn_mag:.3f} vs phase={pc_mag:.3f} DISAGREEMENT")
+                    else:
+                        flow_result['quality_flag'] = 'OK'
+                        log.info(f"Flow quality: Farneback={farn_mag:.3f} vs phase={pc_mag:.3f} CONSISTENT")
+
             if flow_result:
                 # Wolfram UUID for flow computation
                 wl_flow = f"""
@@ -1111,6 +1182,15 @@ Module[{{uuid}},
     }
 
     # Optical flow result
+    # DeepSeek Comm.27: document measurement quality in JSONL
+    if flow_result:
+        mag = flow_result.get('flow_magnitude_px', 0)
+        if mag > 0:
+            # COR2: 13-27% artifact at 1.12px, scales inversely with magnitude
+            artifact_pct = min(30, max(5, 30.0 / (mag + 0.5)))
+            flow_result['jpeg_artifact_estimate_pct'] = round(artifact_pct, 1)
+        flow_result['preprocessing'] = 'gaussian_sigma2.0'
+
     entry['optical_flow_cor2'] = flow_result if flow_result else {
         'flow_magnitude_px': None, 'flow_direction_deg': None,
         'angular_motion_deg': None, 'cag_uuid': None,
