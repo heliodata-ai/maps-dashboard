@@ -153,7 +153,7 @@ def detect_comet_centroid(image_path, search_rows=(200,450), search_cols=(20,250
         log.info(f"Centroid candidate ({best_r},{best_c}) brightness={peak_val:.1f} "
                  f"compactness={compactness:.2f}")
 
-        if compactness < 2.5:
+        if compactness < 2.0:
             log.warning(f"detect_comet_centroid: compactness {compactness:.2f} < 2.5, "
                         "likely streamer not comet")
             return None
@@ -593,6 +593,141 @@ def annotate_c3_frame(image_path, output_path, detection, trajectory_history=Non
         log.error(f"annotate_c3_frame: {e}")
         return False
 
+
+# ── COOKIE-CUTTER OPTICAL FLOW ───────────────────────────────────────────
+def compute_optical_flow_cookie(cur_path, prev_path, centroid, cookie_radius=50):
+    """
+    Computes Farneback dense optical flow inside a cookie-cutter circle
+    centred on the detected comet centroid. Isolates comet motion from
+    coronal streamer dynamics.
+
+    Returns dict with flow measurements or None on failure.
+    """
+    try:
+        import cv2
+        import numpy as np
+
+        cur = cv2.imread(str(cur_path), cv2.IMREAD_GRAYSCALE)
+        prev = cv2.imread(str(prev_path), cv2.IMREAD_GRAYSCALE)
+        if cur is None or prev is None:
+            log.warning("optical_flow: cannot read frames")
+            return None
+
+        # Check frames are actually different
+        if abs(cur.astype(int) - prev.astype(int)).max() == 0:
+            log.info("optical_flow: frames identical, skipping")
+            return None
+
+        h, w = cur.shape
+        cy_c = centroid['centroid_y']
+        cx_c = centroid['centroid_x']
+
+        # Cookie cutter mask
+        cookie = np.zeros((h,w), dtype=np.uint8)
+        cv2.circle(cookie, (cx_c, cy_c), cookie_radius, 255, -1)
+
+        # Mask frames outside cookie
+        cur_m = cur.copy()
+        prev_m = prev.copy()
+        cur_m[cookie==0] = 0
+        prev_m[cookie==0] = 0
+
+        # Farneback dense optical flow
+        flow = cv2.calcOpticalFlowFarneback(prev_m, cur_m, None,
+            pyr_scale=0.5, levels=3, winsize=15,
+            iterations=3, poly_n=5, poly_sigma=1.2, flags=0)
+        mag, ang = cv2.cartToPolar(flow[...,0], flow[...,1])
+        mag[cookie==0] = 0
+
+        valid = mag[cookie>0]
+        if valid.mean() < 0.001:
+            log.info("optical_flow: negligible flow in cookie")
+            return None
+
+        # Significant flow pixels
+        threshold = valid.mean() + 2*valid.std()
+        sig = (mag > threshold) & (cookie > 0)
+        sig_count = int(sig.sum())
+
+        # Mean flow vector in significant region
+        if sig_count > 3:
+            mean_fx = float(flow[sig,0].mean())
+            mean_fy = float(flow[sig,1].mean())
+        else:
+            mean_fx = float(flow[cookie>0,0].mean())
+            mean_fy = float(flow[cookie>0,1].mean())
+
+        import math
+        mean_dir = math.degrees(math.atan2(mean_fy, mean_fx))
+        mean_mag = math.sqrt(mean_fx**2 + mean_fy**2)
+        ps = PLATE_SCALE.get('cor2', 58.8)
+        angular_motion = mean_mag * ps / 3600.0  # degrees per frame
+
+        # Peak flow
+        peak_loc = np.unravel_index(mag.argmax(), mag.shape)
+        peak_mag = float(mag[peak_loc])
+
+        log.info(f"optical_flow: mag={mean_mag:.4f}px dir={mean_dir:.1f}deg "
+                 f"angular={angular_motion:.6f}deg/frame sig_px={sig_count}")
+
+        result = {
+            'flow_magnitude_px':     round(mean_mag, 4),
+            'flow_direction_deg':    round(mean_dir, 2),
+            'angular_motion_deg':    round(angular_motion, 6),
+            'peak_flow_px':          round(peak_mag, 4),
+            'peak_flow_location':    [int(peak_loc[0]), int(peak_loc[1])],
+            'significant_flow_px':   sig_count,
+            'cookie_radius_px':      cookie_radius,
+            'mean_flow_vector':      [round(mean_fx, 4), round(mean_fy, 4)],
+            'plate_scale_arcsec_px': ps,
+        }
+
+        # Save flow visualization
+        try:
+            cur_color = cv2.imread(str(cur_path))
+            output = cur_color.copy()
+            # Cookie circles
+            cv2.circle(output, (cx_c,cy_c), cookie_radius, (0,200,160), 1)
+            cv2.circle(output, (cx_c,cy_c), cookie_radius+4, (0,255,200), 1)
+            # Flow arrows inside cookie
+            step = 4
+            for y in range(max(0,cy_c-cookie_radius), min(h,cy_c+cookie_radius), step):
+                for x in range(max(0,cx_c-cookie_radius), min(w,cx_c+cookie_radius), step):
+                    if cookie[y,x]>0 and mag[y,x]>valid.mean()+valid.std():
+                        fx = flow[y,x,0]
+                        fy = flow[y,x,1]
+                        ex = int(x + fx*3)
+                        ey = int(y + fy*3)
+                        cv2.arrowedLine(output, (x,y), (ex,ey), (0,255,200), 1, tipLength=0.3)
+            # Centroid crosshair
+            cv2.line(output, (cx_c-8,cy_c), (cx_c-3,cy_c), (0,255,200), 1)
+            cv2.line(output, (cx_c+3,cy_c), (cx_c+8,cy_c), (0,255,200), 1)
+            cv2.line(output, (cx_c,cy_c-8), (cx_c,cy_c-3), (0,255,200), 1)
+            cv2.line(output, (cx_c,cy_c+3), (cx_c,cy_c+8), (0,255,200), 1)
+            # Mean direction arrow
+            if abs(mean_fx)+abs(mean_fy) > 0.1:
+                ex = int(cx_c + mean_fx*8)
+                ey = int(cy_c + mean_fy*8)
+                cv2.arrowedLine(output, (cx_c,cy_c), (ex,ey), (0,200,255), 2, tipLength=0.2)
+            flow_path = FRAME_DIR / 'cor2_flow.jpg'
+            cv2.imwrite(str(flow_path), output, [cv2.IMWRITE_JPEG_QUALITY, 92])
+            os.chmod(flow_path, 0o644)
+            try:
+                import pwd, grp
+                os.chown(flow_path, pwd.getpwnam('www-data').pw_uid,
+                         grp.getgrnam('www-data').gr_gid)
+            except Exception:
+                pass
+            log.info("optical_flow: visualization saved")
+        except Exception as ve:
+            log.warning(f"optical_flow: visualization failed — {ve}")
+
+        return result
+
+    except Exception as e:
+        log.error(f"optical_flow: {e}")
+        return None
+
 # ── Frame fetch ───────────────────────────────────────────────────────────
 def fetch_frame(instrument, source):
     """
@@ -740,7 +875,7 @@ def cleanup_rolling_window():
     for f in sorted(FRAME_DIR.glob('*.jpg')):
         name = f.stem
         # Keep: cor2_current, cor2_previous, c3_current, c3_previous
-        if any(name.endswith(s) for s in ['_current', '_previous', '_annotated', '_traj']):
+        if any(name.endswith(s) for s in ['_current', '_previous', '_annotated', '_traj', '_flow']):
             kept += 1
         else:
             log.info(f"Rolling window: removing {f.name}")
@@ -888,6 +1023,46 @@ Module[{{uuid}},
             annotate_c3_frame(str(c3_path), str(c3_ann),
                               c3_detection, traj_history)
 
+    # Optical flow on COR2 cookie-cutter region
+    flow_result = None
+    if centroid_result and centroid_result.get('centroid_x') is not None:
+        cor2_cur = FRAME_DIR / 'cor2_current.jpg'
+        cor2_prev = FRAME_DIR / 'cor2_previous.jpg'
+        if cor2_cur.exists() and cor2_prev.exists():
+            flow_result = compute_optical_flow_cookie(
+                cor2_cur, cor2_prev, centroid_result, cookie_radius=50)
+            if flow_result:
+                # Wolfram UUID for flow computation
+                wl_flow = f"""
+Module[{{uuid}},
+  uuid = ToString[CreateUUID[]];
+  ExportString[{{
+    "computation"     -> "optical_flow_cookie_v1",
+    "flow_mag_px"     -> {flow_result['flow_magnitude_px']},
+    "flow_dir_deg"    -> {flow_result['flow_direction_deg']},
+    "angular_motion"  -> {flow_result['angular_motion_deg']},
+    "sig_pixels"      -> {flow_result['significant_flow_px']},
+    "cag_uuid"        -> uuid
+  }}, "JSON"]
+]
+"""
+                try:
+                    wl_r = subprocess.run(['wolframscript','-code',wl_flow],
+                                          capture_output=True, text=True, timeout=90)
+                    if wl_r.returncode == 0:
+                        parsed = json.loads(wl_r.stdout.strip())
+                        if isinstance(parsed, list):
+                            d = {item[0]:item[1] for item in parsed if isinstance(item,list)}
+                            flow_result['cag_uuid'] = d.get('cag_uuid')
+                        else:
+                            flow_result['cag_uuid'] = parsed.get('cag_uuid')
+                        log.info(f"optical_flow uuid={flow_result['cag_uuid']}")
+                    else:
+                        flow_result['cag_uuid'] = None
+                except Exception as fe:
+                    log.error(f"optical_flow Wolfram: {fe}")
+                    flow_result['cag_uuid'] = None
+
     # Also write COR2 centroid to trajectory if detected
     if centroid_result and centroid_result.get('cag_uuid'):
         cor2_velocity = compute_velocity(centroid_result, 'cor2')
@@ -933,6 +1108,13 @@ Module[{{uuid}},
         'coma_radius_px': None, 'peak_brightness': None,
         'compactness_ratio': None, 'cag_uuid': None,
         'note': 'no_detection'
+    }
+
+    # Optical flow result
+    entry['optical_flow_cor2'] = flow_result if flow_result else {
+        'flow_magnitude_px': None, 'flow_direction_deg': None,
+        'angular_motion_deg': None, 'cag_uuid': None,
+        'note': 'no_flow_data'
     }
 
     # Forward scatter flag: C3 brightness rising + low solar contamination
