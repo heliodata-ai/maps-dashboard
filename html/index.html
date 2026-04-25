@@ -1528,14 +1528,24 @@ function updateFromTier2(entry){
 
 // ── SOLAR INTELLIGENCE PANEL ──────────────────────────────────────
 async function fetchSolarIntelligence(){
-  const dot=document.getElementById('sipDot'),msg=document.getElementById('sipMsg');
+  const dot=document.getElementById('sipDot');
+  const msg=document.getElementById('sipMsg');
   let anyOk=false;
+
+  // 1. GOES X-ray flux → flare class badge (try multiple NOAA endpoints)
   try{
-    const goesUrls=['https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json','https://services.swpc.noaa.gov/json/goes/primary/xray-flux-6-hour.json'];
+    const goesUrls=[
+      'https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json',
+      'https://services.swpc.noaa.gov/json/goes/primary/xray-flux-6-hour.json',
+      'https://services.swpc.noaa.gov/json/goes/primary/xray-fluxes-6-hour.json'
+    ];
     let goesData=null;
-    for(const url of goesUrls){try{const r=await fetch(url);if(r.ok){goesData=await r.json();if(Array.isArray(goesData)&&goesData.length)break;}goesData=null;}catch(e){}}
+    for(const url of goesUrls){
+      try{const r=await fetch(url);if(r.ok){goesData=await r.json();if(Array.isArray(goesData)&&goesData.length)break;}goesData=null;}catch(e){}
+    }
     if(goesData&&Array.isArray(goesData)&&goesData.length){
-      const longBand=goesData.filter(x=>{const e=(x.energy||x.band||'');return e.includes('1-8')||e.includes('long');});
+      // Most recent 1–8Å reading — accept both energy label formats
+      const longBand=goesData.filter(x=>{const e=(x.energy||x.band||'');return e.includes('1-8')||e.includes('0.1-0.8')||e.includes('1-8A')||e.includes('long');});
       const latest=(longBand.length?longBand:goesData).slice(-1)[0];
       const flux=+(latest.flux||latest.observed_flux||latest.value||0);
       let cls='A',sub='0.0',badgeCls='fb-a';
@@ -1545,44 +1555,140 @@ async function fetchSolarIntelligence(){
       else if(flux>=1e-6){cls='B';sub=(flux/1e-6).toFixed(1);badgeCls='fb-b';}
       const badge=document.getElementById('sipFlareClass');
       if(badge){badge.textContent=`${cls}${parseFloat(sub).toFixed(1)}`;badge.className=`flare-badge ${badgeCls}`;}
-      const ts=(latest.time_tag||'').slice(11,16)||'--:--';
+      const ts=(latest.time_tag||latest.TimeStamp||latest.time||'').slice(11,16)||'--:--';
       const ft=document.getElementById('sipFlareTime');
       if(ft)ft.textContent=`GOES 1–8Å · ${ts} UTC`;
+      window._sipLastFlareClass=cls+parseFloat(sub).toFixed(1);
+      updateSipAlert(cls,null,null);
       anyOk=true;
     }
-  }catch(e){}
+  }catch(e){_warn('SIP GOES:',e.message);}
+
+  // 2. Active region count & highest complexity — retry once if AR not yet loaded
   try{
-    let bz=null;
-    const r=await fetch('https://services.swpc.noaa.gov/products/solar-wind/mag-1-day.json').catch(()=>null);
-    if(r&&r.ok){const d=await r.json();if(Array.isArray(d)&&d.length>1){for(let i=d.length-1;i>=1;i--){const row=d[i];if(!Array.isArray(row))continue;const candidate=parseFloat(row[3]);if(!isNaN(candidate)&&candidate>-1000){bz=candidate;break;}}}}
-    if(bz!==null){
-      const el=document.getElementById('sipBzVal'),st=document.getElementById('sipBzStatus');
-      if(el){el.textContent=(bz>=0?'+':'')+bz.toFixed(1);el.className=bz<=-10?'bz-neg':bz<=-5?'bz-mild':'bz-pos';}
-      if(st){if(bz<=-10)st.textContent='⚠ STRONGLY SOUTH';else if(bz<=-5)st.textContent='↓ southward';else if(bz>5)st.textContent='↑ northward — quiet';else st.textContent='nominal';}
-      anyOk=true;
+    let regions=window.activeRegions||[];
+    if(!regions.length){
+      await new Promise(res=>setTimeout(res,2000));
+      regions=window.activeRegions||[];
     }
-  }catch(e){}
-  try{
-    const regions=window.activeRegions||[];
-    let prob=5;
-    regions.forEach(r=>{const m=(r.mag||'').toLowerCase();if(m.includes('gamma')&&m.includes('delta'))prob+=25;else if(m.includes('gamma'))prob+=15;else if(m.includes('delta'))prob+=12;else prob+=4;});
-    prob=Math.min(95,Math.max(2,prob));
-    const pctEl=document.getElementById('sipFlarePct'),barEl=document.getElementById('sipFpBar');
-    if(pctEl)pctEl.textContent=prob+'%';
-    if(barEl)barEl.style.width=prob+'%';
-    // Update AR count
-    const cnt=document.getElementById('sipARCount'),mx=document.getElementById('sipARMax');
+    const cnt=document.getElementById('sipARCount');
+    const mx=document.getElementById('sipARMax');
     if(cnt)cnt.textContent=regions.length||'0';
     if(regions.length&&mx){
+      // Find highest Hale class by priority
+      const priority=['Beta-Gamma-Delta','Beta-Gamma','Beta-Delta','Beta','Alpha','unipolar'];
       let highest='Beta';
-      regions.forEach(r=>{const m=(r.mag||'').toLowerCase();if(m.includes('gamma')&&m.includes('delta'))highest='β-γ-δ';else if(highest!=='β-γ-δ'&&m.includes('gamma'))highest='β-γ';else if(highest!=='β-γ-δ'&&highest!=='β-γ'&&m.includes('delta'))highest='β-δ';});
-      mx.textContent=highest;mx.style.color=highest.includes('δ')?'var(--red)':'var(--amber)';
-    }
+      regions.forEach(r=>{
+        const m=(r.mag||'').toLowerCase();
+        if(m.includes('gamma')&&m.includes('delta'))highest='β-γ-δ';
+        else if(highest!=='β-γ-δ'&&m.includes('gamma'))highest='β-γ';
+        else if(highest!=='β-γ-δ'&&highest!=='β-γ'&&m.includes('delta'))highest='β-δ';
+      });
+      mx.textContent=highest;
+      const hasDelta=highest.includes('δ');
+      if(hasDelta){mx.style.color='var(--red)';}else{mx.style.color='var(--amber)';}
+    }else if(mx){mx.textContent='no regions';}
     anyOk=true;
   }catch(e){}
+
+  // 3. DSCOVR Bz — with null guard and science log fallback
+  try{
+    let bz=null;
+    try{
+      const r=await fetch('https://services.swpc.noaa.gov/products/solar-wind/mag-1-day.json');
+      if(r.ok){
+        const d=await r.json();
+        if(Array.isArray(d)&&d.length>1){
+          // Format: [time_tag, bx_gsm, by_gsm, bz_gsm, bt, lon, lat]
+          for(let i=d.length-1;i>=1;i--){
+            const row=d[i];if(!Array.isArray(row))continue;
+            const candidate=parseFloat(row[3]);
+            if(!isNaN(candidate)&&candidate>-1000){bz=candidate;break;}
+          }
+        }
+      }
+    }catch(e){}
+    // Fallback: use latest science log entry's dscovr_bz_nT
+    if(bz===null&&window._latestLogEntry){bz=window._latestLogEntry.dscovr_bz_nT||null;}
+    if(bz!==null){
+      const el=document.getElementById('sipBzVal');
+      const st=document.getElementById('sipBzStatus');
+      if(el){
+        el.textContent=(bz>=0?'+':'')+bz.toFixed(1);
+        if(bz<=-10){el.className='bz-neg';}
+        else if(bz<=-5){el.className='bz-mild';}
+        else{el.className='bz-pos';}
+      }
+      if(st){
+        if(bz<=-10)st.textContent='⚠ STRONGLY SOUTH';
+        else if(bz<=-5)st.textContent='↓ southward';
+        else if(bz>5)st.textContent='↑ northward — quiet';
+        else st.textContent='nominal';
+      }
+      updateSipAlert(null,bz,null);
+      anyOk=true;
+    }
+  }catch(e){_warn('SIP Bz:',e.message);}
+
+  // 4. CAG flare probability — derive from GOES trend + AR complexity
+  try{
+    // Use science log latest entry for goes_xray if available
+    // Heuristic: base probability from AR count and highest class
+    const regions=window.activeRegions||[];
+    let prob=5; // baseline quiet
+    regions.forEach(r=>{
+      const m=(r.mag||'').toLowerCase();
+      if(m.includes('gamma')&&m.includes('delta'))prob+=25;
+      else if(m.includes('gamma'))prob+=15;
+      else if(m.includes('delta'))prob+=12;
+      else prob+=4;
+    });
+    // Boost from GOES current class
+    const badge=document.getElementById('sipFlareClass');
+    if(badge){
+      const cls=badge.textContent.charAt(0);
+      if(cls==='X')prob+=30;
+      else if(cls==='M')prob+=20;
+      else if(cls==='C')prob+=8;
+    }
+    prob=Math.min(95,Math.max(2,prob));
+    const pctEl=document.getElementById('sipFlarePct');
+    const barEl=document.getElementById('sipFpBar');
+    if(pctEl)pctEl.textContent=prob+'%';
+    if(barEl)barEl.style.width=prob+'%';
+    updateSipAlert(null,null,prob);
+    anyOk=true;
+  }catch(e){}
+
   if(dot)dot.className='dot5 '+(anyOk?'ok':'wait');
-  if(msg)msg.textContent=anyOk?'Solar Intelligence live · GOES + DSCOVR':'Partial data — retrying';
+  if(msg)msg.textContent=anyOk?'Solar Intelligence live · GOES + DSCOVR + CAG':'Partial data — retrying';
 }
+
+
+function updateSipAlert(flareClass,bz,prob){
+  const al=document.getElementById('sipAlert');
+  const tx=document.getElementById('sipAlertText');
+  const dt=al?al.querySelector('.dot5'):null;
+  if(!al||!tx)return;
+  // Read current state from DOM to merge
+  const curBz=parseFloat((document.getElementById('sipBzVal')||{}).textContent||'0');
+  const curCls=(document.getElementById('sipFlareClass')||{}).textContent||'A';
+  const cls=flareClass?flareClass.charAt(0):curCls.charAt(0);
+  const bzVal=bz!=null?bz:curBz;
+  const pv=prob!=null?prob:0;
+
+  let level='ok',text='Solar conditions nominal · monitoring active';
+  if(cls==='X'){level='crit';text=`◆ X-CLASS EVENT DETECTED — prediction window active`;}
+  else if(cls==='M'||bzVal<=-10){level='warn';text=`◆ Elevated activity — M-class or strong Bz south`;}
+  else if(bzVal<=-5){level='warn';text=`↓ Bz southward ${bzVal.toFixed(1)} nT — watch CME arrival`;}
+  else if(pv>=40){level='warn';text=`CAG: ${pv}% flare probability · AR complexity elevated`;}
+
+  al.className='sip-alert '+level;
+  tx.textContent=text;
+  if(dt){dt.style.background=level==='crit'?'var(--red)':level==='warn'?'var(--amber)':'var(--green)';}
+}
+
+// ── v12 — COMET INTELLIGENCE PANEL ───────────────────────────────
 
 
 // ── CORONAGRAPH PIPELINE FEED ─────────────────────────────────────────
