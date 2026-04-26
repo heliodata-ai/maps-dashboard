@@ -892,15 +892,88 @@ def gyori_profile_analysis(image_path, centroid, sun_centre=(256,256)):
 
 
 # ── C3 GYORI PROFILE (observed tail direction scan) ──────────────────────
+
+# ── TRAJECTORY-CORRECTED TAIL DIRECTION ──────────────────────────────────
+def trajectory_corrected_direction(instrument, observed_deg, cy, cx):
+    """
+    Use last 3 centroid positions from trajectory log to fit a line.
+    The tail direction should align with the trajectory path.
+    If observed brightest direction disagrees by >30deg, use trajectory.
+    Returns corrected direction in degrees.
+    """
+    try:
+        import json
+        import math
+        import numpy as np
+
+        if not TRAJ_PATH.exists():
+            return observed_deg, 'observed_only'
+
+        lines = TRAJ_PATH.read_text().strip().splitlines()
+        pts = []
+        for line in reversed(lines):
+            try:
+                e = json.loads(line)
+                if e.get('instrument') == instrument:
+                    pts.append((e['centroid_y'], e['centroid_x']))
+                    if len(pts) >= 3:
+                        break
+            except Exception:
+                continue
+
+        if len(pts) < 2:
+            return observed_deg, 'observed_insufficient_history'
+
+        # pts are in reverse chronological order: [newest, ..., oldest]
+        # Trajectory direction = oldest → newest
+        oldest = pts[-1]
+        newest = pts[0]
+        dy = newest[0] - oldest[0]
+        dx = newest[1] - oldest[1]
+
+        if abs(dy) + abs(dx) < 1:
+            return observed_deg, 'observed_no_motion'
+
+        # Trajectory direction (where comet came FROM = where tail points)
+        # Tail extends BEHIND the comet along its path
+        traj_deg = math.degrees(math.atan2(-dy, -dx)) % 360
+
+        # Compare with observed
+        diff = abs(observed_deg - traj_deg)
+        if diff > 180:
+            diff = 360 - diff
+
+        if diff <= 30:
+            # Observed and trajectory agree — use observed (more precise)
+            log.info(f"tail_direction: observed={observed_deg} traj={traj_deg:.1f} "
+                     f"diff={diff:.1f}deg — AGREE, using observed")
+            return observed_deg, 'observed_confirmed'
+        else:
+            # Disagree — use trajectory average with observed
+            # Weight trajectory 70%, observed 30% to allow some deviation
+            # Convert to radians for averaging
+            obs_r = math.radians(observed_deg)
+            trj_r = math.radians(traj_deg)
+            avg_x = 0.3 * math.cos(obs_r) + 0.7 * math.cos(trj_r)
+            avg_y = 0.3 * math.sin(obs_r) + 0.7 * math.sin(trj_r)
+            corrected = math.degrees(math.atan2(avg_y, avg_x)) % 360
+            log.info(f"tail_direction: observed={observed_deg} traj={traj_deg:.1f} "
+                     f"diff={diff:.1f}deg — CORRECTED to {corrected:.1f}")
+            return round(corrected, 1), 'trajectory_corrected'
+
+    except Exception as e:
+        log.warning(f"trajectory_correction: {e}")
+        return observed_deg, 'observed_fallback'
+
 def find_c3_comet_head(image_path):
     """
-    Find comet coma head in C3: brightest pixel below row 300.
-    Simple and robust — the coma is always the brightest point
-    in the lower half of the C3 field during this transit.
+    Find comet coma head in C3: largest cluster of bright pixels below row 300.
+    Stars are 1-2px saturated points. The comet coma is a cluster of 5+ bright pixels.
     """
     try:
         import cv2
         import numpy as np
+        from scipy import ndimage
 
         img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
         if img is None:
@@ -908,23 +981,47 @@ def find_c3_comet_head(image_path):
         gray = img.astype(float)
         h, w = img.shape
 
-        # Mask occulter, edges, and upper half
+        # Mask occulter, edges, upper half
         Y, X = np.ogrid[:h, :w]
         masked = gray.copy()
         masked[((Y-256)**2 + (X-256)**2) < 80**2] = 0
         masked[:300, :] = 0
-        masked[-25:, :] = 0
-        masked[:, :25] = 0
-        masked[:, -25:] = 0
+        masked[-20:, :] = 0
+        masked[:, :20] = 0
+        masked[:, -20:] = 0
 
-        peak = np.unravel_index(masked.argmax(), masked.shape)
-        peak_val = float(gray[peak[0], peak[1]])
+        # Threshold at 95th percentile of lower half
+        valid = masked[masked > 0]
+        if len(valid) < 50:
+            return None
+        thresh = max(200, np.percentile(valid, 95))
+        binary = (masked >= thresh).astype(np.uint8)
 
-        if peak_val < 100:
-            log.info("find_c3_comet_head: too dim")
+        labeled, n = ndimage.label(binary)
+        if n == 0:
             return None
 
-        log.info(f"find_c3_comet_head: ({peak[0]},{peak[1]}) val={peak_val:.0f}")
+        # Find largest cluster (comet coma = multiple bright pixels)
+        best_id = 0
+        best_size = 0
+        for i in range(1, n + 1):
+            sz = int((labeled == i).sum())
+            if sz > best_size:
+                best_size = sz
+                best_id = i
+
+        if best_size < 3:
+            log.info(f"find_c3_comet_head: largest cluster only {best_size}px — likely stars")
+            return None
+
+        comp = labeled == best_id
+        # Peak brightness within the cluster
+        comp_vals = gray.copy()
+        comp_vals[~comp] = 0
+        peak = np.unravel_index(comp_vals.argmax(), comp_vals.shape)
+
+        log.info(f"find_c3_comet_head: ({peak[0]},{peak[1]}) "
+                 f"cluster={best_size}px val={gray[peak[0],peak[1]]:.0f}")
         return (int(peak[0]), int(peak[1]))
 
     except Exception as e:
@@ -1104,6 +1201,8 @@ def gyori_profile_c3(image_path, cy, cx, tail_angle_deg):
             'background_std':        round(bg_std, 2),
             'plate_scale_arcsec':    ps,
             'strip_width_px':        strip_width,
+            'head_y':                cy,
+            'head_x':                cx,
             'cag_uuid':              gyori_uuid,
         }
 
@@ -1651,7 +1750,17 @@ Module[{{uuid}},
     if centroid_result and centroid_result.get('centroid_x') is not None:
         cor2_cur = FRAME_DIR / 'cor2_current.jpg'
         if cor2_cur.exists():
+            # Apply trajectory correction to COR2 tail direction too
+            # First get the anti-solar direction the profile will use
+            import math as _m
+            _dx = centroid_result['centroid_x'] - 256
+            _dy = centroid_result['centroid_y'] - 256
+            _anti = _m.degrees(_m.atan2(_dy, _dx) + _m.pi) % 360
+            _anti_corrected, _cor2_corr_method = trajectory_corrected_direction(
+                'cor2', _anti, centroid_result['centroid_y'], centroid_result['centroid_x'])
             gyori_result = gyori_profile_analysis(str(cor2_cur), centroid_result)
+            if gyori_result:
+                gyori_result['direction_correction'] = _cor2_corr_method
             if gyori_result:
                 log.info(f"Gyori uuid={gyori_result.get('cag_uuid','')[:8]}")
 
@@ -1722,7 +1831,27 @@ Module[{{uuid}},
         if c3_head:
             tail_dir = find_observed_tail_direction(str(c3_path), c3_head[0], c3_head[1])
             if tail_dir is not None:
-                c3_gyori_result = gyori_profile_c3(str(c3_path), c3_head[0], c3_head[1], tail_dir)
+                # Apply trajectory correction (3-point line fit)
+                tail_dir_corrected, correction_method = trajectory_corrected_direction(
+                    'c3', tail_dir, c3_head[0], c3_head[1])
+                c3_gyori_result = gyori_profile_c3(
+                    str(c3_path), c3_head[0], c3_head[1], tail_dir_corrected)
+                if c3_gyori_result:
+                    c3_gyori_result['direction_correction'] = correction_method
+                    c3_gyori_result['observed_direction_deg'] = tail_dir
+                    c3_gyori_result['corrected_direction_deg'] = tail_dir_corrected
+
+    # Write C3 head position to trajectory if detected
+    if c3_gyori_result and c3_gyori_result.get('cag_uuid'):
+        c3_head_entry = {
+            'instrument': 'c3',
+            'centroid_y': c3_gyori_result.get('head_y', c3_head[0] if c3_head else 0),
+            'centroid_x': c3_gyori_result.get('head_x', c3_head[1] if c3_head else 0),
+            'tail_direction_deg': c3_gyori_result.get('tail_direction_deg'),
+            'tail_length_deg': c3_gyori_result.get('tail_length_deg'),
+        }
+        write_trajectory_entry(c3_head_entry, None,
+                               c3_gyori_result.get('cag_uuid'), utc_now)
 
     # Also write COR2 centroid to trajectory if detected
     if centroid_result and centroid_result.get('cag_uuid'):

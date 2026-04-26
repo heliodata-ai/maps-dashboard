@@ -1746,6 +1746,36 @@ async function loadCoronagraphFeed(){
     }
     const ts=(entry.utc||'').slice(11,16);
     if(dot)dot.className='dot5 ok';
+    // Wire Gyori profile values to Comet Intelligence panel
+    const gyori_c3=entry.gyori_profile_c3;
+    const gyori_cor2=entry.gyori_profile_cor2;
+    const tailEl=document.getElementById('clsTailProxy');
+    const scatterEl=document.getElementById('clsScatter');
+    if(tailEl){
+      // Use C3 tail length if available, fall back to COR2
+      const g=gyori_c3&&gyori_c3.tail_length_deg?gyori_c3:gyori_cor2;
+      if(g&&g.tail_length_deg&&g.tail_length_deg>0){
+        tailEl.textContent=g.tail_length_deg.toFixed(2)+String.fromCharCode(176);
+        tailEl.style.color='var(--cyan)';
+      }else if(g&&g.tail_moment){
+        tailEl.textContent=g.tail_moment.toFixed(1);
+        tailEl.style.color='var(--cyan)';
+      }
+    }
+    if(scatterEl){
+      // Forward scatter indicator from pct_in_tail
+      // Higher % in tail during conjunction = stronger forward scatter
+      const g=gyori_c3&&gyori_c3.pct_in_tail?gyori_c3:gyori_cor2;
+      if(g&&g.pct_in_tail&&g.pct_in_tail>0){
+        scatterEl.textContent=g.pct_in_tail.toFixed(0)+'%';
+        scatterEl.className=g.pct_in_tail>30?'cag-cls-val scatter-high':
+                           g.pct_in_tail>15?'cag-cls-val scatter-mid':
+                           'cag-cls-val scatter-low';
+      }else{
+        scatterEl.textContent='monitoring';
+        scatterEl.className='cag-cls-val scatter-low';
+      }
+    }
     if(msg)msg.textContent='Coronagraph pipeline live · '+ts+' UTC · 2-hour cycle';
   }catch(e){
     if(dot)dot.className='dot5 wait';
