@@ -1004,7 +1004,7 @@ body::before {
 <footer class="status-bar">
   <div class="sbi"><div class="sbd sbg"></div><span>NOAA SWPC</span><span class="sbv" id="sbNoaa">online</span></div>
   <span class="sbsep">&mdash;</span>
-  <div class="sbi"><div class="sbd" style="background:#a855f7;animation:pulse 3s infinite"></div><span>Tier-2 CAG</span><span class="sbv">30-min classifier active</span></div>
+  <div class="sbi"><div class="sbd" style="background:#a855f7;animation:pulse 3s infinite"></div><span>Tier-2 CAG</span><span class="sbv">2-hour classifier active</span></div>
   <span class="sbsep">&mdash;</span>
   <div class="sbi"><div class="sbd sbc"></div><span>SDO AIA</span><span class="sbv">live</span></div>
   <span class="sbsep">&mdash;</span>
@@ -1519,11 +1519,11 @@ function updateFromTier2(entry){
 
   const dot=document.getElementById('logDot'),msg2=document.getElementById('logMsg');
   if(dot)dot.className='dot5 ok';
-  if(msg2)msg2.textContent='Tier-2 CAG classifier · 30-min cycle · hale_tier2_poc.jsonl';
+  if(msg2)msg2.textContent='Tier-2 CAG classifier · 2-hour cycle · hale_tier2_poc.jsonl';
 
   const ciDot=document.getElementById('ciDot'),ciMsg=document.getElementById('ciMsg');
   if(ciDot)ciDot.className='dot5 ok';
-  if(ciMsg)ciMsg.textContent='Tier-2 data live · CAG UUIDs per cycle · updated 30min';
+  if(ciMsg)ciMsg.textContent='Tier-2 data live · CAG UUIDs per cycle · updated 2hr';
 }
 
 // ── SOLAR INTELLIGENCE PANEL ──────────────────────────────────────
@@ -1746,7 +1746,7 @@ async function loadCoronagraphFeed(){
     }
     const ts=(entry.utc||'').slice(11,16);
     if(dot)dot.className='dot5 ok';
-    if(msg)msg.textContent='Coronagraph pipeline live · '+ts+' UTC · 30-min cycle';
+    if(msg)msg.textContent='Coronagraph pipeline live · '+ts+' UTC · 2-hour cycle';
   }catch(e){
     if(dot)dot.className='dot5 wait';
     if(msg)msg.textContent='Coronagraph data unavailable';
