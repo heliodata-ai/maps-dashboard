@@ -250,6 +250,42 @@ def annotate_cor2_frame(image_path, output_path, detection):
         cx = detection['centroid_x']
         r  = detection['coma_radius_px']
 
+        # ── TRAJECTORY SNAKE TRAIL ─────────────────────────────────────
+        # Load historical centroid positions and draw fading trail
+        try:
+            import json as _json
+            if TRAJ_PATH.exists():
+                _lines = TRAJ_PATH.read_text().strip().splitlines()
+                _cor2_pts = []
+                for _line in _lines:
+                    try:
+                        _e = _json.loads(_line)
+                        if _e.get('instrument') == 'cor2':
+                            _cor2_pts.append((_e['centroid_x'], _e['centroid_y']))
+                    except Exception:
+                        pass
+                # Deduplicate consecutive identical positions
+                _unique = []
+                for _pt in _cor2_pts:
+                    if not _unique or _pt != _unique[-1]:
+                        _unique.append(_pt)
+                # Draw trail — last 30 unique positions, fading from dim to bright
+                _trail = _unique[-30:]
+                if len(_trail) > 1:
+                    for _i in range(len(_trail) - 1):
+                        # Fade: older = dimmer
+                        _alpha = int(40 + 180 * (_i / len(_trail)))
+                        _color = (0, _alpha, int(_alpha * 0.7))
+                        draw.line([_trail[_i], _trail[_i+1]], fill=_color, width=1)
+                    # Draw dots at each historical position
+                    for _i, _pt in enumerate(_trail[:-1]):
+                        _sz = 1 if _i < len(_trail)//2 else 2
+                        draw.ellipse([_pt[0]-_sz, _pt[1]-_sz, _pt[0]+_sz, _pt[1]+_sz],
+                                     fill=(0, 160, 120))
+                    # Current position gets a brighter dot (drawn by crosshair below)
+        except Exception as _te:
+            pass  # Trail drawing is non-critical
+
         # Outer circle — region of interest boundary
         draw.ellipse([cx-r-5, cy-r-5, cx+r+5, cy+r+5],
                      outline=(0, 255, 200), width=1)
