@@ -632,7 +632,7 @@ def gyori_profile_analysis(image_path, centroid, sun_centre=(256,256)):
         # Anti-solar direction (tail axis)
         dx = cx - sun_x
         dy = cy - sun_y
-        tail_angle = math.atan2(dy, dx)
+        tail_angle = math.atan2(dy, dx) + math.pi  # anti-solar: AWAY from Sun
         anti_solar_deg = math.degrees(tail_angle)
 
         # ── Strip width: 6px (DeepSeek Comm.28: 3× SNR over 20px) ────
