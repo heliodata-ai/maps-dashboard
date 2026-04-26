@@ -598,6 +598,298 @@ def annotate_c3_frame(image_path, output_path, detection, trajectory_history=Non
 
 
 
+
+# ── GYORI COMET ASSAY PROFILE (Gyori et al. 2014, Redox Biology) ─────────
+# Adapted from biomedical comet assay to astronomical coronagraph.
+# Same morphology: bright head + fading tail. "As above so below."
+# Consortium Comm.28 optimizations: strip=6px, 2nd deriv boundary,
+# dual tail endpoints, Olive moment, validity classifier.
+def gyori_profile_analysis(image_path, centroid, sun_centre=(256,256)):
+    """
+    Intensity profile analysis along anti-solar (tail) axis.
+    Adapted from Gyori et al. 2014, Eq. 3-6.
+    Optimized per Consortium Comm.28 (DeepSeek + Mistral).
+
+    Returns dict with measurements or None on failure.
+    """
+    try:
+        import cv2
+        import numpy as np
+        import math
+        from scipy.ndimage import gaussian_filter1d
+        import hashlib
+
+        img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            log.warning("gyori_profile: cannot read image")
+            return None
+
+        h, w = img.shape
+        gray = img.astype(float)
+        cy, cx = centroid['centroid_y'], centroid['centroid_x']
+        sun_y, sun_x = sun_centre
+
+        # Anti-solar direction (tail axis)
+        dx = cx - sun_x
+        dy = cy - sun_y
+        tail_angle = math.atan2(dy, dx)
+        anti_solar_deg = math.degrees(tail_angle)
+
+        # ── Strip width: 6px (DeepSeek Comm.28: 3× SNR over 20px) ────
+        strip_width = 6
+        perp_angle = tail_angle + math.pi / 2
+        max_sample = 120
+
+        # Project intensity along tail axis (Gyori Eq. 3)
+        profile = []
+        profile_coords = []
+
+        for d in range(-20, max_sample):
+            px = cx + d * math.cos(tail_angle)
+            py = cy + d * math.sin(tail_angle)
+            if not (0 <= int(py) < h and 0 <= int(px) < w):
+                continue
+
+            strip_vals = []
+            for s in range(-strip_width, strip_width + 1):
+                sx = int(px + s * math.cos(perp_angle))
+                sy = int(py + s * math.sin(perp_angle))
+                if 0 <= sy < h and 0 <= sx < w:
+                    strip_vals.append(float(gray[sy, sx]))
+
+            if strip_vals:
+                profile.append(float(np.mean(strip_vals)))
+                profile_coords.append((d, int(py), int(px)))
+
+        if len(profile) < 10:
+            log.warning("gyori_profile: profile too short")
+            return None
+
+        profile = np.array(profile)
+        head_idx = 20  # d=0 corresponds to head
+
+        # ── Validity classifier (DeepSeek Comm.28 insight) ────────────
+        profile_norm = profile / (profile.max() + 1e-6)
+        p_d_check = np.gradient(profile_norm)
+        gyori_valid = True
+        validity_note = 'valid_comet_shape'
+        if p_d_check.min() > -0.1:
+            gyori_valid = False
+            validity_note = 'no_tail_detected'
+        else:
+            transition_check = np.argmin(p_d_check)
+            tail_check = profile_norm[transition_check:transition_check+10]
+            if len(tail_check) > 2 and np.any(np.diff(tail_check) > 0.05):
+                gyori_valid = False
+                validity_note = 'non_monotonic_tail'
+
+        # Background from far tail
+        bg_region = profile[-20:] if len(profile) > 30 else profile[-5:]
+        bg_mean = float(np.median(bg_region))
+        bg_std = float(np.std(bg_region)) if len(bg_region) > 3 else 5.0
+
+        # ── Gaussian smoothing σ=2.0 (Comm.27+28 consensus) ──────────
+        smooth = gaussian_filter1d(profile, sigma=2.0)
+
+        # ── Head-tail boundary: 2nd derivative zero-crossing ──────────
+        # (Gyori Eq. 6: first maximum in pdd after neg→pos crossing)
+        p_d = np.gradient(smooth)
+        p_dd = np.gradient(p_d)
+
+        # Find neg→pos zero crossings in p_dd after head
+        crossings = np.where(
+            (p_dd[head_idx:-1] < 0) & (p_dd[head_idx+1:] > 0)
+        )[0]
+
+        if len(crossings) > 0:
+            crossing_idx = crossings[0] + head_idx
+            # First maximum in p_dd after crossing
+            post = p_dd[crossing_idx:min(crossing_idx+10, len(p_dd))]
+            if len(post) > 0:
+                boundary_idx = crossing_idx + int(np.argmax(post))
+            else:
+                boundary_idx = crossing_idx
+        else:
+            # Fallback: steepest negative gradient
+            boundary_idx = head_idx + int(np.argmin(p_d[head_idx:]))
+
+        boundary_offset = max(3, boundary_idx - head_idx)
+        boundary_idx = head_idx + boundary_offset
+
+        # ── Dual tail endpoint (Comm.28 consensus) ────────────────────
+        # Ion tail: inflection point (derivative flattens)
+        p_d_smooth = gaussian_filter1d(p_d, sigma=1.0)
+        max_abs_deriv = np.max(np.abs(p_d_smooth[head_idx:])) + 1e-6
+        inflection_candidates = np.where(
+            np.abs(p_d_smooth[boundary_idx:]) < 0.05 * max_abs_deriv
+        )[0]
+        if len(inflection_candidates) > 0:
+            ion_end_idx = boundary_idx + inflection_candidates[0]
+            ion_tail_px = ion_end_idx - head_idx
+        else:
+            ion_end_idx = len(smooth) - 1
+            ion_tail_px = ion_end_idx - head_idx
+
+        # Total tail: SNR ≥ 3
+        snr_threshold = bg_mean + 3 * bg_std
+        total_end_idx = boundary_idx
+        for i in range(boundary_idx, len(smooth)):
+            if smooth[i] <= snr_threshold:
+                total_end_idx = i
+                break
+        else:
+            total_end_idx = len(smooth) - 1
+        total_tail_px = max(0, total_end_idx - head_idx)
+
+        # Use total tail for primary measurement (P5 compatible)
+        tail_length_px = total_tail_px
+
+        # Plate scale
+        ps = PLATE_SCALE.get('cor2', 58.8)
+        tail_length_arcsec = tail_length_px * ps
+        tail_length_deg = tail_length_arcsec / 3600.0
+        ion_tail_deg = ion_tail_px * ps / 3600.0
+
+        # ── Tail moment (Gyori Table 2) ───────────────────────────────
+        total_intensity = float(profile[head_idx:].sum()) + 1e-6
+        tail_intensity = float(profile[boundary_idx:total_end_idx].sum())
+        head_intensity = float(profile[head_idx:boundary_idx].sum())
+        pct_in_tail = (tail_intensity / total_intensity) * 100
+        tail_moment = tail_length_px * (pct_in_tail / 100)
+
+        # ── Olive moment (Gyori Table 2 — better for P2) ─────────────
+        if tail_intensity > 0 and total_end_idx > boundary_idx:
+            tail_prof = profile[boundary_idx:total_end_idx]
+            tail_dists = np.arange(len(tail_prof)) + boundary_offset
+            tail_centroid_d = float(np.average(tail_dists,
+                                               weights=tail_prof + 1e-6))
+            olive_moment = (pct_in_tail / 100) * abs(tail_centroid_d)
+        else:
+            tail_centroid_d = 0
+            olive_moment = 0
+
+        # ── Deterministic UUID from profile array (Mistral Option C) ──
+        profile_bytes = profile.tobytes()
+        profile_hash = hashlib.sha1(profile_bytes).hexdigest()
+        gyori_uuid = str(_uuid_mod.uuid5(CAG_NAMESPACE, profile_hash))
+
+        log.info(f"gyori_profile: tail_total={total_tail_px}px={tail_length_deg:.3f}deg "
+                 f"tail_ion={ion_tail_px}px={ion_tail_deg:.3f}deg "
+                 f"moment={tail_moment:.2f} olive={olive_moment:.2f} "
+                 f"pct={pct_in_tail:.1f}% valid={validity_note} "
+                 f"uuid={gyori_uuid[:8]}")
+
+        result = {
+            'method':               'gyori_2014_adapted_comm28',
+            'anti_solar_deg':       round(anti_solar_deg, 2),
+            'head_tail_boundary_px': int(boundary_offset),
+            'tail_length_px':       int(total_tail_px),
+            'tail_length_arcsec':   round(tail_length_arcsec, 1),
+            'tail_length_deg':      round(tail_length_deg, 4),
+            'ion_tail_length_px':   int(ion_tail_px),
+            'ion_tail_length_deg':  round(ion_tail_deg, 4),
+            'tail_moment':          round(tail_moment, 3),
+            'olive_moment':         round(olive_moment, 3),
+            'pct_in_tail':          round(pct_in_tail, 2),
+            'head_intensity':       round(head_intensity, 1),
+            'tail_intensity':       round(tail_intensity, 1),
+            'background_mean':      round(bg_mean, 2),
+            'background_std':       round(bg_std, 2),
+            'plate_scale_arcsec':   ps,
+            'strip_width_px':       strip_width,
+            'profile_length':       int(len(profile)),
+            'gyori_valid':          gyori_valid,
+            'validity_note':        validity_note,
+            'boundary_method':      '2nd_derivative_zero_crossing',
+            'tail_end_method':      'dual_inflection_snr3',
+            'cag_uuid':            gyori_uuid,
+        }
+
+        # ── Visualization ─────────────────────────────────────────────
+        try:
+            output = cv2.imread(str(image_path))
+
+            # Tail axis line (colour-coded)
+            for d_idx, (d, py_c, px_c) in enumerate(profile_coords):
+                if d < 0:
+                    cv2.circle(output, (px_c, py_c), 0, (0,200,255), 1)
+                elif d < boundary_offset:
+                    cv2.circle(output, (px_c, py_c), 0, (0,255,200), 1)
+                elif d < total_tail_px:
+                    cv2.circle(output, (px_c, py_c), 0, (0,255,255), 1)
+                else:
+                    cv2.circle(output, (px_c, py_c), 0, (100,100,100), 1)
+
+            # Head crosshair
+            cv2.line(output, (cx-6,cy), (cx-2,cy), (0,255,200), 1)
+            cv2.line(output, (cx+2,cy), (cx+6,cy), (0,255,200), 1)
+            cv2.line(output, (cx,cy-6), (cx,cy-2), (0,255,200), 1)
+            cv2.line(output, (cx,cy+2), (cx,cy+6), (0,255,200), 1)
+            cv2.circle(output, (cx,cy), 8, (0,255,200), 1)
+
+            # Boundary marker (red)
+            bnd_d = head_idx + boundary_offset
+            if bnd_d < len(profile_coords):
+                _, by, bx = profile_coords[bnd_d]
+                cv2.circle(output, (bx, by), 4, (0,0,255), 1)
+
+            # Ion tail end (cyan)
+            if ion_end_idx < len(profile_coords):
+                _, iy, ix = profile_coords[ion_end_idx]
+                cv2.circle(output, (ix, iy), 3, (255,255,0), 1)
+
+            # Total tail end (magenta)
+            if total_end_idx < len(profile_coords):
+                _, ey, ex = profile_coords[total_end_idx]
+                cv2.circle(output, (ex, ey), 4, (255,0,255), 1)
+
+            # Mini profile plot
+            plot_h, plot_w = 80, 140
+            plot_x0 = 10
+            plot_y0 = h - plot_h - 30
+            cv2.rectangle(output, (plot_x0,plot_y0),
+                         (plot_x0+plot_w, plot_y0+plot_h), (30,30,30), -1)
+            cv2.rectangle(output, (plot_x0,plot_y0),
+                         (plot_x0+plot_w, plot_y0+plot_h), (100,100,100), 1)
+            p_disp = smooth[:min(len(smooth), plot_w)]
+            p_max = p_disp.max() if p_disp.max() > 0 else 1
+            for i in range(1, len(p_disp)):
+                y1 = int(plot_y0+plot_h-(p_disp[i-1]/p_max)*(plot_h-4))
+                y2 = int(plot_y0+plot_h-(p_disp[i]/p_max)*(plot_h-4))
+                cv2.line(output, (plot_x0+i-1,y1), (plot_x0+i,y2), (0,255,200), 1)
+            # SNR threshold
+            bg_y = int(plot_y0+plot_h-(snr_threshold/p_max)*(plot_h-4))
+            if 0 < bg_y < plot_y0+plot_h:
+                cv2.line(output, (plot_x0,bg_y), (plot_x0+plot_w,bg_y), (0,0,200), 1)
+            # Boundary on plot
+            bnd_plot = boundary_offset + 20
+            if bnd_plot < plot_w:
+                cv2.line(output, (plot_x0+bnd_plot,plot_y0),
+                        (plot_x0+bnd_plot,plot_y0+plot_h), (0,0,255), 1)
+
+            # Validity border
+            if not gyori_valid:
+                cv2.rectangle(output, (0,0), (w-1,h-1), (0,0,180), 2)
+
+            prof_path = FRAME_DIR / 'cor2_profile.jpg'
+            cv2.imwrite(str(prof_path), output, [cv2.IMWRITE_JPEG_QUALITY, 92])
+            os.chmod(prof_path, 0o644)
+            try:
+                import pwd, grp
+                os.chown(prof_path, pwd.getpwnam('www-data').pw_uid,
+                         grp.getgrnam('www-data').gr_gid)
+            except Exception:
+                pass
+            log.info("gyori_profile: visualization saved")
+        except Exception as ve:
+            log.warning(f"gyori_profile viz: {ve}")
+
+        return result
+
+    except Exception as e:
+        log.error(f"gyori_profile: {e}")
+        return None
+
 # ── PHASE CORRELATION SANITY CHECK (DeepSeek Comm.27) ────────────────────
 def phase_correlation_check(cur_path, prev_path, cookie_centre, cookie_radius):
     """
@@ -927,7 +1219,7 @@ def cleanup_rolling_window():
     for f in sorted(FRAME_DIR.glob('*.jpg')):
         name = f.stem
         # Keep: cor2_current, cor2_previous, c3_current, c3_previous
-        if any(name.endswith(s) for s in ['_current', '_previous', '_annotated', '_traj', '_flow']):
+        if any(name.endswith(s) for s in ['_current', '_previous', '_annotated', '_traj', '_flow', '_profile']):
             kept += 1
         else:
             log.info(f"Rolling window: removing {f.name}")
@@ -1075,6 +1367,15 @@ Module[{{uuid}},
             annotate_c3_frame(str(c3_path), str(c3_ann),
                               c3_detection, traj_history)
 
+    # Gyori comet assay profile (Gyori et al. 2014, Comm.28 optimized)
+    gyori_result = None
+    if centroid_result and centroid_result.get('centroid_x') is not None:
+        cor2_cur = FRAME_DIR / 'cor2_current.jpg'
+        if cor2_cur.exists():
+            gyori_result = gyori_profile_analysis(str(cor2_cur), centroid_result)
+            if gyori_result:
+                log.info(f"Gyori uuid={gyori_result.get('cag_uuid','')[:8]}")
+
     # Optical flow on COR2 cookie-cutter region
     flow_result = None
     if centroid_result and centroid_result.get('centroid_x') is not None:
@@ -1179,6 +1480,13 @@ Module[{{uuid}},
         'coma_radius_px': None, 'peak_brightness': None,
         'compactness_ratio': None, 'cag_uuid': None,
         'note': 'no_detection'
+    }
+
+    # Gyori comet assay profile (Gyori et al. 2014, adapted Comm.28)
+    entry['gyori_profile_cor2'] = gyori_result if gyori_result else {
+        'tail_length_px': None, 'tail_moment': None,
+        'olive_moment': None, 'pct_in_tail': None,
+        'cag_uuid': None, 'note': 'no_profile_data'
     }
 
     # Optical flow result
