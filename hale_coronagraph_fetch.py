@@ -894,16 +894,13 @@ def gyori_profile_analysis(image_path, centroid, sun_centre=(256,256)):
 # ── C3 GYORI PROFILE (observed tail direction scan) ──────────────────────
 def find_c3_comet_head(image_path):
     """
-    Find comet coma head in C3 via largest bright connected region.
-    Returns (cy, cx) or None.
-    The comet is an extended bright feature — centroid detection fails
-    because stars are more compact. Instead find the largest bright region
-    and locate its peak brightness pixel.
+    Find comet coma head in C3: brightest pixel below row 300.
+    Simple and robust — the coma is always the brightest point
+    in the lower half of the C3 field during this transit.
     """
     try:
         import cv2
         import numpy as np
-        from scipy import ndimage
 
         img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
         if img is None:
@@ -911,47 +908,24 @@ def find_c3_comet_head(image_path):
         gray = img.astype(float)
         h, w = img.shape
 
-        # Mask occulter and edges
+        # Mask occulter, edges, and upper half
         Y, X = np.ogrid[:h, :w]
-        mask = ((Y-256)**2 + (X-256)**2 < 80**2) | (Y<25) | (Y>487) | (X<25) | (X>487)
         masked = gray.copy()
-        masked[mask] = 0
+        masked[((Y-256)**2 + (X-256)**2) < 80**2] = 0
+        masked[:300, :] = 0
+        masked[-25:, :] = 0
+        masked[:, :25] = 0
+        masked[:, -25:] = 0
 
-        # Threshold at 92nd percentile to find bright regions
-        valid = masked[masked > 0]
-        if len(valid) < 100:
-            return None
-        thresh = np.percentile(valid, 92)
-        binary = (masked > thresh).astype(np.uint8)
+        peak = np.unravel_index(masked.argmax(), masked.shape)
+        peak_val = float(gray[peak[0], peak[1]])
 
-        labeled, n = ndimage.label(binary)
-        if n == 0:
-            return None
-
-        # Find largest component
-        sizes = [(labeled == i).sum() for i in range(1, n+1)]
-        largest_id = np.argmax(sizes) + 1
-        largest = labeled == largest_id
-        largest_size = sizes[largest_id - 1]
-
-        if largest_size < 50:
-            log.info("find_c3_comet_head: largest region too small")
+        if peak_val < 100:
+            log.info("find_c3_comet_head: too dim")
             return None
 
-        # Find peak brightness within largest component
-        comp_vals = gray.copy()
-        comp_vals[~largest] = 0
-        peak_loc = np.unravel_index(comp_vals.argmax(), comp_vals.shape)
-        peak_val = float(gray[peak_loc[0], peak_loc[1]])
-
-        # Verify it's below the occulter (comet is in lower half during this transit)
-        if peak_loc[0] < 280:
-            log.info(f"find_c3_comet_head: peak at row {peak_loc[0]} is above occulter, skipping")
-            return None
-
-        log.info(f"find_c3_comet_head: ({peak_loc[0]},{peak_loc[1]}) "
-                 f"peak={peak_val:.0f} region={largest_size}px")
-        return (int(peak_loc[0]), int(peak_loc[1]))
+        log.info(f"find_c3_comet_head: ({peak[0]},{peak[1]}) val={peak_val:.0f}")
+        return (int(peak[0]), int(peak[1]))
 
     except Exception as e:
         log.error(f"find_c3_comet_head: {e}")
