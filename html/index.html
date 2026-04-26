@@ -1469,11 +1469,7 @@ function updateFromTier2(entry){
       else{regimeEl.textContent='H₂O-dom';regimeEl.className='cag-cls-val regime-h2o';}
     }
 
-    const tailProxyEl=document.getElementById('clsTailProxy');
-    if(tailProxyEl&&cag.tail_length_proxy){
-      const m=cag.tail_length_proxy.result.match(/=\s*(-?[\d.]+)/);
-      if(m)tailProxyEl.textContent=parseFloat(m[0]).toFixed(1)+'°';
-    }
+    // Tail proxy now driven by Gyori profile in loadCoronagraphFeed()
 
     const scatterEl=document.getElementById('clsScatter');
     if(scatterEl&&cag.forward_scatter_enhancement){
