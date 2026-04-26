@@ -890,6 +890,311 @@ def gyori_profile_analysis(image_path, centroid, sun_centre=(256,256)):
         log.error(f"gyori_profile: {e}")
         return None
 
+
+# ── C3 GYORI PROFILE (observed tail direction scan) ──────────────────────
+def find_c3_comet_head(image_path):
+    """
+    Find comet coma head in C3 via largest bright connected region.
+    Returns (cy, cx) or None.
+    The comet is an extended bright feature — centroid detection fails
+    because stars are more compact. Instead find the largest bright region
+    and locate its peak brightness pixel.
+    """
+    try:
+        import cv2
+        import numpy as np
+        from scipy import ndimage
+
+        img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            return None
+        gray = img.astype(float)
+        h, w = img.shape
+
+        # Mask occulter and edges
+        Y, X = np.ogrid[:h, :w]
+        mask = ((Y-256)**2 + (X-256)**2 < 80**2) | (Y<25) | (Y>487) | (X<25) | (X>487)
+        masked = gray.copy()
+        masked[mask] = 0
+
+        # Threshold at 92nd percentile to find bright regions
+        valid = masked[masked > 0]
+        if len(valid) < 100:
+            return None
+        thresh = np.percentile(valid, 92)
+        binary = (masked > thresh).astype(np.uint8)
+
+        labeled, n = ndimage.label(binary)
+        if n == 0:
+            return None
+
+        # Find largest component
+        sizes = [(labeled == i).sum() for i in range(1, n+1)]
+        largest_id = np.argmax(sizes) + 1
+        largest = labeled == largest_id
+        largest_size = sizes[largest_id - 1]
+
+        if largest_size < 50:
+            log.info("find_c3_comet_head: largest region too small")
+            return None
+
+        # Find peak brightness within largest component
+        comp_vals = gray.copy()
+        comp_vals[~largest] = 0
+        peak_loc = np.unravel_index(comp_vals.argmax(), comp_vals.shape)
+        peak_val = float(gray[peak_loc[0], peak_loc[1]])
+
+        # Verify it's below the occulter (comet is in lower half during this transit)
+        if peak_loc[0] < 280:
+            log.info(f"find_c3_comet_head: peak at row {peak_loc[0]} is above occulter, skipping")
+            return None
+
+        log.info(f"find_c3_comet_head: ({peak_loc[0]},{peak_loc[1]}) "
+                 f"peak={peak_val:.0f} region={largest_size}px")
+        return (int(peak_loc[0]), int(peak_loc[1]))
+
+    except Exception as e:
+        log.error(f"find_c3_comet_head: {e}")
+        return None
+
+
+def find_observed_tail_direction(image_path, cy, cx, r_inner=15, r_outer=50):
+    """
+    Scan 360 degrees around the coma head and find the direction
+    with highest average brightness. That is the observed tail direction,
+    accounting for projection, dust lag, and forward scatter geometry.
+    """
+    try:
+        import cv2
+        import numpy as np
+        import math
+
+        img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            return None
+        gray = img.astype(float)
+        h, w = img.shape
+
+        best_angle = 0
+        best_brightness = 0
+        results = []
+
+        for angle_deg in range(0, 360, 5):
+            angle = math.radians(angle_deg)
+            vals = []
+            for r in range(r_inner, r_outer):
+                px = int(cx + r * math.cos(angle))
+                py = int(cy + r * math.sin(angle))
+                if 0 <= py < h and 0 <= px < w:
+                    vals.append(float(gray[py, px]))
+            mean_b = float(np.mean(vals)) if vals else 0
+            results.append((angle_deg, mean_b))
+            if mean_b > best_brightness:
+                best_brightness = mean_b
+                best_angle = angle_deg
+
+        log.info(f"observed_tail_direction: {best_angle} deg "
+                 f"(brightness={best_brightness:.1f})")
+        return best_angle
+
+    except Exception as e:
+        log.error(f"find_observed_tail_direction: {e}")
+        return None
+
+
+def gyori_profile_c3(image_path, cy, cx, tail_angle_deg):
+    """
+    Run Gyori profile on C3 frame using observed tail direction.
+    Same algorithm as COR2 but with C3 plate scale and observed direction.
+    """
+    try:
+        import cv2
+        import numpy as np
+        import math
+        from scipy.ndimage import gaussian_filter1d
+        import hashlib
+
+        img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            return None
+        gray = img.astype(float)
+        h, w = img.shape
+
+        tail_angle = math.radians(tail_angle_deg)
+        strip_width = 6  # Comm.28
+        perp = tail_angle + math.pi / 2
+        profile = []
+        coords = []
+
+        for d in range(-20, 200):
+            px = cx + d * math.cos(tail_angle)
+            py = cy + d * math.sin(tail_angle)
+            if not (0 <= int(py) < h and 0 <= int(px) < w):
+                continue
+            vals = []
+            for s in range(-strip_width, strip_width + 1):
+                sx = int(px + s * math.cos(perp))
+                sy = int(py + s * math.sin(perp))
+                if 0 <= sy < h and 0 <= sx < w:
+                    vals.append(float(gray[sy, sx]))
+            if vals:
+                profile.append(float(np.mean(vals)))
+                coords.append((d, int(py), int(px)))
+
+        if len(profile) < 15:
+            log.warning("gyori_c3: profile too short")
+            return None
+
+        profile = np.array(profile)
+        head_idx = 20
+
+        # Background
+        bg = profile[-30:] if len(profile) > 40 else profile[-10:]
+        bg_mean = float(np.median(bg))
+        bg_std = float(np.std(bg)) if len(bg) > 3 else 5.0
+
+        # Smooth
+        smooth = gaussian_filter1d(profile, sigma=2.0)
+        p_d = np.gradient(smooth)
+        p_dd = np.gradient(p_d)
+
+        # 2nd derivative boundary
+        cross = np.where((p_dd[head_idx:-1] < 0) & (p_dd[head_idx+1:] > 0))[0]
+        if len(cross) > 0:
+            ci = cross[0] + head_idx
+            post = p_dd[ci:min(ci+10, len(p_dd))]
+            bi = ci + int(np.argmax(post)) if len(post) > 0 else ci
+        else:
+            bi = head_idx + int(np.argmin(p_d[head_idx:]))
+        bo = max(3, bi - head_idx)
+
+        # Dual endpoints
+        snr_t = bg_mean + 3 * bg_std
+        te = bi
+        for i in range(bi, len(smooth)):
+            if smooth[i] <= snr_t:
+                te = i
+                break
+        else:
+            te = len(smooth) - 1
+        total_px = max(0, te - head_idx)
+
+        pds = gaussian_filter1d(p_d, sigma=1.0)
+        md = np.max(np.abs(pds[head_idx:])) + 1e-6
+        inf = np.where(np.abs(pds[bi:]) < 0.05 * md)[0]
+        ie = bi + inf[0] if len(inf) > 0 else len(smooth) - 1
+        ion_px = ie - head_idx
+
+        ps = PLATE_SCALE.get('c3', 56.0)
+        total_deg = total_px * ps / 3600
+        ion_deg = ion_px * ps / 3600
+
+        # Intensities
+        tot_i = float(profile[head_idx:].sum()) + 1e-6
+        tail_i = float(profile[head_idx+bo:te].sum())
+        head_i = float(profile[head_idx:head_idx+bo].sum())
+        pct = (tail_i / tot_i) * 100
+        tm = total_px * (pct / 100)
+
+        # Olive moment
+        if tail_i > 0 and te > bi:
+            tp = profile[head_idx+bo:te]
+            td = np.arange(len(tp)) + bo
+            tc = float(np.average(td, weights=tp + 1e-6))
+            ol = (pct / 100) * abs(tc)
+        else:
+            ol = 0
+
+        # UUID from profile array
+        profile_hash = hashlib.sha1(profile.tobytes()).hexdigest()
+        gyori_uuid = str(_uuid_mod.uuid5(CAG_NAMESPACE, profile_hash))
+
+        log.info(f"gyori_c3: tail={total_px}px={total_deg:.3f}deg "
+                 f"moment={tm:.2f} pct={pct:.1f}% olive={ol:.2f} "
+                 f"dir={tail_angle_deg}deg uuid={gyori_uuid[:8]}")
+
+        result = {
+            'method':                'gyori_2014_observed_direction',
+            'tail_direction_deg':    tail_angle_deg,
+            'head_tail_boundary_px': int(bo),
+            'tail_length_px':        int(total_px),
+            'tail_length_deg':       round(total_deg, 4),
+            'ion_tail_length_px':    int(ion_px),
+            'ion_tail_length_deg':   round(ion_deg, 4),
+            'tail_moment':           round(tm, 3),
+            'olive_moment':          round(ol, 3),
+            'pct_in_tail':           round(pct, 2),
+            'head_intensity':        round(head_i, 1),
+            'tail_intensity':        round(tail_i, 1),
+            'background_mean':       round(bg_mean, 2),
+            'background_std':        round(bg_std, 2),
+            'plate_scale_arcsec':    ps,
+            'strip_width_px':        strip_width,
+            'cag_uuid':              gyori_uuid,
+        }
+
+        # Visualization
+        try:
+            output = cv2.imread(str(image_path))
+            for di, (d, py_c, px_c) in enumerate(coords):
+                if d < 0:
+                    cv2.circle(output, (px_c, py_c), 0, (0,200,255), 1)
+                elif d < bo:
+                    cv2.circle(output, (px_c, py_c), 0, (0,255,200), 1)
+                elif d < total_px:
+                    cv2.circle(output, (px_c, py_c), 0, (0,255,255), 1)
+                else:
+                    cv2.circle(output, (px_c, py_c), 0, (100,100,100), 1)
+
+            cv2.circle(output, (cx, cy), 10, (0,255,200), 1)
+            cv2.line(output, (cx-8,cy), (cx-3,cy), (0,255,200), 1)
+            cv2.line(output, (cx+3,cy), (cx+8,cy), (0,255,200), 1)
+            cv2.line(output, (cx,cy-8), (cx,cy-3), (0,255,200), 1)
+            cv2.line(output, (cx,cy+3), (cx,cy+8), (0,255,200), 1)
+
+            if head_idx+bo < len(coords):
+                _, by, bx = coords[head_idx+bo]
+                cv2.circle(output, (bx, by), 5, (0,0,255), 1)
+            if te < len(coords):
+                _, ey, ex = coords[te]
+                cv2.circle(output, (ex, ey), 5, (255,0,255), 1)
+
+            # Mini profile
+            ph, pw = 80, 160
+            px0 = 10; py0 = h - ph - 30
+            cv2.rectangle(output, (px0,py0), (px0+pw,py0+ph), (30,30,30), -1)
+            cv2.rectangle(output, (px0,py0), (px0+pw,py0+ph), (100,100,100), 1)
+            pd = smooth[:min(len(smooth), pw)]
+            pm = pd.max() if pd.max() > 0 else 1
+            for i in range(1, len(pd)):
+                y1 = int(py0+ph-(pd[i-1]/pm)*(ph-4))
+                y2 = int(py0+ph-(pd[i]/pm)*(ph-4))
+                cv2.line(output, (px0+i-1,y1), (px0+i,y2), (0,255,200), 1)
+            ty = int(py0+ph-(snr_t/pm)*(ph-4))
+            if py0 < ty < py0+ph:
+                cv2.line(output, (px0,ty), (px0+pw,ty), (0,0,200), 1)
+            bo_plot = bo + 20
+            if bo_plot < pw:
+                cv2.line(output, (px0+bo_plot,py0), (px0+bo_plot,py0+ph), (0,0,255), 1)
+
+            c3_prof = FRAME_DIR / 'c3_profile.jpg'
+            cv2.imwrite(str(c3_prof), output, [cv2.IMWRITE_JPEG_QUALITY, 92])
+            os.chmod(c3_prof, 0o644)
+            try:
+                import pwd, grp
+                os.chown(c3_prof, pwd.getpwnam('www-data').pw_uid,
+                         grp.getgrnam('www-data').gr_gid)
+            except Exception:
+                pass
+        except Exception as ve:
+            log.warning(f"gyori_c3 viz: {ve}")
+
+        return result
+
+    except Exception as e:
+        log.error(f"gyori_c3: {e}")
+        return None
+
 # ── PHASE CORRELATION SANITY CHECK (DeepSeek Comm.27) ────────────────────
 def phase_correlation_check(cur_path, prev_path, cookie_centre, cookie_radius):
     """
@@ -1435,6 +1740,16 @@ Module[{{uuid}},
                     log.error(f"optical_flow Wolfram: {fe}")
                     flow_result['cag_uuid'] = None
 
+    # C3 Gyori profile — find comet via largest bright region + observed tail direction
+    c3_gyori_result = None
+    c3_path = FRAME_DIR / 'c3_current.jpg'
+    if c3_path.exists():
+        c3_head = find_c3_comet_head(str(c3_path))
+        if c3_head:
+            tail_dir = find_observed_tail_direction(str(c3_path), c3_head[0], c3_head[1])
+            if tail_dir is not None:
+                c3_gyori_result = gyori_profile_c3(str(c3_path), c3_head[0], c3_head[1], tail_dir)
+
     # Also write COR2 centroid to trajectory if detected
     if centroid_result and centroid_result.get('cag_uuid'):
         cor2_velocity = compute_velocity(centroid_result, 'cor2')
@@ -1487,6 +1802,13 @@ Module[{{uuid}},
         'tail_length_px': None, 'tail_moment': None,
         'olive_moment': None, 'pct_in_tail': None,
         'cag_uuid': None, 'note': 'no_profile_data'
+    }
+
+    # C3 Gyori profile (observed tail direction)
+    entry['gyori_profile_c3'] = c3_gyori_result if c3_gyori_result else {
+        'tail_length_px': None, 'tail_moment': None,
+        'pct_in_tail': None, 'cag_uuid': None,
+        'note': 'no_c3_profile'
     }
 
     # Optical flow result
