@@ -1471,17 +1471,7 @@ function updateFromTier2(entry){
 
     // Tail proxy now driven by Gyori profile in loadCoronagraphFeed()
 
-    const scatterEl=document.getElementById('clsScatter');
-    if(scatterEl&&cag.forward_scatter_enhancement){
-      const m=cag.forward_scatter_enhancement.result.match(/=\s*(-?[\d.]+)/);
-      if(m){
-        const val=parseFloat(m[0]);
-        scatterEl.textContent=val.toFixed(3)+' mag';
-        if(val<-1){scatterEl.className='cag-cls-val scatter-peak';}
-        else if(val<-0.1){scatterEl.className='cag-cls-val scatter-high';}
-        else{scatterEl.className='cag-cls-val scatter-low';}
-      }
-    }
+    // Fwd scatter now driven by Gyori in loadCoronagraphFeed()
   }
 
   const uuidCountEl=document.getElementById('clsUuidCount');
