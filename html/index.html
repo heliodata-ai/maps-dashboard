@@ -1264,7 +1264,7 @@ function drawOrbit(){
   // nu<0 = pre-perihelion (inbound)
   const q_o=ORB.q, e_o=1.0003;
   const pA=202*Math.PI/180;
-  const iC=Math.cos(125*Math.PI/180);
+  const iC=Math.abs(Math.cos(125*Math.PI/180)); // abs() prevents projection fold-back
 
   function cXY(nu){
     // Hyperbolic: r = q(1+e)/(1+e*cos(nu))
