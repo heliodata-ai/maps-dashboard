@@ -508,10 +508,10 @@ body::before {
 
     <!-- F10.7 SOLAR FLUX -->
     <div class="panel">
-      <div class="ptitle a">F10.7 Solar Flux &mdash; SC25 Background</div>
+      <div class="ptitle a">F10.7 Solar Flux &mdash; Wolfram Baseline</div>
       <div class="f107-chart"><canvas id="f107Canvas"></canvas></div>
       <div class="f107-stats">
-        <div class="fstat"><div class="fval" id="f107Obs">150</div><div class="flbl">Observed</div></div>
+        <div class="fstat"><div class="fval" id="f107Obs">142</div><div class="flbl">Observed</div></div>
         <div class="fstat"><div class="fval a" id="f107Smooth">148</div><div class="flbl">81d Smooth</div></div>
         <div class="fstat"><div class="fval g" id="f107Peri">&mdash;</div><div class="flbl">At Perihelion</div></div>
       </div>
@@ -1091,12 +1091,12 @@ function updateClock(){
 }
 
 // ── F10.7 CHART ───────────────────────────────────────────────────
-let f107LiveObs=[135,138,142,145,148,151,155,158,161,158,155,152,
-                 149,147,145,143,141,140,142,148,150,152,148,145,
-                 150,148,146];
-let f107LiveSmo=[133,135,138,141,144,147,150,153,156,157,157,155,
-                 153,151,149,147,145,144,144,146,148,149,148,146,
-                 149,148,147];
+let f107LiveObs=[108,115,122,131,140,148,155,158,161,159,155,151,
+                 148,145,142,138,135,140,136,133,130,135,131,128,
+                 142,140,138];
+let f107LiveSmo=[105,110,118,125,133,141,148,153,157,158,157,155,
+                 153,151,148,144,141,139,138,137,135,134,133,132,
+                 138,137,136];
 
 function drawF107(){
   const canvas=document.getElementById('f107Canvas');
@@ -1137,6 +1137,51 @@ function drawF107(){
     ctx.fillStyle=i===N-2?'rgba(6,182,212,0.9)':i===N-1?'rgba(245,158,11,0.7)':'#3d5570';
     ctx.fillText(l,xOf(i),H-5);
   });
+}
+
+async function fetchWolframF107(){
+  const params=new URLSearchParams(window.location.search);
+  let appid=window.WOLFRAM_APPID||params.get('wappid')||null;
+  if(!appid){const m=window.location.href.match(/[?&]wappid=([^&\s#]+)/);if(m)appid=decodeURIComponent(m[1]);}
+  if(!appid){try{appid=localStorage.getItem('wolfram_appid');}catch(e){}}
+  if(appid&&appid.length>4&&appid!=='YOUR-APPID-HERE'){try{localStorage.setItem('wolfram_appid',appid);}catch(e){}}
+  if(!appid){return false;}
+  try{
+    const query=encodeURIComponent('current F10.7 solar flux index');
+    const directUrl=`https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${query}`;
+    let text='';
+    try{const rd=await fetch(directUrl);if(rd.ok)text=await rd.text();}catch(e){}
+    if(!text){try{const rp=await fetch(`/noaa-proxy/${directUrl.replace('https://services.swpc.noaa.gov/','')}`);if(rp.ok){const jp=await rp.json();text=jp.contents||'';}}catch(e){}}
+    if(!text)return false;
+    const match=text.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu|solar flux units)?/i);
+    if(!match)return false;
+    const liveVal=parseFloat(match[1]);
+    if(liveVal<60||liveVal>400)return false;
+    let smoothedVal=liveVal*0.97;
+    try{
+      const url2=`https://www.wolframalpha.com/api/v1/llm-api?appid=${appid}&input=${encodeURIComponent('F10.7 81 day smoothed')}`;
+      let text2='';
+      const rd2=await fetch(url2).catch(()=>null);
+      if(rd2&&rd2.ok)text2=await rd2.text();
+      if(!text2){const rp2=await fetch(`/noaa-proxy/${url2.replace('https://services.swpc.noaa.gov/','')}`).catch(()=>null);if(rp2&&rp2.ok){const jp2=await rp2.json();text2=jp2.contents||'';}}
+      if(text2){const m2=text2.match(/\b(\d{2,3}(?:\.\d)?)\s*(?:sfu)?/i);if(m2){const v2=parseFloat(m2[1]);if(v2>60&&v2<400)smoothedVal=v2;}}
+    }catch(e){}
+    f107LiveObs[f107LiveObs.length-2]=Math.round(liveVal);
+    f107LiveSmo[f107LiveSmo.length-2]=Math.round(smoothedVal);
+    const periVal=Math.round(smoothedVal-6);
+    f107LiveObs[f107LiveObs.length-1]=periVal;
+    f107LiveSmo[f107LiveSmo.length-1]=periVal;
+    const obsEl=document.getElementById('f107Obs');const hdrEl=document.getElementById('f107H');
+    if(obsEl)obsEl.textContent=Math.round(liveVal);
+    if(hdrEl)hdrEl.textContent=Math.round(liveVal);
+    const smo2=document.getElementById('f107Smooth');
+    if(smo2)smo2.textContent=Math.round(smoothedVal);
+    wolframLive=true;
+    const wdot=document.querySelector('.wdot');if(wdot)wdot.style.background='#22c55e';
+    drawF107();
+    _log(`Wolfram F10.7: ${liveVal} sfu, smoothed: ${smoothedVal} sfu`);
+    return true;
+  }catch(e){_warn('Wolfram fetch failed:',e.message);return false;}
 }
 
 async function fetchNoaaF107(){
@@ -1794,7 +1839,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   setInterval(loadCoronagraphFeed,1800000);
   const isHttp=window.location.protocol.startsWith('http');
   if(isHttp){
-    fetchNoaaF107();
+    fetchWolframF107().then(ok=>{if(!ok)fetchNoaaF107();}).catch(()=>fetchNoaaF107());
     fetchSolarIntelligence();
     loadTier2Feed();
     loadTier2History();
