@@ -513,7 +513,7 @@ body::before {
       <div class="f107-stats">
         <div class="fstat"><div class="fval" id="f107Obs">142</div><div class="flbl">Observed</div></div>
         <div class="fstat"><div class="fval a" id="f107Smooth">148</div><div class="flbl">81d Smooth</div></div>
-        <div class="fstat"><div class="fval g" id="f107Peri">&mdash;</div><div class="flbl">At Perihelion</div></div>
+        <div class="fstat"><div class="fval g" id="f107Peri">134</div><div class="flbl">At Perihelion</div></div>
       </div>
       <div class="f107-cag-row">
         <div class="cdot" style="flex-shrink:0"></div>
@@ -1175,6 +1175,8 @@ async function fetchWolframF107(){
     if(obsEl)obsEl.textContent=Math.round(liveVal);
     if(hdrEl)hdrEl.textContent=Math.round(liveVal);
     const smo2=document.getElementById('f107Smooth');
+    const periEl=document.getElementById('f107Peri');
+    if(periEl)periEl.textContent=periVal;
     if(smo2)smo2.textContent=Math.round(smoothedVal);
     wolframLive=true;
     const wdot=document.querySelector('.wdot');if(wdot)wdot.style.background='#22c55e';
